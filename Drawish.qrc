@@ -1,0 +1,22 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>res/fill.png</file>  
+    <file>res/line.png</file>    
+    <file>res/penna.png</file> 
+    <file>res/pipet.png</file>  
+    <file>res/redo.png</file>    
+    <file>res/selez.png</file> 
+    <file>res/shapes.png</file>  
+    <file>res/curve.png</file> 
+    <file>res/spray.png</file>    
+    <file>res/text.png</file> 
+    <file>res/undo.png</file>  
+    <file>res/rotateLeft.png</file>    
+    <file>res/trasp.png</file>  
+    <file>res/flatCap.png</file> 
+    <file>res/rotateRight.png</file> 
+    <file>res/roundCap.png</file>  
+    <file>res/draw.png</file>
+    <file>res/cursor.png</file>
+</qresource>
+</RCC>
