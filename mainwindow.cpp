@@ -1195,7 +1195,7 @@ void MainWindow::view_zoom()
       int zx = sizes::selX+2;
       int zy = sizes::selY;
       if(zx > wArea->width()-238 ){zx = wArea->width()-239;}
-      if(zx < 0){zx =0;}
+      if(zx < 10){zx = 10;}
       if(zy > wArea->height()-238){ zy = wArea->height()-239;}
       if(zy < 0){zy =0;}
       zoom_area->setGeometry(zx, zy , 238,238);
