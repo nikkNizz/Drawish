@@ -16,6 +16,6 @@
     <file>res/flatCap.png</file> 
     <file>res/rotateRight.png</file> 
     <file>res/roundCap.png</file>  
-    <file>res/draw2.png</file>
+    <file>res/draw.png</file>
 </qresource>
 </RCC>
