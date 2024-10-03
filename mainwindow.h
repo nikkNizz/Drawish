@@ -33,6 +33,7 @@ private slots:
   void reSize();
   void imgSave();
   void newImage(QString from);
+  QCursor rectCursor();
   void updateInfo();
   void untoggle();
   void deleteSel();
@@ -174,7 +175,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Area *wArea;
-    QCursor ball;
     BorderRight *borderR;
     BorderBottom *borderB;
     Angolo *corner;
