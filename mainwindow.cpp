@@ -43,8 +43,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->similaritywidget->setGeometry(80,0,500,31);
     ui->similaritywidget->setVisible(false);
 
-    ball = QCursor(QPixmap(":/res/cursor.png"));
-
     wArea = new Area();
 
     // set borders
@@ -239,6 +237,20 @@ void MainWindow::newImage(QString from)
        borderB->resetGeometry();
        borderR->resetGeometry();
        corner->resetGeometry();
+
+}
+
+QCursor MainWindow::rectCursor()
+{
+
+        int wh = ui->lineWidthBox->value()+2;
+        QPixmap kursor(wh,wh);
+        kursor.fill(Qt::black);
+          QPixmap fillCurs(wh-2, wh-2);
+          fillCurs.fill(Qt::white);
+        QPainter pai(&kursor);
+        pai.drawPixmap(1,1,fillCurs);
+        return QCursor(kursor);
 
 }
 
@@ -722,7 +734,7 @@ void MainWindow::on_penButton_clicked()
     if(ui->penButton->isChecked()){
         untoggle();
         ui->penButton->setChecked(true);
-         wArea->setCursor(ball);
+        wArea->setCursor(rectCursor());
         sizes::activeOperation = 3;
         ui->lineOptionWidget->setVisible(true);
         if(pix.width() * pix.height() < 250000){
@@ -914,7 +926,7 @@ void MainWindow::on_sprayButton_clicked()
         untoggle();
         ui->sprayButton->setChecked(true);
         sizes::activeOperation = 5;
-        wArea->setCursor(ball);
+        wArea->setCursor(rectCursor());
         if(pix.width() * pix.height() < 250000){
             stopRepeatShow=6;
         }
@@ -1069,12 +1081,14 @@ void MainWindow::draw_shape()
         shape_area =NULL;
     }
 
-
 }
 
 void MainWindow::on_lineWidthBox_valueChanged(int arg1)
 {
     sizes::line_width = arg1;
+    if(sizes::activeOperation ==3 || sizes::activeOperation ==5){
+      wArea->setCursor(rectCursor());
+    }
 }
 
 //  shapes
@@ -1191,11 +1205,11 @@ void MainWindow::view_zoom()
       }
       connect(zoom_area, SIGNAL(zoomChangeColor()), this, SLOT(zoom_change_color()) );
       zoom_area->setPixmap(zoomPix);
-      // put ia visible area if possible
+      // put in a visible area if possible
       int zx = sizes::selX+2;
       int zy = sizes::selY;
       if(zx > wArea->width()-238 ){zx = wArea->width()-239;}
-      if(zx < 10){zx = 10;}
+      if(zx < 10){zx =10;}
       if(zy > wArea->height()-238){ zy = wArea->height()-239;}
       if(zy < 0){zy =0;}
       zoom_area->setGeometry(zx, zy , 238,238);
@@ -1626,4 +1640,3 @@ void MainWindow::on_historyCombo_activated(int index)
     newImage("pix");
     showPix();
 }
-
