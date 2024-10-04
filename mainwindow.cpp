@@ -63,6 +63,20 @@ MainWindow::MainWindow(QWidget *parent)
     wArea->setGeometry(0,0, sizes::areaWidth, sizes::areaHeight);
     ui->scrollArea->setWidgetResizable(false);
 
+    // Qpalette works in Linux for buttons bgcolors
+#ifdef Q_OS_WIN
+    ui->colorActiveButton->setStyleSheet("background-color: black");
+    ui->blackButton->setStyleSheet("background-color: black");
+    ui->whiteButton->setStyleSheet("background-color: white");
+    ui->greyButton->setStyleSheet("background-color: grey");
+    ui->redButton->setStyleSheet("background-color: red");
+    ui->greenButton->setStyleSheet("background-color: green");
+    ui->blueButton->setStyleSheet("background-color: blue");
+    ui->yellowButton->setStyleSheet("background-color: yellow");
+    ui->magentaButton->setStyleSheet("background-color: magenta");
+    ui->cyanButton->setStyleSheet("background-color: cyan");
+#endif
+
     // signals
     connect(borderB, SIGNAL(sizeChange()), this, SLOT(reSize()) );
     connect(borderR, SIGNAL(sizeChange()), this, SLOT(reSize()) );
@@ -143,7 +157,6 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
         else if(ev->key()== Qt::Key_Z || ev->key()== Qt::Key_X){aay++;}
         save_area->setGeometry(aax, aay, aaw, aah);
     }
-
 }
 
 void MainWindow::closeEvent(QCloseEvent *ev)
@@ -196,13 +209,17 @@ void MainWindow::imgSave()
     }else{
      f = activePathFile;
     }
+       savePix(pix, f);
+       sizes::modify = false;
 
-        if(f.endsWith(".jpg", Qt::CaseInsensitive)){ pix.save(f, "jpg");}
-        else if(f.endsWith(".ico", Qt::CaseInsensitive)){ pix.save(f, "ico");}
-        else if(f.endsWith(".bmp", Qt::CaseInsensitive)){ pix.save(f, "BMP");}
-        else{pix.save(f, "PNG");}
-        sizes::modify = false;
+}
 
+void MainWindow::savePix(QPixmap pixToSave, QString f)
+{
+    if(f.endsWith(".jpg", Qt::CaseInsensitive)){ pixToSave.save(f, "jpg");}
+    else if(f.endsWith(".ico", Qt::CaseInsensitive)){ pixToSave.save(f, "ico");}
+    else if(f.endsWith(".bmp", Qt::CaseInsensitive)){ pixToSave.save(f, "BMP");}
+    else{pix.save(f, "PNG");}
 }
 
 void MainWindow::newImage(QString from)
@@ -246,8 +263,10 @@ QCursor MainWindow::rectCursor()
         int wh = ui->lineWidthBox->value()+2;
         QPixmap kursor(wh,wh);
         kursor.fill(Qt::black);
-          QPixmap fillCurs(wh-2, wh-2);
-          fillCurs.fill(Qt::white);
+        // ------
+        QPixmap fillCurs(wh-2, wh-2);
+        fillCurs.fill(Qt::white);
+        // -----
         QPainter pai(&kursor);
         pai.drawPixmap(1,1,fillCurs);
         return QCursor(kursor);
@@ -327,7 +346,6 @@ void MainWindow::on_actionNew_triggered()
         int q = QMessageBox::question(this, "Drawish", "Save image?",QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
         if(q == QMessageBox::Yes){
             imgSave();
-            // create new from 0, file, clipbard
             newImage("zero");
         }else if(q == QMessageBox::No){
              newImage("zero");
@@ -346,7 +364,6 @@ void MainWindow::on_actionOpen_triggered()
         int q = QMessageBox::question(this, "Drawish", "Save image?",QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
         if(q == QMessageBox::Yes){
             imgSave();
-            // create new from 0, file, clipboard
             newImage("f");
         }else if(q == QMessageBox::No){
              newImage("f");
@@ -369,10 +386,8 @@ void MainWindow::on_actionSave_as_triggered()
 {
     QFileDialog dialog(this);
     QString f =dialog.getSaveFileName(this,"Drawish save image", QDir::homePath());
-    if(f.endsWith(".jpg", Qt::CaseInsensitive)){ pix.save(f, "jpg");}
-    else if(f.endsWith(".ico", Qt::CaseInsensitive)){ pix.save(f, "ico");}
-    else if(f.endsWith(".bmp", Qt::CaseInsensitive)){ pix.save(f, "BMP");}
-    else{pix.save(f, "PNG");}
+    savePix(pix, f);
+
 }
 
 
@@ -424,7 +439,7 @@ void MainWindow::createSelection()
 
     selectionRect = new selectionArea(wArea);
     selectionRect->resetGeometry();
-    if(sizes::activeOperation != 2){
+    if(sizes::activeOperation != 2){  // selection area for text
         QPixmap selPix = pix.copy(sizes::selX , sizes::selY , sizes::selW , sizes::selH );
         if(ui->actionTransparent_selection->isChecked()){
             selPix=addTransparency(selPix, 0,255,255,255);
@@ -559,10 +574,8 @@ void MainWindow::on_actionCopy_selection_to_file_triggered()
         QPixmap selPix = selectionRect->pixmap().scaled(sizes::selW, sizes::selH);
         QFileDialog dialog(this);
         QString f =dialog.getSaveFileName(this,"Drawish save image", QDir::homePath());
-        if(f.endsWith(".jpg", Qt::CaseInsensitive)){ selPix.save(f, "jpg");}
-        else if(f.endsWith(".ico", Qt::CaseInsensitive)){ selPix.save(f, "ico");}
-        else if(f.endsWith(".bmp", Qt::CaseInsensitive)){ selPix.save(f, "BMP");}
-        else{selPix.save(f, "PNG");}
+        savePix(selPix, f);
+
     }
 }
 
@@ -581,7 +594,6 @@ void MainWindow::on_drawTextButton_clicked()
         sizes::activeOperation = 2;
         ui->textOptionsWidget->setVisible(true);
     }else{
-        //...
         delete selectionRect;
         selectionRect =NULL;
         sizes::activeOperation = 0;
@@ -747,7 +759,6 @@ void MainWindow::on_penButton_clicked()
             stopRepeatShow = 15;
         }
     }else{
-        //...
         sizes::activeOperation = 0;
         wArea->setCursor(Qt::ArrowCursor);
         ui->lineOptionWidget->setVisible(false);
@@ -788,10 +799,10 @@ void MainWindow::showPix()
 
 void MainWindow::save_previous(QString tx)
 {
-    if(sizes::activeOperation == 3){
-         historyList.push_back("Pen");
+    if(sizes::activeOperation == 3 && tx =="" ){
+        historyList.push_back("Pen");
     }
-    else if(sizes::activeOperation == 5){
+    else if(sizes::activeOperation == 5 && tx =="" ){
         historyList.push_back("Spray");
     }
     else{  historyList.push_back(tx); }
@@ -805,7 +816,6 @@ void MainWindow::save_previous(QString tx)
     ui->historyCombo->clear();
 
     ui->historyCombo->addItems(historyList);
-   // ui->historyCombo->removeItem(ui->historyCombo->count()-1);
     sizes::modify = true;
 }
 
@@ -835,7 +845,6 @@ void MainWindow::on_fillButton_clicked()
         sizes::activeOperation = 4;
         ui->similaritywidget->setVisible(true);
     }else{
-        //...
         sizes::activeOperation = 0;
         ui->similaritywidget->setVisible(false);
     }
@@ -938,7 +947,6 @@ void MainWindow::on_sprayButton_clicked()
         }
 
     }else{
-        //...
         sizes::activeOperation = 0;
         wArea->setCursor(Qt::ArrowCursor);
         }
@@ -979,7 +987,6 @@ void MainWindow::on_pickerButton_clicked()
         ui->pickerButton->setChecked(true);
         sizes::activeOperation = 6;
     }else{
-        //...
         sizes::activeOperation = 0;
     }
 }
@@ -1009,7 +1016,6 @@ void MainWindow::on_lineButton_clicked()
         sizes::activeOperation = 7;
         ui->lineOptionWidget->setVisible(true);
     }else{
-        //...
         sizes::activeOperation = 0;
         ui->lineOptionWidget->setVisible(false);
         if(sizes::isShapeOn){
@@ -1105,7 +1111,6 @@ void MainWindow::on_shapeButton_clicked()
         sizes::activeOperation = 8;
         ui->lineOptionWidget->setVisible(true);
     }else{
-        //...
         sizes::activeOperation = 0;
         ui->lineOptionWidget->setVisible(false);
         if(sizes::isShapeOn){
@@ -1148,7 +1153,6 @@ void MainWindow::on_curveButton_clicked()
         sizes::isCurveLineAreaOn = true;
         cl_area->show();
     }else{
-        //...
         sizes::activeOperation = 0;
         ui->lineOptionWidget->setVisible(false);
         if(sizes::isCurveLineAreaOn){
@@ -1600,10 +1604,7 @@ void MainWindow::on_actionSave_image_triggered()
         QFileDialog dialog(this);
         QString f =dialog.getSaveFileName(this, "Drawish save...", QDir::homePath(),"Images (*.png *.jpg *.ico *bmp)");
         if(f ==""){return;}
-        if(f.endsWith(".jpg", Qt::CaseInsensitive)){ camPix.save(f, "jpg");}
-        else if(f.endsWith(".ico", Qt::CaseInsensitive)){ camPix.save(f, "ico");}
-        else if(f.endsWith(".bmp", Qt::CaseInsensitive)){ camPix.save(f, "BMP");}
-        else{camPix.save(f, "PNG");}
+        savePix(camPix, f);
     }
 }
 
