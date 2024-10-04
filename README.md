@@ -19,10 +19,11 @@ sudo make install
 or install and compile directly from Qt Creator on Windows, Mac, or Linux.
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the **release** page of this project.
-Extract the folder, enter the lib subfolder and run the .exe file. Create a link to the executable for faster use.
+The compiled program for Linux and Windows can be downloaded from the **releases** page of this project.  
+For Windows download Drawish.zip.  
+Extract the folder, enter the lib subfolder and run the .exe file. Create a link to the executable for faster use.  
 
-Appimage for Debian/Linux:
+Appimage for Debian/Linux:  
 To run the Appimage you need to do one to three of the following:  
 Make the appimage file executable: **$ chmod a+x /path/to/drawish.Appimage**  
 If necessary install libfuse2: **$ sudo apt install libfuse2**  
