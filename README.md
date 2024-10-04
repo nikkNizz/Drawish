@@ -35,10 +35,10 @@ paste an image from the clipboard ("Edit->Paste from clipboard") or from a file 
 ---
 The drawing options are visible on the left of the drawing area.
 The color palette is also visible here.
-The first color on the top left is the active color (default black). Change the active color:
--clicking on a quick color or on the + button
--from the "Image->Colors" menu and entering the rgb values ​​manually
--using the pick color on the image.
+The first color on the top left is the active color (default black). Change the active color:  
+-by clicking on a quick color or on the + button  
+-from the "Image->Colors" menu and entering the rgb values ​​manually  
+-using the pick color on the image.  
 
 When you select an option it will be active for the drawing area,
 when you deselect it, it will no longer be active and any
