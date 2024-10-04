@@ -32,6 +32,7 @@ void resizeEvent(QResizeEvent *event) override;
 private slots:
   void reSize();
   void imgSave();
+  void savePix(QPixmap pixToSave, QString f);
   void newImage(QString from);
   QCursor rectCursor();
   void updateInfo();
@@ -44,7 +45,7 @@ private slots:
   QPixmap addTransparency(QPixmap passedPix, int opacity, int red, int green, int blue);
   void drawWithPen();
   void showPix();
-  void save_previous(QString tx="Pen");
+  void save_previous(QString tx="");
   void fill_();
   bool isSimil(QColor k1, QColor k2, int affinity);
   void spray_draw();
@@ -57,6 +58,7 @@ private slots:
   void rotation(int a);
   void deg90(int a);
   void mirror(bool horizontal, bool vertical);
+
 
   void on_actionNew_triggered();
 
@@ -185,7 +187,7 @@ private:
     shapeArea *shape_area;
     curveLineArea *cl_area;
     saveCam *save_area;
-    bool isCam;
+    bool isCam = false;
     zoomArea *zoom_area=nullptr;
     int posXofZoom, posYofZoom;
     QStringList historyList;
