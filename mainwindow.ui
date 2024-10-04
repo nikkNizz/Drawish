@@ -4330,7 +4330,7 @@
   </action>
   <action name="actionVersion_0_1">
    <property name="text">
-    <string>Version 0.1</string>
+    <string>Version 0.2</string>
    </property>
   </action>
   <action name="actionnicNiz_libero_it">
