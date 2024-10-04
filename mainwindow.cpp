@@ -219,7 +219,7 @@ void MainWindow::savePix(QPixmap pixToSave, QString f)
     if(f.endsWith(".jpg", Qt::CaseInsensitive)){ pixToSave.save(f, "jpg");}
     else if(f.endsWith(".ico", Qt::CaseInsensitive)){ pixToSave.save(f, "ico");}
     else if(f.endsWith(".bmp", Qt::CaseInsensitive)){ pixToSave.save(f, "BMP");}
-    else{pix.save(f, "PNG");}
+    else{pixToSave.save(f, "PNG");}
 }
 
 void MainWindow::newImage(QString from)
