@@ -40,6 +40,9 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
         if(whereExp == "move"){
            sizes::selX  = event->globalPosition().x()-diffx;
            sizes::selY  = event->globalPosition().y()-diffy;
+           if(sizes::activeOperation == 7){
+               redrawLine(x, y, sizes::shape_x_begin, sizes::shape_y_begin);
+           }
            resetGeometry();
         }
         else if(whereExp== "top"  ){
