@@ -199,6 +199,13 @@ void MainWindow::reSize()
 
 }
 
+void MainWindow::raiseBorders()
+{
+    borderB->raise();
+    borderR->raise();
+    corner->raise();
+}
+
 void MainWindow::imgSave()
 {
     QString f;
@@ -453,6 +460,7 @@ void MainWindow::createSelection()
     }
     sizes::isSelectionOn=true;
     selectionRect->show();
+    raiseBorders();
     updateInfo();
     connect(selectionRect, SIGNAL(setInfo()), this, SLOT(updateInfo()));
 
@@ -507,6 +515,7 @@ void MainWindow::on_actionCopy_selection_no_clipboard_triggered()
         }
         selectionRect->setPixmap(copied);
         selectionRect->show();
+        raiseBorders();
         updateInfo();
     }
 }
@@ -540,6 +549,7 @@ void MainWindow::pasteImg(QPixmap passedPix)
     sizes::isSelectionOn=true;
     sizes::startResize=false;
     selectionRect->show();
+    raiseBorders();
 }
 
 
@@ -1086,6 +1096,7 @@ void MainWindow::draw_shape()
         delete shape_area;
         shape_area =NULL;
     }
+    raiseBorders();
 
 }
 
@@ -1218,6 +1229,7 @@ void MainWindow::view_zoom()
       if(zy < 0){zy =0;}
       zoom_area->setGeometry(zx, zy , 238,238);
       zoom_area->show();
+      raiseBorders();
     }
     else{
         // copy zoomed image
