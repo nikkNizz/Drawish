@@ -31,6 +31,7 @@ void resizeEvent(QResizeEvent *event) override;
 
 private slots:
   void reSize();
+  void raiseBorders();
   void imgSave();
   void savePix(QPixmap pixToSave, QString f);
   void newImage(QString from);
