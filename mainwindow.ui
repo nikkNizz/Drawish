@@ -4330,7 +4330,7 @@
   </action>
   <action name="actionVersion_0_1">
    <property name="text">
-    <string>Version 0.2</string>
+    <string>Version 0.3</string>
    </property>
   </action>
   <action name="actionnicNiz_libero_it">
@@ -4340,7 +4340,7 @@
   </action>
   <action name="action03_Oct_2024">
    <property name="text">
-    <string>03-Oct-2024</string>
+    <string>04-Oct-2024</string>
    </property>
   </action>
  </widget>
