@@ -20,14 +20,17 @@ or install and compile directly from Qt Creator on Windows, Mac, or Linux.
 
 ### PRECOMPILED PACKAGES:
 The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.1) page of this project.  
-For Windows, download Drawish_Win.zip.  
+For **Windows**, download Drawish_Win.zip.  
 Extract the folder, and run the .exe file. Create a link to the executable for faster use.  
 
-Appimage for Debian/Linux:  
+Appimage for **Debian/Linux**:  
 To run the Appimage you need to do one to three of the following:  
-Make the appimage file executable: **$ chmod a+x /path/to/drawish.Appimage**  
-If necessary install libfuse2: **$ sudo apt install libfuse2**  
-If necessary install xcb: **$ sudo apt install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev**  
+Make the appimage file executable:  
+**$ chmod a+x /path/to/drawish.Appimage**   
+If necessary install libfuse2:  
+**$ sudo apt install libfuse2**   
+If necessary install xcb:  
+**$ sudo apt install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev**  
 
 #### USE
 You can open images from the" File->Open" menu. You can also
@@ -106,7 +109,7 @@ As for the line. Click the [shapes] button.
 #### Curved line
 Click the [curved line] button. You will be able to
 click on 4 points of the image through which the bezier curve will pass.
-But only with the #fifth# click, it will actually be drawn.
+But only with the **fifth** click, it will actually be drawn.
 By clicking the curved line button again, any lines
 not fixed with all clicks will be deleted. The real-time display of the bezier curve is not available.
 
