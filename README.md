@@ -20,7 +20,7 @@ or install and compile directly from Qt Creator on Windows, Mac, or Linux.
 
 ### PRECOMPILED PACKAGES:
 The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.1) page of this project.  
-For **Windows**, download Drawish_Win.zip.  
+For **Windows**, download Drawish_version_Win.zip.  
 Extract the folder, and run the .exe file. Create a link to the executable for faster use.  
 
 Appimage for **Debian/Linux**:  
