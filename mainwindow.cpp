@@ -227,10 +227,10 @@ void MainWindow::newImage(QString from)
 
    if(from == "zero"){
        sizes::modify= false;
-       sizes::areaHeight=300;
-       sizes::areaWidth=200;
-       QPixmap npix(200, 300);
-       npix.fill(Qt::yellow);
+       sizes::areaHeight=320;
+       sizes::areaWidth=480;
+       QPixmap npix(480, 320);
+       npix.fill(Qt::white);
        pix = npix;
        activePathFile="";
    }
