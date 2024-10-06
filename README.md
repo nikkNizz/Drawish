@@ -163,4 +163,6 @@ Delete the camera from the" Camera->Delete camera " menu.
 #### Saving
 Images are saved in png format.  
 To save in jpg, ico or bmp format, enter the extension to the file name
-in the save window.
+in the save window.  
+#### video:
+https://drive.google.com/file/d/1AIZnuqCW0IHnerJoBY9EjuAVHEOwcUgJ/view?usp=sharing
