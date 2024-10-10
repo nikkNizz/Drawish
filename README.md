@@ -102,6 +102,7 @@ with the mouse.
 In the top menu choose the attributes of the line. 
 To actually draw it, click on a point in the image.  
 To deactivate it, uncheck the line button.
+From the "Image->Create line" menu you can also create a line by entering the coordinates from the keyboard.
 
 #### Shapes
 As for the line. Click the [shapes] button.
@@ -120,12 +121,17 @@ the last 8 changes.  To return to the left image, press the top left button [Red
 If a change is made from a previous image, the left image will no longer be available.
 
 #### Zoom
+##### Pixel matrix. 
 Right-click on a point of the image, the pixel matrix will appear enlarged for the area in
 the vicinity of the cursor. Clicking on a zoomed pixel with the
 **right** mouse button, it will be replaced with the active color.  
 Clicking with the left mouse button, you get the information on
 the rgb color of the pixel.  
 Remove the enlarged area with another right-click on the image.  
+##### Double the pixels.
+From the "Image->Quadruple the pixel" menu you can get a new image with the pixels doubled in width and height. The image can be enlarged several times without loss of quality, but it is not a zoom, but a new image.
+To divide the pixels, use the "Image->Divide by 4" menu.
+##### View.
 The zoom of the entire image is obtained from the "Image->Zoom" menu, but
 in view only.
 
