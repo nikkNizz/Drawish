@@ -40,6 +40,7 @@ private slots:
 private:
     Ui::dColors *ui;    
     QPixmap newPix;
+    bool spinBoxesActivate = false;
 };
 
 #endif // DCOLORS_H
