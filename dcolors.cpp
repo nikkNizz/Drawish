@@ -26,29 +26,31 @@ dColors::~dColors()
 
 void dColors::setBgColor()
 {
+
     QString r = QString::number(ui->redSpin->value());
     QString g = QString::number(ui->greenSpin->value());
     QString b = QString::number(ui->blueSpin->value());
 
     ui->showColorWidget->setStyleSheet("background-color: rgb(" + r + "," + g + "," + b + ")");
     sizes::activeColor=QColor(ui->redSpin->value(), ui->greenSpin->value(),ui->blueSpin->value() );
+    spinBoxesActivate = true;
 }
 
 void dColors::on_redSpin_valueChanged(int arg1)
 {
-    setBgColor();
+    if(spinBoxesActivate)    setBgColor();
 }
 
 
 void dColors::on_greenSpin_valueChanged(int arg1)
 {
-    setBgColor();
+    if(spinBoxesActivate)    setBgColor();
 }
 
 
 void dColors::on_blueSpin_valueChanged(int arg1)
 {
-    setBgColor();
+    if(spinBoxesActivate)     setBgColor();
 }
 
 
@@ -165,4 +167,3 @@ void dColors::on_pushButton_clicked()
           ui->labelThumb->setPixmap( newPix.scaled(200,170));
 
 }
-
