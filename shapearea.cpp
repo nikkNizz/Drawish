@@ -188,9 +188,9 @@ void shapeArea::drawSomething()
             p.drawPolygon(poly);
         }
         else if(sizes::activeShape == "aup"){
-            int x1 = ww*0.33;
+            int x1 = ww*0.34;
             int y1 = hh*0.9;
-            int x2 = ww*0.33;
+            int x2 = ww*0.34;
             int y2 = hh*0.25;
             int x3 = ww*0.1;
             int y3 = hh*0.25;
@@ -210,9 +210,9 @@ void shapeArea::drawSomething()
         }
         else if(sizes::activeShape == "ari"){
             int x1 = ww*0.1;
-            int y1 = hh*0.33;
+            int y1 = hh*0.34;
             int x2 = ww*0.66;//
-            int y2 = hh*0.33;
+            int y2 = hh*0.34;
             int x3 = ww*0.66;//
             int y3 = hh*0.1;
             int x4 = ww*0.9;
@@ -230,9 +230,9 @@ void shapeArea::drawSomething()
             p.drawPolygon(poly);
         }
         else if(sizes::activeShape == "ado"){
-            int x1 = ww*0.33;
+            int x1 = ww*0.34;
             int y1 = hh*0.1;
-            int x2 = ww*0.33;
+            int x2 = ww*0.34;
             int y2 = hh*0.66;
             int x3 = ww*0.1;
             int y3 = hh*0.66;
@@ -253,17 +253,17 @@ void shapeArea::drawSomething()
         else if(sizes::activeShape == "ale"){
             int x1 = ww*0.1;
             int y1 = hh*0.5;
-            int x2 = ww*0.33;
+            int x2 = ww*0.34;
             int y2 = hh*0.1;
-            int x3 = ww*0.33;
-            int y3 = hh*0.33;
+            int x3 = ww*0.34;
+            int y3 = hh*0.34;
             int x4 = ww*0.9;
-            int y4 = hh*0.33;
+            int y4 = hh*0.34;
             int x5 = ww*0.9;
             int y5 = hh*0.66;
-            int x6 = ww*0.33;
+            int x6 = ww*0.34;
             int y6 = hh*0.66;
-            int x7 = ww *0.33;
+            int x7 = ww *0.34;
             int y7 = hh*0.9;
             int x8 = x1;
             int y8 = y1;
