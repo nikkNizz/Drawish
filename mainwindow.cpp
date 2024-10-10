@@ -16,6 +16,7 @@
 #include "dcolors.h"
 #include "viewimage.h"
 #include "savecam.h"
+#include "linedialog.h"
 #include <QPainter>
 #include <QMessageBox>
 #include <QFileDialog>
@@ -28,6 +29,7 @@
 #include <QRectF>
 #include <QInputDialog>
 #include <QCursor>
+#include <QDesktopServices>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -35,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    version_info = "Version:  0.4\n\nRelease:  08 Oct 2024\n\nEmail:  nicNiz@libero.it";
     // set label as drawing area
 
     ui->textOptionsWidget->setVisible(false);
@@ -196,6 +199,7 @@ void MainWindow::reSize()
    borderB->resetGeometry();
    borderR->resetGeometry();
    corner->resetGeometry();
+   updateInfo();
 
 }
 
@@ -659,83 +663,79 @@ void MainWindow::on_confirmTextButton_clicked()
 }
 
 //  SET COLORS....
-void MainWindow::on_blackButton_clicked()
+
+void MainWindow::set_activeColor(int R, int G, int B, int A)
 {
-    sizes::activeColor= QColor(0,0,0);
+    sizes::activeColor= QColor(R,G,B, A);
     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
+}
+
+void MainWindow::on_blackButton_clicked()
+{
+    set_activeColor(0,0,0);
+
 }
 
 
 void MainWindow::on_whiteButton_clicked()
 {
-     sizes::activeColor= QColor(255,255,255);
-     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
-     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
+     set_activeColor(255,255,255);
+
 }
 
 
 void MainWindow::on_greyButton_clicked()
 {
-     sizes::activeColor= QColor(128,128,128);
-     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
-     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
+     set_activeColor(128,128,128);
+
 }
 
 
 void MainWindow::on_redButton_clicked()
 {
-     sizes::activeColor= QColor(255,0,0);
-     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
-     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
+     set_activeColor(255,0,0);
+
 }
 
 
 void MainWindow::on_greenButton_clicked()
 {
-     sizes::activeColor= QColor(0,255,0);
-     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
-     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
+     set_activeColor(0,255,0);
 }
 
 
 void MainWindow::on_blueButton_clicked()
 {
-     sizes::activeColor= QColor(0,0,255);
-     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
-     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
+     set_activeColor(0,0,255);
+
 }
 
 
 void MainWindow::on_yellowButton_clicked()
 {
-     sizes::activeColor= QColor(255,255,0);
-     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
-     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
+     set_activeColor(255,255,0);
+
 }
 
 
 void MainWindow::on_magentaButton_clicked()
 {
-     sizes::activeColor= QColor(255,0,255);
-     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
-     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
+     set_activeColor(255,0,255);
 }
 
 
 void MainWindow::on_cyanButton_clicked()
 {
-     sizes::activeColor= QColor(0,255,255);
-     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
-     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
+     set_activeColor(0,255,255);
+
 }
 
 
 void MainWindow::on_transparentButton_clicked()
 {
-     sizes::activeColor= QColor(255,255,255,0);
-     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
-     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
+     set_activeColor(255,255,255,0);
+
 }
 
 void MainWindow::on_addColorButton_clicked()
@@ -1009,6 +1009,8 @@ void MainWindow::get_color()
     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
 }
+
+
 
 //--------------------------------------------------------------------------------------------
 
@@ -1649,7 +1651,108 @@ void MainWindow::on_historyCombo_activated(int index)
         sizes::selW = data.at(3).toInt();
         sizes::selH = data.at(4).toInt();
         createSelection();
+
     }
     newImage("pix");
     showPix();
+}
+
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox::information(this, "Drawish", version_info);
+}
+
+
+void MainWindow::on_actionQuadruple_the_pixels_triggered()
+{
+  if(sizes::isSelectionOn){
+      drawCopy();
+      sizes::isSelectionOn =false;
+  }
+  untoggle();
+  save_previous("Quadruple");
+  sizes::areaWidth *=2;
+  sizes::areaHeight *=2;
+  QPixmap bigPix(sizes::areaWidth, sizes::areaHeight);
+  //bigPix.fill(Qt::white);
+  QImage bigImage = bigPix.toImage();
+  QImage img = pix.toImage();
+  int nx=0;
+  int ny =0;
+  for (int y = 0; y < img.height(); ++y) {
+      QRgb *line = reinterpret_cast<QRgb*>(img.scanLine(y));
+      for (int x = 0; x < img.width(); ++x) {
+          QRgb &rgb = line[x];
+          nx = x * 2;
+          ny = y * 2;
+          bigImage.setPixelColor(nx, ny, QColor(rgb));
+          bigImage.setPixelColor(nx+1, ny, QColor(rgb));
+          bigImage.setPixelColor(nx, ny+1, QColor(rgb));
+          bigImage.setPixelColor(nx+1, ny+1, QColor(rgb));
+      }
+  }
+  pix = QPixmap::fromImage(bigImage);
+  wArea->setGeometry(0,0, sizes::areaWidth, sizes::areaHeight);
+  showPix();
+  borderB->resetGeometry();
+  borderR->resetGeometry();
+  corner->resetGeometry();
+  updateInfo();
+}
+
+
+void MainWindow::on_actionDivide_by_4_triggered()
+{    
+    if(sizes::isSelectionOn){
+        drawCopy();
+        sizes::isSelectionOn = false;
+    }
+    untoggle();
+    save_previous("Divide by 4");
+    sizes::areaWidth /=2;
+    sizes::areaHeight /=2;
+    QPixmap smallPix(sizes::areaWidth, sizes::areaHeight);
+    QImage smallImage = smallPix.toImage();
+    QImage img = pix.toImage();
+
+    for (int y = 0; y < img.height(); y +=2) {
+        QRgb *line = reinterpret_cast<QRgb*>(img.scanLine(y));
+        for (int x = 0; x < img.width(); x +=2) {
+            QRgb &rgb = line[x];
+            smallImage.setPixelColor(x/2, y/2, QColor(rgb));
+        }
+    }
+    pix = QPixmap::fromImage(smallImage);
+    wArea->setGeometry(0,0, sizes::areaWidth, sizes::areaHeight);
+    showPix();
+    borderB->resetGeometry();
+    borderR->resetGeometry();
+    corner->resetGeometry();
+    updateInfo();
+}
+
+
+void MainWindow::on_actionCreate_Line_triggered()
+{
+    LineDialog lineD;
+    lineD.setModal(true);
+    lineD.exec();
+    if(lineD.res == QDialog::Accepted){
+        save_previous("Line input");
+        QPainter pai(&pix);
+        QPen pen(sizes::activeColor, sizes::line_width);
+
+        if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::FlatCap);}
+        else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
+
+        pai.setPen(pen);
+        pai.drawLine(lineD.linex1, lineD.liney1, lineD.linex2, lineD.liney2);
+        wArea->setPixmap(pix);
+    }
+}
+
+void MainWindow::on_actionGithub_triggered()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/nikkNizz/Drawish"));
 }
