@@ -3988,7 +3988,7 @@
       <rect>
        <x>300</x>
        <y>10</y>
-       <width>31</width>
+       <width>41</width>
        <height>16</height>
       </rect>
      </property>
@@ -4002,9 +4002,9 @@
     <widget class="QLabel" name="imageH_label">
      <property name="geometry">
       <rect>
-       <x>330</x>
+       <x>350</x>
        <y>10</y>
-       <width>31</width>
+       <width>41</width>
        <height>16</height>
       </rect>
      </property>
@@ -4018,7 +4018,7 @@
     <widget class="QLabel" name="rgbLabel">
      <property name="geometry">
       <rect>
-       <x>370</x>
+       <x>400</x>
        <y>10</y>
        <width>141</width>
        <height>16</height>
@@ -4181,6 +4181,9 @@
     <addaction name="actionTo_greyscale"/>
     <addaction name="actionReduce_to_RGB"/>
     <addaction name="actionInvert_colors"/>
+    <addaction name="actionQuadruple_the_pixels"/>
+    <addaction name="actionDivide_by_4"/>
+    <addaction name="actionCreate_Line"/>
     <addaction name="actionZoom"/>
    </widget>
    <widget class="QMenu" name="menuCamera">
@@ -4195,9 +4198,8 @@
     <property name="title">
      <string>About</string>
     </property>
-    <addaction name="actionVersion_0_1"/>
-    <addaction name="actionnicNiz_libero_it"/>
-    <addaction name="action03_Oct_2024"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionGithub"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -4328,19 +4330,29 @@
     <string>Zoom</string>
    </property>
   </action>
-  <action name="actionVersion_0_1">
+  <action name="actionAbout">
    <property name="text">
-    <string>Version 0.3</string>
+    <string>About</string>
    </property>
   </action>
-  <action name="actionnicNiz_libero_it">
+  <action name="actionQuadruple_the_pixels">
    <property name="text">
-    <string>nicNiz@libero.it</string>
+    <string>Quadruple the pixels ◰</string>
    </property>
   </action>
-  <action name="action03_Oct_2024">
+  <action name="actionDivide_by_4">
    <property name="text">
-    <string>04-Oct-2024</string>
+    <string>Divide by 4</string>
+   </property>
+  </action>
+  <action name="actionCreate_Line">
+   <property name="text">
+    <string>Create Line</string>
+   </property>
+  </action>
+  <action name="actionGithub">
+   <property name="text">
+    <string>Github</string>
    </property>
   </action>
  </widget>
