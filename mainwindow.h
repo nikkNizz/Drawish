@@ -51,6 +51,7 @@ private slots:
   bool isSimil(QColor k1, QColor k2, int affinity);
   void spray_draw();
   void get_color();
+  void set_activeColor(int R, int G, int B, int A=255);
   void createShapeArea();
   void draw_shape();
   void finish_curve();
@@ -175,8 +176,19 @@ private slots:
 
   void on_historyCombo_activated(int index);
 
+  void on_actionAbout_triggered();
+
+  void on_actionQuadruple_the_pixels_triggered();
+
+  void on_actionDivide_by_4_triggered();
+
+  void on_actionCreate_Line_triggered();
+
+  void on_actionGithub_triggered();
+
 private:
     Ui::MainWindow *ui;
+    QString version_info;
     Area *wArea;
     BorderRight *borderR;
     BorderBottom *borderB;
