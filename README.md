@@ -30,7 +30,7 @@ Make the appimage file executable:
 If necessary install libfuse2:  
 **$ sudo apt install libfuse2**   
 If necessary install xcb:  
-**$ sudo apt install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev**  
+**$ sudo apt install libglu1-mesa-dev libx11-xcb-dev '^libxcb*'**
 
 #### USE
 You can open images from the" File->Open" menu. You can also
