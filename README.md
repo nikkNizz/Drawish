@@ -23,14 +23,7 @@ The compiled program for Linux and Windows can be downloaded from the [releases]
 For **Windows**, download Drawish_version_Win.zip.  
 Extract the folder, and run the .exe file. Create a link to the executable for faster use.  
 
-Appimage for **Debian/Linux**:  
-To run the Appimage you need to do one to three of the following:  
-Make the appimage file executable:  
-**$ chmod a+x /path/to/drawish.Appimage**   
-If necessary install libfuse2:  
-**$ sudo apt install libfuse2**   
-If necessary install xcb:  
-**$ sudo apt install libglu1-mesa-dev libx11-xcb-dev '^libxcb*'**
+For **Debian/Linux** download and run the portable Appimage.
 
 #### USE
 You can open images from the" File->Open" menu. You can also
