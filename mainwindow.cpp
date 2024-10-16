@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "Version:  0.4\n\nRelease:  08 Oct 2024\n\nEmail:  nicNiz@libero.it";
+    version_info = "Version:  0.5\n\nRelease:  16 Oct 2024\n\nEmail:  nicNiz@libero.it";
     // set label as drawing area
 
     ui->textOptionsWidget->setVisible(false);
