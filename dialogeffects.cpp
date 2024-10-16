@@ -61,14 +61,11 @@ void DialogEffects::on_gammaSlider_sliderReleased()
 
 }
 
-
-void DialogEffects::on_blurSlider_sliderReleased()
+void DialogEffects::on_valSlider_sliderReleased()
 {    
-    int value = ui->blurSlider->value();
-    int vb = (value -49)*2;
-    if(value < 50){
-        vb = (value*2) -100;
-    }
+    int value = ui->valSlider->value();
+    int vb = value*2.5;
+
     QImage imgg;
     imgg = contrast(vb);
     newPix = QPixmap::fromImage(imgg);
@@ -79,6 +76,7 @@ void DialogEffects::on_blurSlider_sliderReleased()
 QImage DialogEffects::contrast(int v)
 {
      QImage qImgRet= origPix.toImage();
+     double F = (259*(v+255)) / (255 *(259-v));
      for (int y = 0; y < qImgRet.height(); ++y) {
          QRgb *line = reinterpret_cast<QRgb*>(qImgRet.scanLine(y));
          for (int x = 0; x < qImgRet.width(); ++x) {
@@ -88,34 +86,17 @@ QImage DialogEffects::contrast(int v)
              int g = qGreen(rgb);
              int b = qBlue(rgb);
 
-             int medium = (r+g+b);
-             if(medium < 383){
-                 // + brightness
-                 r = r + (r * v/100);
-                 g = g + (g * v/100);
-                 b = b + (b * v/100);
-                 if(r < 0)r=0;
-                 if(r > 255)r=255;
-                 if(g < 0)g=0;
-                 if(g > 255)g=255;
-                 if(b < 0)b=0;
-                 if(b > 255)b=255;
+             r = (F * (r-128) +128);
+             g =  (F * (g-128) +128);
+             b = (F * (b-128) +128);
+             if(r < 0) r =0;
+             else if(r > 255)r = 255;
+             if(g < 0) g =0;
+             else if(g > 255)g = 255;
+             if(b < 0) b =0;
+             else if(b > 255)b = 255;
+             qImgRet.setPixelColor(x, y, QColor(r,g,b));
 
-                 qImgRet.setPixelColor(x, y, QColor(r,g,b));
-             }else{
-                 // -
-                 r = r - (r * v/100);
-                 g = g - (g * v/100);
-                 b = b - (b * v/100);
-                 if(r < 0)r=0;
-                 if(r > 255)r=255;
-                 if(g < 0)g=0;
-                 if(g > 255)g=255;
-                 if(b < 0)b=0;
-                 if(b > 255)b=255;
-
-                 qImgRet.setPixelColor(x, y, QColor(r,g,b));
-             }
          }
      }
      return qImgRet;
