@@ -61,6 +61,7 @@ void DialogEffects::on_gammaSlider_sliderReleased()
 
 }
 
+
 void DialogEffects::on_valSlider_sliderReleased()
 {    
     int value = ui->valSlider->value();
@@ -140,6 +141,7 @@ void DialogEffects::on_highlightPlusButton_clicked()
     QImage imgg = highlightEffect(5);
     newPix = QPixmap::fromImage(imgg);
     ui->labelThumb->setPixmap( newPix.scaled(200,170));
+    if(ui->autoUpdateCheck->isChecked()){origPix = newPix;}
 }
 
 
@@ -148,6 +150,7 @@ void DialogEffects::on_highlightMinusButton_clicked()
     QImage imgg = highlightEffect(-5);
     newPix = QPixmap::fromImage(imgg);
     ui->labelThumb->setPixmap( newPix.scaled(200,170));
+    if(ui->autoUpdateCheck->isChecked()){origPix = newPix;}
 }
 
 void DialogEffects::on_pushButton_3_clicked()
@@ -250,6 +253,7 @@ void DialogEffects::on_noiseMinusButton_clicked()
     QImage imgg = noise();
     newPix = QPixmap::fromImage(imgg);
     ui->labelThumb->setPixmap( newPix.scaled(200,170));
+    if(ui->autoUpdateCheck_2->isChecked()){origPix = newPix;}
 }
 
 QImage DialogEffects::noise()
@@ -364,7 +368,5 @@ void DialogEffects::on_pixelizeButton_clicked()
      }
      newPix = QPixmap::fromImage(Img);
      ui->labelThumb->setPixmap( newPix.scaled(200,170));
+     if(ui->autoUpdateCheck_2->isChecked()){origPix = newPix;}
 }
-
-
-
