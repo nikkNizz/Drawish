@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>520</width>
-    <height>366</height>
+    <height>377</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -397,9 +397,9 @@
   <widget class="QPushButton" name="highlightPlusButton">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>85</x>
      <y>125</y>
-     <width>41</width>
+     <width>31</width>
      <height>24</height>
     </rect>
    </property>
@@ -410,9 +410,9 @@
   <widget class="QPushButton" name="highlightMinusButton">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>120</x>
      <y>125</y>
-     <width>41</width>
+     <width>31</width>
      <height>24</height>
     </rect>
    </property>
@@ -466,6 +466,32 @@
    </property>
    <property name="text">
     <string>Pixelize</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="autoUpdateCheck">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>130</y>
+     <width>141</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Update automatic.</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="autoUpdateCheck_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>350</y>
+     <width>181</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Update automatically</string>
    </property>
   </widget>
  </widget>
