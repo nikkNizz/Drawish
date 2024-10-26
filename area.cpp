@@ -117,7 +117,6 @@ void Area::mouseMoveEvent(QMouseEvent *event)
 
 void Area::mouseReleaseEvent(QMouseEvent *event)
 {
-
      if(isRubb){
          sizes::selX = rubb->x();
          sizes::selY = rubb->y();
