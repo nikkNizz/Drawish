@@ -3819,9 +3819,9 @@
    <widget class="QWidget" name="similaritywidget" native="true">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>329</x>
       <y>100</y>
-      <width>400</width>
+      <width>461</width>
       <height>31</height>
      </rect>
     </property>
@@ -3841,7 +3841,7 @@
     <widget class="QSlider" name="similaritySlider">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>70</x>
        <y>10</y>
        <width>200</width>
        <height>16</height>
@@ -3860,14 +3860,32 @@
     <widget class="QLabel" name="similarityLabel">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>10</y>
-       <width>60</width>
-       <height>16</height>
+       <x>280</x>
+       <y>8</y>
+       <width>31</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
       <string>0</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="fillInsideBlack_check">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>8</y>
+       <width>121</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Fill inside black</string>
      </property>
     </widget>
    </widget>
@@ -4167,6 +4185,7 @@
     <addaction name="actionPaste_from_clipboard"/>
     <addaction name="actionPaste_from_file"/>
     <addaction name="actionCopy_selection_to_file"/>
+    <addaction name="actionMerge_selection_to_image"/>
     <addaction name="actionTransparent_selection"/>
    </widget>
    <widget class="QMenu" name="menuEffects">
@@ -4353,6 +4372,14 @@
   <action name="actionGithub">
    <property name="text">
     <string>Github</string>
+   </property>
+  </action>
+  <action name="actionMerge_selection_to_image">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Merge selection to image</string>
    </property>
   </action>
  </widget>
