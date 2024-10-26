@@ -61,4 +61,3 @@ void LineDialog::on_okButton_clicked()
     close();
 
 }
-
