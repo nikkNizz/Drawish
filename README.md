@@ -19,7 +19,7 @@ sudo make install
 or install and compile directly from Qt Creator on Windows, Mac, or Linux.
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.4) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.6) page of this project.  
 For **Windows**, download Drawish_version_Win.zip.  
 Extract the folder, and run the .exe file. Create a link to the executable for faster use.  
 
@@ -57,6 +57,10 @@ To save the image to a file select: "Edit->Selection to file".
 To finish and pasting the selection, click on a point on the image.  
 To skip pasting, deselect the selection button.
 
+#### Merge selection
+From the "Edit->Merge selection to image" menu you can merge the portion of the image below into the selection. 
+A prompt allows you to choose between 3 blending ratios.
+
 #### Freehand drawing
 Click the [marker] button
 and move the mouse over the drawing area, holding
@@ -68,7 +72,7 @@ In the panel that appears above the drawing area you can
 choose attributes. Do not use transparent color to draw.  
 Use white color to erase.
 
-#### Fill
+#### Fill / Fill inside black
 Click the [fill] button and click on the
 point in the image where you want to replace a color with the
 active color.  The replacement occurs on the exact color that you clicked.  
@@ -77,6 +81,7 @@ appears at the top.
 Increasing the value decreases the affinity.  
 The transparent color cannot fill a white area. First fill the
 white area with another color.
+If the check box [Fill inside black] is selected, the entire area around the click, **included within a black line**, is filled in black.
 
 #### Spray
 Click the [spray] button and move the mouse over the drawing area, holding down the left mouse button.
@@ -95,7 +100,7 @@ with the mouse.
 In the top menu choose the attributes of the line. 
 To actually draw it, click on a point in the image.  
 To deactivate it, uncheck the line button.
-From the "Image->Create line" menu you can also create a line by entering the coordinates from the keyboard.
+From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.
 
 #### Shapes
 As for the line. Click the [shapes] button.
