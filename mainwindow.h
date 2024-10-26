@@ -48,6 +48,7 @@ private slots:
   void showPix();
   void save_previous(QString tx="");
   void fill_();
+  void fillInsideBlack();
   bool isSimil(QColor k1, QColor k2, int affinity);
   void spray_draw();
   void get_color();
@@ -185,6 +186,8 @@ private slots:
   void on_actionCreate_Line_triggered();
 
   void on_actionGithub_triggered();
+
+  void on_actionMerge_selection_to_image_triggered();
 
 private:
     Ui::MainWindow *ui;
