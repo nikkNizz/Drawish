@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "Version:  0.5\n\nRelease:  16 Oct 2024\n\nEmail:  nicNiz@libero.it";
+    version_info = "Version:  0.6\nEmail:  nicNiz@libero.it";
     // set label as drawing area
 
     ui->textOptionsWidget->setVisible(false);
@@ -474,7 +474,7 @@ void MainWindow::drawCopy()
 {    
     save_previous("Copy selection");
     QPixmap selectedImage(selectionRect->pixmap());
-    QPainter p(&pix);
+    QPainter p(&pix);  
     p.drawPixmap(sizes::selX ,sizes::selY, selectedImage.scaled(sizes::selW, sizes::selH));
     wArea->setPixmap(pix);
     delete selectionRect;
@@ -557,6 +557,47 @@ void MainWindow::pasteImg(QPixmap passedPix)
 }
 
 
+void MainWindow::on_actionMerge_selection_to_image_triggered()
+{
+    if(sizes::isSelectionOn == false){
+        QMessageBox::information(this, "Drawish", "No area selected");
+        return;
+    }
+    QPixmap selectedPix(selectionRect->pixmap().scaled(sizes::selW, sizes::selH));
+    QPixmap underPix = pix.copy(sizes::selX, sizes::selY, sizes::selW, sizes::selH);
+    QImage selectedImage = selectedPix.toImage();
+    QImage underImage = underPix.toImage();
+
+    QMessageBox msgBox(this);
+    msgBox.setText("Levels");
+    msgBox.addButton("50/50", QMessageBox::AcceptRole);
+    msgBox.addButton("30/70", QMessageBox::RejectRole);
+    msgBox.addButton("70/30", QMessageBox::ActionRole);
+    int ret = msgBox.exec();
+
+    int perc1=50;
+    int perc2=50;
+    if(ret == QMessageBox::RejectRole){ perc1 = 30; perc2 = 70;}
+    else if(ret == QMessageBox::ActionRole){perc1 = 70; perc2 = 30;}
+    int r1,r2,g1,g2,b1,b2;
+    for(int xx= 0;  xx < sizes::selW; ++xx){
+        for(int yy=0; yy < sizes::selH; ++yy){
+            r1 = selectedImage.pixelColor(xx,yy).red();
+            r2 = underImage.pixelColor(xx,yy).red();
+            r1 = (r1 * perc1 + r2 * perc2)/100;
+            g1 = selectedImage.pixelColor(xx,yy).green();
+            g2 = underImage.pixelColor(xx,yy).green();
+            g1 = (g1 * perc1 + g2 * perc2)/100;
+            b1 = selectedImage.pixelColor(xx,yy).blue();
+            b2 = underImage.pixelColor(xx,yy).blue();
+            b1 = (b1 * perc1 + b2 * perc2)/100;
+            selectedImage.setPixelColor(xx, yy, QColor(r1,g1,b1));
+        }
+    }
+    selectionRect->setPixmap(QPixmap::fromImage(selectedImage));
+    updateInfo();
+}
+
 QPixmap MainWindow::addTransparency(QPixmap passedPix, int opacity, int red, int green, int blue)
 {
     QImage sPix = passedPix.toImage();
@@ -578,7 +619,12 @@ void MainWindow::on_actionPaste_from_file_triggered()
     QFileDialog dialog(this);
     QString f =dialog.getOpenFileName(this,"Drawish...Select image", QDir::homePath(),"Images (*.png *.jpg *.gif *.bmp *.ico)" );
     QPixmap fpix(f);
-    pasteImg(fpix);
+    if(!fpix.isNull()){
+        pasteImg(fpix);
+        QMessageBox::information(this, "Drawish", "The image is in a selection");
+    }else{
+        QMessageBox::information(this, "Drawish", "Invalid image!");
+    }
 }
 
 
@@ -862,6 +908,10 @@ void MainWindow::on_fillButton_clicked()
 
 void MainWindow::fill_()
 {
+    if(ui->fillInsideBlack_check->isChecked()){
+        fillInsideBlack();
+        return;
+    }
     save_previous("Fill");
     updateInfo();
     QImage img = pix.toImage();
@@ -912,6 +962,58 @@ void MainWindow::fill_()
     pix = QPixmap::fromImage(img);
     showPix();
 
+}
+
+void MainWindow::fillInsideBlack()
+{
+    save_previous("Fill inside black");
+    updateInfo();
+    QImage img = pix.toImage();
+    img =img.convertToFormat(QImage::Format_ARGB32);
+    QList<int> coord;
+    coord.push_back(sizes::selX);
+    coord.push_back(sizes::selY);
+    QColor oldColor= QColor::fromRgb(img.pixel(sizes::selX, sizes::selY));
+    if(oldColor == Qt::black)return;
+    img.setPixelColor(sizes::selX, sizes::selY, Qt::black);
+    int posx, posy;
+
+    while(coord.count()>0){
+        posx = coord[0];
+        posy = coord[1];
+        coord.remove(0,2);
+        if(posy-1 > -1 ){
+            if(QColor::fromRgb(img.pixel(posx, posy-1)) != QColor(0,0,0)){
+                coord.push_back(posx);
+                coord.push_back(posy-1);
+                img.setPixelColor(posx, posy-1, Qt::black);
+            }
+        }
+        if(posx-1 > -1 ){
+            if(QColor::fromRgb(img.pixel(posx-1, posy)) != QColor(0,0,0)){
+                coord.push_back(posx-1);
+                coord.push_back(posy);
+                img.setPixelColor(posx-1, posy, Qt::black);
+            }
+        }
+
+        if(posx+1 < img.width() ){
+            if(QColor::fromRgb(img.pixel(posx+1, posy)) != QColor(0,0,0)){
+                coord.push_back(posx+1);
+                coord.push_back(posy);
+                img.setPixelColor(posx+1, posy, Qt::black);
+            }
+        }
+        if(posy+1 < img.height() ){
+            if(QColor::fromRgb(img.pixel(posx, posy+1)) != QColor(0,0,0)){
+                coord.push_back(posx);
+                coord.push_back(posy+1);
+                img.setPixelColor(posx, posy+1, Qt::black);
+            }
+        }
+    }
+    pix = QPixmap::fromImage(img);
+    showPix();
 }
 
 bool MainWindow::isSimil(QColor k1, QColor k2, int affinity)
@@ -1756,3 +1858,6 @@ void MainWindow::on_actionGithub_triggered()
 {
     QDesktopServices::openUrl(QUrl("https://github.com/nikkNizz/Drawish"));
 }
+
+
+
