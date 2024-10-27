@@ -1,4 +1,4 @@
-# Drawish  
+# Drawish  0.6 
 Is a program for basic drawing.  
 It also allows you to modify existing images.
 
@@ -104,6 +104,8 @@ From the "Image->Create line" menu **you can also create a line by entering the 
 
 #### Shapes
 As for the line. Click the [shapes] button.
+Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS. 
+Border width is defined by line width box. Option fill shape is availeble.
 
 #### Curved line
 Click the [curved line] button.  You will be able to
