@@ -171,4 +171,5 @@ Images are saved in png format.
 To save in jpg, ico or bmp format, enter the extension to the file name
 in the save window.  
 #### video:
-https://drive.google.com/file/d/1AIZnuqCW0IHnerJoBY9EjuAVHEOwcUgJ/view?usp=sharing
+[Introduction](https://drive.google.com/file/d/1P1VTq4DPX-Mfdl9mQaWzYBlodk4mRVRY/view?usp=sharing)  
+[Simple project](https://drive.google.com/file/d/1qYL_KbZe9HY8I8-WeP1Zw0g9_m4A9Qy3/view?usp=sharing)
