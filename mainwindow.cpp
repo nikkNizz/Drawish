@@ -30,6 +30,7 @@
 #include <QInputDialog>
 #include <QCursor>
 #include <QDesktopServices>
+#include <QBuffer>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -37,13 +38,13 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "Version:  0.6\nEmail:  nicNiz@libero.it";
+    version_info = "Version:  0.7\nEmail:  nicNiz@libero.it";
     // set label as drawing area
 
     ui->textOptionsWidget->setVisible(false);
-    ui->lineOptionWidget->setGeometry(80,0,500,31);
+    ui->lineOptionWidget->setGeometry(80,0,552,31);
     ui->lineOptionWidget->setVisible(false);
-    ui->similaritywidget->setGeometry(80,0,500,31);
+    ui->similaritywidget->setGeometry(80,0,552,31);
     ui->similaritywidget->setVisible(false);
 
     wArea = new Area();
@@ -88,7 +89,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(wArea, SIGNAL(redraw()), this, SLOT(drawCopy()));
     connect(wArea, SIGNAL(penDraw()), this, SLOT(drawWithPen()));
     connect(wArea, SIGNAL(finishDrawPen()), this, SLOT(showPix()));
-    connect(wArea, SIGNAL(savePrevious()), this, SLOT(save_previous()));
+    connect(wArea, SIGNAL(drawFirstPoint()), this, SLOT(draw_first_point()));
     connect(wArea, SIGNAL(readyToFill()), this, SLOT(fill_()));
     connect(wArea, SIGNAL(sprayDraw()), this, SLOT(spray_draw()));
     connect(wArea, SIGNAL(getColor()), this, SLOT(get_color()));
@@ -124,7 +125,7 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
         }
         QPen pen(ncol, ui->lineWidthBox->value());
 
-        if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::FlatCap);}
+        if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
         else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
 
         pai.setPen(pen);
@@ -248,7 +249,7 @@ void MainWindow::newImage(QString from)
    else if(from == "f"){ // open file
       sizes::modify= false;
       QFileDialog dialog(this);
-      QString f =dialog.getOpenFileName(this,"Drawish...Select image", QDir::homePath(),"Images (*.png *.jpg *.gif *.bmp *.ico)" );
+      QString f =dialog.getOpenFileName(this,"Drawish...Select image", QDir::homePath() );
       QPixmap npix(f);
       if(npix.isNull()){ QMessageBox::information(this, "Drawish", "Unsupported file"); return;}
       activePathFile = f;
@@ -553,6 +554,7 @@ void MainWindow::pasteImg(QPixmap passedPix)
     sizes::isSelectionOn=true;
     sizes::startResize=false;
     selectionRect->show();
+    QMessageBox::information(this, "Drawish", "The image is in a selection");
     raiseBorders();
 }
 
@@ -617,11 +619,10 @@ QPixmap MainWindow::addTransparency(QPixmap passedPix, int opacity, int red, int
 void MainWindow::on_actionPaste_from_file_triggered()
 {
     QFileDialog dialog(this);
-    QString f =dialog.getOpenFileName(this,"Drawish...Select image", QDir::homePath(),"Images (*.png *.jpg *.gif *.bmp *.ico)" );
+    QString f =dialog.getOpenFileName(this,"Drawish...Select image", QDir::homePath() );
     QPixmap fpix(f);
     if(!fpix.isNull()){
         pasteImg(fpix);
-        QMessageBox::information(this, "Drawish", "The image is in a selection");
     }else{
         QMessageBox::information(this, "Drawish", "Invalid image!");
     }
@@ -661,8 +662,7 @@ void MainWindow::on_drawTextButton_clicked()
     }
 }
 
-
-void MainWindow::on_textLine_textEdited(const QString &arg1)
+void MainWindow::on_textEdit_textChanged()
 {
     if(!sizes::isSelectionOn){
         QMessageBox::information(this, "Drawish", "Click a point on the canvas, before");
@@ -681,12 +681,14 @@ void MainWindow::on_textLine_textEdited(const QString &arg1)
 
     selectionRect->setFont(tFont);
     selectionRect->setStyleSheet("color:" + sizes::activeColor.name());
-    selectionRect->setText(arg1);
+    selectionRect->setText(ui->textEdit->toPlainText());
 }
+
+
 
 void MainWindow::on_confirmTextButton_clicked()
 {
-    if(ui->textLine->text() != ""){
+    if(ui->textEdit->toPlainText() != ""){
         save_previous("Text");
         QPainter p(&pix);
         QFont tFont(ui->fontComboBox->currentFont());
@@ -701,7 +703,7 @@ void MainWindow::on_confirmTextButton_clicked()
         tFont.setPixelSize(sizeText);
         p.setFont(tFont);
         p.setPen(sizes::activeColor);
-        p.drawText(sizes::selX+2, sizes::selY+sizeText+2, ui->textLine->text());
+        p.drawText(QRect(sizes::selX+2, sizes::selY+2, sizes::selW, sizes::selH), ui->textEdit->toPlainText());
         wArea->setPixmap(pix);
         selectionRect->resetGeometry();
     }
@@ -830,9 +832,10 @@ void MainWindow::drawWithPen(){
     if(ui->markerButton->isChecked()){
         ncol = QColor(sizes::activeColor.red(), sizes::activeColor.green(), sizes::activeColor.blue(), 32);
     }
+
     QPen pen(ncol, sizes::line_width);
 
-    if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::FlatCap);}
+    if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
     else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
 
     pai.setPen(pen);
@@ -847,21 +850,39 @@ void MainWindow::drawWithPen(){
     }
 }
 
+void MainWindow::draw_first_point()
+{
+    if(sizes::activeOperation == 5){
+        save_previous("Spray");
+        return;
+    }
+    save_previous("Pen");
+    updateInfo();
+    QPainter pai(&pix);
+    QColor ncol = sizes::activeColor;
+    if(ui->markerButton->isChecked()){
+        ncol = QColor(sizes::activeColor.red(), sizes::activeColor.green(), sizes::activeColor.blue(), 32);
+    }
+
+    QPen pen(ncol, sizes::line_width);
+
+    if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
+    else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
+
+    pai.setPen(pen);
+    pai.drawPoint(sizes::shape_x_begin, sizes::shape_y_begin);
+
+    wArea->setPixmap(pix);
+}
+
 void MainWindow::showPix()
 {
-
     wArea->setPixmap(pix);
 }
 
 void MainWindow::save_previous(QString tx)
 {
-    if(sizes::activeOperation == 3 && tx =="" ){
-        historyList.push_back("Pen");
-    }
-    else if(sizes::activeOperation == 5 && tx =="" ){
-        historyList.push_back("Spray");
-    }
-    else{  historyList.push_back(tx); }
+    historyList.push_back(tx);
 
     prePix = QPixmap();
     historyPix.push_back(pix);
@@ -1154,7 +1175,7 @@ void MainWindow::createShapeArea()
     QPainter pai(&selPix);
     QPen pen(sizes::activeColor, sizes::line_width);
 
-    if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::FlatCap);}
+    if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
     else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
 
     pai.setPen(pen);
@@ -1176,7 +1197,7 @@ void MainWindow::draw_shape()
         QPainter pai(&pix);
         QPen pen(sizes::activeColor, sizes::line_width);
 
-        if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::FlatCap);}
+        if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
         else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
 
         pai.setPen(pen);
@@ -1245,10 +1266,6 @@ void MainWindow::on_shapesCombo_currentIndexChanged(int index)
 
 }
 
-void MainWindow::on_fillCheck_clicked(bool checked)
-{
-    sizes::toFill =checked;
-}
 
 //  curve line
 void MainWindow::on_curveButton_clicked()
@@ -1769,15 +1786,38 @@ void MainWindow::on_actionAbout_triggered()
 void MainWindow::on_actionQuadruple_the_pixels_triggered()
 {
   if(sizes::isSelectionOn){
-      drawCopy();
-      sizes::isSelectionOn =false;
+     // drawCopy();
+     // sizes::isSelectionOn =false;
+      QImage img = selectionRect->pixmap().scaled(sizes::selW, sizes::selH).toImage();
+      sizes::selH *=2;
+      sizes::selW *=2;
+       QPixmap bigPix(sizes::selW, sizes::selH);
+       QImage bigImage = bigPix.toImage();
+       int nx=0;
+       int ny =0;
+       for (int y = 0; y < img.height(); ++y) {
+           QRgb *line = reinterpret_cast<QRgb*>(img.scanLine(y));
+           for (int x = 0; x < img.width(); ++x) {
+               QRgb &rgb = line[x];
+               nx = x * 2;
+               ny = y * 2;
+               bigImage.setPixelColor(nx, ny, QColor(rgb));
+               bigImage.setPixelColor(nx+1, ny, QColor(rgb));
+               bigImage.setPixelColor(nx, ny+1, QColor(rgb));
+               bigImage.setPixelColor(nx+1, ny+1, QColor(rgb));
+           }
+       }
+       bigPix = QPixmap::fromImage(img);
+       selectionRect->resetGeometry();
+       selectionRect->setPixmap(bigPix);
+
   }
+  else{
   untoggle();
   save_previous("Quadruple");
   sizes::areaWidth *=2;
   sizes::areaHeight *=2;
   QPixmap bigPix(sizes::areaWidth, sizes::areaHeight);
-  //bigPix.fill(Qt::white);
   QImage bigImage = bigPix.toImage();
   QImage img = pix.toImage();
   int nx=0;
@@ -1800,16 +1840,33 @@ void MainWindow::on_actionQuadruple_the_pixels_triggered()
   borderB->resetGeometry();
   borderR->resetGeometry();
   corner->resetGeometry();
+  }
   updateInfo();
 }
 
 
 void MainWindow::on_actionDivide_by_4_triggered()
-{    
+{
     if(sizes::isSelectionOn){
-        drawCopy();
-        sizes::isSelectionOn = false;
+        //drawCopy();
+       // sizes::isSelectionOn = false;
+        QImage img = selectionRect->pixmap().scaled(sizes::selW, sizes::selH).toImage();
+        sizes::selH /=2;
+        sizes::selW /=2;
+        QPixmap smallPix(sizes::selW, sizes::selH);
+        QImage smallImage = smallPix.toImage();
+        for (int y = 0; y < img.height()-1; y +=2) {
+            QRgb *line = reinterpret_cast<QRgb*>(img.scanLine(y));
+            for (int x = 0; x < img.width()-1; x +=2) {
+                QRgb &rgb = line[x];
+                smallImage.setPixelColor(x/2, y/2, QColor(rgb));
+            }
+        }
+        smallPix = QPixmap::fromImage(img);
+        selectionRect->resetGeometry();
+        selectionRect->setPixmap(smallPix);
     }
+    else{
     untoggle();
     save_previous("Divide by 4");
     sizes::areaWidth /=2;
@@ -1831,6 +1888,7 @@ void MainWindow::on_actionDivide_by_4_triggered()
     borderB->resetGeometry();
     borderR->resetGeometry();
     corner->resetGeometry();
+    }
     updateInfo();
 }
 
@@ -1845,7 +1903,7 @@ void MainWindow::on_actionCreate_Line_triggered()
         QPainter pai(&pix);
         QPen pen(sizes::activeColor, sizes::line_width);
 
-        if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::FlatCap);}
+        if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
         else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
 
         pai.setPen(pen);
@@ -1859,5 +1917,24 @@ void MainWindow::on_actionGithub_triggered()
     QDesktopServices::openUrl(QUrl("https://github.com/nikkNizz/Drawish"));
 }
 
+void MainWindow::on_comboBox_activated(int index)
+{
+    sizes::FillStyle = index;
+}
 
 
+void MainWindow::on_actionbase64_triggered()
+{
+    if(!isCam){
+        QMessageBox::warning(this, "Drawish", "Na active cam!");
+        return;
+    }
+    QPixmap camPix = pix.copy(save_area->pos().x(), save_area->pos().y(), save_area->width(), save_area->height());
+    QBuffer buffer;
+    buffer.open(QIODevice::WriteOnly);
+    camPix.save(&buffer, "PNG");
+    auto const encoded = buffer.data().toBase64();
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    clipboard->setText(encoded);
+    QMessageBox::warning(this, "Drawish", "base64 code has been copied to clipboard!");
+}
