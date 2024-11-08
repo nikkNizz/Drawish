@@ -24,7 +24,7 @@ struct sizes
   static int shape_x_end;
   static int shape_y_end;
   static QString activeShape;
-  static bool toFill;
+  static int FillStyle;
   static bool isCurveLineAreaOn;
   static int zoomx;
   static int zoomy;
