@@ -3535,19 +3535,6 @@
       <string>Size</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="textLine">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>0</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="placeholderText">
-      <string>Text</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="confirmTextButton">
      <property name="geometry">
       <rect>
@@ -3561,13 +3548,26 @@
       <string>DRAW</string>
      </property>
     </widget>
+    <widget class="QPlainTextEdit" name="textEdit">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>0</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Text</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="lineOptionWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>190</x>
       <y>50</y>
-      <width>511</width>
+      <width>551</width>
       <height>31</height>
      </rect>
     </property>
@@ -3608,7 +3608,7 @@
       <rect>
        <x>100</x>
        <y>0</y>
-       <width>26</width>
+       <width>25</width>
        <height>26</height>
       </rect>
      </property>
@@ -3632,9 +3632,9 @@
     <widget class="QPushButton" name="roundcapButton">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>128</x>
        <y>0</y>
-       <width>26</width>
+       <width>25</width>
        <height>26</height>
       </rect>
      </property>
@@ -3660,7 +3660,7 @@
       <rect>
        <x>190</x>
        <y>0</y>
-       <width>111</width>
+       <width>101</width>
        <height>21</height>
       </rect>
      </property>
@@ -3779,25 +3779,12 @@
       </property>
      </item>
     </widget>
-    <widget class="QCheckBox" name="fillCheck">
-     <property name="geometry">
-      <rect>
-       <x>460</x>
-       <y>0</y>
-       <width>88</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Fill</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="markerButton">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>156</x>
        <y>0</y>
-       <width>26</width>
+       <width>25</width>
        <height>26</height>
       </rect>
      </property>
@@ -3814,6 +3801,91 @@
      <property name="checkable">
       <bool>true</bool>
      </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>0</y>
+       <width>71</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>No Fill</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fill solid</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dense1</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dense2</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dense3</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dense4</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dense5</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dense6</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Dense7</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Horizontal lines</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Vertical lines</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cross lines</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Diagon lines B</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Diagon lines F</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Diagon cross</string>
+      </property>
+     </item>
     </widget>
    </widget>
    <widget class="QWidget" name="similaritywidget" native="true">
@@ -4212,6 +4284,7 @@
     <addaction name="actionCreate"/>
     <addaction name="actionSave_image"/>
     <addaction name="actionDelete_camera"/>
+    <addaction name="actionbase64"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -4278,6 +4351,9 @@
   </action>
   <action name="actionTransparent_selection">
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
     <bool>true</bool>
    </property>
    <property name="text">
@@ -4380,6 +4456,11 @@
    </property>
    <property name="text">
     <string>Merge selection to image</string>
+   </property>
+  </action>
+  <action name="actionbase64">
+   <property name="text">
+    <string>To base64</string>
    </property>
   </action>
  </widget>
