@@ -123,6 +123,31 @@ void shapeArea::redrawLine(int to_x, int to_y, int from_x,int from_y )
     this->setPixmap(npix);
 }
 
+QBrush shapeArea::bru()
+{
+    QBrush br;
+    br.setColor(sizes::activeColor);
+    if(sizes::FillStyle == 0){
+        br.setStyle(Qt::NoBrush);
+    }
+    else if(sizes::FillStyle == 1) { br.setStyle(Qt::SolidPattern); }
+    else if(sizes::FillStyle == 2) { br.setStyle(Qt::Dense1Pattern); }
+    else if(sizes::FillStyle == 3) { br.setStyle(Qt::Dense2Pattern); }
+    else if(sizes::FillStyle == 4) { br.setStyle(Qt::Dense3Pattern); }
+    else if(sizes::FillStyle == 5) { br.setStyle(Qt::Dense4Pattern); }
+    else if(sizes::FillStyle == 6) { br.setStyle(Qt::Dense5Pattern); }
+    else if(sizes::FillStyle == 7) { br.setStyle(Qt::Dense6Pattern); }
+    else if(sizes::FillStyle == 8) { br.setStyle(Qt::Dense7Pattern); }
+    else if(sizes::FillStyle == 9) { br.setStyle(Qt::HorPattern); }
+    else if(sizes::FillStyle == 10) { br.setStyle(Qt::VerPattern); }
+    else if(sizes::FillStyle == 11) { br.setStyle(Qt::CrossPattern); }
+    else if(sizes::FillStyle == 12) { br.setStyle(Qt::BDiagPattern); }
+    else if(sizes::FillStyle == 13) { br.setStyle(Qt::FDiagPattern); }
+    else if(sizes::FillStyle == 14) { br.setStyle(Qt::DiagCrossPattern); }
+    return br;
+}
+
+
 void shapeArea::drawSomething()
 {
     if(this->width() < 5 || this->height() < 5)return;
@@ -134,11 +159,9 @@ void shapeArea::drawSomething()
         QPainter p(&npix);
         QPen pen2(sizes::activeColor);
         pen2.setWidth(sizes::line_width);
+        pen2.setJoinStyle(Qt::MiterJoin);
         p.setPen(pen2);
-        QBrush br;
-        br.setColor(sizes::activeColor);
-        br.setStyle(Qt::SolidPattern);
-        if(sizes::toFill){ p.setBrush(br);}
+        p.setBrush(bru());
 
         if(sizes::activeShape == "squ"){
             int side = (sizes::selW < sizes::selH) ? sizes::selW : sizes::selH;
