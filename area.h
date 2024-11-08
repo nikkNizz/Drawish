@@ -20,6 +20,7 @@ signals:
     void endRubber();
     void redraw();
     void penDraw();
+    void drawFirstPoint();
     void savePrevious();
     void finishDrawPen();
     void readyToFill();
