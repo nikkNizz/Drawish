@@ -20,6 +20,7 @@ signals:
 
 private slots:
     void redrawLine(int to_x, int to_y, int from_x,int from_y );
+    QBrush bru();
     void drawSomething();
 
 private:
@@ -27,6 +28,7 @@ private:
     QString whereExp; // top, bottom, left right
     int preX, preY;
     int diffx, diffy;
+
 
 };
 
