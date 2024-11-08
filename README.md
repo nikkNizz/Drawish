@@ -1,4 +1,4 @@
-# Drawish  0.6 
+# Drawish  0.7 
 Is a program for basic drawing.  
 It also allows you to modify existing images.
 
@@ -19,7 +19,7 @@ sudo make install
 or install and compile directly from Qt Creator on Windows, Mac, or Linux.
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.6) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.7) page of this project.  
 For **Windows**, download Drawish_version_Win.zip.  
 Extract the folder, and run the .exe file. Create a link to the executable for faster use.  
 
@@ -51,7 +51,7 @@ You can also create a selection by entering the coordinates from the keyboard
 from the "Image->Sizes->[Create selection]" menu.  
 To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  
 To make the white area of ​​the selection transparent, check the box
-from the "Edit->Transparent selection" Menu, **before** creating the selection.  
+from the "Edit->Transparent selection" Menu (already selected by default), **before** creating the selection.  
 To select everything, use the "Edit->Select all" menu.  
 To save the image to a file select: "Edit->Selection to file".  
 To finish and pasting the selection, click on a point on the image.  
@@ -71,6 +71,13 @@ Use the A (left), Q or W (up), S (right), Z or X (down) keys.
 In the panel that appears above the drawing area you can
 choose attributes. Do not use transparent color to draw.  
 Use white color to erase.
+
+#### Text
+Click the [text] button, and click a point in the drawing area. 
+The text area will be displayed and can be moved as desired.
+The text options are displayed at the top.
+Click the [DRAW] button to actually print the text, then move the text area 
+to continue printing text. Or disable the function by clicking the left button again.
 
 #### Fill / Fill inside black
 Click the [fill] button and click on the
@@ -105,7 +112,8 @@ From the "Image->Create line" menu **you can also create a line by entering the 
 #### Shapes
 As for the line. Click the [shapes] button.
 Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS. 
-Border width is defined by line width box. Option fill shape is availeble.
+Border width is defined by line width box. 
+Many filling options are available from the choice box at the top right.
 
 #### Curved line
 Click the [curved line] button.  You will be able to
@@ -129,8 +137,10 @@ Clicking with the left mouse button, you get the information on
 the rgb color of the pixel.  
 Remove the enlarged area with another right-click on the image.  
 ##### Double the pixels.
-From the "Image->Quadruple the pixel" menu you can get a new image with the pixels doubled in width and height. The image can be enlarged several times without loss of quality, but it is not a zoom, but a new image.
-To divide the pixels, use the "Image->Divide by 4" menu.
+If there is an active selection this function applies to the selection, otherwise it applies to the entire image.
+From the "Image->Quadruple the pixel" menu you can get a new image with the pixels doubled in width and height. 
+The image can be enlarged several times without loss of quality, but it is not a zoom, but a new image.
+In the same way, to divide the pixels, use the "Image->Divide by 4" menu.
 ##### View.
 The zoom of the entire image is obtained from the "Image->Zoom" menu, but
 in view only.
@@ -148,8 +158,9 @@ You can also create a selection manually.
 #### Effects
 From the "Image->Effects" menu a window opens that allows you to apply effects to the image in the selection.  
 If there is no selection, the effects are applied to the entire image.  
-After each change, click the [Update] 
-button to make the changes effective.  Click [OK] to apply the new image or [Cancel] to abort the changes.
+After each change, click the [Update] button to make the changes effective, or select the "update automatically" 
+checkbox if the function allows it.
+Click [OK] to apply the new image or [Cancel] to abort the changes.
 
 #### Other effects
 From the Image menu you can apply the listed effects to the selection.  
@@ -165,11 +176,13 @@ This area can be moved freely with the mouse or with the
 A Q S Z (or A W S X) keys.  
 Save the portion of the image delimited by the camera from the "Camera->Save image" menu.  
 Delete the camera from the" Camera->Delete camera " menu.
+It is possible to save the framed image in base64 format from the "Camera->To base64" menu.
 
 #### Saving
 Images are saved in png format.  
 To save in jpg, ico or bmp format, enter the extension to the file name
 in the save window.  
+For base64 format, see previous chapter.
 #### video:
 [Introduction](https://drive.google.com/file/d/1P1VTq4DPX-Mfdl9mQaWzYBlodk4mRVRY/view?usp=sharing)  
 [Simple project](https://drive.google.com/file/d/1qYL_KbZe9HY8I8-WeP1Zw0g9_m4A9Qy3/view?usp=sharing)
