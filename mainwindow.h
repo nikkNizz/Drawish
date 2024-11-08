@@ -45,6 +45,7 @@ private slots:
   void pasteImg(QPixmap passedPix);
   QPixmap addTransparency(QPixmap passedPix, int opacity, int red, int green, int blue);
   void drawWithPen();
+  void draw_first_point();
   void showPix();
   void save_previous(QString tx="");
   void fill_();
@@ -88,8 +89,6 @@ private slots:
   void on_actionPaste_from_file_triggered();
 
   void on_actionCopy_selection_to_file_triggered();
-
-  void on_textLine_textEdited(const QString &arg1);
 
   void on_blackButton_clicked();
 
@@ -139,8 +138,6 @@ private slots:
 
   void on_shapesCombo_currentIndexChanged(int index);
 
-  void on_fillCheck_clicked(bool checked);
-
   void on_curveButton_clicked();
 
   void on_rotateLeftButton_clicked();
@@ -188,6 +185,12 @@ private slots:
   void on_actionGithub_triggered();
 
   void on_actionMerge_selection_to_image_triggered();
+
+  void on_comboBox_activated(int index);
+
+  void on_textEdit_textChanged();
+
+  void on_actionbase64_triggered();
 
 private:
     Ui::MainWindow *ui;
