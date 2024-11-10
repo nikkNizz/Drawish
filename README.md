@@ -176,7 +176,7 @@ This area can be moved freely with the mouse or with the
 A Q S Z (or A W S X) keys.  
 Save the portion of the image delimited by the camera from the "Camera->Save image" menu.  
 Delete the camera from the" Camera->Delete camera " menu.
-It is possible to save the framed image in base64 format from the "Camera->To base64" menu.
+You can save the framed image in base64 format to the clipboard from the "Camera->To base64" menu.
 
 #### Saving
 Images are saved in png format.  
