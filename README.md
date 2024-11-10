@@ -2,6 +2,14 @@
 Is a program for basic drawing.  
 It also allows you to modify existing images.
 
+
+### PRECOMPILED PACKAGES:
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.7) page of this project.  
+For **Windows**, download Drawish_version_Win.zip.  
+Extract the folder, and run the .exe file. Create a link to the executable for faster use.  
+
+For **Debian/Linux** download and run the portable Appimage.
+
 ### COMPILE FROM SOURCE (LINUX):
 Download and unzip the project.  
 Give the following commands from the terminal:
@@ -15,21 +23,12 @@ cmake .
 make  
 sudo make install  
 
-----------------------------------------
-or install and compile directly from Qt Creator on Windows, Mac, or Linux.
-
-### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.7) page of this project.  
-For **Windows**, download Drawish_version_Win.zip.  
-Extract the folder, and run the .exe file. Create a link to the executable for faster use.  
-
-For **Debian/Linux** download and run the portable Appimage.
+Or install and compile directly from **Qt Creator** on Windows, Mac, or Linux.
 
 #### USE
 You can open images from the" File->Open" menu. You can also
 paste an image from the clipboard ("Edit->Paste from clipboard") or from a file ("Edit->Paste from file")
 
----
 The drawing options are visible on the left of the drawing area.
 The color palette is also visible here.
 The first color on the top left is the active color (default black). Change the active color:  
