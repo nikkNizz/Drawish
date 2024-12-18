@@ -2,7 +2,9 @@
 <qresource>
     <file>res/fill.png</file>  
     <file>res/line.png</file>    
+    <file>res/lineConn.png</file> 
     <file>res/penna.png</file> 
+    <file>res/pen2.png</file> 
     <file>res/pipet.png</file>  
     <file>res/redo.png</file>    
     <file>res/selez.png</file> 
