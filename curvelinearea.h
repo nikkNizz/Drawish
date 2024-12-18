@@ -14,6 +14,7 @@ public:
 
 signals:
     void finishCurve();
+    void finishLines();
 
 private slots:
 
