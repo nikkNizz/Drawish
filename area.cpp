@@ -42,7 +42,7 @@ void Area::mousePressEvent(QMouseEvent *event)
         sizes::selW = 160;
         emit endRubber();   // reuse this
     }
-    else if(sizes::activeOperation == 3 ){
+    else if(sizes::activeOperation == 3 || sizes::activeOperation == 10){
         sizes::selX = event->pos().x();
         sizes::selY = event->pos().y();
         sizes::shape_x_begin = sizes::selX;
@@ -93,6 +93,13 @@ void Area::mouseMoveEvent(QMouseEvent *event)
        sizes::shape_y_end = sizes::selY;
       emit penDraw();
     }
+   else if(sizes::activeOperation == 10){
+       sizes::selX = event->pos().x();
+       sizes::selY = event->pos().y();
+       sizes::shape_x_end = sizes::selX;
+       sizes::shape_y_end = sizes::selY;
+      emit doublePenDraw();
+    }
    else if(sizes::activeOperation == 5){
        sizes::selX = event->pos().x();
        sizes::selY = event->pos().y();
@@ -133,7 +140,7 @@ void Area::mouseReleaseEvent(QMouseEvent *event)
          delete rubb;
          emit endRubber();
      }
-   else if(sizes::activeOperation == 3 || sizes::activeOperation == 5 ){
+   else if(sizes::activeOperation == 3 || sizes::activeOperation == 5 || sizes::activeOperation == 10 ){
          if(!rightPressed) emit finishDrawPen();
      }
 }
