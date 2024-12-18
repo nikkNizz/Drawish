@@ -9,7 +9,8 @@ LineDialog::LineDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     res = QDialog::Rejected;
-
+    ui->linexStart->setText(QString::number(sizes::lineXEnd));
+    ui->lineyStart->setText(QString::number(sizes::lineYEnd));
 }
 
 LineDialog::~LineDialog()
@@ -47,7 +48,10 @@ void LineDialog::on_okButton_clicked()
         QMessageBox::warning(this, "Drawish", "End y: integer required!");
         return;
     }
-    //--------------------------------------------------------------------------
+    //----------------------------------------
+    sizes::lineXEnd = linex2;
+    sizes::lineYEnd = liney2;
+    //----------------------------------------
     if(linex1 < 0 || linex1 > sizes::areaWidth-1 || linex2 < 0 || linex2 > sizes::areaWidth-1){
         QMessageBox::warning(this, "Drawish", "x out of bounds!");
         return;
@@ -59,5 +63,4 @@ void LineDialog::on_okButton_clicked()
     //--------------------------------------------------------------------------
     res = QDialog::Accepted;
     close();
-
 }
