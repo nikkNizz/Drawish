@@ -31,6 +31,7 @@ void resizeEvent(QResizeEvent *event) override;
 
 private slots:
   void reSize();
+  void areaSize();
   void raiseBorders();
   void imgSave();
   void savePix(QPixmap pixToSave, QString f);
@@ -45,6 +46,7 @@ private slots:
   void pasteImg(QPixmap passedPix);
   QPixmap addTransparency(QPixmap passedPix, int opacity, int red, int green, int blue);
   void drawWithPen();
+  void drawWithDoublePen();
   void draw_first_point();
   void showPix();
   void save_previous(QString tx="");
@@ -57,6 +59,7 @@ private slots:
   void createShapeArea();
   void draw_shape();
   void finish_curve();
+  void finish_lines();
   void view_zoom();
   void zoom_change_color();
   void rotation(int a);
@@ -192,6 +195,12 @@ private slots:
 
   void on_actionbase64_triggered();
 
+  void on_doublePen_clicked();
+
+  void on_connLine_clicked();
+
+  void on_actionTo_Pdf_triggered();
+
 private:
     Ui::MainWindow *ui;
     QString version_info;
@@ -202,7 +211,7 @@ private:
     QPixmap pix, prePix;
     QString activePathFile;
     selectionArea *selectionRect=nullptr;
-    int repeatShow=1 ;  int stopRepeatShow = 15;
+    int repeatShow=1 ;
     shapeArea *shape_area;
     curveLineArea *cl_area;
     saveCam *save_area;
