@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required(VERSION 3.5)
 
-project(Drawish VERSION 0.7 LANGUAGES CXX)
+project(Drawish VERSION 0.8 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -13,6 +13,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS PrintSupport)
+
 
 set(PROJECT_SOURCES
         main.cpp
@@ -81,6 +83,7 @@ else()
 endif()
 
 target_link_libraries(Drawish PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(Drawish PRIVATE Qt6::PrintSupport)
 
 set_target_properties(Drawish PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
