@@ -1,10 +1,10 @@
-# Drawish  0.7 
+# Drawish  0.8 
 Is a program for basic drawing.  
 It also allows you to modify existing images.
 
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.7) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.8) page of this project.  
 For **Windows**, download Drawish_version_Win.zip.  
 Extract the folder, and run the .exe file. Create a link to the executable for faster use.  
 
@@ -71,17 +71,21 @@ In the panel that appears above the drawing area you can
 choose attributes. Do not use transparent color to draw.  
 Use white color to erase.
 
+#### Double pen
+Click the [double pen] button.
+Draw freehand with the mouse in 2 colors (black + the active color).
+
 #### Text
-Click the [text] button, and click a point in the drawing area. 
+Click the [text] button, and **click a point** in the drawing area. 
 The text area will be displayed and can be moved as desired.
-The text options are displayed at the top.
+**The multiline text box and options are displayed at the top**.
 Click the [DRAW] button to actually print the text, then move the text area 
 to continue printing text. Or disable the function by clicking the left button again.
 
 #### Fill / Fill inside black
 Click the [fill] button and click on the
 point in the image where you want to replace a color with the
-active color.  The replacement occurs on the exact color that you clicked.  
+active color. The replacement occurs on the exact color that you clicked.  
 To perform the replacement by color affinity, move the slider that
 appears at the top.  
 Increasing the value decreases the affinity.  
@@ -114,12 +118,13 @@ Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, AR
 Border width is defined by line width box. 
 Many filling options are available from the choice box at the top right.
 
+#### Connected lines
+Click the [connected lines] button.
+After each click on the drawing area you will get connected lines.
+
 #### Curved line
 Click the [curved line] button.  You will be able to
-click on 4 points of the image through which the bezier curve will pass.  
-But only with the **fifth** click, it will actually be drawn.  
-By clicking the curved line button again, any lines
-not fixed with all clicks will be deleted.  
+click on 4 points of the image through which the bezier curve will pass.    
 The real-time display of the bezier curve is not available.
 
 #### Undo/Redo
@@ -181,6 +186,7 @@ You can save the framed image in base64 format to the clipboard from the "Camera
 Images are saved in png format.  
 To save in jpg, ico or bmp format, enter the extension to the file name
 in the save window.  
+You can directly save the image to **PDF** from the "File->To PDF" menu.
 For base64 format, see previous chapter.
 #### video:
 [Introduction](https://drive.google.com/file/d/1P1VTq4DPX-Mfdl9mQaWzYBlodk4mRVRY/view?usp=sharing)  
