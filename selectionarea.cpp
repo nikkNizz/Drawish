@@ -43,12 +43,10 @@ void selectionArea::mouseMoveEvent(QMouseEvent *event)
         if(whereExp == "move"){
            sizes::selX  = event->globalPosition().x()-diffx;
            sizes::selY  = event->globalPosition().y()-diffy;
-           resetGeometry();
         }
         else if(whereExp== "top" && preY > y){
            sizes::selY--;
            sizes::selH++;
-           resetGeometry();
         }
         else if(whereExp== "top" && preY < y){
            sizes::selY++;
@@ -57,31 +55,25 @@ void selectionArea::mouseMoveEvent(QMouseEvent *event)
         }
         else if(whereExp== "bottom" && preY > y){
            sizes::selH--;
-           resetGeometry();
         }
         else if(whereExp== "left" && preX < x){
            sizes::selX++;
            sizes::selW--;
-           resetGeometry();
         }
         else if(whereExp== "left" && preX > x){
             sizes::selX--;
             sizes::selW++;
-           resetGeometry();
         }
         else if(whereExp== "bottom" && preY < y){
            sizes::selH++;
-           resetGeometry();
         }
         else if(whereExp== "right" && preX < x){
            sizes::selW++;
-           resetGeometry();
         }
         else if(whereExp== "right" && preX > x){
            sizes::selW--;
-           resetGeometry();
         }
-
+        resetGeometry();
     }
     preX=x; preY=y;
 
@@ -100,4 +92,3 @@ void selectionArea::resetGeometry()
 {
     this->setGeometry(sizes::selX, sizes::selY, sizes::selW, sizes::selH);
 }
-
