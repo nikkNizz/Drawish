@@ -124,7 +124,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>66</y>
+      <y>60</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -159,7 +159,7 @@
     <property name="geometry">
      <rect>
       <x>4</x>
-      <y>104</y>
+      <y>93</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -194,7 +194,7 @@
     <property name="geometry">
      <rect>
       <x>4</x>
-      <y>66</y>
+      <y>60</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -229,7 +229,7 @@
     <property name="geometry">
      <rect>
       <x>4</x>
-      <y>142</y>
+      <y>126</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -264,7 +264,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>142</y>
+      <y>158</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -299,7 +299,7 @@
     <property name="geometry">
      <rect>
       <x>4</x>
-      <y>180</y>
+      <y>190</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -334,7 +334,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>104</y>
+      <y>126</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -369,7 +369,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>180</y>
+      <y>190</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -404,7 +404,7 @@
     <property name="geometry">
      <rect>
       <x>32</x>
-      <y>269</y>
+      <y>284</y>
       <width>20</width>
       <height>21</height>
      </rect>
@@ -754,7 +754,7 @@
     <property name="geometry">
      <rect>
       <x>55</x>
-      <y>269</y>
+      <y>284</y>
       <width>20</width>
       <height>21</height>
      </rect>
@@ -966,7 +966,7 @@
     <property name="geometry">
      <rect>
       <x>9</x>
-      <y>269</y>
+      <y>284</y>
       <width>20</width>
       <height>21</height>
      </rect>
@@ -1319,7 +1319,7 @@
     <property name="geometry">
      <rect>
       <x>9</x>
-      <y>296</y>
+      <y>311</y>
       <width>20</width>
       <height>21</height>
      </rect>
@@ -1558,7 +1558,7 @@
     <property name="geometry">
      <rect>
       <x>32</x>
-      <y>296</y>
+      <y>311</y>
       <width>20</width>
       <height>21</height>
      </rect>
@@ -1797,7 +1797,7 @@
     <property name="geometry">
      <rect>
       <x>55</x>
-      <y>296</y>
+      <y>311</y>
       <width>20</width>
       <height>21</height>
      </rect>
@@ -2036,7 +2036,7 @@
     <property name="geometry">
      <rect>
       <x>9</x>
-      <y>323</y>
+      <y>338</y>
       <width>20</width>
       <height>21</height>
      </rect>
@@ -2275,7 +2275,7 @@
     <property name="geometry">
      <rect>
       <x>32</x>
-      <y>323</y>
+      <y>338</y>
       <width>20</width>
       <height>21</height>
      </rect>
@@ -2514,7 +2514,7 @@
     <property name="geometry">
      <rect>
       <x>55</x>
-      <y>323</y>
+      <y>338</y>
       <width>20</width>
       <height>21</height>
      </rect>
@@ -2753,7 +2753,7 @@
     <property name="geometry">
      <rect>
       <x>9</x>
-      <y>350</y>
+      <y>365</y>
       <width>20</width>
       <height>21</height>
      </rect>
@@ -2992,7 +2992,7 @@
     <property name="geometry">
      <rect>
       <x>32</x>
-      <y>350</y>
+      <y>365</y>
       <width>20</width>
       <height>21</height>
      </rect>
@@ -3211,7 +3211,7 @@
     <property name="geometry">
      <rect>
       <x>55</x>
-      <y>350</y>
+      <y>365</y>
       <width>20</width>
       <height>21</height>
      </rect>
@@ -3438,7 +3438,7 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>0</y>
+       <y>3</y>
        <width>21</width>
        <height>24</height>
       </rect>
@@ -3459,7 +3459,7 @@
      <property name="geometry">
       <rect>
        <x>25</x>
-       <y>0</y>
+       <y>3</y>
        <width>21</width>
        <height>24</height>
       </rect>
@@ -3481,7 +3481,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>0</y>
+       <y>3</y>
        <width>21</width>
        <height>24</height>
       </rect>
@@ -3503,7 +3503,7 @@
      <property name="geometry">
       <rect>
        <x>80</x>
-       <y>0</y>
+       <y>3</y>
        <width>121</width>
        <height>24</height>
       </rect>
@@ -3513,7 +3513,7 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>0</y>
+       <y>3</y>
        <width>31</width>
        <height>24</height>
       </rect>
@@ -3526,7 +3526,7 @@
      <property name="geometry">
       <rect>
        <x>210</x>
-       <y>5</y>
+       <y>6</y>
        <width>31</width>
        <height>16</height>
       </rect>
@@ -3538,8 +3538,8 @@
     <widget class="QPushButton" name="confirmTextButton">
      <property name="geometry">
       <rect>
-       <x>432</x>
-       <y>0</y>
+       <x>435</x>
+       <y>3</y>
        <width>41</width>
        <height>24</height>
       </rect>
@@ -4123,7 +4123,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>220</y>
+      <y>235</y>
       <width>21</width>
       <height>24</height>
      </rect>
@@ -4143,7 +4143,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>220</y>
+      <y>235</y>
       <width>21</width>
       <height>24</height>
      </rect>
@@ -4163,7 +4163,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>219</y>
+      <y>234</y>
       <width>41</width>
       <height>25</height>
      </rect>
@@ -4185,7 +4185,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>245</y>
+      <y>260</y>
       <width>31</width>
       <height>20</height>
      </rect>
@@ -4201,7 +4201,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>245</y>
+      <y>260</y>
       <width>31</width>
       <height>20</height>
      </rect>
@@ -4226,6 +4226,76 @@
      <string>Remove last...</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="doublePen">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>93</y>
+      <width>40</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string>Double Pen</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="Drawish.qrc">
+      <normaloff>:/res/pen2.png</normaloff>:/res/pen2.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>28</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="connLine">
+    <property name="geometry">
+     <rect>
+      <x>4</x>
+      <y>158</y>
+      <width>40</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string>Connected lines</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="Drawish.qrc">
+      <normaloff>:/res/lineConn.png</normaloff>:/res/lineConn.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>28</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
@@ -4245,6 +4315,7 @@
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
     <addaction name="actionSave_as"/>
+    <addaction name="actionTo_Pdf"/>
     <addaction name="actionClose"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
@@ -4461,6 +4532,11 @@
   <action name="actionbase64">
    <property name="text">
     <string>To base64</string>
+   </property>
+  </action>
+  <action name="actionTo_Pdf">
+   <property name="text">
+    <string>To Pdf</string>
    </property>
   </action>
  </widget>
