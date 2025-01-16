@@ -34,6 +34,7 @@ private slots:
   void areaSize();
   void raiseBorders();
   void imgSave();
+  QString ChooseImg();
   void savePix(QPixmap pixToSave, QString f);
   void newImage(QString from);
   QCursor rectCursor();
@@ -88,8 +89,6 @@ private slots:
   void on_actionCopy_triggered();
 
   void on_actionPaste_from_clipboard_triggered();
-
-  void on_actionPaste_from_file_triggered();
 
   void on_actionCopy_selection_to_file_triggered();
 
@@ -200,6 +199,15 @@ private slots:
   void on_connLine_clicked();
 
   void on_actionTo_Pdf_triggered();
+
+  void on_actionAdd_as_selection_triggered();
+
+  void on_actionAdd_right_triggered();
+
+  void on_actionAdd_bottom_triggered();
+
+
+  void on_actionStretch_area_triggered();
 
 private:
     Ui::MainWindow *ui;
