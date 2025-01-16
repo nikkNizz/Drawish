@@ -45,13 +45,12 @@ void selectionArea::mouseMoveEvent(QMouseEvent *event)
            sizes::selY  = event->globalPosition().y()-diffy;
         }
         else if(whereExp== "top" && preY > y){
-           sizes::selY--;
-           sizes::selH++;
+           sizes::selY-=2;
+           sizes::selH+=2;
         }
         else if(whereExp== "top" && preY < y){
            sizes::selY++;
-           sizes::selH--;
-           resetGeometry();
+           sizes::selH--;           
         }
         else if(whereExp== "bottom" && preY > y){
            sizes::selH--;
@@ -61,14 +60,14 @@ void selectionArea::mouseMoveEvent(QMouseEvent *event)
            sizes::selW--;
         }
         else if(whereExp== "left" && preX > x){
-            sizes::selX--;
-            sizes::selW++;
+            sizes::selX-=2;
+            sizes::selW+=2;
         }
         else if(whereExp== "bottom" && preY < y){
-           sizes::selH++;
+           sizes::selH+=2;
         }
         else if(whereExp== "right" && preX < x){
-           sizes::selW++;
+           sizes::selW+=2;
         }
         else if(whereExp== "right" && preX > x){
            sizes::selW--;
