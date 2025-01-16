@@ -172,6 +172,7 @@ Click [OK] to apply the new image or [Cancel] to abort the changes.
 
 #### Stretch Area
 From the "Image->Stretch area", you can open a window to distort the edges of the selected image.
+[video](https://drive.google.com/file/d/1sh71bmC15u9uwQ95kfZ2oPRND_QK-o0W/view?usp=sharing)
 
 #### Other effects
 From the Image menu you can apply the listed effects to the selection.  
