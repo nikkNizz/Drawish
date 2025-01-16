@@ -4,8 +4,8 @@ It also allows you to modify existing images.
 
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.8) page of this project.  
-For **Windows**, download Drawish_version_Win.zip.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9) page of this project.  
+For **Windows**, download Drawish_version.zip.  
 Extract the folder, and run the .exe file. Create a link to the executable for faster use.  
 
 For **Debian/Linux** download and run the portable Appimage.
@@ -55,6 +55,9 @@ To select everything, use the "Edit->Select all" menu.
 To save the image to a file select: "Edit->Selection to file".  
 To finish and pasting the selection, click on a point on the image.  
 To skip pasting, deselect the selection button.
+
+#### Merge images
+From the "Edit->Paste from file" menu you can merge two images with three options. The second image can be put into a selection that can be moved to the desired point, or the second image can be automatically added to the right or below the first.
 
 #### Merge selection
 From the "Edit->Merge selection to image" menu you can merge the portion of the image below into the selection. 
@@ -140,6 +143,7 @@ the vicinity of the cursor. Clicking on a zoomed pixel with the
 Clicking with the left mouse button, you get the information on
 the rgb color of the pixel.  
 Remove the enlarged area with another right-click on the image.  
+
 ##### Double the pixels.
 If there is an active selection this function applies to the selection, otherwise it applies to the entire image.
 From the "Image->Quadruple the pixel" menu you can get a new image with the pixels doubled in width and height. 
@@ -165,6 +169,9 @@ If there is no selection, the effects are applied to the entire image.
 After each change, click the [Update] button to make the changes effective, or select the "update automatically" 
 checkbox if the function allows it.
 Click [OK] to apply the new image or [Cancel] to abort the changes.
+
+#### Stretch Area
+From the "Image->Stretch area", you can open a window to distort the edges of the selected image.
 
 #### Other effects
 From the Image menu you can apply the listed effects to the selection.  
