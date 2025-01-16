@@ -23,7 +23,7 @@ cmake .
 make  
 sudo make install  
 
-Or install and compile directly from **Qt Creator** on Windows, Mac, or Linux.
+Or install and compile directly from **Qt Creator** on Windows, Mac, or Linux, without changing a single line of code!
 
 #### USE
 You can open images from the" File->Open" menu. You can also
