@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required(VERSION 3.5)
 
-project(Drawish VERSION 0.8 LANGUAGES CXX)
+project(Drawish VERSION 0.9 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -45,6 +45,11 @@ set(PROJECT_SOURCES
         dialogeffects.h
         dialogeffects.cpp
         dialogeffects.ui
+        stretchdialog.h
+        stretchdialog.cpp
+        stretchdialog.ui
+        stretchview.h
+        stretchview.cpp
         dcolors.h
         dcolors.cpp
         dcolors.ui
