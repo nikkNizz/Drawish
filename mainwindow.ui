@@ -3574,7 +3574,7 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>0</x>
        <y>5</y>
        <width>41</width>
        <height>16</height>
@@ -3587,7 +3587,7 @@
     <widget class="QSpinBox" name="lineWidthBox">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>40</x>
        <y>0</y>
        <width>41</width>
        <height>25</height>
@@ -3606,7 +3606,7 @@
     <widget class="QPushButton" name="flatcapButton">
      <property name="geometry">
       <rect>
-       <x>100</x>
+       <x>90</x>
        <y>0</y>
        <width>25</width>
        <height>26</height>
@@ -3632,7 +3632,7 @@
     <widget class="QPushButton" name="roundcapButton">
      <property name="geometry">
       <rect>
-       <x>128</x>
+       <x>120</x>
        <y>0</y>
        <width>25</width>
        <height>26</height>
@@ -3658,7 +3658,7 @@
     <widget class="QRadioButton" name="radioButton">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>210</x>
        <y>0</y>
        <width>101</width>
        <height>21</height>
@@ -3679,7 +3679,7 @@
     <widget class="QRadioButton" name="radioButton_2">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>310</x>
        <y>0</y>
        <width>51</width>
        <height>21</height>
@@ -3697,7 +3697,7 @@
     <widget class="QComboBox" name="shapesCombo">
      <property name="geometry">
       <rect>
-       <x>360</x>
+       <x>370</x>
        <y>0</y>
        <width>91</width>
        <height>24</height>
@@ -3782,7 +3782,7 @@
     <widget class="QPushButton" name="markerButton">
      <property name="geometry">
       <rect>
-       <x>156</x>
+       <x>150</x>
        <y>0</y>
        <width>25</width>
        <height>26</height>
@@ -3805,7 +3805,7 @@
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
       <rect>
-       <x>460</x>
+       <x>470</x>
        <y>0</y>
        <width>71</width>
        <height>24</height>
@@ -3886,6 +3886,28 @@
        <string>Diagon cross</string>
       </property>
      </item>
+    </widget>
+    <widget class="QPushButton" name="nibButton">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>0</y>
+       <width>25</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Nib cap</string>
+     </property>
+     <property name="text">
+      <string>/</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="similaritywidget" native="true">
@@ -4322,11 +4344,19 @@
     <property name="title">
      <string>Edit</string>
     </property>
+    <widget class="QMenu" name="menuPaste_from_file">
+     <property name="title">
+      <string>Paste from file</string>
+     </property>
+     <addaction name="actionAdd_right"/>
+     <addaction name="actionAdd_bottom"/>
+     <addaction name="actionAdd_as_selection"/>
+    </widget>
     <addaction name="actionSelect_all"/>
     <addaction name="actionCopy_selection_no_clipboard"/>
     <addaction name="actionCopy"/>
     <addaction name="actionPaste_from_clipboard"/>
-    <addaction name="actionPaste_from_file"/>
+    <addaction name="menuPaste_from_file"/>
     <addaction name="actionCopy_selection_to_file"/>
     <addaction name="actionMerge_selection_to_image"/>
     <addaction name="actionTransparent_selection"/>
@@ -4340,6 +4370,7 @@
     <addaction name="actionColors"/>
     <addaction name="actionMirror"/>
     <addaction name="actionMirror_vertically"/>
+    <addaction name="actionStretch_area"/>
     <addaction name="actionTo_greyscale"/>
     <addaction name="actionReduce_to_RGB"/>
     <addaction name="actionInvert_colors"/>
@@ -4408,11 +4439,6 @@
   <action name="actionPaste_from_clipboard">
    <property name="text">
     <string>Paste from clipboard</string>
-   </property>
-  </action>
-  <action name="actionPaste_from_file">
-   <property name="text">
-    <string>Paste from file</string>
    </property>
   </action>
   <action name="actionCopy_selection_to_file">
@@ -4537,6 +4563,26 @@
   <action name="actionTo_Pdf">
    <property name="text">
     <string>To Pdf</string>
+   </property>
+  </action>
+  <action name="actionAdd_right">
+   <property name="text">
+    <string>Add right</string>
+   </property>
+  </action>
+  <action name="actionAdd_bottom">
+   <property name="text">
+    <string>Add bottom</string>
+   </property>
+  </action>
+  <action name="actionAdd_as_selection">
+   <property name="text">
+    <string>Add as selection</string>
+   </property>
+  </action>
+  <action name="actionStretch_area">
+   <property name="text">
+    <string>Stretch area</string>
    </property>
   </action>
  </widget>
