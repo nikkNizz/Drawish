@@ -1,4 +1,4 @@
-# Drawish  0.8 
+# Drawish  0.9 
 Is a program for basic drawing.  
 It also allows you to modify existing images.
 
