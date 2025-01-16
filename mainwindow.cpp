@@ -17,6 +17,7 @@
 #include "viewimage.h"
 #include "savecam.h"
 #include "linedialog.h"
+#include "stretchdialog.h"
 #include <QPainter>
 #include <QMessageBox>
 #include <QFileDialog>
@@ -39,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "Version:  0.8\nEmail:  nicNiz@libero.it";
+    version_info = "Version:  0.9\nEmail:  nicNiz@libero.it";
     // set label as drawing area
 
     ui->textOptionsWidget->setVisible(false);
@@ -75,7 +76,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->whiteButton->setStyleSheet("background-color: white");
     ui->greyButton->setStyleSheet("background-color: grey");
     ui->redButton->setStyleSheet("background-color: red");
-    ui->greenButton->setStyleSheet("background-color: green");
+    ui->greenButton->setStyleSheet("background-color: lime");
     ui->blueButton->setStyleSheet("background-color: blue");
     ui->yellowButton->setStyleSheet("background-color: yellow");
     ui->magentaButton->setStyleSheet("background-color: magenta");
@@ -242,6 +243,12 @@ void MainWindow::imgSave()
     }
        savePix(pix, f);
        sizes::modify = false;
+}
+
+QString MainWindow::ChooseImg()
+{
+    QFileDialog dialog(this);
+    return dialog.getOpenFileName(this,"Drawish...Select image", QDir::homePath() );
 }
 
 
@@ -436,6 +443,8 @@ void MainWindow::on_undoButton_clicked()
     }
 }
 
+
+// selection
 void MainWindow::on_selectionAreaButton_clicked()
 {
     if(sizes::activeOperation==1){ // deactivate
@@ -632,11 +641,9 @@ QPixmap MainWindow::addTransparency(QPixmap passedPix, int opacity, int red, int
     return QPixmap::fromImage(sPix);
 }
 
-
-void MainWindow::on_actionPaste_from_file_triggered()
+void MainWindow::on_actionAdd_as_selection_triggered() // paste from file
 {
-    QFileDialog dialog(this);
-    QString f =dialog.getOpenFileName(this,"Drawish...Select image", QDir::homePath() );
+    QString f = ChooseImg();
     if(f ==""){return;}
     QPixmap fpix(f);
     if(!fpix.isNull()){
@@ -645,6 +652,49 @@ void MainWindow::on_actionPaste_from_file_triggered()
         QMessageBox::information(this, "Drawish", "Invalid image!");
     }
 }
+
+void MainWindow::on_actionAdd_right_triggered()  // paste from file
+{
+    QString f = ChooseImg();
+    if(f ==""){return;}
+    QPixmap fpix(f);
+    if(fpix.isNull()) {
+        QMessageBox::information(this, "Drawish", "Invalid image!");
+        return;
+    }
+    int wImg = fpix.width();
+    int hImg = fpix.height();
+    sizes::areaWidth += wImg;
+    if(hImg > sizes::areaHeight){ sizes::areaHeight = hImg; }
+    reSize();
+    QPainter p(&pix);
+    int v= (sizes::areaWidth-wImg) + 1 ;
+    p.drawPixmap(v, 0, fpix);
+    showPix();
+}
+
+
+void MainWindow::on_actionAdd_bottom_triggered()  // paste from file
+{
+    QString f = ChooseImg();
+    if(f ==""){return;}
+    QPixmap fpix(f);
+    if(fpix.isNull()) {
+        QMessageBox::information(this, "Drawish", "Invalid image!");
+        return;
+    }
+    int wImg = fpix.width();
+    int hImg = fpix.height();
+    sizes::areaHeight += fpix.height();
+    if(wImg > sizes::areaWidth){ sizes::areaWidth = wImg; }
+    reSize();
+    QPainter p(&pix);
+    int v= (sizes::areaHeight-hImg) + 1 ;
+    p.drawPixmap(0, v, fpix);
+    showPix();
+}
+
+
 
 void MainWindow::on_actionCopy_selection_to_file_triggered()
 {
@@ -836,15 +886,26 @@ void MainWindow::drawWithPen(){
     if(ui->markerButton->isChecked()){
         ncol = QColor(sizes::activeColor.red(), sizes::activeColor.green(), sizes::activeColor.blue(), 32);
     }
+    // stylus
+    if(ui->nibButton->isChecked()){
+        int corners = sizes::line_width / 2;
+        QPen pen(ncol, 1);
+        pai.setPen(pen);
+        QBrush br(ncol);
+        pai.setBrush(br);
+        QPolygon poly;
+        poly << QPoint(sizes::shape_x_begin + corners, sizes::shape_y_begin + corners) << QPoint(sizes::shape_x_begin - corners, sizes::shape_y_begin - corners) << QPoint(sizes::shape_x_end - corners, sizes::shape_y_end - corners) << QPoint(sizes::shape_x_end + corners, sizes::shape_y_end + corners);
+        pai.drawPolygon(poly);
+    }else{
+        // normal pen
+        QPen pen(ncol, sizes::line_width);
 
-    QPen pen(ncol, sizes::line_width);
+         if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
+         else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
 
-    if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
-    else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
-
-    pai.setPen(pen);
-    pai.drawLine(sizes::shape_x_begin, sizes::shape_y_begin, sizes::shape_x_end, sizes::shape_y_end);
-
+         pai.setPen(pen);
+         pai.drawLine(sizes::shape_x_begin, sizes::shape_y_begin, sizes::shape_x_end, sizes::shape_y_end);
+    }
     repeatShow++;
     sizes::shape_x_begin = sizes::shape_x_end;
     sizes::shape_y_begin = sizes::shape_y_end;
@@ -1548,24 +1609,28 @@ void MainWindow::rotation(int a)
     if(!sizes::isSelectionOn){
         QMessageBox::information(this, "Drawish", "No selection");
         return;
-    }
+    }   
     QPixmap pxx = selectionRect->pixmap().scaled(sizes::selW, sizes::selH);
+
     int newDim = sizes::selW + sizes::selH;
     QPixmap rotPix(newDim, newDim);
     rotPix.fill(QColor(255,255,255,0));
     QPainter painter(&rotPix);
     QTransform transform;
-    if(a == 1){                       // right
-     transform.translate(newDim * 0.5, newDim * 0.3);
-    }else{                            // left
-     transform.translate(newDim * 0.3, newDim * 0.3);
-    }
-        transform.rotate(ui->RotatioAngleSpin->value() * a);
-        painter.setTransform(transform);
+      if(a == 1){
+          transform.translate(newDim * 0.3, newDim * 0.3);
+      }else{
+          transform.translate(newDim * 0.2, newDim * 0.6);
+      }
+      transform.rotate(ui->RotatioAngleSpin->value() * a);
+      painter.setTransform(transform);
 
     painter.drawPixmap(0, 0, pxx);
+    sizes::selX -= (newDim * 0.3);
+    sizes::selY -= (newDim * 0.3);
     sizes::selH = newDim;
     sizes::selW = newDim;
+
     selectionRect->resetGeometry();
     selectionRect->setPixmap(rotPix);
     updateInfo();
@@ -2081,4 +2146,27 @@ void MainWindow::on_actionTo_Pdf_triggered()
        painter.drawPixmap(0,0, sizes::areaWidth, sizes::areaHeight, pix);
        painter.end();
        QMessageBox::information(this, "Drawish", "Saved in\n" + cmpName);
+}
+
+
+void MainWindow::on_actionStretch_area_triggered()
+{
+    QPixmap Epix = pix;
+    if(sizes::isSelectionOn){
+        Epix = selectionRect->pixmap().scaled(sizes::selW, sizes::selH);
+    }else{
+        QMessageBox::information(this, "Drawish", "No selection!");
+        return;
+    }
+
+    StretchDialog strd(this, Epix);
+    strd.setModal(true);
+    strd.exec();
+    if(strd.res == QDialog::Accepted){
+        sizes::selH = strd.epix.height();
+        sizes::selW = strd.epix.width();
+        selectionRect->resetGeometry();
+        selectionRect->setPixmap(strd.epix);
+        }
+
 }
