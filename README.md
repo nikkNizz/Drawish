@@ -95,7 +95,8 @@ appears at the top.
 Increasing the value decreases the affinity.  
 The transparent color cannot fill a white area. First fill the
 white area with another color.
-If the check box [Fill inside black] is selected, the entire area around the click, **included within a black line**, is filled in black.
+If the check box [Fill inside black] is selected, the entire area around the click, **included within a black line**, is filled in black. 
+[video](https://drive.google.com/file/d/1KnkXdYvtXVhk3dniSauTWx8qtveAibHf/view?usp=sharing)
 
 #### Spray
 Click the [spray] button and move the mouse over the drawing area, holding down the left mouse button.
@@ -124,7 +125,8 @@ Many filling options are available from the choice box at the top right.
 
 #### Connected lines
 Click the [connected lines] button.
-After each click on the drawing area you will get connected lines.
+After each click on the drawing area you will get connected lines. 
+[video](https://drive.google.com/file/d/1KnkXdYvtXVhk3dniSauTWx8qtveAibHf/view?usp=sharing)
 
 #### Curved line
 Click the [curved line] button.  You will be able to
@@ -189,7 +191,7 @@ This area can be moved freely with the mouse or with the
 A Q S Z (or A W S X) keys.  
 Save the portion of the image delimited by the camera from the "Camera->Save image" menu.  
 Delete the camera from the" Camera->Delete camera " menu.
-You can save the framed image in base64 format to the clipboard from the "Camera->To base64" menu.
+You can save the framed image in base64 format to the clipboard from the "Camera->To base64" menu. 
 [Video](https://drive.google.com/file/d/1cbtphNuOdKlyNCEdMenNrpREKnVX_xbU/view?usp=sharing)
 
 #### Saving
