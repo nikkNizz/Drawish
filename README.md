@@ -58,6 +58,7 @@ To skip pasting, deselect the selection button.
 
 #### Merge images
 From the "Edit->Paste from file" menu you can merge two images with three options. The second image can be put into a selection that can be moved to the desired point, or the second image can be automatically added to the right or below the first.
+[Video](https://drive.google.com/file/d/1cbtphNuOdKlyNCEdMenNrpREKnVX_xbU/view?usp=sharing)
 
 #### Merge selection
 From the "Edit->Merge selection to image" menu you can merge the portion of the image below into the selection. 
@@ -189,6 +190,7 @@ A Q S Z (or A W S X) keys.
 Save the portion of the image delimited by the camera from the "Camera->Save image" menu.  
 Delete the camera from the" Camera->Delete camera " menu.
 You can save the framed image in base64 format to the clipboard from the "Camera->To base64" menu.
+[Video](https://drive.google.com/file/d/1cbtphNuOdKlyNCEdMenNrpREKnVX_xbU/view?usp=sharing)
 
 #### Saving
 Images are saved in png format.  
@@ -196,6 +198,6 @@ To save in jpg, ico or bmp format, enter the extension to the file name
 in the save window.  
 You can directly save the image to **PDF** from the "File->To PDF" menu.
 For base64 format, see previous chapter.
-#### video:
+#### video (old version):
 [Introduction](https://drive.google.com/file/d/1P1VTq4DPX-Mfdl9mQaWzYBlodk4mRVRY/view?usp=sharing)  
 [Simple project](https://drive.google.com/file/d/1qYL_KbZe9HY8I8-WeP1Zw0g9_m4A9Qy3/view?usp=sharing)
