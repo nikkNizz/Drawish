@@ -25,7 +25,7 @@ sudo make install
 
 Or install and compile directly from **Qt Creator** on Windows, Mac, or Linux, without changing a single line of code!
 
-#### USE
+#### USAGE
 You can open images from the" File->Open" menu. You can also
 paste an image from the clipboard ("Edit->Paste from clipboard") or from a file ("Edit->Paste from file")
 
