@@ -54,7 +54,6 @@ from the "Edit->Transparent selection" Menu (already selected by default), **bef
 To select everything, use the "Edit->Select all" menu.  
 To save the image to a file select: "Edit->Selection to file".  
 To finish and pasting the selection, click on a point on the image.  
-To skip pasting, deselect the selection button.
 
 #### Merge images
 From the "Edit->Paste from file" menu you can merge two images with three options. The second image can be put into a selection that can be moved to the desired point, or the second image can be automatically added to the right or below the first.
