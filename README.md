@@ -62,6 +62,7 @@ From the "Edit->Paste from file" menu you can merge two images with three option
 #### Merge selection
 From the "Edit->Merge selection to image" menu you can merge the portion of the image below into the selection. 
 A prompt allows you to choose between 3 blending ratios.
+[video](https://drive.google.com/file/d/1GjlgFmv3VamLUOMfETiolQuof1ETXacL/view?usp=sharing)
 
 #### Freehand drawing
 Click the [marker] button
