@@ -85,6 +85,7 @@ The text area will be displayed and can be moved as desired.
 **The multiline text box and options are displayed at the top**.
 Click the [DRAW] button to actually print the text, then move the text area 
 to continue printing text. Or disable the function by clicking the left button again.
+[video](https://drive.google.com/file/d/14wtJqm03hGNeiaqOLzPeB7In8m7ON_kk/view?usp=sharing)
 
 #### Fill / Fill inside black
 Click the [fill] button and click on the
@@ -122,6 +123,7 @@ As for the line. Click the [shapes] button.
 Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS. 
 Border width is defined by line width box. 
 Many filling options are available from the choice box at the top right.
+[video](https://drive.google.com/file/d/1t4i03DvqtAWYFMJfBzxKOIYCBJa3QD-V/view?usp=sharing)
 
 #### Connected lines
 Click the [connected lines] button.
@@ -139,6 +141,7 @@ the last 8 changes.  To return to the left image, press the top left button [Red
 If a change is made from a previous image, the left image will no longer be available.
 
 #### Zoom
+[video](https://drive.google.com/file/d/1AK7YTQmPAJy1-YKfypvI-lKnYwCxmKmT/view?usp=sharing)
 ##### Pixel matrix. 
 Right-click on a point of the image, the pixel matrix will appear enlarged for the area in
 the vicinity of the cursor. Clicking on a zoomed pixel with the
