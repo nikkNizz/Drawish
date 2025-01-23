@@ -1,5 +1,6 @@
 #include "geometric.h"
 
+QString sizes::passedFile ="";
 int sizes::areaHeight=320;
 int sizes::areaWidth= 480;
 bool sizes::startResize=false;
