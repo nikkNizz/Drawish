@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Drawish Coloors</string>
+   <string>Drawish Colors</string>
   </property>
   <property name="windowIcon">
    <iconset resource="Drawish.qrc">
