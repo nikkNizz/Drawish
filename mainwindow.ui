@@ -10,6 +10,9 @@
     <height>450</height>
    </rect>
   </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
   <property name="windowTitle">
    <string>Drawish</string>
   </property>
@@ -3900,7 +3903,7 @@
       <string>Nib cap</string>
      </property>
      <property name="text">
-      <string>/</string>
+      <string>\</string>
      </property>
      <property name="checkable">
       <bool>true</bool>
