@@ -40,9 +40,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "Version:  0.9\nEmail:  nicNiz@libero.it";
-    // set label as drawing area
+    version_info = tr("Version:  0.9.1\nEmail:  nicNiz@libero.it");
 
+// set label as drawing area
     ui->textOptionsWidget->setVisible(false);
     ui->lineOptionWidget->setGeometry(80,0,552,31);
     ui->lineOptionWidget->setVisible(false);
@@ -56,12 +56,32 @@ MainWindow::MainWindow(QWidget *parent)
     borderB = new BorderBottom(wArea);
     corner = new Angolo(wArea);
 
-    // add default image to area
-    pix =QPixmap(sizes::areaWidth, sizes::areaHeight);
-    pix.fill(Qt::white);
-    wArea->setPixmap(pix);
+    // open passed file (from command line)
+        if(sizes::passedFile != "" && QFile::exists(sizes::passedFile)){
 
-    historyList.push_back("Original image");
+            QPixmap npix(sizes::passedFile);
+            if(npix.isNull()){
+                QMessageBox::information(this, "Drawish", tr("Unsupported file"));
+                 // set default image to area
+                pix =QPixmap(sizes::areaWidth, sizes::areaHeight);
+                pix.fill(Qt::white);
+            }else{
+            activePathFile = sizes::passedFile;
+            pix = npix;
+            sizes::areaHeight=pix.height();
+            sizes::areaWidth=pix.width();
+            borderB->resetGeometry();
+            borderR->resetGeometry();
+            corner->resetGeometry();
+            }
+        }else{
+             // set default image to area
+        pix =QPixmap(sizes::areaWidth, sizes::areaHeight);
+        pix.fill(Qt::white);
+        }
+        wArea->setPixmap(pix);
+
+    historyList.push_back(tr("Original image"));
     historyPix.push_back(pix);
 
     // scroll area
@@ -99,6 +119,42 @@ MainWindow::MainWindow(QWidget *parent)
     connect(wArea, SIGNAL(setInfo()), this, SLOT(updateInfo()));
     connect(wArea, SIGNAL(drawShape()), this, SLOT(draw_shape()));
     connect(wArea, SIGNAL(viewZoom()), this, SLOT(view_zoom()));
+
+    historyCount = 1;
+}
+
+void MainWindow::dragEnterEvent(QDragEnterEvent *event)
+{
+    if(event->mimeData()->hasUrls()){event->acceptProposedAction();}
+}
+
+void MainWindow::dropEvent(QDropEvent *event)
+{
+    if(event->mimeData()->hasUrls()){
+            foreach(QUrl url, event->mimeData()->urls()){
+                QFileInfo f(url.toLocalFile());
+                if(sizes::modify){
+                    save_previous("Open");
+                    int q = QMessageBox::question(this, "Drawish", "Save image?",QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
+                    if(q == QMessageBox::Yes){
+                        imgSave();
+                    }
+                 }
+                //open image
+                QPixmap npix(f.filePath());
+                if(npix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file")); return;}
+                activePathFile = f.filePath();
+                pix = npix;
+                sizes::areaHeight=pix.height();
+                sizes::areaWidth=pix.width();
+
+                areaSize();
+                wArea->setPixmap(pix);
+                borderB->resetGeometry();
+                borderR->resetGeometry();
+                corner->resetGeometry();
+            }
+        }
 }
 
 MainWindow::~MainWindow()
@@ -166,12 +222,20 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
         else if(ev->key()== Qt::Key_Z || ev->key()== Qt::Key_X){aay++;}
         save_area->setGeometry(aax, aay, aaw, aah);
     }
+   if ((ev->key() == Qt::Key_Z)  && (ev->modifiers().testFlag(Qt::ControlModifier))){
+       if(ui->historyCombo->count() > 0) {
+           if(ui->historyCombo->count() - historyCount < 0){ historyCount = 1;}
+           on_historyCombo_activated(ui->historyCombo->count()-historyCount);
+       }
+       historyCount++;
+   }
+
 }
 
 void MainWindow::closeEvent(QCloseEvent *ev)
 {
     if(sizes::modify){
-        int q = QMessageBox::question(this, "Drawish", "Save image?",QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
+        int q = QMessageBox::question(this, "Drawish", tr("Save image?"),QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
         if(q == QMessageBox::Yes){
         imgSave();
         }
@@ -188,7 +252,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
 void MainWindow::reSize()
 {   
-   if(!sizes::startResize){save_previous("Resize");}
+   if(!sizes::startResize){save_previous(tr("Resize"));}
    sizes::startResize=true;
    areaSize();
    if(sizes::isCurveLineAreaOn){
@@ -236,7 +300,7 @@ void MainWindow::imgSave()
     QString f;
     if(activePathFile== ""){
         QFileDialog dialog(this);
-        f =dialog.getSaveFileName(this, "Drawish save...", QDir::homePath(),"Images (*.png *.jpg *.ico *bmp)");
+        f =dialog.getSaveFileName(this, tr("Drawish save..."), QDir::homePath(),"Images (*.png *.jpg *.ico *bmp)");
         if(f ==""){return;}
     }else{
      f = activePathFile;
@@ -248,7 +312,7 @@ void MainWindow::imgSave()
 QString MainWindow::ChooseImg()
 {
     QFileDialog dialog(this);
-    return dialog.getOpenFileName(this,"Drawish...Select image", QDir::homePath() );
+    return dialog.getOpenFileName(this,tr("Drawish...Select image"), QDir::homePath() );
 }
 
 
@@ -275,10 +339,10 @@ void MainWindow::newImage(QString from)
    else if(from == "f"){ // open file
       sizes::modify= false;
       QFileDialog dialog(this);
-      QString f =dialog.getOpenFileName(this,"Drawish...Select image", QDir::homePath() );
+      QString f =dialog.getOpenFileName(this, tr("Drawish...Select image"), QDir::homePath() );
       if(f ==""){return;}
       QPixmap npix(f);
-      if(npix.isNull()){ QMessageBox::information(this, "Drawish", "Unsupported file"); return;}
+      if(npix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file")); return;}
       activePathFile = f;
       pix = npix;
       sizes::areaHeight=pix.height();
@@ -306,6 +370,12 @@ QCursor MainWindow::rectCursor()
         // -----
         QPainter pai(&kursor);
         pai.drawPixmap(1,1,fillCurs);
+        pai.end();
+        if(ui->nibButton->isChecked() && wh > 5){
+            QPainter pai2(&kursor);
+            pai2.setPen(Qt::gray);
+            pai2.drawLine(1, 1, kursor.width()-1, kursor.height()-1);
+        }
         return QCursor(kursor);
 
 }
@@ -383,7 +453,7 @@ void MainWindow::on_actionNew_triggered()
    deleteSel();
 
     if(sizes::modify){
-        int q = QMessageBox::question(this, "Drawish", "Save image?",QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
+        int q = QMessageBox::question(this, "Drawish", tr("Save image?"),QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
         if(q == QMessageBox::Yes){
             imgSave();
             newImage("zero");
@@ -391,29 +461,30 @@ void MainWindow::on_actionNew_triggered()
              newImage("zero");
         }
     }else{
-         save_previous("New Image");
+         save_previous(tr("New Image"));
          newImage("zero");
     }
 }
 
 void MainWindow::on_actionOpen_triggered()
 {
+    save_previous(tr("Open"));
     if(sizes::modify){
-        int q = QMessageBox::question(this, "Drawish", "Save image?",QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
+        int q = QMessageBox::question(this, "Drawish", tr("Save image?"), QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
         if(q == QMessageBox::Yes){
             imgSave();
             newImage("f");
-        }else if(q == QMessageBox::No){
+        }else if(q == QMessageBox::No){             
              newImage("f");
         }
-}else{ save_previous("Open"); newImage("f");}
+     }else{  newImage("f");}
 }
 
 
 void MainWindow::on_actionSave_triggered()
 {
     if(sizes::modify ){
-        int q = QMessageBox::question(this, "Drawish", "Save image?",QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
+        int q = QMessageBox::question(this, "Drawish", tr("Save image?"), QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
         if(q == QMessageBox::Yes){
         imgSave();
         }
@@ -423,7 +494,7 @@ void MainWindow::on_actionSave_triggered()
 void MainWindow::on_actionSave_as_triggered()
 {
     QFileDialog dialog(this);
-    QString f =dialog.getSaveFileName(this,"Drawish save image", QDir::homePath());
+    QString f =dialog.getSaveFileName(this, tr("Drawish save image"), QDir::homePath());
     if(f ==""){return;}
     savePix(pix, f);
 }
@@ -440,6 +511,7 @@ void MainWindow::on_undoButton_clicked()
     if(!prePix.isNull()){
       pix=prePix;
       newImage("pix");
+      historyCount =1;
     }
 }
 
@@ -518,6 +590,10 @@ void MainWindow::on_actionSelect_all_triggered()
     sizes::selH = sizes::areaHeight;
     sizes::selW = sizes::areaWidth;
     save_previous("Selection*" + QString::number(sizes::selX) + "*" + QString::number(sizes::selY) + "*" + QString::number(sizes::selW) + "*" + QString::number(sizes::selH) );
+    untoggle();
+    sizes::activeOperation= 1;
+    ui->selectionAreaButton->setChecked(true);
+
     createSelection();
 }
 
@@ -580,7 +656,7 @@ void MainWindow::pasteImg(QPixmap passedPix)
     sizes::isSelectionOn=true;
     sizes::startResize=false;
     selectionRect->show();
-    QMessageBox::information(this, "Drawish", "The image is in a selection");
+    QMessageBox::information(this, "Drawish", tr("The image is in a selection"));
     raiseBorders();
 }
 
@@ -588,7 +664,7 @@ void MainWindow::pasteImg(QPixmap passedPix)
 void MainWindow::on_actionMerge_selection_to_image_triggered()
 {
     if(sizes::isSelectionOn == false){
-        QMessageBox::information(this, "Drawish", "No area selected");
+        QMessageBox::information(this, "Drawish", tr("No area selected"));
         return;
     }
     QPixmap selectedPix(selectionRect->pixmap().scaled(sizes::selW, sizes::selH));
@@ -597,7 +673,7 @@ void MainWindow::on_actionMerge_selection_to_image_triggered()
     QImage underImage = underPix.toImage();
 
     QMessageBox msgBox(this);
-    msgBox.setText("Levels");
+    msgBox.setText(tr("Levels"));
     msgBox.addButton("50/50", QMessageBox::AcceptRole);
     msgBox.addButton("30/70", QMessageBox::RejectRole);
     msgBox.addButton("70/30", QMessageBox::ActionRole);
@@ -649,7 +725,7 @@ void MainWindow::on_actionAdd_as_selection_triggered() // paste from file
     if(!fpix.isNull()){
         pasteImg(fpix);
     }else{
-        QMessageBox::information(this, "Drawish", "Invalid image!");
+        QMessageBox::information(this, "Drawish", tr("Invalid image!"));
     }
 }
 
@@ -659,9 +735,10 @@ void MainWindow::on_actionAdd_right_triggered()  // paste from file
     if(f ==""){return;}
     QPixmap fpix(f);
     if(fpix.isNull()) {
-        QMessageBox::information(this, "Drawish", "Invalid image!");
+        QMessageBox::information(this, "Drawish", tr("Invalid image!"));
         return;
     }
+    save_previous(tr("Paste right"));
     int wImg = fpix.width();
     int hImg = fpix.height();
     sizes::areaWidth += wImg;
@@ -680,9 +757,10 @@ void MainWindow::on_actionAdd_bottom_triggered()  // paste from file
     if(f ==""){return;}
     QPixmap fpix(f);
     if(fpix.isNull()) {
-        QMessageBox::information(this, "Drawish", "Invalid image!");
+        QMessageBox::information(this, "Drawish", tr("Invalid image!"));
         return;
     }
+    save_previous(tr("Paste bottom"));
     int wImg = fpix.width();
     int hImg = fpix.height();
     sizes::areaHeight += fpix.height();
@@ -701,7 +779,7 @@ void MainWindow::on_actionCopy_selection_to_file_triggered()
     if(sizes::isSelectionOn){
         QPixmap selPix = selectionRect->pixmap().scaled(sizes::selW, sizes::selH);
         QFileDialog dialog(this);
-        QString f =dialog.getSaveFileName(this,"Drawish save image", QDir::homePath());
+        QString f =dialog.getSaveFileName(this, tr("Drawish save image"), QDir::homePath());
         if(f ==""){return;}
         savePix(selPix, f);
 
@@ -734,7 +812,7 @@ void MainWindow::on_textEdit_textChanged()
 {
     if(!sizes::isSelectionOn){
         wArea->setFocus();
-        QMessageBox::information(this, "Drawish", "Click a point on the canvas, before");
+        QMessageBox::information(this, "Drawish", tr("Click a point on the canvas, before"));
         return;
     }
     QFont tFont(ui->fontComboBox->currentFont());
@@ -757,7 +835,7 @@ void MainWindow::on_textEdit_textChanged()
 void MainWindow::on_confirmTextButton_clicked()
 {
     if(ui->textEdit->toPlainText() != ""){
-        save_previous("Text");
+        save_previous(tr("Text"));
         QPainter p(&pix);
         QFont tFont(ui->fontComboBox->currentFont());
         if(ui->boldButton->isChecked()){ tFont.setBold(true);}
@@ -852,7 +930,7 @@ void MainWindow::on_transparentButton_clicked()
 
 void MainWindow::on_addColorButton_clicked()
 {
-    sizes::activeColor = QColorDialog::getColor(Qt::gray, this, "Drawish choose color");
+    sizes::activeColor = QColorDialog::getColor(Qt::gray, this, tr("Drawish choose color"));
     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
 }
@@ -989,9 +1067,9 @@ void MainWindow::draw_first_point()
         return;
     }
     if(sizes::activeOperation == 10){
-        save_previous("Double pen");
+        save_previous(tr("Double pen"));
     }else{
-        save_previous("Pen");
+        save_previous(tr("Pen"));
     }
     updateInfo();
     QPainter pai(&pix);
@@ -1051,6 +1129,7 @@ void MainWindow::showPix()
 
 void MainWindow::save_previous(QString tx)
 {
+    historyCount = 1;
     historyList.push_back(tx);
     prePix = QPixmap();
     historyPix.push_back(pix);
@@ -1100,7 +1179,7 @@ void MainWindow::fill_()
         fillInsideBlack();
         return;
     }
-    save_previous("Fill");
+    save_previous(tr("Fill"));
     updateInfo();
     QImage img = pix.toImage();
     img =img.convertToFormat(QImage::Format_ARGB32);
@@ -1154,7 +1233,7 @@ void MainWindow::fill_()
 
 void MainWindow::fillInsideBlack()
 {
-    save_previous("Fill inside black");
+    save_previous(tr("Fill inside black"));
     updateInfo();
     QImage img = pix.toImage();
     img =img.convertToFormat(QImage::Format_ARGB32);
@@ -1346,7 +1425,7 @@ void MainWindow::draw_shape()
 {
     // line -- shape
     if(sizes::activeOperation == 7 && sizes::isShapeOn){
-        save_previous("Line");
+        save_previous(tr("Line"));
         updateInfo();
         QPainter pai(&pix);
         QPen pen(sizes::activeColor, sizes::line_width);
@@ -1365,7 +1444,7 @@ void MainWindow::draw_shape()
         createShapeArea();
     }    
     else if(sizes::activeOperation == 8 && sizes::isShapeOn == true){
-        save_previous("Shape");
+        save_previous(tr("Shape"));
         updateInfo();
         QPainter pai(&pix);
         QPixmap sPix= shape_area->pixmap();
@@ -1451,7 +1530,7 @@ void MainWindow::on_connLine_clicked()
 
 void MainWindow::finish_lines()
 {
-    save_previous("Connected lines");
+    save_previous(tr("Connected lines"));
     if(sizes::isCurveLineAreaOn){
       QPixmap cPix = cl_area->pixmap();
       QPainter p(&pix);
@@ -1496,7 +1575,7 @@ void MainWindow::on_curveButton_clicked()
 
 void MainWindow::finish_curve()
 {
-    save_previous("Curve line");
+    save_previous(tr("Curve line"));
     if(sizes::isCurveLineAreaOn){
       QPixmap cPix = cl_area->pixmap();
       QPainter p(&pix);
@@ -1607,40 +1686,57 @@ void MainWindow::on_rotateRightButton_clicked()
 void MainWindow::rotation(int a)
 {
     if(!sizes::isSelectionOn){
-        QMessageBox::information(this, "Drawish", "No selection");
+        QMessageBox::information(this, "Drawish", tr("No selection"));
         return;
     }   
-    QPixmap pxx = selectionRect->pixmap().scaled(sizes::selW, sizes::selH);
 
-    int newDim = sizes::selW + sizes::selH;
-    QPixmap rotPix(newDim, newDim);
-    rotPix.fill(QColor(255,255,255,0));
-    QPainter painter(&rotPix);
-    QTransform transform;
-      if(a == 1){
-          transform.translate(newDim * 0.3, newDim * 0.3);
-      }else{
-          transform.translate(newDim * 0.2, newDim * 0.6);
+      double cos = sizes::selW/2;
+      double sin = sizes::selH/2;
+      double hip= (cos*cos)+ (sin*sin);
+      hip = sqrt(hip);
+      double cosA = cos/hip;
+      double sinA = sin/hip;
+      QList<double>table;
+      table <<0<<0.00<<1.00<<1<<0.02<<1.00<<2<<0.03<<1.00<<3<<0.05<<1.00<<4<<0.07<<1.00<<5<<0.09<<1.00<<6<<0.10<<0.99<<7<<0.12<<0.99<<8<<0.14<<0.99<<9<<0.16<<0.99<<10<<0.17<<0.98<<11<<0.19<<0.98<<12<<0.21<<0.98<<13<<0.22<<0.97<<14<<0.24<<0.97<<15<<0.26<<0.97<<16<<0.28<<0.96<<17<<0.29<<0.96<<18<<0.31<<0.95<<19<<0.33<<0.95<<20<<0.34<<0.94<<21<<0.36<<0.93<<22<<0.37<<0.93<<23<<0.39<<0.92<<24<<0.41<<0.91<<25<<0.42<<0.91<<26<<0.44<<0.90<<27<<0.45<<0.89<<28<<0.47<<0.88<<29<<0.48<<0.87<<30<<0.50<<0.87<<31<<0.52<<0.86<<32<<0.53<<0.85<<33<<0.54<<0.84<<34<<0.56<<0.83<<35<<0.57<<0.82<<36<<0.59<<0.81<<37<<0.60<<0.80<<38<<0.62<<0.79<<39<<0.63<<0.78<<40<<0.64<<0.77<<41<<0.66<<0.75<<42<<0.67<<0.74<<43<<0.68<<0.73<<44<<0.69<<0.72<<45<<0.71<<0.71<<46<<0.72<<0.69<<47<<0.73<<0.68<<48<<0.74<<0.67<<49<<0.75<<0.66<<50<<0.77<<0.64<<51<<0.78<<0.63<<52<<0.79<<0.62<<53<<0.80<<0.60<<54<<0.81<<0.59<<55<<0.82<<0.57<<56<<0.83<<0.56<<57<<0.84<<0.54<<58<<0.85<<0.53<<59<<0.86<<0.52<<60<<0.87<<0.50<<61<<0.87<<0.48<<62<<0.88<<0.47<<63<<0.89<<0.45<<64<<0.90<<0.44<<65<<0.91<<0.42<<66<<0.91<<0.41<<67<<0.92<<0.39<<68<<0.93<<0.37<<69<<0.93<<0.36<<70<<0.94<<0.34<<71<<0.95<<0.33<<72<<0.95<<0.31<<73<<0.96<<0.29<<74<<0.96<<0.28<<75<<0.97<<0.26<<76<<0.97<<0.24<<77<<0.97<<0.22<<78<<0.98<<0.21<<79<<0.98<<0.19<<80<<0.98<<0.17<<81<<0.99<<0.16<<82<<0.99<<0.14<<83<<0.99<<0.12<<84<<0.99<<0.10<<85<<1.00<<0.09<<86<<1.00<<0.07<<87<<1.00<<0.05<<88<<1.00<<0.03<<89<<1.00<<0.02<<90<<1.00<<0.00;
+      int angle = ui->RotatioAngleSpin->value() ;
+      for(int i=2; i< table.count(); i = i+3){
+          if(table[i] <= cosA){
+              int grad = table[i-2];
+              grad = grad -angle;
+              if(grad > 90){ grad = 90-grad;}
+              if(grad < 0){ grad = grad *-1;}
+              grad = (grad *3)+2;
+              double g = table[grad];
+              sizes::selW  = hip * g*2;
+              break;
+          }
       }
-      transform.rotate(ui->RotatioAngleSpin->value() * a);
-      painter.setTransform(transform);
-
-    painter.drawPixmap(0, 0, pxx);
-    sizes::selX -= (newDim * 0.3);
-    sizes::selY -= (newDim * 0.3);
-    sizes::selH = newDim;
-    sizes::selW = newDim;
-
-    selectionRect->resetGeometry();
-    selectionRect->setPixmap(rotPix);
-    updateInfo();
+      for(int i=1; i< table.count(); i = i+3){
+          if(table[i] >= sinA){
+              int grad = table[i-1];
+              grad =grad +angle;
+              if(grad > 90){ grad = 90-grad;}
+              if(grad < 0){ grad = grad *-1;}
+              grad = (grad *3)+1;
+              double g = table[grad];
+              sizes::selH  = hip * g*2;
+              break;
+          }
+      }
+      selectionRect->resetGeometry();
+      //--
+      QTransform tf;
+      tf.rotate(ui->RotatioAngleSpin->value() * a);
+      QPixmap sPix = selectionRect->pixmap().transformed(tf);
+      selectionRect->setPixmap(sPix);
+      updateInfo();
 }
 
 
 void MainWindow::deg90(int a)
 {
     if(!sizes::isSelectionOn){
-        QMessageBox::information(this, "Drawish", "No selection");
+        QMessageBox::information(this, "Drawish", tr("No selection"));
         return;
     }
 
@@ -1676,13 +1772,13 @@ void MainWindow::on_actionSizes_triggered()
     dSize.setModal(true);
     dSize.exec();
     if(dSize.returned == 1){
-        save_previous("Resize");
+        save_previous(tr("Resize"));
         reSize();
         sizes::startResize = false;
     }
 
     else if(dSize.returned == 2){
-        save_previous("Resize");
+        save_previous(tr("Resize"));
         areaSize();
         if(sizes::isCurveLineAreaOn){
             cl_area->setGeometry(0,0, sizes::areaWidth, sizes::areaHeight);
@@ -1703,7 +1799,7 @@ void MainWindow::on_actionSizes_triggered()
         if(sizes::activeOperation==1){
 
             if(sizes::isSelectionOn){
-                QMessageBox::information(this, "Drawish", "An area is already selected");
+                QMessageBox::information(this, "Drawish", tr("An area is already selected"));
                 return;
             }else{
                 save_previous("Selection*" + QString::number(sizes::selX) + "*" + QString::number(sizes::selY) + "*" + QString::number(sizes::selW) + "*" + QString::number(sizes::selH) );
@@ -1713,7 +1809,7 @@ void MainWindow::on_actionSizes_triggered()
         }
         else {
             if(sizes::activeOperation == 2){
-                QMessageBox::information(this, "Drawish", "An area is already selected");
+                QMessageBox::information(this, "Drawish", tr("An area is already selected"));
                 return;
             }
             sizes::activeOperation=1;
@@ -1742,7 +1838,7 @@ void MainWindow::on_actionEffects_triggered()
          if(sizes::isSelectionOn){
             selectionRect->setPixmap( dEffects.modifPix);
         }else{
-             save_previous("Effects");
+             save_previous(tr("Effects"));
              pix =  dEffects.modifPix;
              showPix();
          }
@@ -1769,7 +1865,7 @@ void MainWindow::on_actionColors_triggered()
          if(sizes::isSelectionOn){
             selectionRect->setPixmap( dCol.origPix);
         }else{
-             save_previous("Colors");
+             save_previous(tr("Colors"));
              pix =  dCol.origPix;
              showPix();
          }
@@ -1812,7 +1908,7 @@ void MainWindow::mirror(bool horizontal, bool vertical)
 
 void MainWindow::on_actionTo_greyscale_triggered()
 {
-    save_previous("Greyscale");
+    save_previous(tr("Greyscale"));
     QPixmap Epix = pix;
     if(sizes::isSelectionOn){
         Epix = selectionRect->pixmap().scaled(sizes::selW, sizes::selH);
@@ -1830,7 +1926,7 @@ void MainWindow::on_actionTo_greyscale_triggered()
 
 void MainWindow::on_actionReduce_to_RGB_triggered()
 {
-    save_previous("Reduce to rgb");
+    save_previous(tr("Reduce to rgb"));
     QPixmap Epix = pix;
     if(sizes::isSelectionOn){
         Epix = selectionRect->pixmap().scaled(sizes::selW, sizes::selH);
@@ -1864,7 +1960,7 @@ void MainWindow::on_actionReduce_to_RGB_triggered()
 
 void MainWindow::on_actionInvert_colors_triggered()
 {
-    save_previous("Invert colors");
+    save_previous(tr("Invert colors"));
     QPixmap Epix = pix;
     if(sizes::isSelectionOn){
         Epix = selectionRect->pixmap().scaled(sizes::selW, sizes::selH);
@@ -1896,10 +1992,10 @@ void MainWindow::on_actionCreate_triggered()
     if(isCam) return;
     untoggle();
     sizes::activeOperation =0;
-    int ww = QInputDialog::getInt(this, "Drawish", "Enter width", 60);
-    int hh = QInputDialog::getInt(this, "Drawish", "Enter height", 60);
+    int ww = QInputDialog::getInt(this, "Drawish", tr("Enter width"), 60);
+    int hh = QInputDialog::getInt(this, "Drawish", tr("Enter height"), 60);
     if(ww < 8 || hh < 8){
-        QMessageBox::information(this, "Drawish", "Too small selection");
+        QMessageBox::information(this, "Drawish", tr("Too small selection"));
         return;
     }
     save_area = new saveCam(wArea, QSize(ww, hh));
@@ -1913,7 +2009,7 @@ void MainWindow::on_actionSave_image_triggered()
     if(isCam){
         QPixmap camPix = pix.copy(save_area->pos().x(), save_area->pos().y(), save_area->width(), save_area->height());
         QFileDialog dialog(this);
-        QString f =dialog.getSaveFileName(this, "Drawish save...", QDir::homePath(),"Images (*.png *.jpg *.ico *bmp)");
+        QString f =dialog.getSaveFileName(this, tr("Drawish save..."), QDir::homePath(),"Images (*.png *.jpg *.ico *bmp)");
         if(f ==""){return;}
         savePix(camPix, f);
     }
@@ -1948,6 +2044,12 @@ void MainWindow::on_historyCombo_activated(int index)
         sizes::selY = data.at(2).toInt();
         sizes::selW = data.at(3).toInt();
         sizes::selH = data.at(4).toInt();
+        // selection
+        sizes::activeOperation=1;
+        wArea->setCursor(Qt::CrossCursor);
+        untoggle();
+        ui->selectionAreaButton->setChecked(true);
+        //
         createSelection();
 
     }
@@ -1991,7 +2093,7 @@ void MainWindow::on_actionQuadruple_the_pixels_triggered()
   }
   else{
   untoggle();
-  save_previous("Quadruple");
+  save_previous(tr("Quadruple"));
   sizes::areaWidth *=2;
   sizes::areaHeight *=2;
   QPixmap bigPix(sizes::areaWidth, sizes::areaHeight);
@@ -2043,7 +2145,7 @@ void MainWindow::on_actionDivide_by_4_triggered()
     }
     else{
     untoggle();
-    save_previous("Divide by 4");
+    save_previous(tr("Divide by 4"));
     sizes::areaWidth /=2;
     sizes::areaHeight /=2;
     QPixmap smallPix(sizes::areaWidth, sizes::areaHeight);
@@ -2074,7 +2176,7 @@ void MainWindow::on_actionCreate_Line_triggered()
     lineD.setModal(true);
     lineD.exec();
     if(lineD.res == QDialog::Accepted){
-        save_previous("Line input");
+        save_previous(tr("Line input"));
         QPainter pai(&pix);
         QPen pen(sizes::activeColor, sizes::line_width);
 
@@ -2101,7 +2203,7 @@ void MainWindow::on_comboBox_activated(int index)
 void MainWindow::on_actionbase64_triggered()
 {
     if(!isCam){
-        QMessageBox::warning(this, "Drawish", "Na active cam!");
+        QMessageBox::warning(this, "Drawish", tr("No active cam!"));
         return;
     }
     QPixmap camPix = pix.copy(save_area->pos().x(), save_area->pos().y(), save_area->width(), save_area->height());
@@ -2111,7 +2213,7 @@ void MainWindow::on_actionbase64_triggered()
     auto const encoded = buffer.data().toBase64();
     QClipboard *clipboard = QGuiApplication::clipboard();
     clipboard->setText(encoded);
-    QMessageBox::warning(this, "Drawish", "base64 code has been copied to clipboard!");
+    QMessageBox::warning(this, "Drawish", tr("base64 code has been copied to clipboard!"));
 }
 
 
@@ -2140,12 +2242,12 @@ void MainWindow::on_actionTo_Pdf_triggered()
        printer.setOutputFileName(cmpName);
        QPainter painter;
        if (! painter.begin(&printer)) {
-           QMessageBox::warning(this, "Drawish", "Failed to open image!");
+           QMessageBox::warning(this, "Drawish", tr("Failed to open image!"));
            return ;
        }
        painter.drawPixmap(0,0, sizes::areaWidth, sizes::areaHeight, pix);
        painter.end();
-       QMessageBox::information(this, "Drawish", "Saved in\n" + cmpName);
+       QMessageBox::information(this, "Drawish", tr("Saved in\n") + cmpName);
 }
 
 
@@ -2155,7 +2257,7 @@ void MainWindow::on_actionStretch_area_triggered()
     if(sizes::isSelectionOn){
         Epix = selectionRect->pixmap().scaled(sizes::selW, sizes::selH);
     }else{
-        QMessageBox::information(this, "Drawish", "No selection!");
+        QMessageBox::information(this, "Drawish", tr("No selection!"));
         return;
     }
 
@@ -2169,4 +2271,9 @@ void MainWindow::on_actionStretch_area_triggered()
         selectionRect->setPixmap(strd.epix);
         }
 
+}
+
+void MainWindow::on_nibButton_clicked()
+{
+    wArea->setCursor(rectCursor());
 }
