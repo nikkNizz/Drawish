@@ -5,6 +5,7 @@
 
 struct sizes
 {
+ static QString passedFile;
  static int areaWidth;
   static int areaHeight;
   static bool startResize;
