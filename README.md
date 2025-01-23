@@ -4,7 +4,7 @@ It also allows you to modify existing images.
 
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.1) page of this project.  
 For **Windows**, download Drawish_version.zip.  
 Extract the folder, and run the .exe file. Create a link to the executable for faster use.  
 
