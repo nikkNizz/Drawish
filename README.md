@@ -1,4 +1,4 @@
-# Drawish  0.9 
+# Drawish  0.9.1 
 Is a program for basic drawing.  
 It also allows you to modify existing images.
 
@@ -163,6 +163,7 @@ in view only.
 This function requires that there is an active selection.  
 Enter the degrees of rotation from 0 to 45 in the small box on the left and then click the right or left buttons to rotate.  
 To rotate the selection by 90 degrees press the 90° buttons (right or left).  
+To combine 90 degree rotation and manual rotation, deselect and reselect.  
 To mirror the image go to the "Image->Mirror horizontally "or "Image->Mirror vertically" menu.
 
 #### Sizes
