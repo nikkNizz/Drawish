@@ -79,15 +79,15 @@ void dColors::on_replaceButton_clicked()
      QImage Img = origPix.toImage();
      int minRed = ui->IFRED->value();
      int maxRed = ui->ifred->value();
-     if(minRed > maxRed){QMessageBox::information(this, "Drawish", "The minimum value of red is higher than the maximum value");}
+     if(minRed > maxRed){QMessageBox::information(this, "Drawish", tr("The minimum value of red is higher than the maximum value"));}
 
      int minGreen = ui->IFGREEN->value();
      int maxGreen = ui->ifgreen->value();
-     if(minGreen > maxGreen){QMessageBox::information(this, "Drawish", "The minimum value of green is higher than the maximum value");}
+     if(minGreen > maxGreen){QMessageBox::information(this, "Drawish", tr("The minimum value of green is higher than the maximum value"));}
 
      int minBlue = ui->IFBLUE->value();
      int maxBlue = ui->ifblue->value();
-     if(minBlue > maxBlue){QMessageBox::information(this, "Drawish", "The minimum value of blue is higher than the maximum value");}
+     if(minBlue > maxBlue){QMessageBox::information(this, "Drawish", tr("The minimum value of blue is higher than the maximum value"));}
 
 
      for (int y = 0; y < Img.height(); ++y) {
@@ -109,13 +109,13 @@ void dColors::on_pushButton_clicked()
      QImage Img = origPix.toImage();
      QStringList startcols = ui->startColorsLine->text().split(" ");
      if(startcols.count() < 3){
-         QMessageBox::information(this, "Drawish", "Please, enter 3 values in <gradient from> line ");
+         QMessageBox::information(this, "Drawish", tr("Please, enter 3 values in <gradient from> line "));
          return;
      }
      double startR=0; double startG =0; double startB =0;
      for(int i =0; i < startcols.count(); ++i){
          if(startcols.at(i)== ""){
-             QMessageBox::information(this, "Drawish", "Please, enter 3 values in <gradient from> line ");
+             QMessageBox::information(this, "Drawish", tr("Please, enter 3 values in <gradient from> line "));
              return;
          }
      }
@@ -131,13 +131,13 @@ void dColors::on_pushButton_clicked()
    //----------------------------------------
          QStringList endcols = ui->endColorsLine->text().split(" ");
          if(endcols.count() < 3){
-             QMessageBox::information(this, "Drawish", "Please, enter 3 values in <gradient to> line ");
+             QMessageBox::information(this, "Drawish", tr("Please, enter 3 values in <gradient to> line "));
              return;
          }
          int endR=0; int endG =0; int endB =0;
          for(int i =0; i < endcols.count(); ++i){
              if(endcols.at(i)== ""){
-                 QMessageBox::information(this, "Drawish", "Please, enter 3 values in <gradient to> line ");
+                 QMessageBox::information(this, "Drawish", tr("Please, enter 3 values in <gradient to> line "));
                  return;
              }
          }
