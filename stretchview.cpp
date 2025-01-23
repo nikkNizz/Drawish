@@ -1,6 +1,6 @@
 #include "stretchview.h"
 #include <QMouseEvent>
-#include <QMessageBox>
+
 
 stretchView::stretchView(QWidget *parent, QPixmap pxm) : QLabel{parent}
 {
