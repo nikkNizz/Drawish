@@ -22,6 +22,9 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+
+    void dragEnterEvent(QDragEnterEvent *event)override;
+    void dropEvent(QDropEvent *event) override;
     ~MainWindow();
 
 protected:
@@ -209,6 +212,8 @@ private slots:
 
   void on_actionStretch_area_triggered();
 
+  void on_nibButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString version_info;
@@ -228,6 +233,7 @@ private:
     int posXofZoom, posYofZoom;
     QStringList historyList;
     QList <QPixmap> historyPix;
+    int historyCount;
 
 
 };
