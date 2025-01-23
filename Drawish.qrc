@@ -18,5 +18,6 @@
     <file>res/rotateRight.png</file> 
     <file>res/roundCap.png</file>  
     <file>res/draw.png</file>
+    <file>it_lang.qm</file>
 </qresource>
 </RCC>
