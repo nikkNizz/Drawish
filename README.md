@@ -1,10 +1,11 @@
-# Drawish  0.9.1 
+# Drawish  0.9.2 
 Is a program for basic drawing.  
-It also allows you to modify existing images.
+It also allows you to modify existing images. 
+It also allows you to open pdf as images in linux
 
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.1) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.2) page of this project.  
 For **Windows**, download Drawish_version.zip.  
 Extract the folder, and run the .exe file. Create a link to the executable for faster use.  
 
@@ -39,6 +40,21 @@ The first color on the top left is the active color (default black). Change the 
 When you select an option it will be active for the drawing area,
 when you deselect it, it will no longer be active and any
 pending operations will be deleted.
+
+#### Command line
+Launch the program from the command line.
+You can also add the path of an image to open as an option.
+`/path/Drawish`
+`/path/Drawish /patho/to/image`
+
+For Italian users: you can run Drawish in English by adding the "en" parameter.
+`/path/Drawish en`
+`/path/Drawish /patho/to/image en`
+
+#### Open Pdf
+It is possible to open pdf as images, dragging them onto the drawing area, or from the menu, or from the command line.
+In windows the quality is reduced.
+In Linux the image is real, thanks to the poppler-utils generally preinstalled. If they are not present, install them with your package manager
 
 #### Selection
 Click the [selection] button to select a
@@ -120,7 +136,7 @@ From the "Image->Create line" menu **you can also create a line by entering the 
 
 #### Shapes
 As for the line. Click the [shapes] button.
-Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS. 
+Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS, CROSSES. 
 Border width is defined by line width box. 
 Many filling options are available from the choice box at the top right.
 [video](https://drive.google.com/file/d/1t4i03DvqtAWYFMJfBzxKOIYCBJa3QD-V/view?usp=sharing)
