@@ -3433,7 +3433,7 @@
      <rect>
       <x>80</x>
       <y>0</y>
-      <width>491</width>
+      <width>501</width>
       <height>31</height>
      </rect>
     </property>
@@ -3543,7 +3543,7 @@
       <rect>
        <x>435</x>
        <y>3</y>
-       <width>41</width>
+       <width>61</width>
        <height>24</height>
       </rect>
      </property>
@@ -3781,6 +3781,16 @@
        <string>Arrow ⇙</string>
       </property>
      </item>
+     <item>
+      <property name="text">
+       <string>Coross +</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cross X</string>
+      </property>
+     </item>
     </widget>
     <widget class="QPushButton" name="markerButton">
      <property name="geometry">
@@ -3810,7 +3820,7 @@
       <rect>
        <x>470</x>
        <y>0</y>
-       <width>71</width>
+       <width>81</width>
        <height>24</height>
       </rect>
      </property>
@@ -3972,7 +3982,7 @@
       <rect>
        <x>310</x>
        <y>8</y>
-       <width>121</width>
+       <width>141</width>
        <height>22</height>
       </rect>
      </property>
@@ -4358,6 +4368,7 @@
     <addaction name="actionSelect_all"/>
     <addaction name="actionCopy_selection_no_clipboard"/>
     <addaction name="actionCopy"/>
+    <addaction name="actionSet"/>
     <addaction name="actionPaste_from_clipboard"/>
     <addaction name="menuPaste_from_file"/>
     <addaction name="actionCopy_selection_to_file"/>
@@ -4375,6 +4386,7 @@
     <addaction name="actionMirror_vertically"/>
     <addaction name="actionStretch_area"/>
     <addaction name="actionTo_greyscale"/>
+    <addaction name="actionTo_sepia"/>
     <addaction name="actionReduce_to_RGB"/>
     <addaction name="actionInvert_colors"/>
     <addaction name="actionQuadruple_the_pixels"/>
@@ -4586,6 +4598,16 @@
   <action name="actionStretch_area">
    <property name="text">
     <string>Stretch area</string>
+   </property>
+  </action>
+  <action name="actionTo_sepia">
+   <property name="text">
+    <string>To sepia</string>
+   </property>
+  </action>
+  <action name="actionSet">
+   <property name="text">
+    <string>Set selection as image (crop)</string>
    </property>
   </action>
  </widget>
