@@ -1,6 +1,6 @@
 # Drawish  0.9.2 
 Is a program for basic drawing.  
-It also allows you to modify existing images. 
+It also allows you to modify existing images.  
 It also allows you to open pdf as images in linux
 
 
@@ -47,9 +47,9 @@ You can also add the path of an image to open as an option.
 `/path/Drawish` 
 `/path/Drawish /patho/to/image` 
 
-For Italian users: you can run Drawish in English by adding the "en" parameter. 
-`/path/Drawish en` 
-`/path/Drawish /patho/to/image en`
+For Italian users: you can run Drawish in English by adding the "en" parameter.   
+`/path/Drawish en`  
+`/path/Drawish /patho/to/image en`  
 
 #### Open Pdf
 It is possible to open pdf as images, dragging them onto the drawing area, or from the menu, or from the command line.
