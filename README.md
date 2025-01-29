@@ -43,9 +43,9 @@ pending operations will be deleted.
 
 #### Command line
 Launch the program from the command line.
-You can also add the path of an image to open as an option. 
- `/path/Drawish` 
- `/path/Drawish /patho/to/image` 
+You can also add the path of an image to open as an option.  
+ `/path/Drawish`  
+ `/path/Drawish /patho/to/image`  
 
 For Italian users: you can run Drawish in English by adding the "en" parameter.   
  `/path/Drawish en`  
