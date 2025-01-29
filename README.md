@@ -153,7 +153,8 @@ The real-time display of the bezier curve is not available.
 
 #### Undo/Redo
 In the top left selection box you can navigate through the history of
-the last 8 changes.  To return to the left image, press the top left button [Redo].  
+the last 8 changes. You can also use the ctrl-Z key combination to go back.   
+To return to the left image, press the top left button [Redo].  
 If a change is made from a previous image, the left image will no longer be available.
 
 #### Zoom
