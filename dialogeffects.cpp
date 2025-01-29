@@ -103,7 +103,7 @@ QImage DialogEffects::contrast(int v)
      return qImgRet;
 }
 
-QImage DialogEffects::highlightEffect(int v)
+QImage DialogEffects::highlightEffect(double v)
 {
     QImage Img= origPix.toImage();
     for (int y = 0; y < Img.height(); ++y) {
@@ -115,17 +115,17 @@ QImage DialogEffects::highlightEffect(int v)
             int g = qGreen(rgb);
             int b = qBlue(rgb);
             if( r > g && r > b){
-                r += v;
+                r *= v;
                 if(r > 255)r = 255;
                 else if(r < 0) r = 0;
             }
             else if(g > r && g > b){
-                g += v;
+                g *= v;
                 if(g > 255)g = 255;
                 else if(g < 0) g = 0;
             }
             else if(b > r && b > g){
-                b +=v;
+                b *=v;
                 if(b > 255)b = 255;
                 else if(b < 0) b = 0;
             }
@@ -138,7 +138,7 @@ QImage DialogEffects::highlightEffect(int v)
 
 void DialogEffects::on_highlightPlusButton_clicked()
 {
-    QImage imgg = highlightEffect(5);
+    QImage imgg = highlightEffect(1.1);
     newPix = QPixmap::fromImage(imgg);
     ui->labelThumb->setPixmap( newPix.scaled(200,170));
     if(ui->autoUpdateCheck->isChecked()){origPix = newPix;}
@@ -147,7 +147,7 @@ void DialogEffects::on_highlightPlusButton_clicked()
 
 void DialogEffects::on_highlightMinusButton_clicked()
 {
-    QImage imgg = highlightEffect(-5);
+    QImage imgg = highlightEffect(0.9);
     newPix = QPixmap::fromImage(imgg);
     ui->labelThumb->setPixmap( newPix.scaled(200,170));
     if(ui->autoUpdateCheck->isChecked()){origPix = newPix;}
@@ -370,3 +370,5 @@ void DialogEffects::on_pixelizeButton_clicked()
      ui->labelThumb->setPixmap( newPix.scaled(200,170));
      if(ui->autoUpdateCheck_2->isChecked()){origPix = newPix;}
 }
+
+
