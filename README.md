@@ -44,12 +44,12 @@ pending operations will be deleted.
 #### Command line
 Launch the program from the command line.
 You can also add the path of an image to open as an option. 
-`/path/Drawish` 
-`/path/Drawish /patho/to/image` 
+ `/path/Drawish` 
+ `/path/Drawish /patho/to/image` 
 
 For Italian users: you can run Drawish in English by adding the "en" parameter.   
-`/path/Drawish en`  
-`/path/Drawish /patho/to/image en`  
+ `/path/Drawish en`  
+ `/path/Drawish /patho/to/image en`  
 
 #### Open Pdf
 It is possible to open pdf as images, dragging them onto the drawing area, or from the menu, or from the command line.
