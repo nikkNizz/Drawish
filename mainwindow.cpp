@@ -33,6 +33,7 @@
 #include <QDesktopServices>
 #include <QBuffer>
 #include <QPrinter>
+#include <QProcess>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -40,7 +41,13 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = tr("Version:  0.9.1\nEmail:  nicNiz@libero.it");
+    version_info = "0.9.2";
+
+    isLinux = false;
+#ifdef Q_OS_LINUX
+    isLinux = true;
+#endif
+
 
 // set label as drawing area
     ui->textOptionsWidget->setVisible(false);
@@ -58,15 +65,22 @@ MainWindow::MainWindow(QWidget *parent)
 
     // open passed file (from command line)
         if(sizes::passedFile != "" && QFile::exists(sizes::passedFile)){
+        QPixmap npix;
 
-            QPixmap npix(sizes::passedFile);
+        if(sizes::passedFile.endsWith("pdf", Qt::CaseInsensitive) && isLinux){
+             npix = openPdf(sizes::passedFile);
+
+        }else{
+             npix = QPixmap(sizes::passedFile);
+             activePathFile = sizes::passedFile;
+        }
             if(npix.isNull()){
                 QMessageBox::information(this, "Drawish", tr("Unsupported file"));
                  // set default image to area
                 pix =QPixmap(sizes::areaWidth, sizes::areaHeight);
                 pix.fill(Qt::white);
             }else{
-            activePathFile = sizes::passedFile;
+
             pix = npix;
             sizes::areaHeight=pix.height();
             sizes::areaWidth=pix.width();
@@ -134,17 +148,26 @@ void MainWindow::dropEvent(QDropEvent *event)
             foreach(QUrl url, event->mimeData()->urls()){
                 QFileInfo f(url.toLocalFile());
                 if(sizes::modify){
-                    save_previous("Open");
-                    int q = QMessageBox::question(this, "Drawish", "Save image?",QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
+                    save_previous(tr("Open"));
+                    int q = QMessageBox::question(this, "Drawish", tr("Save image?"),QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
                     if(q == QMessageBox::Yes){
                         imgSave();
                     }
                  }
                 //open image
-                QPixmap npix(f.filePath());
-                if(npix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file")); return;}
-                activePathFile = f.filePath();
-                pix = npix;
+
+                 QPixmap npix;
+                 if(f.filePath().endsWith(".pdf", Qt::CaseInsensitive) && isLinux){
+                    npix = openPdf(f.filePath());
+                 }else{
+                     npix = QPixmap(f.filePath());
+                     if(npix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file")); return;}
+                     activePathFile = f.filePath();
+                 }
+                save_previous(tr("Open"));
+
+                if(!npix.isNull()) pix = npix;
+
                 sizes::areaHeight=pix.height();
                 sizes::areaWidth=pix.width();
 
@@ -156,6 +179,31 @@ void MainWindow::dropEvent(QDropEvent *event)
             }
         }
 }
+
+QPixmap MainWindow::openPdf(QString fileName)
+{
+    QPixmap zpix;
+    int num = QInputDialog::getInt(this, "Drawish", tr("Enter page number to convert"));
+    QFileInfo f(fileName);
+    QByteArray result;
+    QStringList arguments;
+    arguments << f.filePath() << "/tmp/" + f.baseName() << "-png" << "-f" << QString::number(num) << "-l" << QString::number(num);
+    QProcess pdftoppm;
+    pdftoppm.start("pdftoppm", arguments);
+    bool started = pdftoppm.waitForStarted();
+    if(!started){ QMessageBox::question(this, "Drawish", tr("Error executing command")); }
+    pdftoppm.waitForFinished();
+    result = pdftoppm.readAllStandardOutput();
+    zpix = QPixmap("/tmp/" + f.baseName() + "-" + QString::number(num) + ".png");
+    if(zpix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file"));
+        return QPixmap();
+    }
+    QFile::remove("/tmp/" + f.baseName() + "-" + QString::number(num) + ".png");
+    activePathFile = "";
+    return zpix;
+}
+
+
 
 MainWindow::~MainWindow()
 {
@@ -341,9 +389,18 @@ void MainWindow::newImage(QString from)
       QFileDialog dialog(this);
       QString f =dialog.getOpenFileName(this, tr("Drawish...Select image"), QDir::homePath() );
       if(f ==""){return;}
-      QPixmap npix(f);
+
+      QPixmap npix;
+      if(f.endsWith(".pdf", Qt::CaseInsensitive) && isLinux){
+          npix = openPdf(f);
+      }else{
+          npix = QPixmap(f);
+          if(npix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file")); return;}
+          activePathFile = f;
+      }
+      save_previous(tr("Open"));
+
       if(npix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file")); return;}
-      activePathFile = f;
       pix = npix;
       sizes::areaHeight=pix.height();
       sizes::areaWidth=pix.width();
@@ -468,8 +525,9 @@ void MainWindow::on_actionNew_triggered()
 
 void MainWindow::on_actionOpen_triggered()
 {
-    save_previous(tr("Open"));
+
     if(sizes::modify){
+        save_previous(tr("Open"));
         int q = QMessageBox::question(this, "Drawish", tr("Save image?"), QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
         if(q == QMessageBox::Yes){
             imgSave();
@@ -555,12 +613,15 @@ void MainWindow::createSelection()
         if(ui->actionTransparent_selection->isChecked()){
             selPix=addTransparency(selPix, 0,255,255,255);
         }
+
       selectionRect->setPixmap(selPix);
       QPixmap blank(sizes::selW ,sizes::selH );
       blank.fill(Qt::white);
       QPainter p(&pix);
       p.drawPixmap(sizes::selX ,sizes::selY, blank);
       wArea->setPixmap(pix);
+    }else{
+        ui->textEdit->setFocus();
     }
     sizes::isSelectionOn=true;
     selectionRect->show();
@@ -635,6 +696,16 @@ void MainWindow::on_actionPaste_from_clipboard_triggered()
     if (mimeData->hasImage()) {
             QPixmap cpix =(qvariant_cast<QPixmap>(mimeData->imageData()));
             pasteImg(cpix);
+    }else if(mimeData->hasText()){
+        QPixmap pxm(pix.width(), pix.height());
+        pxm.fill(QColor(255,255,255,0));
+        QPainter p(&pxm);
+        QPen pen(Qt::black);
+        p.setPen(pen);
+        QFont font("arial", 18);
+        p.setFont(font);
+        p.drawText(20,20 , clipboard->text());
+        pasteImg(pxm);
     }
 }
 void MainWindow::pasteImg(QPixmap passedPix)
@@ -650,6 +721,9 @@ void MainWindow::pasteImg(QPixmap passedPix)
     sizes::selH = he;
     sizes::selW = wi;
 
+    untoggle();
+    ui->selectionAreaButton->setChecked(true);
+    sizes::activeOperation =1;
     selectionRect = new selectionArea(wArea);
     selectionRect->resetGeometry();
     selectionRect->setPixmap(passedPix.scaled(sizes::selW, sizes::selH));
@@ -1493,7 +1567,7 @@ void MainWindow::on_shapeButton_clicked()
 void MainWindow::on_shapesCombo_currentIndexChanged(int index)
 {
     QStringList shapeNames;
-    shapeNames << "squ" << "rec" << "cir" << "ell" << "tri" << "rou" << "sta" << "aup" << "ari" << "ado" << "ale" << "aul" << "aur" << "abr" << "abl";
+    shapeNames << "squ" << "rec" << "cir" << "ell" << "tri" << "rou" << "sta" << "aup" << "ari" << "ado" << "ale" << "aul" << "aur" << "abr" << "abl" << "crp" << "crx";
     sizes::activeShape = shapeNames.at(index);
 }
 
@@ -1906,6 +1980,7 @@ void MainWindow::mirror(bool horizontal, bool vertical)
     }
 }
 
+
 void MainWindow::on_actionTo_greyscale_triggered()
 {
     save_previous(tr("Greyscale"));
@@ -1920,6 +1995,41 @@ void MainWindow::on_actionTo_greyscale_triggered()
     }else{
       pix = QPixmap::fromImage(img);
       showPix();
+    }
+}
+
+void MainWindow::on_actionTo_sepia_triggered()
+{
+    save_previous(tr("Sepia"));
+    QPixmap Epix = pix;
+    if(sizes::isSelectionOn){
+        Epix = selectionRect->pixmap().scaled(sizes::selW, sizes::selH);
+    }
+    QImage img = Epix.toImage();
+    //img = img.convertToFormat(QImage::Format_Grayscale8);
+    //img = img.convertToFormat(QImage::Format_ARGB32	);
+    for (int y = 0; y < img.height(); ++y) {
+        for (int x = 0; x < img.width(); ++x) {
+           QColor rgb = img.pixelColor(x,y);
+
+        int r = rgb.red();
+        int g = rgb.green();
+        int b = rgb.blue();
+        int nr, ng, nb;
+        nr = 0.393 * r + 0.769 * g + 0.189 * b;
+        ng = 0.349 * r + 0.686 * g + 0.168 * b;
+        nb = 0.272 * r + 0.534 * g + 0.131 * b;
+        if(nr > 255) nr = 255;
+        if(ng > 255) ng = 255;
+        if(nb > 255) nb = 255 ;
+        img.setPixelColor(x,y, QColor(nr,ng,nb));
+        }
+    }
+    if(sizes::isSelectionOn){
+        selectionRect->setPixmap(QPixmap::fromImage(img));
+    }else{
+        pix = QPixmap::fromImage(img);
+        showPix();
     }
 }
 
@@ -2060,7 +2170,7 @@ void MainWindow::on_historyCombo_activated(int index)
 
 void MainWindow::on_actionAbout_triggered()
 {
-    QMessageBox::information(this, "Drawish", version_info);
+    QMessageBox::information(this, "Drawish", "Version:  " + version_info + "\nEmail:  nicNiz@libero.it");
 }
 
 
@@ -2276,4 +2386,20 @@ void MainWindow::on_actionStretch_area_triggered()
 void MainWindow::on_nibButton_clicked()
 {
     wArea->setCursor(rectCursor());
+}
+
+
+void MainWindow::on_actionSet_triggered()
+{
+    if(sizes::isSelectionOn){
+        sizes::selX = 0;
+        sizes::selY = 0;
+        sizes::areaHeight = sizes::selH;
+        sizes::areaWidth = sizes::selW;
+        selectionRect->resetGeometry();
+        reSize();
+
+    }else{
+         QMessageBox::information(this, "Drawish", tr("No selection!"));
+    }
 }
