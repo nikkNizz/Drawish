@@ -182,6 +182,16 @@ void shapeArea::drawSomething()
             poly << QPoint(ww*0.1, hh*0.9) << QPoint(ww*0.9, hh*0.9) << QPoint(ww*0.5, hh*0.1) << QPoint(ww*0.1, hh*0.9);
             p.drawPolygon(poly);
         }
+        else if(sizes::activeShape == "crp"){
+             QPolygon poly;
+            poly << QPoint(ww*0.5, hh*0.1) << QPoint(ww*0.5, hh*0.9) << QPoint(ww*0.5, hh*0.5) << QPoint(ww*0.1, hh*0.5) << QPoint(ww * 0.9, hh *0.5) << QPoint(ww * 0.5, hh * 0.5);
+             p.drawPolygon(poly);
+        }
+        else if(sizes::activeShape == "crx"){
+            QPolygon poly;
+            poly << QPoint(ww*0.1, hh*0.1) << QPoint(ww*0.9, hh*0.9) << QPoint(ww*0.5, hh*0.5) << QPoint(ww*0.9, hh*0.1) << QPoint(ww * 0.1, hh *0.9) << QPoint(ww * 0.5, hh * 0.5);
+            p.drawPolygon(poly);
+        }
         else if(sizes::activeShape == "rou"){
             p.drawRoundedRect(ww*0.1, hh*0.1, ww*0.8, hh*0.8, 10,10);
         }
