@@ -69,6 +69,7 @@ private slots:
   void rotation(int a);
   void deg90(int a);
   void mirror(bool horizontal, bool vertical);
+  QPixmap openPdf(QString fileName);
 
 
   void on_actionNew_triggered();
@@ -214,7 +215,11 @@ private slots:
 
   void on_nibButton_clicked();
 
-private:
+  void on_actionTo_sepia_triggered();
+
+  void on_actionSet_triggered();
+
+  private:
     Ui::MainWindow *ui;
     QString version_info;
     Area *wArea;
@@ -234,6 +239,7 @@ private:
     QStringList historyList;
     QList <QPixmap> historyPix;
     int historyCount;
+    bool isLinux;
 
 
 };
