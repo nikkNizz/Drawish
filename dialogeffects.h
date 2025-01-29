@@ -21,11 +21,11 @@ public:
 private slots:
     QImage gamma(double exp);
     QImage contrast(int v);
-    QImage highlightEffect(int v);
+    QImage highlightEffect(double v);
     QImage addColor(int color, int v);
     void on_gammaSlider_sliderReleased();
 
-     void on_valSlider_sliderReleased();
+    void on_valSlider_sliderReleased();
 
     void on_highlightPlusButton_clicked();
 
