@@ -183,7 +183,7 @@ void MainWindow::dropEvent(QDropEvent *event)
 QPixmap MainWindow::openPdf(QString fileName)
 {
     QPixmap zpix;
-    int num = QInputDialog::getInt(this, "Drawish", tr("Enter page number to convert"));
+    int num = QInputDialog::getInt(this, "Drawish", tr("Enter page number to convert"), 1);
     QFileInfo f(fileName);
     QByteArray result;
     QStringList arguments;
@@ -2348,16 +2348,19 @@ void MainWindow::on_actionTo_Pdf_triggered()
     }
 
     QPrinter printer;
+    printer.setResolution(150);
+    printer.setPageSize(QPageSize::A4);
     printer.setOutputFormat(QPrinter::PdfFormat);
-       printer.setOutputFileName(cmpName);
-       QPainter painter;
+    printer.setOutputFileName(cmpName);
+    printer.setFullPage(true);
+    QPainter painter;
        if (! painter.begin(&printer)) {
            QMessageBox::warning(this, "Drawish", tr("Failed to open image!"));
            return ;
        }
-       painter.drawPixmap(0,0, sizes::areaWidth, sizes::areaHeight, pix);
-       painter.end();
-       QMessageBox::information(this, "Drawish", tr("Saved in\n") + cmpName);
+     painter.drawPixmap(0,0, sizes::areaWidth, sizes::areaHeight, pix);
+     painter.end();
+     QMessageBox::information(this, "Drawish", tr("Saved in\n") + cmpName);
 }
 
 
