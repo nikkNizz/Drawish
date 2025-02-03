@@ -4098,9 +4098,9 @@
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>250</x>
        <y>10</y>
-       <width>41</width>
+       <width>51</width>
        <height>16</height>
       </rect>
      </property>
@@ -4143,7 +4143,7 @@
     <widget class="QLabel" name="rgbLabel">
      <property name="geometry">
       <rect>
-       <x>400</x>
+       <x>410</x>
        <y>10</y>
        <width>141</width>
        <height>16</height>
@@ -4379,7 +4379,6 @@
     <property name="title">
      <string>Image</string>
     </property>
-    <addaction name="actionSizes"/>
     <addaction name="actionEffects"/>
     <addaction name="actionColors"/>
     <addaction name="actionMirror"/>
@@ -4389,10 +4388,7 @@
     <addaction name="actionTo_sepia"/>
     <addaction name="actionReduce_to_RGB"/>
     <addaction name="actionInvert_colors"/>
-    <addaction name="actionQuadruple_the_pixels"/>
-    <addaction name="actionDivide_by_4"/>
     <addaction name="actionCreate_Line"/>
-    <addaction name="actionZoom"/>
    </widget>
    <widget class="QMenu" name="menuCamera">
     <property name="title">
@@ -4410,8 +4406,19 @@
     <addaction name="actionAbout"/>
     <addaction name="actionGithub"/>
    </widget>
+   <widget class="QMenu" name="menuSizes">
+    <property name="title">
+     <string>Sizes</string>
+    </property>
+    <addaction name="actionSizes_2"/>
+    <addaction name="actionQuadruple_the_pixels_2"/>
+    <addaction name="actionDivide_by_5"/>
+    <addaction name="actionIncrement_10"/>
+    <addaction name="actionZoom_2"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
+   <addaction name="menuSizes"/>
    <addaction name="menuEffects"/>
    <addaction name="menuCamera"/>
    <addaction name="menuAbout"/>
@@ -4482,11 +4489,6 @@
     <string>Effects</string>
    </property>
   </action>
-  <action name="actionSizes">
-   <property name="text">
-    <string>Sizes</string>
-   </property>
-  </action>
   <action name="actionMirror">
    <property name="text">
     <string>Mirror horizontally</string>
@@ -4532,24 +4534,9 @@
     <string>Reduce to RGB</string>
    </property>
   </action>
-  <action name="actionZoom">
-   <property name="text">
-    <string>Zoom</string>
-   </property>
-  </action>
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
-   </property>
-  </action>
-  <action name="actionQuadruple_the_pixels">
-   <property name="text">
-    <string>Quadruple the pixels ◰</string>
-   </property>
-  </action>
-  <action name="actionDivide_by_4">
-   <property name="text">
-    <string>Divide by 4</string>
    </property>
   </action>
   <action name="actionCreate_Line">
@@ -4608,6 +4595,31 @@
   <action name="actionSet">
    <property name="text">
     <string>Set selection as image (crop)</string>
+   </property>
+  </action>
+  <action name="actionSizes_2">
+   <property name="text">
+    <string>Sizes</string>
+   </property>
+  </action>
+  <action name="actionQuadruple_the_pixels_2">
+   <property name="text">
+    <string>Quadruple the pixels</string>
+   </property>
+  </action>
+  <action name="actionDivide_by_5">
+   <property name="text">
+    <string>Divide by 4</string>
+   </property>
+  </action>
+  <action name="actionIncrement_10">
+   <property name="text">
+    <string>Increment 10%</string>
+   </property>
+  </action>
+  <action name="actionZoom_2">
+   <property name="text">
+    <string>Zoom</string>
    </property>
   </action>
  </widget>
