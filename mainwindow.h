@@ -150,8 +150,6 @@ private slots:
 
   void on_rotateRightButton_clicked();
 
-  void on_actionSizes_triggered();
-
   void on_actionEffects_triggered();
 
   void on_actionColors_triggered();
@@ -166,8 +164,6 @@ private slots:
 
   void on_actionInvert_colors_triggered();
 
-  void on_actionZoom_triggered();
-
   void on_actionCreate_triggered();
 
   void on_actionSave_image_triggered();
@@ -181,10 +177,6 @@ private slots:
   void on_historyCombo_activated(int index);
 
   void on_actionAbout_triggered();
-
-  void on_actionQuadruple_the_pixels_triggered();
-
-  void on_actionDivide_by_4_triggered();
 
   void on_actionCreate_Line_triggered();
 
@@ -210,7 +202,6 @@ private slots:
 
   void on_actionAdd_bottom_triggered();
 
-
   void on_actionStretch_area_triggered();
 
   void on_nibButton_clicked();
@@ -218,6 +209,17 @@ private slots:
   void on_actionTo_sepia_triggered();
 
   void on_actionSet_triggered();
+
+  void on_actionSizes_2_triggered();
+
+  void on_actionQuadruple_the_pixels_2_triggered();
+
+  void on_actionDivide_by_5_triggered();
+
+  void on_actionZoom_2_triggered();
+
+  void on_actionIncrement_10_triggered();
+
 
   private:
     Ui::MainWindow *ui;
@@ -240,6 +242,7 @@ private slots:
     QList <QPixmap> historyPix;
     int historyCount;
     bool isLinux;
+    QString nextColumnToAdd="0593716482";
 
 
 };
