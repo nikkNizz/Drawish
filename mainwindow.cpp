@@ -41,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "0.9.2";
+    version_info = "0.9.3";
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -135,6 +135,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(wArea, SIGNAL(viewZoom()), this, SLOT(view_zoom()));
 
     historyCount = 1;
+    updateInfo();
 }
 
 void MainWindow::dragEnterEvent(QDragEnterEvent *event)
@@ -168,14 +169,16 @@ void MainWindow::dropEvent(QDropEvent *event)
 
                 if(!npix.isNull()) pix = npix;
 
-                sizes::areaHeight=pix.height();
-                sizes::areaWidth=pix.width();
+                sizes::areaHeight = pix.height();
+                sizes::areaWidth  = pix.width();
 
                 areaSize();
                 wArea->setPixmap(pix);
-                borderB->resetGeometry();
+
                 borderR->resetGeometry();
+                borderB->resetGeometry();
                 corner->resetGeometry();
+                updateInfo();
             }
         }
 }
@@ -414,6 +417,7 @@ void MainWindow::newImage(QString from)
        borderB->resetGeometry();
        borderR->resetGeometry();
        corner->resetGeometry();
+       updateInfo();
 }
 
 QCursor MainWindow::rectCursor()
@@ -1840,7 +1844,7 @@ void MainWindow::on_deg90right_clicked()
 
 // ----
 //  resize image or selection. scale image
-void MainWindow::on_actionSizes_triggered()
+void MainWindow::on_actionSizes_2_triggered()
 {
     DialogSize dSize;
     dSize.setModal(true);
@@ -2086,7 +2090,7 @@ void MainWindow::on_actionInvert_colors_triggered()
 }
 
 
-void MainWindow::on_actionZoom_triggered()
+void MainWindow::on_actionZoom_2_triggered()
 {
     // zoom only view
 
@@ -2174,7 +2178,7 @@ void MainWindow::on_actionAbout_triggered()
 }
 
 
-void MainWindow::on_actionQuadruple_the_pixels_triggered()
+void MainWindow::on_actionQuadruple_the_pixels_2_triggered()
 {
   if(sizes::isSelectionOn){
       QImage img = selectionRect->pixmap().scaled(sizes::selW, sizes::selH).toImage();
@@ -2234,7 +2238,7 @@ void MainWindow::on_actionQuadruple_the_pixels_triggered()
 }
 
 
-void MainWindow::on_actionDivide_by_4_triggered()
+void MainWindow::on_actionDivide_by_5_triggered()
 {
     if(sizes::isSelectionOn){
         QImage img = selectionRect->pixmap().scaled(sizes::selW, sizes::selH).toImage();
@@ -2358,9 +2362,9 @@ void MainWindow::on_actionTo_Pdf_triggered()
            QMessageBox::warning(this, "Drawish", tr("Failed to open image!"));
            return ;
        }
-     painter.drawPixmap(0,0, sizes::areaWidth, sizes::areaHeight, pix);
-     painter.end();
-     QMessageBox::information(this, "Drawish", tr("Saved in\n") + cmpName);
+    painter.drawPixmap(0,0, sizes::areaWidth, sizes::areaHeight, pix);
+    painter.end();
+    QMessageBox::information(this, "Drawish", tr("Saved in\n") + cmpName);
 }
 
 
@@ -2405,4 +2409,96 @@ void MainWindow::on_actionSet_triggered()
     }else{
          QMessageBox::information(this, "Drawish", tr("No selection!"));
     }
+}
+
+
+void MainWindow::on_actionIncrement_10_triggered()
+{
+    QString num1 = nextColumnToAdd.mid(0,1); // QString nextColumnToAdd="0593716482";
+    nextColumnToAdd = nextColumnToAdd.mid(1, 9) + num1;
+    int num_1 = num1.toInt();
+
+    if(sizes::isSelectionOn){
+        QImage img = selectionRect->pixmap().scaled(sizes::selW, sizes::selH).toImage();
+        sizes::selH *=1.1;
+        sizes::selW *=1.1;
+        QPixmap bigPix(sizes::selW, sizes::selH);
+        QImage bigImage = bigPix.toImage();
+        int nx =0;
+        int ny =0;
+        int num_2 = num_1;
+        for (int y = 0; y < img.height(); ++y) {
+            QRgb *line = reinterpret_cast<QRgb*>(img.scanLine(y));
+            nx =0;
+            num_1 = num1.toInt();
+            for (int x = 0; x < img.width(); ++x) {
+                QRgb &rgb = line[x];
+                bigImage.setPixelColor(nx, ny, QColor(rgb));
+                if(x == num_1){
+                    bigImage.setPixelColor(nx+1, ny, QColor(rgb));
+                    nx++;
+                    num_1 += 10;
+                }
+                nx++;
+            }
+            if(y == num_2){
+
+                for (int x2 = 0; x2 < bigImage.width(); ++x2) {
+                    QColor k = bigImage.pixelColor(x2, ny);
+                    bigImage.setPixelColor(x2, ny+1, k);
+                }
+                ny++;
+                num_2 += 10;
+            }
+            ny++;
+        }
+        bigPix = QPixmap::fromImage(img);
+        selectionRect->resetGeometry();
+        selectionRect->setPixmap(bigPix);
+
+    }
+    else{
+        untoggle();
+        save_previous(tr("Increment 10%"));
+        sizes::areaWidth *=1.1;
+        sizes::areaHeight *=1.1;
+        QPixmap bigPix(sizes::areaWidth, sizes::areaHeight);
+        QImage bigImage = bigPix.toImage();
+        QImage img = pix.toImage();
+        int nx =0;
+        int ny =0;
+        int num_2 = num_1;
+        for (int y = 0; y < img.height(); ++y) {
+            QRgb *line = reinterpret_cast<QRgb*>(img.scanLine(y));
+            nx =0;
+            num_1 = num1.toInt();
+            for (int x = 0; x < img.width(); ++x) {
+                QRgb &rgb = line[x];
+                bigImage.setPixelColor(nx, ny, QColor(rgb));
+                if(x == num_1){
+                    bigImage.setPixelColor(nx+1, ny, QColor(rgb));
+                    nx++;
+                    num_1 += 10;
+                }
+                nx++;
+            }
+            if(y == num_2){
+
+                for (int x2 = 0; x2 < bigImage.width(); ++x2) {
+                    QColor k = bigImage.pixelColor(x2, ny);
+                    bigImage.setPixelColor(x2, ny+1, k);
+                }
+                ny++;
+                num_2 += 10;
+            }
+            ny++;
+        }
+        pix = QPixmap::fromImage(bigImage);
+        areaSize();
+        showPix();
+        borderB->resetGeometry();
+        borderR->resetGeometry();
+        corner->resetGeometry();
+    }
+    updateInfo();
 }
