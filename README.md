@@ -190,7 +190,7 @@ To combine 90 degree rotation and manual rotation, deselect and reselect.
 To mirror the image go to the "Image->Mirror horizontally "or "Image->Mirror vertically" menu.
 
 #### Sizes
-From the" Image->Sizes" menu you can scale or resize the image based on manually entered values.  
+From the" Sizes->Sizes" menu you can scale or resize the image based on manually entered values.  
 You can also create a selection manually.
 
 #### Effects
