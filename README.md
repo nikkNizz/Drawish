@@ -54,7 +54,8 @@ For Italian users: you can run Drawish in English by adding the "en" parameter.
 #### Open Pdf
 It is possible to open pdf as images, dragging them onto the drawing area, or from the menu, or from the command line.   
 In windows the quality is reduced.   
-In Linux the image is real, thanks to the poppler-utils generally preinstalled. If they are not present, install them with your package manager
+In Linux the image is real, thanks to the poppler-utils generally preinstalled. If they are not present, install them with your package manager.  
+[video](https://drive.google.com/file/d/1Hy4OA9NZz2n9SRrA49Y8R8SDUAu0Y6TE/view?usp=sharing)
 
 #### Selection
 Click the [selection] button to select a
@@ -64,7 +65,7 @@ To copy the portion **without detaching it**, select it and,
 before moving it, go to the "Edit->copy selection (no clipboard) " menu.  
 You can also create a selection by entering the coordinates from the keyboard
 from the "Sizes->Sizes->[Create selection]" menu.  
-To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  
+To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys[video](https://drive.google.com/file/d/1M-l_ubJsOdIr8C0IrRB_tgGHxzaZ9MT5/view?usp=sharing).  
 To make the white area of ​​the selection transparent, check the box
 from the "Edit->Transparent selection" Menu (already selected by default), **before** creating the selection.  
 To select everything, use the "Edit->Select all" menu.  
@@ -89,7 +90,7 @@ and move the mouse over the drawing area, holding
 down the left mouse button. You can draw
 with the keyboard by selecting in the top menu how many pixels to draw
 when you press the keys.  
-Use the A (left), Q or W (up), S (right), Z or X (down) keys.  
+Use the A (left), Q or W (up), S (right), Z or X (down) keys[video](https://drive.google.com/file/d/1M-l_ubJsOdIr8C0IrRB_tgGHxzaZ9MT5/view?usp=sharing).  
 In the panel that appears above the drawing area you can
 choose attributes. Do not use transparent color to draw.  
 Use white color to erase.
@@ -162,7 +163,7 @@ To return to the left image, press the top left button [Redo].
 If a change is made from a previous image, the left image will no longer be available.
 
 #### Zoom
-[video](https://drive.google.com/file/d/1AK7YTQmPAJy1-YKfypvI-lKnYwCxmKmT/view?usp=sharing)
+[video](https://drive.google.com/file/d/1exjhHi0g1fYensnA7L1kjqlH964XHt0q/view?usp=sharing)  
 ##### Pixel matrix. 
 Right-click on a point of the image, the pixel matrix will appear enlarged for the area in
 the vicinity of the cursor. Clicking on a zoomed pixel with the
@@ -177,6 +178,9 @@ From the "Sizes->Quadruple the pixel" menu you can get a new image with the pixe
 The image can be enlarged several times without loss of quality, but it is not a zoom, but a new image.
 In the same way, to divide the pixels, use the **"Sizes->Divide by 4"** menu.
 From the "Sizes->Increment 10%" menu you can increase image size by 10% without loss.
+
+##### Scaling
+Increase the image size by scaling it from the menu "Sizes->Sizes" with loss of quality.  
 
 ##### View.
 The zoom of the entire image is obtained from the "Sizes->Zoom" menu, but
