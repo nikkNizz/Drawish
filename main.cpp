@@ -1,4 +1,3 @@
-#include "mainwindow.h"
 #include "geometric.h"
 
 #include <QApplication>
@@ -23,7 +22,7 @@ int main(int argc, char *argv[])
     QTranslator trs;
     trs.load(":/it_lang.qm");
     if(local == QString("Italian") && trsl == true){
-        a.installTranslator(&trs);
+       a.installTranslator(&trs);
     }
 
     MainWindow w;
