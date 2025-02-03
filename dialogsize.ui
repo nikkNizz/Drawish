@@ -748,6 +748,9 @@
    <property name="text">
     <string>keep image ratio</string>
    </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QPushButton" name="resizeButton">
    <property name="geometry">
