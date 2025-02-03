@@ -1,11 +1,11 @@
-# Drawish  0.9.2 
+# Drawish  0.9.3 
 Is a program for basic drawing.  
 It also allows you to modify existing images.  
 It also allows you to open pdf as images in linux
 
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.2) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.3) page of this project.  
 For **Windows**, download Drawish_version.zip.  
 Extract the folder, and run the .exe file. Create a link to the executable for faster use.  
 
@@ -63,7 +63,7 @@ can be dragged with the mouse, and can also be resized by pulling the edges with
 To copy the portion **without detaching it**, select it and,
 before moving it, go to the "Edit->copy selection (no clipboard) " menu.  
 You can also create a selection by entering the coordinates from the keyboard
-from the "Image->Sizes->[Create selection]" menu.  
+from the "Sizes->Sizes->[Create selection]" menu.  
 To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  
 To make the white area of ​​the selection transparent, check the box
 from the "Edit->Transparent selection" Menu (already selected by default), **before** creating the selection.  
@@ -79,6 +79,9 @@ From the "Edit->Paste from file" menu you can merge two images with three option
 From the "Edit->Merge selection to image" menu you can merge the portion of the image below into the selection. 
 A prompt allows you to choose between 3 blending ratios.
 [video](https://drive.google.com/file/d/1GjlgFmv3VamLUOMfETiolQuof1ETXacL/view?usp=sharing)
+
+#### Crop
+From the "Edit->Selection to image (crop)" you can crop the image.
 
 #### Freehand drawing
 Click the [marker] button
@@ -101,6 +104,7 @@ The text area will be displayed and can be moved as desired.
 **The multiline text box and options are displayed at the top**.
 Click the [DRAW] button to actually print the text, then move the text area 
 to continue printing text. Or disable the function by clicking the left button again.
+It is possible to paste text from the clipboard, as an image.
 [video](https://drive.google.com/file/d/14wtJqm03hGNeiaqOLzPeB7In8m7ON_kk/view?usp=sharing)
 
 #### Fill / Fill inside black
@@ -119,7 +123,7 @@ If the check box [Fill inside black] is selected, the entire area around the cli
 Click the [spray] button and move the mouse over the drawing area, holding down the left mouse button.
 
 #### Pick color
-Click the [pick] button and then on a point in the
+Click the [picker] button and then on a point in the
 image that you want to get the color of.  This will become the
 active color.  Click on the pick button again to proceed
 with other operations.
@@ -167,13 +171,15 @@ Clicking with the left mouse button, you get the information on
 the rgb color of the pixel.  
 Remove the enlarged area with another right-click on the image.  
 
-##### Double the pixels.
-If there is an active selection this function applies to the selection, otherwise it applies to the entire image.
-From the "Image->Quadruple the pixel" menu you can get a new image with the pixels doubled in width and height. 
+##### Double the pixels or Increase by 10%.
+If there is an active selection these functions applies to the selection, otherwise they applie to the entire image.
+From the "Sizes->Quadruple the pixel" menu you can get a new image with the pixels doubled in width and height. 
 The image can be enlarged several times without loss of quality, but it is not a zoom, but a new image.
-In the same way, to divide the pixels, use the "Image->Divide by 4" menu.
+In the same way, to divide the pixels, use the **"Sizes->Divide by 4"** menu.
+From the "Sizes->Increment 10%" menu you can increase image size by 10% without loss.
+
 ##### View.
-The zoom of the entire image is obtained from the "Image->Zoom" menu, but
+The zoom of the entire image is obtained from the "Sizes->Zoom" menu, but
 in view only.
 
 #### Rotation 
@@ -203,7 +209,7 @@ From the Image menu you can apply the listed effects to the selection.
 If there is no selection, the changes are applied to the entire image.  
 The effects allow you to reduce the image to grayscale, invert the colors,
 reduce to rgb (eliminates the minority channels and keeps only the prevalent one),
-mirror the image.
+mirror the image, give sepia effect.
 
 #### Camera
 A camera is a delimited area of ​​the image, whose dimensions
