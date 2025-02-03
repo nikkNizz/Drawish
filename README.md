@@ -42,8 +42,7 @@ when you deselect it, it will no longer be active and any
 pending operations will be deleted.
 
 #### Command line
-Launch the program from the command line.
-You can also add the path of an image to open as an option.  
+If you launch the program from the command line, you can also add the path of an image.  
  `/path/Drawish`  
  `/path/Drawish /path/to/image`  
 
