@@ -123,7 +123,7 @@ If the check box [Fill inside black] is selected, the entire area around the cli
 Click the [spray] button and move the mouse over the drawing area, holding down the left mouse button.
 
 #### Pick color
-Click the [picker] button and then on a point in the
+Click the [pick] button and then on a point in the
 image that you want to get the color of.  This will become the
 active color.  Click on the pick button again to proceed
 with other operations.
@@ -167,7 +167,7 @@ If a change is made from a previous image, the left image will no longer be avai
 Right-click on a point of the image, the pixel matrix will appear enlarged for the area in
 the vicinity of the cursor. Clicking on a zoomed pixel with the
 **right** mouse button, it will be replaced with the active color.  
-Clicking with the left mouse button, you get the information on
+Clicking with the left mouse button, you get the information about
 the rgb color of the pixel.  
 Remove the enlarged area with another right-click on the image.  
 
