@@ -27,6 +27,7 @@ private slots:
 
     void on_cancelBtn_clicked();
 
+    void on_checkBox_stateChanged(int arg1);
 
 private:
     Ui::StretchDialog *ui;
