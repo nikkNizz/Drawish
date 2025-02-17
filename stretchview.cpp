@@ -1,4 +1,5 @@
 #include "stretchview.h"
+#include "geometric.h"
 #include <QMouseEvent>
 
 
@@ -14,6 +15,7 @@ stretchView::stretchView(QWidget *parent, QPixmap pxm) : QLabel{parent}
     this->setPixmap(pxm);
     resetGeometry();
     sPix = pxm;
+
 
 }
 
@@ -92,7 +94,31 @@ void stretchView::mouseReleaseEvent(QMouseEvent *event)
     y1 = event->pos().y();
     preX=0;
     preY=0;
-    deform();
+    if(sizes::curveStretch && data == "vert_top_up"){
+        double diffH = double(h) - double(sPix.height());
+        double stepH = diffH * 0.19;
+        double stepX1 = double(x1) / 4;
+        x1 = stepX1;
+        h = h + stepH;
+        for(int i =0; i < 3; ++i){
+            deform();
+            x1 += stepX1;
+            stepH = stepH +(stepH * 0.19);
+            h += stepH;
+        }
+        stepX1 = (double(sPix.width()) - double(x1)) / 4;
+        x1 += stepX1;
+        h += stepH;
+        for(int i =0; i < 3; ++i){
+            deform();
+            x1 += stepX1;
+            stepH = stepH - (stepH * 0.19);
+            h += stepH;
+        }
+
+    }else{
+        deform();
+    }
     data ="";
 }
 
@@ -109,10 +135,10 @@ void stretchView::deform()
     QImage pix2 = img2.toImage();
     if(data.startsWith( "vert" )){
         int pixH = sPix.height();
-        double diffHeight = h - sPix.height();
+        double diffHeight = h - sPix.height();  // height of view after resize - original pix height
         int pixelsToAdd = 0;
         QColor k;
-        double step = diffHeight / double(x1);
+        double step = diffHeight / double(x1); // step in pixel from 0 to x1 (mouseClick point)
         for(int iLeft = 0; iLeft < x1; ++iLeft){
             pixelsToAdd = iLeft * step;
             for(int iTop =0; iTop < pixH; ++iTop){
