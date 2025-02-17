@@ -1,4 +1,4 @@
-# Drawish  0.9.3 
+# Drawish  0.9.4 
 Is a program for basic drawing.  
 It also allows you to modify existing images.  
 It also allows you to open pdf as images in linux
@@ -92,11 +92,7 @@ when you press the keys.
 Use the A (left), Q or W (up), S (right), Z or X (down) keys[video](https://drive.google.com/file/d/1M-l_ubJsOdIr8C0IrRB_tgGHxzaZ9MT5/view?usp=sharing).  
 In the panel that appears above the drawing area you can
 choose attributes. Do not use transparent color to draw.  
-Use white color to erase.
-
-#### Double pen
-Click the [double pen] button.
-Draw freehand with the mouse in 2 colors (black + the active color).
+Use white color to erase.  
 
 #### Text
 Click the [text] button, and **click a point** in the drawing area. 
@@ -124,8 +120,11 @@ Click the [spray] button and move the mouse over the drawing area, holding down 
 
 #### Pick color
 Click the [pick] button and then on a point in the
-image that you want to get the color of.  This will become the
-active color.  Click on the pick button again to proceed
+image that you want to get the color of. This will become the
+active color.  
+If the [color balance] check box is checked, you can balance the colors of the image based on the selected color and the active color. 
+For example, if you want to balance the white, you will have to set white as the active color and click on a color in the image that should be white, but is not.
+Click on the pick button again to proceed
 with other operations.
 
 #### Line
@@ -153,7 +152,11 @@ After each click on the drawing area you will get connected lines.
 #### Curved line
 Click the [curved line] button.  You will be able to
 click on 4 points of the image through which the bezier curve will pass.    
-The real-time display of the bezier curve is not available.
+The real-time display of the bezier curve is not available.  
+
+#### Connected curves
+Click the [connected curves] button.
+click 4 points of the image to draw the first curve, the following ones will be connected.  
 
 #### Undo/Redo
 In the top left selection box you can navigate through the history of
@@ -194,7 +197,10 @@ To mirror the image go to the "Image->Mirror horizontally "or "Image->Mirror ver
 
 #### Sizes
 From the" Sizes->Sizes" menu you can scale or resize the image based on manually entered values.  
-You can also create a selection manually.
+You can also create a selection manually.  
+
+#### Color balance
+See Pick color.
 
 #### Effects
 From the "Image->Effects" menu a window opens that allows you to apply effects to the image in the selection.  
