@@ -39,7 +39,7 @@ private slots:
   void imgSave();
   QString ChooseImg();
   void savePix(QPixmap pixToSave, QString f);
-  void newImage(QString from);
+  void newImage(QString from, QString path="");
   QCursor rectCursor();
   void updateInfo();
   void untoggle();
@@ -50,7 +50,7 @@ private slots:
   void pasteImg(QPixmap passedPix);
   QPixmap addTransparency(QPixmap passedPix, int opacity, int red, int green, int blue);
   void drawWithPen();
-  void drawWithDoublePen();
+  //void drawWithDoublePen(); until 0.9.3
   void draw_first_point();
   void showPix();
   void save_previous(QString tx="");
@@ -70,6 +70,10 @@ private slots:
   void deg90(int a);
   void mirror(bool horizontal, bool vertical);
   QPixmap openPdf(QString fileName);
+  void readConfig();
+  void open_file();
+  void open_link();
+  void addToRecent(QString pf);
 
 
   void on_actionNew_triggered();
@@ -190,8 +194,6 @@ private slots:
 
   void on_actionbase64_triggered();
 
-  void on_doublePen_clicked();
-
   void on_connLine_clicked();
 
   void on_actionTo_Pdf_triggered();
@@ -218,8 +220,11 @@ private slots:
 
   void on_actionZoom_2_triggered();
 
-  void on_actionIncrement_10_triggered();
+  void on_actionIncrement_10_triggered();  
 
+  void on_conn_Curve_clicked();
+
+  void on_actionAdd_link_triggered();
 
   private:
     Ui::MainWindow *ui;
@@ -231,7 +236,6 @@ private slots:
     QPixmap pix, prePix;
     QString activePathFile;
     selectionArea *selectionRect=nullptr;
-    int repeatShow=1 ;
     shapeArea *shape_area;
     curveLineArea *cl_area;
     saveCam *save_area;
@@ -243,6 +247,7 @@ private slots:
     int historyCount;
     bool isLinux;
     QString nextColumnToAdd="0593716482";
+    QString configRecent, configLinks, configPath;
 
 
 };
