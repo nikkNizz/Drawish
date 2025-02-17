@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required(VERSION 3.5)
 
-project(Drawish VERSION 0.9.3 LANGUAGES CXX)
+project(Drawish VERSION 0.9.4 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -61,6 +61,8 @@ set(PROJECT_SOURCES
         linedialog.h
         linedialog.cpp
         linedialog.ui
+        fileio.h
+        fileio.cpp
         Drawish.qrc
 )
 
