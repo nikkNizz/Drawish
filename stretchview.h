@@ -30,6 +30,7 @@ private:
     int diffx, diffy;
     QString data;
     int x1, y1;
+
 };
 
 #endif // STRETCHVIEW_H
