@@ -390,6 +390,7 @@ void MainWindow::closeEvent(QCloseEvent *ev)
         int q = QMessageBox::question(this, "Drawish", tr("Save image?"),QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
         if(q == QMessageBox::Yes){
         imgSave();
+        fio.createFile("<recent>" + configRecent + "</recent><links>" + configLinks + "</links>" , configPath);
         }
         else if(q==QMessageBox::Cancel){ev->ignore();}
         else{ev->accept();}
@@ -448,8 +449,8 @@ void MainWindow::imgSave()
         if(f ==""){return;}
     }else{
      f = activePathFile;
-     addToRecent(activePathFile);
     }
+     addToRecent(f);
        savePix(pix, f);
        sizes::modify = false;
 }
