@@ -136,7 +136,7 @@
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="toolTip">
-     <string>Pens</string>
+     <string>Pen</string>
     </property>
     <property name="text">
      <string/>
@@ -267,7 +267,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>158</y>
+      <y>126</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -337,7 +337,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>126</y>
+      <y>93</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -4261,11 +4261,11 @@
      <string>Remove last...</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="doublePen">
+   <widget class="QPushButton" name="conn_Curve">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>93</y>
+      <y>158</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -4274,14 +4274,14 @@
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="toolTip">
-     <string>Double Pen</string>
+     <string>Connected curves</string>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
      <iconset resource="Drawish.qrc">
-      <normaloff>:/res/pen2.png</normaloff>:/res/pen2.png</iconset>
+      <normaloff>:/res/conCurve.png</normaloff>:/res/conCurve.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -4331,6 +4331,29 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QWidget" name="widgetPick" native="true">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>160</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <widget class="QCheckBox" name="colorBalanceCheck">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>161</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Color balance</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
@@ -4346,11 +4369,24 @@
     <property name="title">
      <string>File</string>
     </property>
+    <widget class="QMenu" name="menuRecent">
+     <property name="title">
+      <string>Recent</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="menuLinks">
+     <property name="title">
+      <string>Links</string>
+     </property>
+    </widget>
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
     <addaction name="actionSave_as"/>
     <addaction name="actionTo_Pdf"/>
+    <addaction name="menuRecent"/>
+    <addaction name="menuLinks"/>
+    <addaction name="actionAdd_link"/>
     <addaction name="actionClose"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
@@ -4620,6 +4656,11 @@
   <action name="actionZoom_2">
    <property name="text">
     <string>Zoom</string>
+   </property>
+  </action>
+  <action name="actionAdd_link">
+   <property name="text">
+    <string>Add remove link</string>
    </property>
   </action>
  </widget>
