@@ -18,6 +18,7 @@
 #include "savecam.h"
 #include "linedialog.h"
 #include "stretchdialog.h"
+#include "fileio.h"
 #include <QPainter>
 #include <QMessageBox>
 #include <QFileDialog>
@@ -41,7 +42,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "0.9.3";
+    version_info = "0.9.4";
+    // 0.9.4: color balance      ; stretch curve; correction of lag ; removed double pen;
+    //        add connected curve; recent files ; web links         ;
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -55,6 +58,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lineOptionWidget->setVisible(false);
     ui->similaritywidget->setGeometry(80,0,552,31);
     ui->similaritywidget->setVisible(false);
+    ui->widgetPick->setGeometry(80,0,552,31);
+    ui->widgetPick->setVisible(false);
 
     wArea = new Area();
 
@@ -73,6 +78,7 @@ MainWindow::MainWindow(QWidget *parent)
         }else{
              npix = QPixmap(sizes::passedFile);
              activePathFile = sizes::passedFile;
+             addToRecent(activePathFile);
         }
             if(npix.isNull()){
                 QMessageBox::information(this, "Drawish", tr("Unsupported file"));
@@ -117,6 +123,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->cyanButton->setStyleSheet("background-color: cyan");
 #endif
 
+    readConfig();
+
     // signals
     connect(borderB, SIGNAL(sizeChange()), this, SLOT(reSize()) );
     connect(borderR, SIGNAL(sizeChange()), this, SLOT(reSize()) );
@@ -124,7 +132,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(wArea, SIGNAL(endRubber()), this, SLOT(createSelectionFromRubb()));
     connect(wArea, SIGNAL(redraw()), this, SLOT(drawCopy()));
     connect(wArea, SIGNAL(penDraw()), this, SLOT(drawWithPen()));
-    connect(wArea, SIGNAL(doublePenDraw()), this, SLOT(drawWithDoublePen()));
     connect(wArea, SIGNAL(finishDrawPen()), this, SLOT(showPix()));
     connect(wArea, SIGNAL(drawFirstPoint()), this, SLOT(draw_first_point()));
     connect(wArea, SIGNAL(readyToFill()), this, SLOT(fill_()));
@@ -164,6 +171,7 @@ void MainWindow::dropEvent(QDropEvent *event)
                      npix = QPixmap(f.filePath());
                      if(npix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file")); return;}
                      activePathFile = f.filePath();
+                     addToRecent(activePathFile);
                  }
                 save_previous(tr("Open"));
 
@@ -205,6 +213,96 @@ QPixmap MainWindow::openPdf(QString fileName)
     activePathFile = "";
     return zpix;
 }
+
+void MainWindow::readConfig()
+{
+    QString user = QDir::homePath();
+    configPath = user + "/AppData/Roaming/DrawishConfig.txt";
+    if(isLinux){
+        QDir c(user + "/.config");
+        if(!c.exists()){
+            c.mkdir(user + "/.config");
+        }
+        configPath = user + "/.config/DrawishConfig.txt";
+    }
+
+    fileIO fio;
+    if(!QFile::exists(configPath)){
+        fio.createFile("<recent></recent><links>www.remove.bg\nperchance.org/ai-text-to-image-generator\ncloudconvert.com/image-converter\nphotocartoon.net\nwww.iconfinder.com</links>", configPath);
+    }
+
+    QString config = fio.readFile(configPath);
+    int init = config.indexOf("<recent>",0, Qt::CaseInsensitive) + 8;
+    int endit = config.indexOf("</recent>", init,Qt::CaseInsensitive);
+    configRecent = config.mid(init, endit-init);
+    QStringList recents = configRecent.split("\n");
+    if(recents.count() > 0){
+    // create actions
+    int maxR = recents.count();
+    if(maxR > 10) maxR = 10;
+    for(int i =0; i < maxR; ++i){
+        if(recents.at(i) !=""){
+            QAction *actionRecent;
+            actionRecent = new QAction(this);
+            actionRecent->setObjectName(recents.at(i));
+            actionRecent->setText(recents.at(i));
+            ui->menuRecent->addAction(actionRecent);
+            connect(actionRecent, SIGNAL(triggered()), this, SLOT(open_file()));
+        }
+    }
+    }
+    init = config.indexOf("<links>",0, Qt::CaseInsensitive) + 7;
+    endit = config.indexOf("</links>", init,Qt::CaseInsensitive);
+    configLinks =config.mid(init, endit-init);
+    QStringList links = configLinks.split("\n");
+    if(links.count() > 0){
+        // create actions
+        int maxR = links.count();
+        if(maxR > 10) maxR = 10;
+        for(int i =0; i < maxR; ++i){
+            if(links.at(i) !=""){
+                QAction *actionRecent;
+                actionRecent = new QAction(this);
+                actionRecent->setObjectName(links.at(i));
+                actionRecent->setText(links.at(i));
+                ui->menuLinks->addAction(actionRecent);
+                connect(actionRecent, SIGNAL(triggered()), this, SLOT(open_link()));
+            }
+        }
+    }
+}
+
+void MainWindow::open_file()
+{
+    QAction *action = qobject_cast<QAction *>(sender());
+    if (action) {
+        QString url = sender()->objectName();
+        on_actionSave_triggered();
+        newImage("f", url);
+    }
+}
+
+void MainWindow::open_link()
+{
+    QAction *action = qobject_cast<QAction *>(sender());
+    if (action) {
+        QString url = sender()->objectName();
+        if(!url.startsWith("http")){ url = "https://" + url;}
+        QDesktopServices::openUrl(QUrl(url));
+    }
+}
+
+void MainWindow::addToRecent(QString pf)
+{
+    if(!configRecent.contains(pf)){
+        configRecent = pf + "\n" + configRecent;
+        if(configRecent.count("\n") > 10){
+            int lastN = configRecent.lastIndexOf("\n");
+            configRecent = configRecent.mid(0, lastN);
+        }
+    }
+}
+
 
 
 
@@ -285,6 +383,9 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
 
 void MainWindow::closeEvent(QCloseEvent *ev)
 {
+    fileIO fio;
+    fio.createFile("<recent>" + configRecent + "</recent><links>" + configLinks + "</links>" , configPath);
+
     if(sizes::modify){
         int q = QMessageBox::question(this, "Drawish", tr("Save image?"),QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
         if(q == QMessageBox::Yes){
@@ -327,15 +428,7 @@ void MainWindow::reSize()
 void MainWindow::areaSize()
 {
      wArea->setGeometry(0,0, sizes::areaWidth, sizes::areaHeight);
-     if(pix.width() * pix.height() < 250000){
-                 sizes::stopShow =6;
-             }
-             else if(pix.width() * pix.height() < 1000000){
-                 sizes::stopShow=10;
-             }
-             else{
-                 sizes::stopShow = 15;
-             }
+
 }
 
 void MainWindow::raiseBorders()
@@ -355,6 +448,7 @@ void MainWindow::imgSave()
         if(f ==""){return;}
     }else{
      f = activePathFile;
+     addToRecent(activePathFile);
     }
        savePix(pix, f);
        sizes::modify = false;
@@ -375,7 +469,7 @@ void MainWindow::savePix(QPixmap pixToSave, QString f)
     else{pixToSave.save(f, "PNG");}
 }
 
-void MainWindow::newImage(QString from)
+void MainWindow::newImage(QString from, QString path)
 {
 
    if(from == "zero"){
@@ -387,11 +481,15 @@ void MainWindow::newImage(QString from)
        pix = npix;
        activePathFile="";
    }
+
    else if(from == "f"){ // open file
       sizes::modify= false;
       QFileDialog dialog(this);
-      QString f =dialog.getOpenFileName(this, tr("Drawish...Select image"), QDir::homePath() );
-      if(f ==""){return;}
+      QString f = path;
+      if(f == ""){
+       f =dialog.getOpenFileName(this, tr("Drawish...Select image"), QDir::homePath() );
+       if(f ==""){return;}
+      }
 
       QPixmap npix;
       if(f.endsWith(".pdf", Qt::CaseInsensitive) && isLinux){
@@ -400,6 +498,7 @@ void MainWindow::newImage(QString from)
           npix = QPixmap(f);
           if(npix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file")); return;}
           activePathFile = f;
+          addToRecent(activePathFile);
       }
       save_previous(tr("Open"));
 
@@ -464,7 +563,7 @@ void MainWindow::untoggle()
     ui->selectionAreaButton->setChecked(false);
     ui->drawTextButton->setChecked(false);
     ui->penButton->setChecked(false);
-    ui->doublePen->setChecked(false);
+    ui->conn_Curve->setChecked(false);
     ui->fillButton->setChecked(false);
     ui->sprayButton->setChecked(false);
     ui->pickerButton->setChecked(false);
@@ -477,6 +576,7 @@ void MainWindow::untoggle()
     ui->textOptionsWidget->setVisible(false);
     ui->lineOptionWidget->setVisible(false);
     ui->similaritywidget->setVisible(false);
+    ui->widgetPick->setVisible(false);
 }
 
 void MainWindow::deleteSel()
@@ -529,7 +629,8 @@ void MainWindow::on_actionNew_triggered()
 
 void MainWindow::on_actionOpen_triggered()
 {
-
+    delete selectionRect; selectionRect = NULL;
+    sizes::isSelectionOn= false;
     if(sizes::modify){
         save_previous(tr("Open"));
         int q = QMessageBox::question(this, "Drawish", tr("Save image?"), QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
@@ -1042,6 +1143,8 @@ void MainWindow::drawWithPen(){
     if(ui->markerButton->isChecked()){
         ncol = QColor(sizes::activeColor.red(), sizes::activeColor.green(), sizes::activeColor.blue(), 32);
     }
+    QRect reg(qMin(sizes::shape_x_begin,sizes::shape_x_end), qMin(sizes::shape_y_begin,sizes::shape_y_end), abs(sizes::shape_x_end-sizes::shape_x_begin), abs(sizes::shape_y_end-sizes::shape_y_begin));
+
     // stylus
     if(ui->nibButton->isChecked()){
         int corners = sizes::line_width / 2;
@@ -1052,6 +1155,7 @@ void MainWindow::drawWithPen(){
         QPolygon poly;
         poly << QPoint(sizes::shape_x_begin + corners, sizes::shape_y_begin + corners) << QPoint(sizes::shape_x_begin - corners, sizes::shape_y_begin - corners) << QPoint(sizes::shape_x_end - corners, sizes::shape_y_end - corners) << QPoint(sizes::shape_x_end + corners, sizes::shape_y_end + corners);
         pai.drawPolygon(poly);
+        pai.setClipRegion(reg);
     }else{
         // normal pen
         QPen pen(ncol, sizes::line_width);
@@ -1061,81 +1165,15 @@ void MainWindow::drawWithPen(){
 
          pai.setPen(pen);
          pai.drawLine(sizes::shape_x_begin, sizes::shape_y_begin, sizes::shape_x_end, sizes::shape_y_end);
+
+         pai.setClipRegion(reg);
     }
-    repeatShow++;
+
     sizes::shape_x_begin = sizes::shape_x_end;
     sizes::shape_y_begin = sizes::shape_y_end;
-    if(repeatShow== sizes::stopShow){
+
     wArea->setPixmap(pix);
-    repeatShow=1;
-    }
-}
 
-void MainWindow::drawWithDoublePen()
-{
-    updateInfo();
-    QPainter pai(&pix);
-    QColor ncol = sizes::activeColor;
-    if(ui->markerButton->isChecked()){
-        ncol = QColor(sizes::activeColor.red(), sizes::activeColor.green(), sizes::activeColor.blue(), 32);
-    }
-
-    QPen pen(ncol, sizes::line_width);
-
-    if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
-    else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
-
-    pai.setPen(pen);
-    pai.drawLine(sizes::shape_x_begin, sizes::shape_y_begin, sizes::shape_x_end, sizes::shape_y_end);
-    pai.end();
-
-    QPainter pai2(&pix);
-    QPen pen2(Qt::black, sizes::line_width);
-
-    if(ui->flatcapButton->isChecked()){ pen2.setCapStyle(Qt::SquareCap);}
-    else if(ui->roundcapButton->isChecked()){pen2.setCapStyle(Qt::RoundCap);}
-
-    pai2.setPen(pen2);
-    int d= sizes::line_width*1.2;
-    if(sizes::shape_x_begin < sizes::shape_x_end){
-        if(sizes::shape_y_begin < sizes::shape_y_end){
-             pai2.drawLine(sizes::shape_x_begin +d, sizes::shape_y_begin, sizes::shape_x_end +d, sizes::shape_y_end);
-        }
-        else if(sizes::shape_y_begin > sizes::shape_y_end){
-            pai2.drawLine(sizes::shape_x_begin -d , sizes::shape_y_begin, sizes::shape_x_end -d, sizes::shape_y_end );
-        }
-        else if(sizes::shape_y_begin == sizes::shape_y_end){
-            pai2.drawLine(sizes::shape_x_begin, sizes::shape_y_begin -d,sizes::shape_x_end, sizes::shape_y_end-d );
-        }
-
-    }
-    else if(sizes::shape_x_begin > sizes::shape_x_end){
-        if(sizes::shape_y_begin < sizes::shape_y_end){
-             pai2.drawLine(sizes::shape_x_begin +d, sizes::shape_y_begin, sizes::shape_x_end +d, sizes::shape_y_end);
-        }
-        else if(sizes::shape_y_begin > sizes::shape_y_end){
-            pai2.drawLine(sizes::shape_x_begin -d , sizes::shape_y_begin, sizes::shape_x_end -d, sizes::shape_y_end );
-        }
-        else if(sizes::shape_y_begin == sizes::shape_y_end){
-            pai2.drawLine(sizes::shape_x_begin, sizes::shape_y_begin -d,sizes::shape_x_end, sizes::shape_y_end-d );
-        }
-    }
-    else if(sizes::shape_x_begin == sizes::shape_x_end){
-        if(sizes::shape_y_begin < sizes::shape_y_end){
-             pai2.drawLine(sizes::shape_x_begin +d, sizes::shape_y_begin, sizes::shape_x_end +d, sizes::shape_y_end);
-        }
-        else if(sizes::shape_y_begin > sizes::shape_y_end){
-            pai2.drawLine(sizes::shape_x_begin -d , sizes::shape_y_begin, sizes::shape_x_end -d, sizes::shape_y_end );
-        }
-    }
-
-    repeatShow++;
-    sizes::shape_x_begin = sizes::shape_x_end;
-    sizes::shape_y_begin = sizes::shape_y_end;
-    if(repeatShow== sizes::stopShow){
-    wArea->setPixmap(pix);
-    repeatShow=1;
-    }
 }
 
 void MainWindow::draw_first_point()
@@ -1144,9 +1182,7 @@ void MainWindow::draw_first_point()
         save_previous("Spray");
         return;
     }
-    if(sizes::activeOperation == 10){
-        save_previous(tr("Double pen"));
-    }else{
+    else{
         save_previous(tr("Pen"));
     }
     updateInfo();
@@ -1177,27 +1213,36 @@ void MainWindow::draw_first_point()
     wArea->setPixmap(pix);
 }
 
-// double pen
 
-void MainWindow::on_doublePen_clicked()
+void MainWindow::on_conn_Curve_clicked()
 {
     if(sizes::isSelectionOn){
         sizes::isSelectionOn=false;
         drawCopy();
     }
-
-    if(ui->doublePen->isChecked()){
+    wArea->setCursor(Qt::ArrowCursor);
+    if(ui->conn_Curve->isChecked()){
         untoggle();
-        ui->doublePen->setChecked(true);
-        wArea->setCursor(rectCursor());
+        ui->conn_Curve->setChecked(true);
         sizes::activeOperation = 10;
+        sizes::shape_x_begin = -1;
+        sizes::shape_y_begin = -1;
         ui->lineOptionWidget->setVisible(true);
+        cl_area = new curveLineArea(wArea);
+        connect(cl_area, SIGNAL(finishCurve()), this, SLOT(finish_curve()));
+        sizes::isCurveLineAreaOn = true;
+        cl_area->show();
     }else{
         sizes::activeOperation = 0;
-        wArea->setCursor(Qt::ArrowCursor);
         ui->lineOptionWidget->setVisible(false);
+        if(sizes::isCurveLineAreaOn){
+            sizes::isCurveLineAreaOn = false;
+            delete cl_area;
+            cl_area =NULL;
+        }
     }
 }
+
 
 //-----------------------------------------------
 void MainWindow::showPix()
@@ -1404,20 +1449,19 @@ void MainWindow::spray_draw()
     updateInfo();
     QPainter pai(&pix);
     QPen pen(sizes::activeColor, 1);
-
     pai.setPen(pen);
+
     // copied from kolourpaint code (^_^)-------------------------------
     for(int i=0; i< 10; ++i){
          int dx= (QRandomGenerator::global()->generate() % 20 )-10;
          int dy= (QRandomGenerator::global()->generate() % 20 )-10;
          if((dx*dx) +(dy*dy) > 100){continue;}
+
          pai.drawPoint(sizes::selX+dx, sizes::selY+dy);
     }//  ----------------------------------------------------------------
-    repeatShow++;
-    if(repeatShow== sizes::stopShow){
+    //pai.setClipRegion(QRect(sizes::selX -20, sizes::selY-20, sizes::selX + 20, sizes::selY+20));
+
     wArea->setPixmap(pix);
-    repeatShow=1;
-    }
 }
 
 //picker
@@ -1432,8 +1476,10 @@ void MainWindow::on_pickerButton_clicked()
     if(ui->pickerButton->isChecked()){
         untoggle();
         ui->pickerButton->setChecked(true);
+        ui->widgetPick->setVisible(true);
         sizes::activeOperation = 6;
     }else{
+        ui->widgetPick->setVisible(false);
         sizes::activeOperation = 0;
     }
 }
@@ -1442,10 +1488,34 @@ void MainWindow::get_color()
 {
     updateInfo();
     QImage img = pix.toImage();
+    if(ui->colorBalanceCheck->isChecked()){
+        QColor colorRif = QColor::fromRgba(img.pixel(sizes::selX, sizes::selY));
+        double deltaR =  double(sizes::activeColor.red()) / double(colorRif.red());
+        double deltaG = double(sizes::activeColor.green()) / double(colorRif.green());
+        double deltaB = double(sizes::activeColor.blue()) / double(colorRif.blue());
+        int newr, newg, newb;
+        for(int ih=0; ih < img.height(); ++ih){
+            for(int iw =0; iw < img.width(); ++iw){
+                colorRif = img.pixelColor(iw,ih);
+                newr = colorRif.red() * deltaR;
+                newg = colorRif.green() * deltaG;
+                newb = colorRif.blue() * deltaB;
+                if(newr > 255)newr = 255;
+                if(newg > 255)newg = 255;
+                if(newb > 255)newb = 255;
+                img.setPixelColor(iw, ih, QColor(newr, newg, newb));
+            }
+        }
+        save_previous(tr("Color balance"));
+        pix = QPixmap::fromImage(img);
+        showPix();
+    }else{
     sizes::activeColor = QColor::fromRgba(img.pixel(sizes::selX, sizes::selY));
     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
-}
+    }
+    }
+
 //--------------------------------------------------------------------------------------------
 
 // shapes
@@ -2501,4 +2571,25 @@ void MainWindow::on_actionIncrement_10_triggered()
         corner->resetGeometry();
     }
     updateInfo();
+}
+
+
+void MainWindow::on_actionAdd_link_triggered()
+{
+    QMessageBox msgBox;
+    QPushButton *addButt = msgBox.addButton(tr("Add link"), QMessageBox::ActionRole);
+    QPushButton *removeButt = msgBox.addButton(tr("Remove link"), QMessageBox::RejectRole);
+
+    msgBox.exec();
+
+    if (msgBox.clickedButton() == addButt) {
+        QString nUrl = QInputDialog::getText(this, "Drawish", tr("Enter url"));
+        configLinks = nUrl + "\n" + configLinks;
+    } else if (msgBox.clickedButton() == removeButt) {
+        QStringList webLinks = configLinks.split("\n");
+        QString s = QInputDialog::getItem(this, "Drawish", tr("Select link to remove"), webLinks);
+        configLinks.replace(s, "");
+        configLinks.replace("\n\n", "\n");
+    }
+
 }
