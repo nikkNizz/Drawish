@@ -201,6 +201,7 @@ You can also create a selection manually.
 
 #### Color balance
 See Pick color.
+[video](https://drive.google.com/file/d/1ZMWy8rjWOc6-mVgCWpxY4a8EEUszWZHb/view?usp=sharing)
 
 #### Effects
 From the "Image->Effects" menu a window opens that allows you to apply effects to the image in the selection.  
@@ -211,7 +212,7 @@ Click [OK] to apply the new image or [Cancel] to abort the changes.
 
 #### Stretch Area
 From the "Image->Stretch area", you can open a window to distort the edges of the selected image.
-[video](https://drive.google.com/file/d/1sh71bmC15u9uwQ95kfZ2oPRND_QK-o0W/view?usp=sharing)
+[video](https://drive.google.com/file/d/13nJmQQh9MX6NQCLNx9SEzTcdI9UxFTbo/view?usp=sharing)
 
 #### Other effects
 From the Image menu you can apply the listed effects to the selection.  
