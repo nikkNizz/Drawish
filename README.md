@@ -39,11 +39,11 @@ pending operations will be deleted.
 
 #### Command line
 If you launch the program from the command line, you can also add the path of an image.  
- `/path/Drawish_package/usr/drawish.sh`  or
+ `/path/Drawish_package/usr/drawish.sh`  or  
  `/path/Drawish_package/usr/drawish.sh /path/to/image`  
 
 For Italian users: you can run Drawish in English by adding the "en" parameter.   
- `/path/Drawish_package/usr/drawish.sh en`  or
+ `/path/Drawish_package/usr/drawish.sh en`  or  
  `/path/Drawish_package/usr/drawish.sh /path/to/image en`  
 
 #### Open Pdf
