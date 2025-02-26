@@ -644,9 +644,8 @@ dell&apos;istogramma</translation>
         <translation>Rimuovi ultimo...</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4675"/>
         <source>Graphics</source>
-        <translation>Grafici</translation>
+        <translation type="vanished">Grafici</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4890"/>
@@ -734,6 +733,11 @@ dell&apos;istogramma</translation>
         <location filename="mainwindow.ui" line="4802"/>
         <source>About</source>
         <translation>Di noi</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="4675"/>
+        <source>Charts</source>
+        <translation>Grafici</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4691"/>
@@ -1071,7 +1075,8 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="2649"/>
-        <source>Create graphic</source>
+        <source>Create chart</source>
+        <oldsource>Create graphic</oldsource>
         <translation>Crea grafico</translation>
     </message>
     <message>
