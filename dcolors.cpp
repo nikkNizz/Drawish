@@ -89,17 +89,20 @@ void dColors::on_replaceButton_clicked()
      int maxBlue = ui->ifblue->value();
      if(minBlue > maxBlue){QMessageBox::information(this, "Drawish", tr("The minimum value of blue is higher than the maximum value"));}
 
+     int counter =0;
 
      for (int y = 0; y < Img.height(); ++y) {
            for (int x = 0; x < Img.width(); ++x) {
              QColor k= Img.pixelColor(x,y);
              if(k.red() >minRed && k.red() < maxRed && k.green() > minGreen && k.green() < maxGreen && k.blue() > minBlue && k.blue() < maxBlue){
                   Img.setPixelColor(x,y, sizes::activeColor);
+                 counter++;
              }
          }
      }
      newPix = QPixmap::fromImage(Img);
      ui->labelThumb->setPixmap( newPix.scaled(200,170));
+     ui->label_replaced->setText(QString::number(counter) + tr(" pixel replaced"));
 
 }
 
