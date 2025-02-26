@@ -2,6 +2,7 @@
 
 #include "ui_dialogeffects.h"
 #include <QPixmap>
+#include <qmessagebox.h>
 
 
 DialogEffects::DialogEffects(QWidget *parent, QPixmap ePix) :
@@ -103,33 +104,21 @@ QImage DialogEffects::contrast(int v)
      return qImgRet;
 }
 
-QImage DialogEffects::highlightEffect(double v)
+QImage DialogEffects::highlightEffect(int v)
 {
     QImage Img= origPix.toImage();
     for (int y = 0; y < Img.height(); ++y) {
         QRgb *line = reinterpret_cast<QRgb*>(Img.scanLine(y));
         for (int x = 0; x < Img.width(); ++x) {
             QRgb &rgb = line[x];
-
-            int r = qRed(rgb) ;
-            int g = qGreen(rgb);
-            int b = qBlue(rgb);
-            if( r > g && r > b){
-                r *= v;
-                if(r > 255)r = 255;
-                else if(r < 0) r = 0;
+            QColor k(qRed(rgb), qGreen(rgb), qBlue(rgb));
+            if(v > 0){
+                   k = k.lighter(105);
             }
-            else if(g > r && g > b){
-                g *= v;
-                if(g > 255)g = 255;
-                else if(g < 0) g = 0;
+            else{
+                k = k.darker(105);
             }
-            else if(b > r && b > g){
-                b *=v;
-                if(b > 255)b = 255;
-                else if(b < 0) b = 0;
-            }
-                Img.setPixelColor(x, y, QColor(r,g,b));
+            Img.setPixelColor(x, y, k);
             }
         }
     return Img;
@@ -138,7 +127,7 @@ QImage DialogEffects::highlightEffect(double v)
 
 void DialogEffects::on_highlightPlusButton_clicked()
 {
-    QImage imgg = highlightEffect(1.1);
+    QImage imgg = highlightEffect(1);
     newPix = QPixmap::fromImage(imgg);
     ui->labelThumb->setPixmap( newPix.scaled(200,170));
     if(ui->autoUpdateCheck->isChecked()){origPix = newPix;}
@@ -147,7 +136,7 @@ void DialogEffects::on_highlightPlusButton_clicked()
 
 void DialogEffects::on_highlightMinusButton_clicked()
 {
-    QImage imgg = highlightEffect(0.9);
+    QImage imgg = highlightEffect(-1);
     newPix = QPixmap::fromImage(imgg);
     ui->labelThumb->setPixmap( newPix.scaled(200,170));
     if(ui->autoUpdateCheck->isChecked()){origPix = newPix;}
@@ -209,6 +198,76 @@ QImage DialogEffects::addColor(int color, int v)
         }
     return Img;
 }
+
+
+void DialogEffects::on_saturationPlusButton_2_clicked()
+{
+    QImage imgg = setSaturationHue(1);
+    newPix = QPixmap::fromImage(imgg);
+    ui->labelThumb->setPixmap( newPix.scaled(200,170));
+    if(ui->autoUpdateCheck->isChecked()){origPix = newPix;}
+}
+
+
+void DialogEffects::on_saturationMinusButton_2_clicked()
+{
+    QImage imgg = setSaturationHue(-1);
+    newPix = QPixmap::fromImage(imgg);
+    ui->labelThumb->setPixmap( newPix.scaled(200,170));
+    if(ui->autoUpdateCheck->isChecked()){origPix = newPix;}
+}
+
+QImage DialogEffects::setSaturationHue(int v)
+{
+    QImage Img= origPix.toImage();
+    for (int y = 0; y < Img.height(); ++y) {
+        QRgb *line = reinterpret_cast<QRgb*>(Img.scanLine(y));
+        for (int x = 0; x < Img.width(); ++x) {
+            QRgb &rgb = line[x];
+            QColor k(qRed(rgb), qGreen(rgb), qBlue(rgb));
+            QColor hsvC = k.toHsv();
+            int sat = hsvC.saturation();
+            int hue = hsvC.hue();
+
+            if(v ==1){
+                sat += 2;
+            }
+            else if(v == -1){
+                sat -= 2;
+            }
+            else if(v == 2){
+                hue += 2;
+            }
+            else if(v == -2){
+                hue -= 2;
+            }
+            if(sat > 255) sat = 255;
+            else if(sat < 0) sat = 0;
+            if(hue > 359) hue = 0;
+            else if(hue < 0) hue = 0;
+            hsvC.setHsv(hue, sat, hsvC.value());
+            Img.setPixelColor(x, y, hsvC.toRgb());
+        }
+    }
+    return Img;
+}
+
+void DialogEffects::on_huePlus_clicked()
+{
+    QImage imgg = setSaturationHue(2);
+    newPix = QPixmap::fromImage(imgg);
+    ui->labelThumb->setPixmap( newPix.scaled(200,170));
+    if(ui->autoUpdateCheck->isChecked()){origPix = newPix;}
+}
+
+void DialogEffects::on_hueMinus_clicked()
+{
+    QImage imgg = setSaturationHue(-2);
+    newPix = QPixmap::fromImage(imgg);
+    ui->labelThumb->setPixmap( newPix.scaled(200,170));
+    if(ui->autoUpdateCheck->isChecked()){origPix = newPix;}
+}
+
 
 void DialogEffects::on_greenSlider_sliderReleased()
 {
@@ -371,4 +430,59 @@ void DialogEffects::on_pixelizeButton_clicked()
      if(ui->autoUpdateCheck_2->isChecked()){origPix = newPix;}
 }
 
+
+
+void DialogEffects::on_histograButton_clicked()
+{
+    QImage Img = origPix.toImage();
+
+    // create sumList
+    QList <int> sumList;
+    for(int i=0; i < 256 ; ++i){ sumList.append(0);}
+    // loop pixel in image
+    int v =0;
+    for (int y = 0; y < Img.height(); ++y) {
+        QRgb *line = reinterpret_cast<QRgb*>(Img.scanLine(y));
+        for (int x = 0; x < Img.width(); ++x) {
+            QRgb &rgb = line[x];
+            QColor k(qRed(rgb), qGreen(rgb), qBlue(rgb));
+            QColor hsvC = k.toHsv();
+            v = hsvC.value();
+            sumList.replace(v, sumList.at(v) + 1);
+        }
+    }
+    // progressive sum (from 1)
+    for(int i = 1; i < 256 ; ++i ){
+        sumList.replace(i, sumList.at(i-1) + sumList.at(i));
+    }
+    // find first non-zero value
+    int firstVal=0;
+    for(int i=0; i < 256; ++i ){
+        if(sumList.at(i) > 0){
+            firstVal = sumList.at(i);
+            break;
+        }
+    }
+    // find denominator for next operation
+    int denominator = (Img.width() * Img.height()) -1;
+
+    // find new hsv value & replace
+    double z =0.0;
+    for (int y = 0; y < Img.height(); ++y) {
+        QRgb *line = reinterpret_cast<QRgb*>(Img.scanLine(y));
+        for (int x = 0; x < Img.width(); ++x) {
+            QRgb &rgb = line[x];
+            QColor k(qRed(rgb), qGreen(rgb), qBlue(rgb));
+            QColor hsvC = k.toHsv();
+            v = hsvC.value();
+            z = double((sumList.at(v) - firstVal)) / double(denominator) ;
+            v = z * 255;
+
+            hsvC.setHsv(hsvC.hue(), hsvC.saturation(), v);
+            Img.setPixelColor(x, y, hsvC.toRgb());
+        }
+    }
+    newPix = QPixmap::fromImage(Img);
+    ui->labelThumb->setPixmap( newPix.scaled(200,170));
+}
 
