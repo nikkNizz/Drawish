@@ -4672,7 +4672,7 @@
    </widget>
    <widget class="QMenu" name="menuGraphics">
     <property name="title">
-     <string>Graphics</string>
+     <string>Charts</string>
     </property>
     <addaction name="actionHorizontal_bars"/>
     <addaction name="actionVertical_bars"/>
