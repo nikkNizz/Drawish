@@ -1,11 +1,11 @@
-# Drawish  0.9.4 
+# Drawish  0.9.5 
 Is a program for basic drawing.  
 It also allows you to modify existing images.  
 It also allows you to open pdf as images in linux
 
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.4) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.6) page of this project.  
 
 ### COMPILE FROM SOURCE (LINUX):
 Download and unzip the project.  
@@ -134,7 +134,7 @@ To deactivate it, uncheck the line button.
 From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.
 
 #### Shapes
-As for the line. Click the [shapes] button.
+As for the line. Click the [shapes] button, or select a shape from the selection box.  
 Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS, CROSSES. 
 Border width is defined by line width box. 
 Many filling options are available from the choice box at the top right.
@@ -154,11 +154,19 @@ The real-time display of the bezier curve is not available.
 Click the [connected curves] button.
 click 4 points of the image to draw the first curve, the following ones will be connected.  
 
+#### Charts
+Select the [Charts] menu and choose a chart type. Enter positive values ​​(one per line) in the box that opens.  
+
 #### Undo/Redo
 In the top left selection box you can navigate through the history of
 the last 8 changes. You can also use the ctrl-Z key combination to go back.   
 To return to the left image, press the top left button [Redo].  
 If a change is made from a previous image, the left image will no longer be available.
+
+#### Restore point
+You can save a restore point from the [image->Set as restore point] menu. Any previous points will be deleted.  
+Go back to the saved point at any time from the [Image->Restore] menu.  
+Cancel the operation with ctrl-Z or undo
 
 #### Zoom
 [video](https://drive.google.com/file/d/1exjhHi0g1fYensnA7L1kjqlH964XHt0q/view?usp=sharing)  
@@ -205,6 +213,10 @@ If there is no selection, the effects are applied to the entire image.
 After each change, click the [Update] button to make the changes effective, or select the "update automatically" 
 checkbox if the function allows it.
 Click [OK] to apply the new image or [Cancel] to abort the changes.
+
+#### Color management
+From the [Image->Colors] menu you can perform additional operations on colors.  
+You can create a color by entering rgb values ​​from the keyboard, create gradients and replace pixels based on complex options.  
 
 #### Stretch Area
 From the "Image->Stretch area", you can open a window to distort the edges of the selected image.
