@@ -74,6 +74,9 @@ private slots:
   void open_file();
   void open_link();
   void addToRecent(QString pf);
+  QStringList askForValues();
+  double graphicFactor(QStringList sl, double graphDim);
+  void addGraphic(QPixmap gr);
 
 
   void on_actionNew_triggered();
@@ -226,6 +229,18 @@ private slots:
 
   void on_actionAdd_link_triggered();
 
+  void on_sizeLine_textChanged(const QString &arg1);
+
+  void on_actionHorizontal_bars_triggered();
+
+  void on_actionVertical_bars_triggered();
+
+  void on_actionPie_triggered();
+
+  void on_actionSet_as_restore_point_triggered();
+
+  void on_actionRestore_triggered();
+
   private:
     Ui::MainWindow *ui;
     QString version_info;
@@ -248,6 +263,7 @@ private slots:
     bool isLinux;
     QString nextColumnToAdd="0593716482";
     QString configRecent, configLinks, configPath;
+    QPixmap toRestore;
 
 
 };
