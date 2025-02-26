@@ -21,8 +21,9 @@ public:
 private slots:
     QImage gamma(double exp);
     QImage contrast(int v);
-    QImage highlightEffect(double v);
+    QImage highlightEffect(int v);
     QImage addColor(int color, int v);
+    QImage setSaturationHue(int v);
     void on_gammaSlider_sliderReleased();
 
     void on_valSlider_sliderReleased();
@@ -52,6 +53,16 @@ private slots:
 
     void on_pixelizeButton_clicked();
 
+
+    void on_saturationPlusButton_2_clicked();
+
+    void on_saturationMinusButton_2_clicked();
+
+    void on_histograButton_clicked();
+
+    void on_huePlus_clicked();
+
+    void on_hueMinus_clicked();
 
 private:
     Ui::DialogEffects *ui;
