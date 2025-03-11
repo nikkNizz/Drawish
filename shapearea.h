@@ -29,7 +29,6 @@ private:
     int preX, preY;
     int diffx, diffy;
 
-
 };
 
 #endif // SHAPEAREA_H
