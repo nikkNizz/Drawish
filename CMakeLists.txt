@@ -61,6 +61,9 @@ set(PROJECT_SOURCES
         linedialog.h
         linedialog.cpp
         linedialog.ui
+        figures.h
+        figures.cpp
+        figures.ui
         fileio.h
         fileio.cpp
         Drawish.qrc
