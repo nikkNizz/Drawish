@@ -1,3 +1,4 @@
+
 # Drawish  0.9.7 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in linux, draw charts and much more.
@@ -132,6 +133,7 @@ To actually draw it, click on a point in the image.
 To deactivate it, uncheck the line button.
 From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.  
 The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**
+[video](https://drive.google.com/file/d/1mo5_hRFjhWKopEgxHDCf6VrIs4WEHD25/view?usp=sharing)
 
 #### Shapes
 As for the line. Click the [shapes] button, or select a shape from the selection box.  
@@ -144,11 +146,12 @@ Many filling options are available from the choice box at the top right.
 #### Shapes by keyboard
 You can create rectangles, squares, circles and ellipses by entering data from the keyboard from the "Image-->Create Shapes" menu.  
 You can draw the center of these shapes or not.
+[video](https://drive.google.com/file/d/1t4i03DvqtAWYFMJfBzxKOIYCBJa3QD-V/view?usp=sharing)
 
 #### Connected lines
 Click the [connected lines] button.
 After each click on the drawing area you will get connected lines. 
-[video](https://drive.google.com/file/d/1KnkXdYvtXVhk3dniSauTWx8qtveAibHf/view?usp=sharing)
+[video](https://drive.google.com/file/d/1mo5_hRFjhWKopEgxHDCf6VrIs4WEHD25/view?usp=sharing)
 
 #### Curved line
 Click the [curved line] button.  You will be able to
