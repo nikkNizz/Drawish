@@ -19,6 +19,7 @@
 #include "linedialog.h"
 #include "stretchdialog.h"
 #include "fileio.h"
+#include "figures.h"
 #include <QPainter>
 #include <QMessageBox>
 #include <QFileDialog>
@@ -42,11 +43,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "0.9.5";
-    // 0.9.5: modify =false when open; text size aut.           ; shapes when change in combo
-    // bigger color btn              ; line with transparency   ; saturation (in effects)
-    // add charts                    ; hue (in effects)         ; green button
-    // add counter in replace color  ; align borders
+    version_info = "0.9.7";
+    // 0.9.7: simple arrow ; correct selection after quadruple; shape from keyboard
+    // line from angle     ;
 
 
     isLinux = false;
@@ -1661,11 +1660,13 @@ void MainWindow::on_shapeButton_clicked()
 void MainWindow::on_shapesCombo_currentIndexChanged(int index)
 {
     QStringList shapeNames;
-    shapeNames << "squ" << "rec" << "cir" << "ell" << "tri" << "rou" << "sta" << "aup" << "ari" << "ado" << "ale" << "aul" << "aur" << "abr" << "abl" << "crp" << "crx";
+    shapeNames << "squ" << "rec" << "cir" << "ell" << "tri" << "rou" << "sta" << "aup" << "ari" << "ado" << "ale" << "aul" << "aur" << "abr" << "abl" << "crp" << "crx" << "sar";
     sizes::activeShape = shapeNames.at(index);
     if(ui->shapeButton->isChecked() == false){
         int q = QMessageBox::question(this,"Drawish", tr("Do you want to activate shapes?"), QMessageBox::Yes|QMessageBox::No);
         if(q == QMessageBox::Yes){
+            untoggle();
+             ui->lineOptionWidget->setVisible(true);
             ui->shapeButton->setChecked(true);
             sizes::activeOperation = 8;
         }
@@ -2107,8 +2108,7 @@ void MainWindow::on_actionTo_sepia_triggered()
         Epix = selectionRect->pixmap().scaled(sizes::selW, sizes::selH);
     }
     QImage img = Epix.toImage();
-    //img = img.convertToFormat(QImage::Format_Grayscale8);
-    //img = img.convertToFormat(QImage::Format_ARGB32	);
+
     for (int y = 0; y < img.height(); ++y) {
         for (int x = 0; x < img.width(); ++x) {
            QColor rgb = img.pixelColor(x,y);
@@ -2303,7 +2303,7 @@ void MainWindow::on_actionQuadruple_the_pixels_2_triggered()
 
   }
   else{
-  untoggle();
+  //untoggle();
   save_previous(tr("Quadruple"));
   sizes::areaWidth = (sizes::areaWidth * 2) -8;
   sizes::areaHeight =(sizes::areaHeight * 2) -8;
@@ -2355,7 +2355,7 @@ void MainWindow::on_actionDivide_by_5_triggered()
         selectionRect->setPixmap(smallPix);
     }
     else{
-    untoggle();
+   // untoggle();
     save_previous(tr("Divide by 4"));
     sizes::areaWidth = (sizes::areaWidth -8) / 2 + 8;
     sizes::areaHeight = (sizes::areaHeight-8) / 2 + 8;
@@ -2386,7 +2386,7 @@ void MainWindow::on_actionCreate_Line_triggered()
     LineDialog lineD;
     lineD.setModal(true);
     lineD.exec();
-    if(lineD.res == QDialog::Accepted){
+    if(lineD.res == 1 || lineD.res == 2){
         save_previous(tr("Line input"));
         QColor ncol = sizes::activeColor;
         if(ui->markerButton->isChecked()){
@@ -2400,10 +2400,21 @@ void MainWindow::on_actionCreate_Line_triggered()
 
 
         pai.setPen(pen);
-        pai.drawLine(lineD.linex1, lineD.liney1, lineD.linex2, lineD.liney2);
+        if(lineD.res == 1) {
+            pai.drawLine(lineD.linex1, lineD.liney1, lineD.linex2, lineD.liney2);
+        }
+
+        else if(lineD.res == 2){
+            QLineF lf;
+            lf.setP1(QPoint(lineD.linex1, lineD.liney1));
+            lf.setAngle(sizes::shape_x_begin);
+            lf.setLength(sizes::shape_y_begin);
+            pai.drawLine(lf);
+        }
         wArea->setPixmap(pix);
     }
 }
+
 
 void MainWindow::on_actionGithub_triggered()
 {
@@ -2560,7 +2571,7 @@ void MainWindow::on_actionIncrement_10_triggered()
 
     }
     else{
-        untoggle();
+        //untoggle();
         save_previous(tr("Increment 10%"));
         sizes::areaWidth = (sizes::areaWidth - 8) * 1.1 +8;
         sizes::areaHeight =(sizes::areaHeight - 8) * 1.1 +8;
@@ -2795,5 +2806,50 @@ void MainWindow::on_actionRestore_triggered()
     save_previous("Restore");
     pix = toRestore;
     newImage("pix");
+
+}
+
+
+void MainWindow::on_actionCreate_shape_triggered()
+{
+    int a1 =  ui->mouseX_label->text().toInt();
+    int a2 =  ui->mouseY_label->text().toInt();
+    figures figure(a1, a2);
+    figure.setModal(true);
+    figure.exec();
+    if(figure.res == 0) return;
+
+    // sizes::lineXEnd  width   // sizes::lineYEnd  height
+    // sizes::shape_x_begin  x  // sizes::shape_y_begin  y
+    save_previous("Input shape");
+    QColor ncol = sizes::activeColor;
+    if(ui->markerButton->isChecked()){
+        ncol = QColor(sizes::activeColor.red(), sizes::activeColor.green(), sizes::activeColor.blue(), 32);
+    }
+    QPainter pai(&pix);
+    QPen pen(ncol, sizes::line_width);
+
+    if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
+    else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
+    pai.setPen(pen);
+    sizes::shape_x_begin = sizes::shape_x_begin -(sizes::lineXEnd/2);
+    sizes::shape_y_begin = sizes::shape_y_begin -(sizes::lineYEnd/2);
+    if(figure.res == 1){
+        pai.drawRect(sizes::shape_x_begin, sizes::shape_y_begin, sizes::lineXEnd, sizes::lineYEnd);
+    }
+    else if(figure.res ==2){
+        pai.drawEllipse(sizes::shape_x_begin, sizes::shape_y_begin, sizes::lineXEnd, sizes::lineYEnd);
+    }
+    pai.end();
+    if(figure.center == true){
+        int xc = sizes::lineXEnd / 2;
+        int yc = sizes::lineYEnd / 2;
+
+        QPainter pai2(&pix);
+        QPen pen2(ncol, 2);
+        pai2.setPen(pen2);
+        pai2.drawPoint(QPoint(sizes::shape_x_begin + xc+1, sizes::shape_y_begin + yc+1));
+    }
+    wArea->setPixmap(pix);
 
 }
