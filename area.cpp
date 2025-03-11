@@ -72,8 +72,14 @@ void Area::mousePressEvent(QMouseEvent *event)
           sizes::selY = event->pos().y();
         }
         emit drawShape();
-    }    
     }
+    else{
+        sizes::selX = event->pos().x();
+        sizes::selY = event->pos().y();
+
+    }
+    }
+    emit setInfo();
 }
 
 void Area::mouseMoveEvent(QMouseEvent *event)
