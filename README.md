@@ -1,10 +1,10 @@
 # Drawish  0.9.5 
 Is a program for basic drawing.  
-It also allows you to modify existing images, open pdf as images in linux, and draw charts.
+It also allows you to modify existing images, open pdf as images in linux, draw charts and much more.
 
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.6) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.7) page of this project.  
 
 ### COMPILE FROM SOURCE (LINUX):
 Download and unzip the project.  
@@ -130,14 +130,20 @@ with the mouse.
 In the top menu choose the attributes of the line. 
 To actually draw it, click on a point in the image.  
 To deactivate it, uncheck the line button.
-From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.
+From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.  
+The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**
 
 #### Shapes
 As for the line. Click the [shapes] button, or select a shape from the selection box.  
 Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS, CROSSES. 
+The simple arrow can be rotated by moving the mouse along the top or bottom edge of the layer. While it can be enlarged by dragging the left and right edges.  
 Border width is defined by line width box. 
 Many filling options are available from the choice box at the top right.
 [video](https://drive.google.com/file/d/1t4i03DvqtAWYFMJfBzxKOIYCBJa3QD-V/view?usp=sharing)
+
+#### Shapes by keyboard
+You can create rectangles, squares, circles and ellipses by entering data from the keyboard from the "Image-->Create Shapes" menu.  
+You can draw the center of these shapes or not.
 
 #### Connected lines
 Click the [connected lines] button.
