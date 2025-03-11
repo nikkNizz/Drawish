@@ -241,6 +241,8 @@ private slots:
 
   void on_actionRestore_triggered();
 
+  void on_actionCreate_shape_triggered();
+
   private:
     Ui::MainWindow *ui;
     QString version_info;
