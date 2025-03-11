@@ -3,7 +3,7 @@
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPixmap>
-
+#include <QMessageBox>
 
 shapeArea::shapeArea(QWidget *parent)  : QLabel{parent}
 {
@@ -54,6 +54,7 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
               sizes::shape_y_begin += incY;
               redrawLine(x, y, sizes::shape_x_begin, sizes::shape_y_begin);
            }else{
+               //sizes::shape_x_end = x;
                drawSomething();
            }
         }
@@ -64,6 +65,7 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
            if(sizes::activeOperation == 7){
                redrawLine(x, y, sizes::shape_x_begin, sizes::shape_y_begin);
             }else{
+               //sizes::shape_x_end = x;
                drawSomething();
            }
         }
@@ -78,6 +80,7 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
               sizes::shape_x_begin += incX;
               redrawLine(x, y, sizes::shape_x_begin, sizes::shape_y_begin);
             }else{
+               //sizes::shape_y_end = y;
                drawSomething();
            }
 
@@ -88,6 +91,7 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
            if(sizes::activeOperation == 7){
               redrawLine(x, y, sizes::shape_x_begin, sizes::shape_y_begin);
            }else{
+               //sizes::shape_y_end = y;
                drawSomething();
            }
         }
@@ -389,6 +393,29 @@ void shapeArea::drawSomething()
             QPolygon poly;
             poly << QPoint(x1, y1) << QPoint(x2, y2) << QPoint(x3, y3) << QPoint(x4, y4) << QPoint(x5, y5) << QPoint(x6, y6) << QPoint(x7, y7) << QPoint(x8, y8) ;
             p.drawPolygon(poly);
+        }
+        else if(sizes::activeShape == "sar"){
+            int len = width() *0.4;
+            int fLen = len *0.3;
+
+            QLineF lf, lf2, lf3;
+            double aa = double(preX) / double(width());
+            aa = aa *360.00;
+            int cx = width()/2;
+            int cy = height()/2;
+
+            lf.setP1(QPoint(cx, cy));
+            lf.setAngle(-aa + 15);
+            lf.setLength(fLen);
+            lf2.setP1(QPoint(cx, cy));
+            lf2.setLength(fLen);
+            lf2.setAngle(-aa -15);
+            lf3.setP1(QPoint(cx, cy));
+            lf3.setLength(len);
+            lf3.setAngle(-aa ); // line
+            QList <QLineF> listlines;
+            listlines << lf << lf2 << lf3;
+            p.drawLines(listlines);
         }
         this->setPixmap(npix);
     }
