@@ -445,7 +445,8 @@ void DialogEffects::on_histograButton_clicked()
         QRgb *line = reinterpret_cast<QRgb*>(Img.scanLine(y));
         for (int x = 0; x < Img.width(); ++x) {
             QRgb &rgb = line[x];
-            QColor k(qRed(rgb), qGreen(rgb), qBlue(rgb));
+            QColor k(rgb);
+            //QColor k(qRed(rgb), qGreen(rgb), qBlue(rgb));
             QColor hsvC = k.toHsv();
             v = hsvC.value();
             sumList.replace(v, sumList.at(v) + 1);
@@ -472,7 +473,7 @@ void DialogEffects::on_histograButton_clicked()
         QRgb *line = reinterpret_cast<QRgb*>(Img.scanLine(y));
         for (int x = 0; x < Img.width(); ++x) {
             QRgb &rgb = line[x];
-            QColor k(qRed(rgb), qGreen(rgb), qBlue(rgb));
+            QColor k(rgb);
             QColor hsvC = k.toHsv();
             v = hsvC.value();
             z = double((sumList.at(v) - firstVal)) / double(denominator) ;
