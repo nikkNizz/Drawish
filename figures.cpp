@@ -1,7 +1,7 @@
 #include "figures.h"
 #include "ui_figures.h"
 #include "geometric.h"
-#include <qmessagebox.h>
+
 
 figures::figures(int x1, int y1, QWidget *parent) :
     QDialog(parent),
