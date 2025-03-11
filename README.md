@@ -1,4 +1,4 @@
-![Alt text](https://drive.google.com/file/d/1TkI1nMmmWbgbJfy07Koqs_DSuqo_W_CG/view?usp=sharing)
+[image](https://drive.google.com/file/d/1TkI1nMmmWbgbJfy07Koqs_DSuqo_W_CG/view?usp=sharing)
 # Drawish  0.9.7 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in linux, draw charts and much more.
