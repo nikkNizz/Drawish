@@ -4007,6 +4007,11 @@
        <string>Cross X</string>
       </property>
      </item>
+     <item>
+      <property name="text">
+       <string>Simple arrow →</string>
+      </property>
+     </item>
     </widget>
     <widget class="QPushButton" name="markerButton">
      <property name="geometry">
@@ -4641,6 +4646,7 @@
     <addaction name="actionReduce_to_RGB"/>
     <addaction name="actionInvert_colors"/>
     <addaction name="actionCreate_Line"/>
+    <addaction name="actionCreate_shape"/>
     <addaction name="actionSet_as_restore_point"/>
     <addaction name="actionRestore"/>
    </widget>
@@ -4913,6 +4919,11 @@
   <action name="actionRestore">
    <property name="text">
     <string>Restore</string>
+   </property>
+  </action>
+  <action name="actionCreate_shape">
+   <property name="text">
+    <string>Create shape</string>
    </property>
   </action>
  </widget>
