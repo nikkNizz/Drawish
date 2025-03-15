@@ -133,7 +133,9 @@ In the top menu choose the attributes of the line.
 To actually draw it, click on a point in the image.  
 To deactivate it, uncheck the line button.
 From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.  
-The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**
+The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**  
+The angles are in the order shown in the image:
+![image](https://drive.google.com/uc?export=download&id=1GYvPe_yhgc-y3qFFtwj_QH60IaK1Wj6F)
 [video](https://drive.google.com/file/d/1mo5_hRFjhWKopEgxHDCf6VrIs4WEHD25/view?usp=sharing)
 
 #### Shapes
