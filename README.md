@@ -1,12 +1,12 @@
-# Drawish  0.9.7 
+# Drawish  0.9.8 
 Is a program for basic drawing.  
-It also allows you to modify existing images, open pdf as images in linux, draw charts and much more.  
+It also allows you to modify existing images, open pdf as images in Linux, draw charts and much more.  
 
 ![Image](https://drive.google.com/uc?export=view&id=1TkI1nMmmWbgbJfy07Koqs_DSuqo_W_CG)  
 
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.7) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.8) page of this project.  
 
 ### COMPILE FROM SOURCE (LINUX):
 Download and unzip the project.  
@@ -86,9 +86,10 @@ and move the mouse over the drawing area, holding
 down the left mouse button. You can draw
 with the keyboard by selecting in the top menu how many pixels to draw
 when you press the keys.  
-Use the A (left), Q or W (up), S (right), Z or X (down) keys[video](https://drive.google.com/file/d/1M-l_ubJsOdIr8C0IrRB_tgGHxzaZ9MT5/view?usp=sharing).  
+Keys: Q = top-left  W = top  E = top-right   A = left  S = right  < = bottom-left  Z = down  X = bottom-right.  
+[video](https://drive.google.com/file/d/1M-l_ubJsOdIr8C0IrRB_tgGHxzaZ9MT5/view?usp=sharing).  
 In the panel that appears above the drawing area you can
-choose attributes. Do not use transparent color to draw.  
+choose attributes. Do not use transparent color to draw (only fill).  
 Use white color to erase.  
 
 #### Text
@@ -109,6 +110,7 @@ appears at the top.
 Increasing the value decreases the affinity.  
 The transparent color cannot fill a white area. First fill the
 white area with another color.
+It is possible to fill with semi transparency of the active color with the switch at the top right.  
 If the check box [Fill inside black] is selected, the entire area around the click, **included within a black line**, is filled in black. 
 [video](https://drive.google.com/file/d/1KnkXdYvtXVhk3dniSauTWx8qtveAibHf/view?usp=sharing)
 
