@@ -33,9 +33,11 @@ private slots:
 
     void on_pushButton_4_clicked();
 
-    void on_replaceButton_clicked();
+    void replaceColors(int opt);
 
     void on_pushButton_clicked();
+
+    void on_comboReplace_currentIndexChanged(int index);
 
 private:
     Ui::dColors *ui;    
