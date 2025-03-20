@@ -14,9 +14,7 @@
     <file>res/text.png</file> 
     <file>res/rotateLeft.png</file>    
     <file>res/trasp.png</file>  
-    <file>res/flatCap.png</file> 
-    <file>res/rotateRight.png</file> 
-    <file>res/roundCap.png</file>  
+    <file>res/rotateRight.png</file>  
     <file>res/draw.png</file>
     <file>it_lang.qm</file>
 </qresource>
