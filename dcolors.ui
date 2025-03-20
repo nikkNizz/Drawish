@@ -901,29 +901,11 @@
     <number>256</number>
    </property>
   </widget>
-  <widget class="QPushButton" name="replaceButton">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>250</y>
-     <width>251</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Replace with active color</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>220</y>
+     <x>340</x>
+     <y>230</y>
      <width>101</width>
      <height>24</height>
     </rect>
@@ -1190,13 +1172,84 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>290</y>
+     <y>280</y>
      <width>251</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboReplace">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>240</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <bold>true</bold>
+    </font>
+   </property>
+   <item>
+    <property name="text">
+     <string>Replacement options</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Replace with active color</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>+ Red</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>- Red</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>+ Green</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>- Green</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>+ Blue</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>- Blue</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QCheckBox" name="checkAuto">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>200</y>
+     <width>171</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Auto update</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>
