@@ -74,7 +74,7 @@ void dColors::on_pushButton_4_clicked()//ok
 }
 
 
-void dColors::on_replaceButton_clicked()
+void dColors::replaceColors(int opt)
 {
      QImage Img = origPix.toImage();
      int minRed = ui->IFRED->value();
@@ -90,12 +90,47 @@ void dColors::on_replaceButton_clicked()
      if(minBlue > maxBlue){QMessageBox::information(this, "Drawish", tr("The minimum value of blue is higher than the maximum value"));}
 
      int counter =0;
-
+     // 1 repl. active color, 2 +red, 3 - red, 4 +green, 5 -green, 6 +blue, 7 -blue
+     // 0 header
+     int acolor;
      for (int y = 0; y < Img.height(); ++y) {
            for (int x = 0; x < Img.width(); ++x) {
              QColor k= Img.pixelColor(x,y);
              if(k.red() >minRed && k.red() < maxRed && k.green() > minGreen && k.green() < maxGreen && k.blue() > minBlue && k.blue() < maxBlue){
-                  Img.setPixelColor(x,y, sizes::activeColor);
+                 switch (opt) {
+                 case 1:Img.setPixelColor(x,y, sizes::activeColor);
+                     break;
+                 case 2:
+                     acolor = k.red()+15;
+                     if(acolor > 255) acolor = 255;
+                     Img.setPixelColor(x, y, QColor(acolor, k.green(), k.blue()) );
+                     break;
+                 case 3:
+                     acolor = k.red()-14;
+                     if(acolor < 0) acolor = 0;
+                     Img.setPixelColor(x, y, QColor(acolor, k.green(), k.blue()) );
+                     break;
+                 case 4:
+                     acolor = k.green()+15;
+                     if(acolor > 255) acolor = 255;
+                     Img.setPixelColor(x, y, QColor(k.red(), acolor, k.blue()) );
+                     break;
+                 case 5:
+                     acolor = k.green()-14;
+                     if(acolor < 0) acolor = 0;
+                     Img.setPixelColor(x, y, QColor(k.red(), acolor, k.blue()) );
+                     break;
+                 case 6:
+                     acolor = k.blue()+15;
+                     if(acolor > 255) acolor = 255;
+                     Img.setPixelColor(x, y, QColor(k.red(), k.green(), acolor) );
+                     break;
+                 case 7:
+                     acolor = k.blue()-14;
+                     if(acolor < 0) acolor = 0;
+                     Img.setPixelColor(x, y, QColor(k.red(), k.green(), acolor) );
+                      break;
+                 }
                  counter++;
              }
          }
@@ -103,11 +138,12 @@ void dColors::on_replaceButton_clicked()
      newPix = QPixmap::fromImage(Img);
      ui->labelThumb->setPixmap( newPix.scaled(200,170));
      ui->label_replaced->setText(QString::number(counter) + tr(" pixel replaced"));
+     if(ui->checkAuto->isChecked()) origPix = newPix;
 
 }
 
 
-void dColors::on_pushButton_clicked()
+void dColors::on_pushButton_clicked()// gradient
 {
      QImage Img = origPix.toImage();
      QStringList startcols = ui->startColorsLine->text().split(" ");
@@ -168,5 +204,17 @@ void dColors::on_pushButton_clicked()
           }
           newPix = QPixmap::fromImage(Img);
           ui->labelThumb->setPixmap( newPix.scaled(200,170));
+          if(ui->checkAuto->isChecked()) origPix = newPix;
+}
 
+
+
+void dColors::on_comboReplace_currentIndexChanged(int index)
+{
+    // 1 repl. active color, 2 +red, 3 - red, 4 +green, 5 -green, 6 +blue, 7 -blue
+    // 0 header
+    if(index >0){
+        replaceColors(index);
+    }
+    ui->comboReplace->setCurrentIndex(0);
 }
