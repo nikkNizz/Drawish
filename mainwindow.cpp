@@ -43,9 +43,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "0.9.7";
-    // 0.9.7: simple arrow ; correct selection after quadruple; shape from keyboard
-    // line from angle     ;
+    version_info = "0.9.8";
+    // 0.9.8: correct undo selection  ; del selection when camera; add to recent file not modified too
+    // pen transparency to 16         ; fill with semi transpar. ; multicolor pen
+    // replace color option           ;
 
 
     isLinux = false;
@@ -336,24 +337,25 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
     else if(sizes::activeOperation == 3){
         QPainter pai(&pix);
         QColor ncol= sizes::activeColor;
-        if(ui->markerButton->isChecked()){
-            ncol = QColor(sizes::activeColor.red(), sizes::activeColor.green(), sizes::activeColor.blue(), 32);
-        }
-        QPen pen(ncol, ui->lineWidthBox->value());
 
-        if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
-        else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
+        QPen pen(configPen(ncol));
 
         pai.setPen(pen);
         int num =1;
         int xFin= sizes::selX;
         int yFin = sizes::selY;
         if(ui->radioButton_2->isChecked()) num=5;
-        if(ev->key() ==Qt::Key_W || ev->key()== Qt::Key_Q){ yFin = sizes::selY-num;
+        if(ev->key() ==Qt::Key_W ){ yFin = sizes::selY-num;
         }
         else if(ev->key()== Qt::Key_A){xFin = sizes::selX-num;}
         else if(ev->key()== Qt::Key_S){xFin = sizes::selX+num;}
-        else if(ev->key()== Qt::Key_Z || ev->key()== Qt::Key_X){yFin =sizes::selY+num;}
+        else if(ev->key()== Qt::Key_Z){yFin =sizes::selY+num;}
+        else if(ev->key()== Qt::Key_Q){xFin = sizes::selX -num; yFin =sizes::selY-num;}
+        else if(ev->key()== Qt::Key_E){xFin = sizes::selX +num; yFin =sizes::selY-num;}
+        else if(ev->key()== Qt::Key_X){xFin = sizes::selX +num; yFin =sizes::selY+num;}
+        else if(ev->key()== Qt::Key_Less){xFin = sizes::selX -num; yFin =sizes::selY+num;}
+
+
 
         pai.drawLine(sizes::selX, sizes::selY, xFin, yFin);
         pai.end();
@@ -391,15 +393,15 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
 
 void MainWindow::closeEvent(QCloseEvent *ev)
 {
+    if(activePathFile != "")  addToRecent(activePathFile);
     fileIO fio;
     fio.createFile("<recent>" + configRecent + "</recent><links>" + configLinks + "</links>" , configPath);
 
     if(sizes::modify){
         int q = QMessageBox::question(this, "Drawish", tr("Save image?"),QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
         if(q == QMessageBox::Yes){
-        imgSave();
-        fio.createFile("<recent>" + configRecent + "</recent><links>" + configLinks + "</links>" , configPath);
-
+            imgSave();
+            fio.createFile("<recent>" + configRecent + "</recent><links>" + configLinks + "</links>" , configPath);
         }
         else if(q==QMessageBox::Cancel){ev->ignore();}
         else{ev->accept();}
@@ -542,7 +544,7 @@ QCursor MainWindow::rectCursor()
         QPainter pai(&kursor);
         pai.drawPixmap(1,1,fillCurs);
         pai.end();
-        if(ui->nibButton->isChecked() && wh > 5){
+        if(ui->comboPen->currentIndex()==3 && wh > 5){
             QPainter pai2(&kursor);
             pai2.setPen(Qt::gray);
             pai2.drawLine(1, 1, kursor.width()-1, kursor.height()-1);
@@ -1146,20 +1148,47 @@ void MainWindow::on_penButton_clicked()
     }
 }
 
+QPen MainWindow::configPen(QColor &ncol, int alpha)
+{
+    // combopen: 0 round, 1 square, 2 flat, 3 nib, 4 rand round, 5 random square, 6 random red
+    // 7 random green, 8 random blue
+    ncol = sizes::activeColor;
+    int jColor= ui->comboPen->currentIndex();
+    if(jColor > 3){ // random
+         quint32 red = QRandomGenerator::global()->bounded(128) ;
+         quint32 green = QRandomGenerator::global()->bounded(128) ;
+         quint32 blue = QRandomGenerator::global()->bounded(128) ;
+         if(jColor == 6){ green = red * 0.6 ; blue = red * 0.6; red += 128;}
+         else if(jColor == 7){ red = green *0.6; blue = green * 0.6; green += 128;}
+         else if(jColor == 8){ red = blue * 0.6; green = blue *0.6; blue += 128;}
+         else{ red *= 2; green *= 2; blue *=2; }
+         ncol = QColor(red, green, blue);
+    }
+
+    if(ui->markerButton->isChecked()){
+        ncol.setAlpha(alpha);
+    }
+    QPen pen1(ncol, sizes::line_width);
+    if(jColor == 3) pen1.setWidth(1); // nib
+    else if(jColor == 1 || jColor == 5){ pen1.setCapStyle(Qt::SquareCap);}
+    else if(jColor ==2)                { pen1.setCapStyle(Qt::FlatCap);}
+    else                               { pen1.setCapStyle(Qt::RoundCap);}
+    return pen1;
+}
+
+
+
 void MainWindow::drawWithPen(){
 
     updateInfo();
     QPainter pai(&pix);
     QColor ncol = sizes::activeColor;
-    if(ui->markerButton->isChecked()){
-        ncol = QColor(sizes::activeColor.red(), sizes::activeColor.green(), sizes::activeColor.blue(), 32);
-    }
     QRect reg(qMin(sizes::shape_x_begin,sizes::shape_x_end), qMin(sizes::shape_y_begin,sizes::shape_y_end), abs(sizes::shape_x_end-sizes::shape_x_begin), abs(sizes::shape_y_end-sizes::shape_y_begin));
 
     // stylus
-    if(ui->nibButton->isChecked()){
+    if(ui->comboPen->currentIndex()== 3){
         int corners = sizes::line_width / 2;
-        QPen pen(ncol, 1);
+        QPen pen(configPen(ncol));
         pai.setPen(pen);
         QBrush br(ncol);
         pai.setBrush(br);
@@ -1169,18 +1198,13 @@ void MainWindow::drawWithPen(){
         pai.setClipRegion(reg);
     }else{
         // normal pen
-        QPen pen(ncol, sizes::line_width);
-
-         if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
-         else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
-
-         pai.setPen(pen);
-         pai.drawLine(sizes::shape_x_begin, sizes::shape_y_begin, sizes::shape_x_end, sizes::shape_y_end);
-
-         pai.setClipRegion(reg);
+        QPen pen(configPen(ncol));
+        pai.setPen(pen);
+        pai.drawLine(sizes::shape_x_begin, sizes::shape_y_begin, sizes::shape_x_end, sizes::shape_y_end);
+        pai.setClipRegion(reg);
     }
 
-    sizes::shape_x_begin = sizes::shape_x_end;
+    sizes::shape_x_begin = sizes::shape_x_end ;
     sizes::shape_y_begin = sizes::shape_y_end;
 
     wArea->setPixmap(pix);
@@ -1199,28 +1223,12 @@ void MainWindow::draw_first_point()
     updateInfo();
     QPainter pai(&pix);
     QColor ncol = sizes::activeColor;
-    if(ui->markerButton->isChecked()){
-        ncol = QColor(sizes::activeColor.red(), sizes::activeColor.green(), sizes::activeColor.blue(), 32);
-    }
 
-    QPen pen(ncol, sizes::line_width);
-
-    if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
-    else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
+    QPen pen(configPen(ncol));
 
     pai.setPen(pen);
     pai.drawPoint(sizes::shape_x_begin, sizes::shape_y_begin);
     pai.end();
-    if(sizes::activeOperation == 10){
-        QPainter pai2(&pix);
-        QPen pen2(Qt::black, sizes::line_width);
-
-        if(ui->flatcapButton->isChecked()){ pen2.setCapStyle(Qt::SquareCap);}
-        else if(ui->roundcapButton->isChecked()){pen2.setCapStyle(Qt::RoundCap);}
-
-        pai2.setPen(pen2);
-        pai2.drawPoint(sizes::shape_x_begin+sizes::line_width/2, sizes::shape_y_begin-sizes::line_width/2);
-    }
     wArea->setPixmap(pix);
 }
 
@@ -1276,16 +1284,6 @@ void MainWindow::save_previous(QString tx)
     sizes::modify = true;
 }
 
-void MainWindow::on_flatcapButton_clicked()
-{
-    ui->roundcapButton->setChecked(false);
-}
-
-
-void MainWindow::on_roundcapButton_clicked()
-{
-    ui->flatcapButton->setChecked(false);
-}
 
 //  FILL
 void MainWindow::on_fillButton_clicked()
@@ -1315,6 +1313,10 @@ void MainWindow::fill_()
     }
     save_previous(tr("Fill"));
     updateInfo();
+    QColor ncol = sizes::activeColor;
+    if(ui->semiTranspFillButton->isChecked()){
+        ncol.setAlpha(64);
+    }
     QImage img = pix.toImage();
     img =img.convertToFormat(QImage::Format_ARGB32);
     QList<int> coord;
@@ -1323,9 +1325,10 @@ void MainWindow::fill_()
     QColor oldColor= QColor::fromRgb(img.pixel(sizes::selX, sizes::selY));
     if(oldColor == sizes::activeColor)return;
     if(oldColor == Qt::white && sizes::activeColor == QColor(255,255,255,0)){ return; }
-    img.setPixelColor(sizes::selX, sizes::selY, sizes::activeColor);
+    img.setPixelColor(sizes::selX, sizes::selY, ncol);
     int posx, posy;
     int similarity= ui->similaritySlider->value();
+
     while(coord.count()>0){
         posx = coord[0];
         posy = coord[1];
@@ -1334,14 +1337,14 @@ void MainWindow::fill_()
             if(isSimil(QColor::fromRgb(img.pixel(posx, posy-1)), oldColor, similarity)){
                 coord.push_back(posx);
                 coord.push_back(posy-1);
-                img.setPixelColor(posx, posy-1, sizes::activeColor);
+                img.setPixelColor(posx, posy-1, ncol);
             }
         }
         if(posx-1 > -1 ){
             if(isSimil(QColor::fromRgb(img.pixel(posx-1, posy)), oldColor, similarity)){
                 coord.push_back(posx-1);
                 coord.push_back(posy);
-                img.setPixelColor(posx-1, posy, sizes::activeColor);
+                img.setPixelColor(posx-1, posy, ncol);
             }
         }
 
@@ -1349,14 +1352,14 @@ void MainWindow::fill_()
             if(isSimil(QColor::fromRgb(img.pixel(posx+1, posy)), oldColor, similarity)){
                 coord.push_back(posx+1);
                 coord.push_back(posy);
-                img.setPixelColor(posx+1, posy, sizes::activeColor);
+                img.setPixelColor(posx+1, posy, ncol);
             }
         }
         if(posy+1 < img.height() ){
             if(isSimil(QColor::fromRgb(img.pixel(posx, posy+1)) ,oldColor, similarity)){
                 coord.push_back(posx);
                 coord.push_back(posy+1);
-                img.setPixelColor(posx, posy+1, sizes::activeColor);
+                img.setPixelColor(posx, posy+1, ncol);
             }
         }
     }
@@ -1565,14 +1568,9 @@ void MainWindow::createShapeArea()
 
     selPix.fill(QColor(255,255,255,0));
     QColor ncol = sizes::activeColor;
-    if(ui->markerButton->isChecked()){
-        ncol = QColor(sizes::activeColor.red(), sizes::activeColor.green(), sizes::activeColor.blue(), 32);
-    }
-    QPainter pai(&selPix);
-    QPen pen(ncol, sizes::line_width);
 
-    if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
-    else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
+    QPainter pai(&selPix);
+    QPen pen(configPen(ncol, 32));
 
     pai.setPen(pen);
 
@@ -1591,14 +1589,9 @@ void MainWindow::draw_shape()
         save_previous(tr("Line"));
         updateInfo();
         QColor ncol = sizes::activeColor;
-        if(ui->markerButton->isChecked()){
-            ncol = QColor(sizes::activeColor.red(), sizes::activeColor.green(), sizes::activeColor.blue(), 32);
-        }
-        QPainter pai(&pix);
-        QPen pen(ncol, sizes::line_width);
 
-        if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
-        else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
+        QPainter pai(&pix);
+        QPen pen(configPen(ncol, 32));
 
         pai.setPen(pen);
         pai.drawLine(sizes::selX + sizes::shape_x_begin, sizes::selY + sizes::shape_y_begin, sizes::selX + sizes::shape_x_end, sizes::selY +sizes::shape_y_end);
@@ -2202,6 +2195,11 @@ void MainWindow::on_actionCreate_triggered()
     // create Camera
     if(isCam) return;
     untoggle();
+    if(sizes::isSelectionOn){
+       delete selectionRect; selectionRect = NULL;
+       sizes::isSelectionOn= false;
+       wArea->setCursor(Qt::ArrowCursor);
+    }
     sizes::activeOperation =0;
     int ww = QInputDialog::getInt(this, "Drawish", tr("Enter width"), 60);
     int hh = QInputDialog::getInt(this, "Drawish", tr("Enter height"), 60);
@@ -2244,7 +2242,9 @@ void MainWindow::on_historyCombo_activated(int index)
     pix = historyPix[index];
     if(sizes::isSelectionOn){
         sizes::isSelectionOn = false;
+        sizes::activeOperation=0;
         untoggle();
+        wArea->setCursor(Qt::ArrowCursor);
         delete selectionRect;
         selectionRect = NULL;
     }
@@ -2260,6 +2260,7 @@ void MainWindow::on_historyCombo_activated(int index)
         wArea->setCursor(Qt::CrossCursor);
         untoggle();
         ui->selectionAreaButton->setChecked(true);
+
         //
         createSelection();
 
@@ -2389,15 +2390,8 @@ void MainWindow::on_actionCreate_Line_triggered()
     if(lineD.res == 1 || lineD.res == 2){
         save_previous(tr("Line input"));
         QColor ncol = sizes::activeColor;
-        if(ui->markerButton->isChecked()){
-            ncol = QColor(sizes::activeColor.red(), sizes::activeColor.green(), sizes::activeColor.blue(), 32);
-        }
         QPainter pai(&pix);
-        QPen pen(ncol, sizes::line_width);
-
-        if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
-        else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
-
+        QPen pen(configPen(ncol, 32));
 
         pai.setPen(pen);
         if(lineD.res == 1) {
@@ -2501,11 +2495,6 @@ void MainWindow::on_actionStretch_area_triggered()
         selectionRect->setPixmap(strd.epix);
         }
 
-}
-
-void MainWindow::on_nibButton_clicked()
-{
-    wArea->setCursor(rectCursor());
 }
 
 
@@ -2819,18 +2808,12 @@ void MainWindow::on_actionCreate_shape_triggered()
     figure.exec();
     if(figure.res == 0) return;
 
-    // sizes::lineXEnd  width   // sizes::lineYEnd  height
-    // sizes::shape_x_begin  x  // sizes::shape_y_begin  y
     save_previous("Input shape");
     QColor ncol = sizes::activeColor;
-    if(ui->markerButton->isChecked()){
-        ncol = QColor(sizes::activeColor.red(), sizes::activeColor.green(), sizes::activeColor.blue(), 32);
-    }
-    QPainter pai(&pix);
-    QPen pen(ncol, sizes::line_width);
 
-    if(ui->flatcapButton->isChecked()){ pen.setCapStyle(Qt::SquareCap);}
-    else if(ui->roundcapButton->isChecked()){pen.setCapStyle(Qt::RoundCap);}
+    QPainter pai(&pix);
+    QPen pen(configPen(ncol, 32));
+
     pai.setPen(pen);
     sizes::shape_x_begin = sizes::shape_x_begin -(sizes::lineXEnd/2);
     sizes::shape_y_begin = sizes::shape_y_begin -(sizes::lineYEnd/2);
