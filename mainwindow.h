@@ -77,7 +77,7 @@ private slots:
   QStringList askForValues();
   double graphicFactor(QStringList sl, double graphDim);
   void addGraphic(QPixmap gr);
-
+  QPen configPen(QColor& ncol, int alpha=16);
 
   void on_actionNew_triggered();
 
@@ -128,10 +128,6 @@ private slots:
   void on_addColorButton_clicked();
 
   void on_penButton_clicked();
-
-  void on_flatcapButton_clicked();
-
-  void on_roundcapButton_clicked();
 
   void on_fillButton_clicked();
 
@@ -209,8 +205,6 @@ private slots:
 
   void on_actionStretch_area_triggered();
 
-  void on_nibButton_clicked();
-
   void on_actionTo_sepia_triggered();
 
   void on_actionSet_triggered();
@@ -242,6 +236,7 @@ private slots:
   void on_actionRestore_triggered();
 
   void on_actionCreate_shape_triggered();
+
 
   private:
     Ui::MainWindow *ui;
