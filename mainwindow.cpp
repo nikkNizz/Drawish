@@ -46,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
     version_info = "0.9.8";
     // 0.9.8: correct undo selection  ; del selection when camera; add to recent file not modified too
     // pen transparency to 16         ; fill with semi transpar. ; multicolor pen
-    // replace color option           ;
+    // replace color option           ; draw diag with keyboard  ;
 
 
     isLinux = false;
