@@ -61,7 +61,7 @@ To copy the portion **without detaching it**, select it and,
 before moving it, go to the "Edit->copy selection (no clipboard) " menu.  
 You can also create a selection by entering the coordinates from the keyboard
 from the "Sizes->Sizes->[Create selection]" menu.  
-To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys[video](https://drive.google.com/file/d/1M-l_ubJsOdIr8C0IrRB_tgGHxzaZ9MT5/view?usp=sharing).  
+To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  
 To make the white area of ​​the selection transparent, check the box
 from the "Edit->Transparent selection" Menu (already selected by default), **before** creating the selection.  
 To select everything, use the "Edit->Select all" menu.  
@@ -70,7 +70,6 @@ To finish and pasting the selection, click on a point on the image.
 
 #### Merge images
 From the "Edit->Paste from file" menu you can merge two images with three options. The second image can be put into a selection that can be moved to the desired point, or the second image can be automatically added to the right or below the first.
-[Video](https://drive.google.com/file/d/1cbtphNuOdKlyNCEdMenNrpREKnVX_xbU/view?usp=sharing)
 
 #### Merge selection
 From the "Edit->Merge selection to image" menu you can merge the portion of the image below into the selection. 
@@ -86,8 +85,7 @@ and move the mouse over the drawing area, holding
 down the left mouse button. You can draw
 with the keyboard by selecting in the top menu how many pixels to draw
 when you press the keys.  
-Keys: Q = top-left  W = top  E = top-right   A = left  S = right  < = bottom-left  Z = down  X = bottom-right.  
-[video](https://drive.google.com/file/d/1M-l_ubJsOdIr8C0IrRB_tgGHxzaZ9MT5/view?usp=sharing).  
+Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (< = bottom-left)  (Z = down)  (X = bottom-right).  
 In the panel that appears above the drawing area you can
 choose attributes. Do not use transparent color to draw (only fill).  
 Use white color to erase.  
@@ -150,7 +148,7 @@ Many filling options are available from the choice box at the top right.
 
 #### Shapes by keyboard
 You can create rectangles, squares, circles and ellipses by entering data from the keyboard from the "Image-->Create Shapes" menu.  
-Enter the center as the shape coordinate.  
+**Enter the center** as the shape coordinate.  
 You can draw the center of these shapes or not.  
 [video](https://drive.google.com/file/d/1mo5_hRFjhWKopEgxHDCf6VrIs4WEHD25/view?usp=sharing)
 
