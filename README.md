@@ -86,7 +86,7 @@ down the left mouse button. You can draw
 with the keyboard by selecting in the top menu how many pixels to draw
 when you press the keys.  
 Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (< = bottom-left)  (Z = down)  (X = bottom-right). 
-[video](https://drive.google.com/file/d/1Z6KETxX53N0E_YGQgtdDkzLk7GZgHE8c/view?usp=sharing)
+[video](https://drive.google.com/file/d/1Z6KETxX53N0E_YGQgtdDkzLk7GZgHE8c/view?usp=sharing)  
 In the panel that appears above the drawing area you can
 choose attributes. Do not use transparent color to draw (only fill).  
 Use white color to erase.  
