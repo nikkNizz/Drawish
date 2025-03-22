@@ -86,11 +86,10 @@ down the left mouse button. You can draw
 with the keyboard by selecting in the top menu how many pixels to draw
 when you press the keys.  
 Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (< = bottom-left)  (Z = down)  (X = bottom-right). 
-[video](https://drive.google.com/uc?export=download&id=1Z6KETxX53N0E_YGQgtdDkzLk7GZgHE8c)
+
 In the panel that appears above the drawing area you can
 choose attributes. Do not use transparent color to draw (only fill).  
 Use white color to erase.  
-[video](https://drive.google.com/uc?export=download&id=1KDGYqUujZeACzwIT4wNfv6htVcOB51Dh)
 
 #### Text
 Click the [text] button, and **click a point** in the drawing area. 
@@ -111,7 +110,6 @@ Increasing the value decreases the affinity.
 The transparent color cannot fill a white area. First fill the
 white area with another color.
 It is possible to fill with semi transparency of the active color with the switch at the top right.  
-[video](https://drive.google.com/uc?export=download&id=1GynDndzshitoALd6C1AE_JqcklSExQDD)
 If the check box [Fill inside black] is selected, the entire area around the click, **included within a black line**, is filled in black. 
 [video](https://drive.google.com/file/d/1KnkXdYvtXVhk3dniSauTWx8qtveAibHf/view?usp=sharing)
 
@@ -138,7 +136,6 @@ To deactivate it, uncheck the line button.
 From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.  
 The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**  
 The angles are in the order shown in the image:
-![image](https://drive.google.com/uc?export=download&id=1GYvPe_yhgc-y3qFFtwj_QH60IaK1Wj6F)
 [video](https://drive.google.com/file/d/1mo5_hRFjhWKopEgxHDCf6VrIs4WEHD25/view?usp=sharing)
 
 #### Shapes
@@ -232,8 +229,7 @@ Click [OK] to apply the new image or [Cancel] to abort the changes.
 #### Color management
 From the [Image->Colors] menu you can perform additional operations on colors.  
 You can create a color by entering rgb values ​​from the keyboard, create gradients and replace pixels based on complex options. 
-[video](https://drive.google.com/uc?export=download&id=1PJ-7u52q-H2AVHOg521qymgIlQxkHiOt)
-[video](https://drive.google.com/uc?export=download&id=1qQAz_CUjjS4_Ie8DMhUh2CKLcgNjJ_i6)
+
 
 #### Stretch Area
 From the "Image->Stretch area", you can open a window to distort the edges of the selected image.
