@@ -229,8 +229,8 @@ Click [OK] to apply the new image or [Cancel] to abort the changes.
 
 #### Color management
 From the [Image->Colors] menu you can perform additional operations on colors.  
-You can create a color by entering rgb values ​​from the keyboard, create gradients and replace pixels based on complex options. 
-[video](https://drive.google.com/file/d/1PJ-7u52q-H2AVHOg521qymgIlQxkHiOt/view?usp=sharing)
+You can create a color by entering rgb values ​​from the keyboard, create gradients and replace pixels based on complex options.  
+[video](https://drive.google.com/file/d/1PJ-7u52q-H2AVHOg521qymgIlQxkHiOt/view?usp=sharing)  
 [video](https://drive.google.com/file/d/1qQAz_CUjjS4_Ie8DMhUh2CKLcgNjJ_i6/view?usp=sharing)
 
 #### Stretch Area
@@ -260,6 +260,4 @@ To save in jpg, ico or bmp format, enter the extension to the file name
 in the save window.  
 You can directly save the image to **PDF** from the "File->To PDF" menu.
 For base64 format, see previous chapter.
-#### video (old version):
-[Introduction](https://drive.google.com/file/d/1P1VTq4DPX-Mfdl9mQaWzYBlodk4mRVRY/view?usp=sharing)  
-[Simple project](https://drive.google.com/file/d/1qYL_KbZe9HY8I8-WeP1Zw0g9_m4A9Qy3/view?usp=sharing)
+
