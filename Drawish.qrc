@@ -1,6 +1,6 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-    <file>res/fill.png</file>  
+   <file>res/fill.png</file>  
     <file>res/line.png</file>    
     <file>res/lineConn.png</file> 
     <file>res/penna.png</file> 
@@ -12,6 +12,8 @@
     <file>res/curve.png</file> 
     <file>res/spray.png</file>    
     <file>res/text.png</file> 
+    <file>res/crono1.png</file>  
+    <file>res/crono2.png</file>  
     <file>res/rotateLeft.png</file>    
     <file>res/trasp.png</file>  
     <file>res/rotateRight.png</file>  
