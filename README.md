@@ -98,7 +98,8 @@ The text area will be displayed and can be moved as desired.
 **The multiline text box and options are displayed at the top**.
 Click the [DRAW] button to actually print the text, then move the text area 
 to continue printing text. Or disable the function by clicking the left button again.
-It is possible to paste text from the clipboard, as an image.
+It is possible to paste text from the clipboard, as an image.  
+[video](https://drive.google.com/file/d/1rz-xGREMfjJvdFcvErGzlr8vAbu2eEE8/view?usp=sharing)
 
 #### Fill / Fill inside black
 Click the [fill] button and click on the
@@ -209,6 +210,7 @@ This function requires an active selection.
 Enter the degrees of rotation in the small box on the left and then click the right or left buttons to rotate.  
 If you don't know how many degrees to rotate the image, start the automatic rotation by clicking the small button with the stopwatch and then click again to stop it in the desired position.
 To mirror the image go to the "Image->Mirror horizontally "or "Image->Mirror vertically" menu.
+[video](https://drive.google.com/file/d/1M5SMg7tclV4CMdQZlDANKdyLmEfvo7yT/view?usp=sharing)
 
 #### Sizes
 From the" Sizes->Sizes" menu you can scale or resize the image based on manually entered values.  
@@ -229,7 +231,7 @@ Click [OK] to apply the new image or [Cancel] to abort the changes.
 From the [Image->Colors] menu you can perform additional operations on colors.  
 You can create a color by entering rgb values ​​from the keyboard, create gradients and replace pixels based on complex options.  
 [video](https://drive.google.com/file/d/1PJ-7u52q-H2AVHOg521qymgIlQxkHiOt/view?usp=sharing)  
-[video](https://drive.google.com/file/d/1qQAz_CUjjS4_Ie8DMhUh2CKLcgNjJ_i6/view?usp=sharing)
+[video](https://drive.google.com/file/d/1A_yMq7SHWH1n-Yu3GsRULe9LDZ2Vc3gg/view?usp=sharing)
 
 #### Stretch Area
 From the "Image->Stretch area", you can open a window to distort the edges of the selected image.
