@@ -209,7 +209,7 @@ in view only.
 This function requires an active selection.  
 Enter the degrees of rotation in the small box on the left and then click the right or left buttons to rotate.  
 If you don't know how many degrees to rotate the image, start the automatic rotation by clicking the small button with the stopwatch and then click again to stop it in the desired position.
-To mirror the image go to the "Image->Mirror horizontally "or "Image->Mirror vertically" menu.
+To mirror the image go to the "Image->Mirror horizontally "or "Image->Mirror vertically" menu.  
 [video](https://drive.google.com/file/d/1M5SMg7tclV4CMdQZlDANKdyLmEfvo7yT/view?usp=sharing)
 
 #### Sizes
