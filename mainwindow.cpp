@@ -36,6 +36,7 @@
 #include <QBuffer>
 #include <QPrinter>
 #include <QProcess>
+#include <QTimer>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -43,10 +44,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "0.9.8";
-    // 0.9.8: correct undo selection  ; del selection when camera; add to recent file not modified too
-    // pen transparency to 16         ; fill with semi transpar. ; multicolor pen
-    // replace color option           ; draw diag with keyboard  ;
+    version_info = "0.9.9";
+    // 0.9.9: delete deg90     ; correct: rotation      ; history count to 15 ;
+    // colors: replace modified; colors: gradient circ. ; continuos rotation  ;
+    // comboPen: change cursor ;
 
 
     isLinux = false;
@@ -1177,7 +1178,6 @@ QPen MainWindow::configPen(QColor &ncol, int alpha)
 }
 
 
-
 void MainWindow::drawWithPen(){
 
     updateInfo();
@@ -1275,7 +1275,7 @@ void MainWindow::save_previous(QString tx)
     historyList.push_back(tx);
     prePix = QPixmap();
     historyPix.push_back(pix);
-    if(historyList.count() > 8){
+    if(historyList.count() > 15){
         historyList.removeFirst();
         historyPix.removeFirst();
     }
@@ -1844,11 +1844,13 @@ void MainWindow::zoom_change_color()
 void MainWindow::on_rotateLeftButton_clicked()
 {
     rotation(-1);
+
 }
 
 void MainWindow::on_rotateRightButton_clicked()
 {
-   rotation(1);
+    rotation(1);
+
 }
 
 
@@ -1857,80 +1859,55 @@ void MainWindow::rotation(int a)
     if(!sizes::isSelectionOn){
         QMessageBox::information(this, "Drawish", tr("No selection"));
         return;
-    }   
-
-      double cos = sizes::selW/2;
-      double sin = sizes::selH/2;
-      double hip= (cos*cos)+ (sin*sin);
-      hip = sqrt(hip);
-      double cosA = cos/hip;
-      double sinA = sin/hip;
-      QList<double>table;
-      table <<0<<0.00<<1.00<<1<<0.02<<1.00<<2<<0.03<<1.00<<3<<0.05<<1.00<<4<<0.07<<1.00<<5<<0.09<<1.00<<6<<0.10<<0.99<<7<<0.12<<0.99<<8<<0.14<<0.99<<9<<0.16<<0.99<<10<<0.17<<0.98<<11<<0.19<<0.98<<12<<0.21<<0.98<<13<<0.22<<0.97<<14<<0.24<<0.97<<15<<0.26<<0.97<<16<<0.28<<0.96<<17<<0.29<<0.96<<18<<0.31<<0.95<<19<<0.33<<0.95<<20<<0.34<<0.94<<21<<0.36<<0.93<<22<<0.37<<0.93<<23<<0.39<<0.92<<24<<0.41<<0.91<<25<<0.42<<0.91<<26<<0.44<<0.90<<27<<0.45<<0.89<<28<<0.47<<0.88<<29<<0.48<<0.87<<30<<0.50<<0.87<<31<<0.52<<0.86<<32<<0.53<<0.85<<33<<0.54<<0.84<<34<<0.56<<0.83<<35<<0.57<<0.82<<36<<0.59<<0.81<<37<<0.60<<0.80<<38<<0.62<<0.79<<39<<0.63<<0.78<<40<<0.64<<0.77<<41<<0.66<<0.75<<42<<0.67<<0.74<<43<<0.68<<0.73<<44<<0.69<<0.72<<45<<0.71<<0.71<<46<<0.72<<0.69<<47<<0.73<<0.68<<48<<0.74<<0.67<<49<<0.75<<0.66<<50<<0.77<<0.64<<51<<0.78<<0.63<<52<<0.79<<0.62<<53<<0.80<<0.60<<54<<0.81<<0.59<<55<<0.82<<0.57<<56<<0.83<<0.56<<57<<0.84<<0.54<<58<<0.85<<0.53<<59<<0.86<<0.52<<60<<0.87<<0.50<<61<<0.87<<0.48<<62<<0.88<<0.47<<63<<0.89<<0.45<<64<<0.90<<0.44<<65<<0.91<<0.42<<66<<0.91<<0.41<<67<<0.92<<0.39<<68<<0.93<<0.37<<69<<0.93<<0.36<<70<<0.94<<0.34<<71<<0.95<<0.33<<72<<0.95<<0.31<<73<<0.96<<0.29<<74<<0.96<<0.28<<75<<0.97<<0.26<<76<<0.97<<0.24<<77<<0.97<<0.22<<78<<0.98<<0.21<<79<<0.98<<0.19<<80<<0.98<<0.17<<81<<0.99<<0.16<<82<<0.99<<0.14<<83<<0.99<<0.12<<84<<0.99<<0.10<<85<<1.00<<0.09<<86<<1.00<<0.07<<87<<1.00<<0.05<<88<<1.00<<0.03<<89<<1.00<<0.02<<90<<1.00<<0.00;
-      int angle = ui->RotatioAngleSpin->value() ;
-      for(int i=2; i< table.count(); i = i+3){
-          if(table[i] <= cosA){
-              int grad = table[i-2];
-              grad = grad -angle;
-              if(grad > 90){ grad = 90-grad;}
-              if(grad < 0){ grad = grad *-1;}
-              grad = (grad *3)+2;
-              double g = table[grad];
-              sizes::selW  = hip * g*2;
-              break;
-          }
-      }
-      for(int i=1; i< table.count(); i = i+3){
-          if(table[i] >= sinA){
-              int grad = table[i-1];
-              grad =grad +angle;
-              if(grad > 90){ grad = 90-grad;}
-              if(grad < 0){ grad = grad *-1;}
-              grad = (grad *3)+1;
-              double g = table[grad];
-              sizes::selH  = hip * g*2;
-              break;
-          }
-      }
-      selectionRect->resetGeometry();
-      //--
-      QTransform tf;
-      tf.rotate(ui->RotatioAngleSpin->value() * a);
-      QPixmap sPix = selectionRect->pixmap().transformed(tf);
-      selectionRect->setPixmap(sPix);
-      updateInfo();
-}
-
-
-void MainWindow::deg90(int a)
-{
-    if(!sizes::isSelectionOn){
-        QMessageBox::information(this, "Drawish", tr("No selection"));
-        return;
     }
 
-    int ww = sizes::selW;
-    int hh = sizes::selH;
-    sizes::selW = hh;
-    sizes::selH = ww;
-
-    selectionRect->resetGeometry();
-    //--
     QTransform tf;
-    tf.rotate(a);
-    QPixmap sPix = selectionRect->pixmap().scaled(sizes::selW, sizes::selH).transformed(tf);
+    tf.rotate(ui->RotatioAngleSpin->value() * a);
+    QRect rect = tf.mapRect(QRect(0,0,sizes::selW, sizes::selH));
+    sizes::selW =rect.width();
+    sizes::selH = rect.height();
+    selectionRect->resetGeometry();
+    QPixmap sPix = selectionRect->pixmap().transformed(tf);
     selectionRect->setPixmap(sPix);
+    updateInfo();
 }
 
-void MainWindow::on_deg90left_clicked()
+void MainWindow::on_autoRotationButton_clicked()
 {
-    deg90(-90);
+    if(ui->autoRotationButton->isChecked()){
+        if(!sizes::isSelectionOn){
+            QMessageBox::information(this, "Drawish", tr("No selection"));
+            return;
+        }
+        ui->autoRotationButton->setIcon(QIcon(":/res/crono2.png"));
+        wPreRotate = sizes::selW;
+        hPreRotate = sizes::selH;
+        preRotatePix = selectionRect->pixmap();
+        goRotate = true;
+        autoRotation();
+
+    }else{
+        ui->autoRotationButton->setIcon(QIcon(":/res/crono1.png"));
+        goRotate = false;
+        preAngle =0;
+        updateInfo();
+    }
 }
 
-
-void MainWindow::on_deg90right_clicked()
+void MainWindow::autoRotation()
 {
-    deg90(90);
+    if(!goRotate)return;
+    preAngle++;
+    if(preAngle > 360) preAngle =0;
+    QTransform tf;
+    tf.rotate(preAngle);
+    QRect rect = tf.mapRect(QRect(0,0, wPreRotate, hPreRotate));
+    sizes::selW =rect.width();
+    sizes::selH = rect.height();
+    selectionRect->resetGeometry();
+    QPixmap sPix = preRotatePix.transformed(tf);
+    selectionRect->setPixmap(sPix);
+    QTimer::singleShot(20, this, SLOT(autoRotation()));
 }
 
 // ----
@@ -2835,4 +2812,9 @@ void MainWindow::on_actionCreate_shape_triggered()
     }
     wArea->setPixmap(pix);
 
+}
+
+void MainWindow::on_comboPen_activated(int index)
+{
+    wArea->setCursor(rectCursor());
 }
