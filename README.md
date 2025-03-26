@@ -1,12 +1,12 @@
-# Drawish  0.9.8 
+# Drawish  0.9.9 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts and much more.  
 
-![Image](https://drive.google.com/uc?export=view&id=1TkI1nMmmWbgbJfy07Koqs_DSuqo_W_CG)  
+![Image](https://drive.google.com/uc?export=view&id=1cCwyNsqHtCa5vpfMm4IuztqkTI0Dj-Wy)  
 
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.8) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.9) page of this project.  
 
 ### COMPILE FROM SOURCE (LINUX):
 Download and unzip the project.  
@@ -99,7 +99,6 @@ The text area will be displayed and can be moved as desired.
 Click the [DRAW] button to actually print the text, then move the text area 
 to continue printing text. Or disable the function by clicking the left button again.
 It is possible to paste text from the clipboard, as an image.
-[video](https://drive.google.com/file/d/14wtJqm03hGNeiaqOLzPeB7In8m7ON_kk/view?usp=sharing)
 
 #### Fill / Fill inside black
 Click the [fill] button and click on the
@@ -206,10 +205,9 @@ The zoom of the entire image is obtained from the "Sizes->Zoom" menu, but
 in view only.
 
 #### Rotation 
-This function requires that there is an active selection.  
-Enter the degrees of rotation from 0 to 45 in the small box on the left and then click the right or left buttons to rotate.  
-To rotate the selection by 90 degrees press the 90° buttons (right or left).  
-To combine 90 degree rotation and manual rotation, deselect and reselect.  
+This function requires an active selection.  
+Enter the degrees of rotation in the small box on the left and then click the right or left buttons to rotate.  
+If you don't know how many degrees to rotate the image, start the automatic rotation by clicking the small button with the stopwatch and then click again to stop it in the desired position.
 To mirror the image go to the "Image->Mirror horizontally "or "Image->Mirror vertically" menu.
 
 #### Sizes
