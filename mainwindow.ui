@@ -4441,8 +4441,8 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>235</y>
-      <width>21</width>
+      <y>260</y>
+      <width>28</width>
       <height>24</height>
      </rect>
     </property>
@@ -4460,9 +4460,9 @@
    <widget class="QPushButton" name="rotateRightButton">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>235</y>
-      <width>21</width>
+      <x>52</x>
+      <y>260</y>
+      <width>28</width>
       <height>24</height>
      </rect>
     </property>
@@ -4480,9 +4480,9 @@
    <widget class="QSpinBox" name="RotatioAngleSpin">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>234</y>
-      <width>41</width>
+      <x>10</x>
+      <y>230</y>
+      <width>61</width>
       <height>25</height>
      </rect>
     </property>
@@ -4493,42 +4493,13 @@
      <number>1</number>
     </property>
     <property name="maximum">
-     <number>45</number>
+     <number>360</number>
+    </property>
+    <property name="singleStep">
+     <number>1</number>
     </property>
     <property name="value">
-     <number>25</number>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="deg90left">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>261</y>
-      <width>31</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>Rotate left</string>
-    </property>
-    <property name="text">
-     <string>90°</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="deg90right">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>261</y>
-      <width>31</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>Rotate right</string>
-    </property>
-    <property name="text">
-     <string>90°</string>
+     <number>90</number>
     </property>
    </widget>
    <widget class="QComboBox" name="historyCombo">
@@ -4931,6 +4902,29 @@
       <bool>true</bool>
      </property>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="autoRotationButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>260</y>
+      <width>21</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Auto rotation</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="Drawish.qrc">
+      <normaloff>:/res/crono1.png</normaloff>:/res/crono1.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
