@@ -2,6 +2,8 @@
 #include "ui_dcolors.h"
 #include "geometric.h"
 #include <QMessageBox>
+#include <qpainter.h>
+#include <QInputDialog>
 
 
 dColors::dColors(QWidget *parent, QPixmap ePix ) :
@@ -93,6 +95,10 @@ void dColors::replaceColors(int opt)
      // 1 repl. active color, 2 +red, 3 - red, 4 +green, 5 -green, 6 +blue, 7 -blue
      // 0 header
      int acolor;
+     int diff = 15;
+     if(opt > 1){
+         diff = QInputDialog::getInt(this, "Drawish", "Enter increment/decrement value ", 15, 0, 255);
+     }
      for (int y = 0; y < Img.height(); ++y) {
            for (int x = 0; x < Img.width(); ++x) {
              QColor k= Img.pixelColor(x,y);
@@ -101,32 +107,32 @@ void dColors::replaceColors(int opt)
                  case 1:Img.setPixelColor(x,y, sizes::activeColor);
                      break;
                  case 2:
-                     acolor = k.red()+15;
+                     acolor = k.red() + diff;
                      if(acolor > 255) acolor = 255;
                      Img.setPixelColor(x, y, QColor(acolor, k.green(), k.blue()) );
                      break;
                  case 3:
-                     acolor = k.red()-14;
+                     acolor = k.red() - diff;
                      if(acolor < 0) acolor = 0;
                      Img.setPixelColor(x, y, QColor(acolor, k.green(), k.blue()) );
                      break;
                  case 4:
-                     acolor = k.green()+15;
+                     acolor = k.green() + diff;
                      if(acolor > 255) acolor = 255;
                      Img.setPixelColor(x, y, QColor(k.red(), acolor, k.blue()) );
                      break;
                  case 5:
-                     acolor = k.green()-14;
+                     acolor = k.green() - diff;
                      if(acolor < 0) acolor = 0;
                      Img.setPixelColor(x, y, QColor(k.red(), acolor, k.blue()) );
                      break;
                  case 6:
-                     acolor = k.blue()+15;
+                     acolor = k.blue() + diff;
                      if(acolor > 255) acolor = 255;
                      Img.setPixelColor(x, y, QColor(k.red(), k.green(), acolor) );
                      break;
                  case 7:
-                     acolor = k.blue()-14;
+                     acolor = k.blue() - diff;
                      if(acolor < 0) acolor = 0;
                      Img.setPixelColor(x, y, QColor(k.red(), k.green(), acolor) );
                       break;
@@ -190,19 +196,45 @@ void dColors::on_pushButton_clicked()// gradient
              if(endB < 0.0)endB=0;
               else if(endB > 255)endB =255;
      //--------------------------------------------
-          double stepR = (endR - startR) / Img.width();
-          double stepG = (endG - startG) / Img.width();
-          double stepB = (endB - startB) / Img.width() ;
+              if(ui->linearRadio->isChecked()){
+                  double stepR = (endR - startR) / Img.width();
+                  double stepG = (endG - startG) / Img.width();
+                  double stepB = (endB - startB) / Img.width() ;
 
-          for(int x=0; x < Img.width(); ++x){
-              for(int y =0; y< Img.height(); ++y){
-                   Img.setPixelColor(x, y, QColor(int(startR), int(startG), int(startB)));
+                  for(int x=0; x < Img.width(); ++x){
+                      for(int y =0; y< Img.height(); ++y){
+                          Img.setPixelColor(x, y, QColor(int(startR), int(startG), int(startB)));
+                      }
+                      startR += stepR;
+                      startG += stepG;
+                      startB += stepB;
+                  }
+                newPix = QPixmap::fromImage(Img);
               }
-              startR += stepR;
-              startG += stepG;
-              startB += stepB;
-          }
-          newPix = QPixmap::fromImage(Img);
+              else if(ui->diagonalRadio->isChecked()){
+                  QLinearGradient gradient(QPoint(0,0), QPoint(Img.width()-1, Img.height()-1));
+                  gradient.setColorAt(0, QColor(startR, startG, startB));
+                  gradient.setColorAt(1, QColor(endR, endG, endB));
+                  QBrush brush(gradient);
+                  QPainter p(&origPix);
+                  p.setBrush(brush);
+                  p.drawRect(0,0, origPix.width()-1, origPix.height()-1);
+                  p.end();
+                  newPix = origPix;
+              }
+              else if(ui->RadialRadio->isChecked()){
+                  int radius = qMin(Img.width(), Img.height());
+                  QRadialGradient gradient(QPoint(Img.width()/2, Img.height()/2), radius/2);
+                  gradient.setColorAt(0, QColor(startR, startG, startB));
+                  gradient.setColorAt(1, QColor(endR, endG, endB));
+                  QBrush brush(gradient);
+                  QPainter p(&origPix);
+                  p.setBrush(brush);
+                  p.drawRect(0,0, origPix.width()-1, origPix.height()-1);
+                  p.end();
+                  newPix = origPix;
+              }
+
           ui->labelThumb->setPixmap( newPix.scaled(200,170));
           if(ui->checkAuto->isChecked()) origPix = newPix;
 }
