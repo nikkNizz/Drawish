@@ -67,7 +67,6 @@ private slots:
   void view_zoom();
   void zoom_change_color();
   void rotation(int a);
-  void deg90(int a);
   void mirror(bool horizontal, bool vertical);
   QPixmap openPdf(QString fileName);
   void readConfig();
@@ -78,6 +77,7 @@ private slots:
   double graphicFactor(QStringList sl, double graphDim);
   void addGraphic(QPixmap gr);
   QPen configPen(QColor& ncol, int alpha=16);
+  void autoRotation();
 
   void on_actionNew_triggered();
 
@@ -173,10 +173,6 @@ private slots:
 
   void on_actionDelete_camera_triggered();
 
-  void on_deg90left_clicked();
-
-  void on_deg90right_clicked();
-
   void on_historyCombo_activated(int index);
 
   void on_actionAbout_triggered();
@@ -238,6 +234,10 @@ private slots:
   void on_actionCreate_shape_triggered();
 
 
+  void on_autoRotationButton_clicked();
+
+  void on_comboPen_activated(int index);
+
   private:
     Ui::MainWindow *ui;
     QString version_info;
@@ -261,6 +261,12 @@ private slots:
     QString nextColumnToAdd="0593716482";
     QString configRecent, configLinks, configPath;
     QPixmap toRestore;
+    //------------------------------
+    QPixmap preRotatePix;
+    int wPreRotate, hPreRotate;
+    int preAngle =0;
+    bool goRotate = false;
+    //-------------------------------
 
 
 };
