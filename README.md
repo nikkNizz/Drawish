@@ -123,15 +123,16 @@ Click the [pick] button and then on a point in the
 image that you want to get the color of. This will become the
 active color.  
 If the [color balance] check box is checked, you can balance the colors of the image based on the selected color and the active color. 
-For example, if you want to balance the white, you will have to set white as the active color and click on a color in the image that should be white, but is not.
-Click on the pick button again to proceed
+For example, if you want to balance the white, you will have to set white as the active color and click on a color in the image that should be white, but is not.  
+[video](https://drive.google.com/file/d/1M87q7asCIgoTUkzosI1L7IYRID0MK-JZ/view?usp=sharing)  
+Click on the pick button again to proceed.
 with other operations.
 
 #### Line
 Click the [line] button and then on the point in the image
 where you want to start the shape area. Drag the edges of the
 area to create the line.  The line can be moved by dragging the area
-with the mouse.  
+with the mouse or from keyboard (A W S Z keys).  
 In the top menu choose the attributes of the line. 
 To actually draw it, click on a point in the image.  
 To deactivate it, uncheck the line button.
@@ -142,6 +143,7 @@ The angles are in the order shown in the image:![image](https://drive.google.com
 
 #### Shapes
 As for the line. Click the [shapes] button, or select a shape from the selection box.  
+The shape can be moved by dragging the area with the mouse or from keyboard (A W S Z keys).  
 Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS, CROSSES. 
 The simple arrow can be rotated by moving the mouse along the top or bottom edge of the layer. While it can be enlarged by dragging the left and right edges.  
 Border width is defined by line width box. 
