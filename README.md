@@ -136,7 +136,7 @@ To actually draw it, click on a point in the image.
 To deactivate it, uncheck the line button.
 From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.  
 The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**  
-The angles are in the order shown in the image:![image](https://drive.google.com/uc?export=download&id=1GYvPe_yhgc-y3qFFtwj_QH60IaK1Wj6F)
+The angles are in the order shown in the image:![image](https://drive.google.com/uc?export=download&id=1GYvPe_yhgc-y3qFFtwj_QH60IaK1Wj6F)  
 [video](https://drive.google.com/file/d/1mo5_hRFjhWKopEgxHDCf6VrIs4WEHD25/view?usp=sharing)
 
 #### Shapes
@@ -144,7 +144,7 @@ As for the line. Click the [shapes] button, or select a shape from the selection
 Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS, CROSSES. 
 The simple arrow can be rotated by moving the mouse along the top or bottom edge of the layer. While it can be enlarged by dragging the left and right edges.  
 Border width is defined by line width box. 
-Many filling options are available from the choice box at the top right.
+Many filling options are available from the choice box at the top right.  
 [video](https://drive.google.com/file/d/1t4i03DvqtAWYFMJfBzxKOIYCBJa3QD-V/view?usp=sharing)
 
 #### Shapes by keyboard
@@ -217,7 +217,7 @@ From the" Sizes->Sizes" menu you can scale or resize the image based on manually
 You can also create a selection manually.  
 
 #### Color balance
-See Pick color.
+See Pick color.  
 [video](https://drive.google.com/file/d/1ZMWy8rjWOc6-mVgCWpxY4a8EEUszWZHb/view?usp=sharing)
 
 #### Effects
@@ -260,4 +260,45 @@ To save in jpg, ico or bmp format, enter the extension to the file name
 in the save window.  
 You can directly save the image to **PDF** from the "File->To PDF" menu.
 For base64 format, see previous chapter.
+
+#### Feature
+Here are some of Drawish's unique features (The most common functions are omitted):  
+----------------------------------------------------------------  
+ℹ️🟢️ Very rare or very useful 🔵️ Rare 🟣️ Other utilities  
+----------------------------------------------------------------  
+🔵️ merging selection and image with 3 levels of strength  
+🟢️ manual selection creation  
+🔵️ manual or continuous selection rotation  
+🟣️ copy selection to the program, not only to clipboard  
+🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
+🔵️ curve-like stretching  
+  
+🟢️ color replacement with conditions  
+🔵️ gradients  
+🔵️ keyboard color definition  
+  
+🟣️ multicolor pen  
+🔵️ semi-transparent pen  
+🟣️ grid and pixel color replacement with simple right mouse button  
+🟢️ large number of shapes with many types of filling  
+  
+🔵️ keyboard shapes with center displayed  
+🟢️ keyboard line for point A and B  
+🟢️ keyboard line for point A - angle - length  
+🟢️ keyboard drawing: Right left up down and diagonals  
+  
+🟢️ fill inside black (useful for eliminating an area or background quickly)  
+🟣️ fill for similarity  
+🔵️ fill with semi transparency  
+  
+🔵️ reduce to rgb  
+🟣️ various effects  
+  
+🔵️ create graphics  
+🔵️ open pdf as images and save images as pdf  
+🟢️ paste from file with automatic union at the bottom or right or leave in the selection  
+🔵️ quick restore point  
+🟢️ file saving camera  
+🟢️ get code base64 (from Camera)  
+🔵️ quick web links  
 
