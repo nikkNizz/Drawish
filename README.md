@@ -123,7 +123,7 @@ Click the [pick] button and then on a point in the
 image that you want to get the color of. This will become the
 active color.  
 If the [color balance] check box is checked, you can balance the colors of the image based on the selected color and the active color. 
-For example, if you want to balance the white, you will have to set white as the active color and click on a color in the image that should be white, but is not.  
+For example, if you want to balance the white, you will have to set white as the active color and click on a color in the image that should be white, but is not.
 [video](https://drive.google.com/file/d/1M87q7asCIgoTUkzosI1L7IYRID0MK-JZ/view?usp=sharing)  
 Click on the pick button again to proceed.
 with other operations.
@@ -221,7 +221,7 @@ You can also create a selection manually.
 
 #### Color balance
 See Pick color.  
-[video](https://drive.google.com/file/d/1ZMWy8rjWOc6-mVgCWpxY4a8EEUszWZHb/view?usp=sharing)
+[video](https://drive.google.com/file/d/1M87q7asCIgoTUkzosI1L7IYRID0MK-JZ/view?usp=sharing)  
 
 #### Effects
 From the "Image->Effects" menu a window opens that allows you to apply effects to the image in the selection.  
