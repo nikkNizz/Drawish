@@ -1,6 +1,7 @@
 # Drawish  0.9.9 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts and much more.  
+See features: [Link Text](https://github.com/nikkNizz/Drawish/blob/main/README.md#feature)  
 
 ![Image](https://drive.google.com/uc?export=view&id=1cCwyNsqHtCa5vpfMm4IuztqkTI0Dj-Wy)  
 
@@ -263,9 +264,9 @@ For base64 format, see previous chapter.
 
 #### Feature
 Here are some of Drawish's unique features (The most common functions are omitted):  
-----------------------------------------------------------------  
+~~~~~~
 ℹ️🟢️ Very rare or very useful 🔵️ Rare 🟣️ Other utilities  
-----------------------------------------------------------------  
+~~~~~~
 🔵️ merging selection and image with 3 levels of strength  
 🟢️ manual selection creation  
 🔵️ manual or continuous selection rotation  
