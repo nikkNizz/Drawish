@@ -1,7 +1,7 @@
 # Drawish  0.9.9 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts and much more.  
-See features: [Link Text](#feature)  
+See features: [Link Text](#features)  
 
 ![Image](https://drive.google.com/uc?export=view&id=1cCwyNsqHtCa5vpfMm4IuztqkTI0Dj-Wy)  
 
@@ -264,7 +264,7 @@ in the save window.
 You can directly save the image to **PDF** from the "File->To PDF" menu.
 For base64 format, see previous chapter.
 
-#### Feature
+#### Features
 Here are some of Drawish's unique features (The most common functions are omitted):  
 ~~~~~~
 ℹ️🟢️ Very rare or very useful 🔵️ Rare 🟣️ Other utilities  
