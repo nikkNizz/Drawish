@@ -52,7 +52,7 @@ For Italian users: you can run Drawish in English by adding the "en" parameter.
 It is possible to open pdf as images, dragging them onto the drawing area, or from the menu, or from the command line.   
 In windows the quality is reduced.   
 In Linux the image is real, thanks to the poppler-utils generally preinstalled. If they are not present, install them with your package manager.  
-[video](https://drive.google.com/file/d/1Hy4OA9NZz2n9SRrA49Y8R8SDUAu0Y6TE/view?usp=sharing)
+[video](https://drive.google.com/file/d/1S440ixRX7CHNSXD62h23SyD1GWCo3j0U/view?usp=sharing)
 
 #### Selection
 Click the [selection] button to select a
@@ -255,7 +255,7 @@ A Q S Z (or A W S X) keys.
 Save the portion of the image delimited by the camera from the "Camera->Save image" menu.  
 Delete the camera from the" Camera->Delete camera " menu.
 You can save the framed image in base64 format to the clipboard from the "Camera->To base64" menu. 
-[Video](https://drive.google.com/file/d/1cbtphNuOdKlyNCEdMenNrpREKnVX_xbU/view?usp=sharing)
+[Video](https://drive.google.com/file/d/1nAk2Pm1FmSXZ3rD-pW398qp9vDhU7IQS/view?usp=sharing)
 
 #### Saving
 Images are saved in png format.  
