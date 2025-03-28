@@ -282,7 +282,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
   
 🟣️ multicolor pen  
 🔵️ semi-transparent pen  
-🟣️ grid and pixel color replacement with simple right mouse button  
+🟣️ grid and pixel color replacement with simple right clicks   
 🟢️ large number of shapes with many types of filling  
   
 🔵️ keyboard shapes with center displayed  
