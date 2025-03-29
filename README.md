@@ -286,7 +286,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🔵️ keyboard shapes with center displayed  
 🔵️ fill with semi transparency    
 🔵️ reduce to rgb    
-🔵️ create graphics  
+🔵️ create charts  
 🔵️ open pdf as images and save images as pdf   
 🔵️ quick restore point  
 🔵️ quick web links  
