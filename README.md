@@ -266,42 +266,34 @@ For base64 format, see previous chapter.
 
 #### Features
 Here are some of Drawish's unique features (The most common functions are omitted):  
-~~~~~~
-ℹ️🟢️ Very rare or very useful 🔵️ Rare 🟣️ Other utilities  
-~~~~~~
-🔵️ merging selection and image with 3 levels of strength  
-🟢️ manual selection creation  
-🔵️ manual or continuous selection rotation  
-🟣️ copy selection to the program, not only to clipboard  
-🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
-🔵️ curve-like stretching  
-  
+
 🟢️ color replacement with conditions  
-🔵️ gradients  
-🔵️ keyboard color definition  
-  
-🟣️ multicolor pen  
-🔵️ semi-transparent pen  
-🟣️ grid and pixel color replacement with simple right clicks   
-🟢️ large number of shapes with many types of filling  
-  
-🔵️ keyboard shapes with center displayed  
+🟢️ large number of shapes with many types of filling   
+🟢️ manual selection creation  
 🟢️ keyboard line for point A and B  
 🟢️ keyboard line for point A - angle - length  
 🟢️ keyboard drawing: Right left up down and diagonals  
-  
 🟢️ fill inside black (useful for eliminating an area or background quickly)  
-🟣️ fill for similarity  
-🔵️ fill with semi transparency  
-  
-🔵️ reduce to rgb  
-🟣️ various effects  
-  
-🔵️ create graphics  
-🔵️ open pdf as images and save images as pdf  
 🟢️ paste from file with automatic union at the bottom or right or leave in the selection  
-🔵️ quick restore point  
 🟢️ file saving camera  
 🟢️ get code base64 (from Camera)  
+🔵️ merging selection and image with 3 levels of strength  
+🔵️ manual or continuous selection rotation  
+🔵️ curve-like stretching  
+🔵️ gradients  
+🔵️ keyboard color definition  
+🔵️ semi-transparent pen    
+🔵️ keyboard shapes with center displayed  
+🔵️ fill with semi transparency    
+🔵️ reduce to rgb    
+🔵️ create graphics  
+🔵️ open pdf as images and save images as pdf   
+🔵️ quick restore point  
 🔵️ quick web links  
+🟣️ many effects  
+🟣️ fill for similarity  
+🟣️ grid and pixel color replacement with simple right clicks  
+🟣️ multicolor pen  
+🟣️ copy selection to the program, not only to clipboard  
+🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
 
