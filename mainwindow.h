@@ -238,6 +238,8 @@ private slots:
 
   void on_comboPen_activated(int index);
 
+  void on_actionTransparent_selection_toggled(bool arg1);
+
   private:
     Ui::MainWindow *ui;
     QString version_info;
