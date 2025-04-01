@@ -22,3 +22,11 @@ void zoomArea::mousePressEvent(QMouseEvent *event)
       QMessageBox::information(this, "Drawish", kk);
   }
 }
+
+void zoomArea::mouseMoveEvent(QMouseEvent *event)
+{
+    sizes::zoomx = event->pos().x();
+    sizes::zoomy = event->pos().y();
+    sizes::zoomEdited = true;
+    emit zoomChangeColor();
+}
