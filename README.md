@@ -294,6 +294,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟣️ fill for similarity  
 🟣️ grid and pixel color replacement with simple right clicks  
 🟣️ multicolor pen  
+🟣️ fusion pen  
 🟣️ copy selection to the program, not only to clipboard  
 🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
 
