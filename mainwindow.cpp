@@ -44,11 +44,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "0.9.9";
-    // 0.9.9: delete deg90     ; correct: rotation      ; history count to 15 ;
-    // colors: replace modified; colors: gradient circ. ; continuos rotation  ;
-    // comboPen: change cursor ;
-
+    version_info = "0.9.10";
+    // 0.9.10: paste from file addtransparency; png suffix default            ; msgbox paste only for big images
+    // textbox text-size & colors pen-frame   ; add/rem transparency on check ; draw in zoom grid
+    // pen fusion
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -480,7 +479,7 @@ void MainWindow::savePix(QPixmap pixToSave, QString f)
     if(f.endsWith(".jpg", Qt::CaseInsensitive)){ pixToSave.save(f, "jpg");}
     else if(f.endsWith(".ico", Qt::CaseInsensitive)){ pixToSave.save(f, "ico");}
     else if(f.endsWith(".bmp", Qt::CaseInsensitive)){ pixToSave.save(f, "BMP");}
-    else{pixToSave.save(f, "PNG");}
+    else{pixToSave.save(f + ".png", "PNG");}  // 0.9.10
 }
 
 void MainWindow::newImage(QString from, QString path)
@@ -841,15 +840,21 @@ void MainWindow::pasteImg(QPixmap passedPix)
     sizes::selW = wi;
 
     untoggle();
+    if(ui->actionTransparent_selection->isChecked()){        // 0.9.10
+       passedPix = addTransparency(passedPix, 0, 255,255,255);
+    }
     ui->selectionAreaButton->setChecked(true);
     sizes::activeOperation =1;
+    wArea->setCursor(Qt::CrossCursor); //0.9.10
     selectionRect = new selectionArea(wArea);
     selectionRect->resetGeometry();
     selectionRect->setPixmap(passedPix.scaled(sizes::selW, sizes::selH));
     sizes::isSelectionOn=true;
     sizes::startResize=false;
     selectionRect->show();
-    QMessageBox::information(this, "Drawish", tr("The image is in a selection"));
+    if((sizes::selW * sizes::selH) > (sizes::areaWidth * sizes::areaHeight * 0.6) ){
+        QMessageBox::information(this, "Drawish", tr("The image is in a selection"));
+    }  // 0.9.10
     raiseBorders();
 }
 
@@ -910,12 +915,33 @@ QPixmap MainWindow::addTransparency(QPixmap passedPix, int opacity, int red, int
     return QPixmap::fromImage(sPix);
 }
 
+void MainWindow::on_actionTransparent_selection_toggled(bool arg1)
+{
+    if(sizes::isSelectionOn == false) return;    // 0.9.10
+    QPixmap pxm = selectionRect->pixmap();
+    if(arg1 == true){
+        pxm = addTransparency(pxm, 0, 255,255,255);
+    }else if(arg1 == false){
+        QImage img = pxm.toImage();
+        for(int h=0; h < img.width(); ++h){
+            for(int v =0; v < img.height(); ++v){
+                QColor c = img.pixelColor(h,v);
+                if(c.red()==0 && c.green() ==0 && c.blue()==0 && c.alpha()==0){
+                    img.setPixelColor(h,v, Qt::white);
+                }
+            }
+        }
+        pxm = QPixmap::fromImage(img);
+    }
+    selectionRect->setPixmap(pxm);
+}
+
 void MainWindow::on_actionAdd_as_selection_triggered() // paste from file
 {
     QString f = ChooseImg();
     if(f ==""){return;}
     QPixmap fpix(f);
-    if(!fpix.isNull()){
+    if(!fpix.isNull()){        
         pasteImg(fpix);
     }else{
         QMessageBox::information(this, "Drawish", tr("Invalid image!"));
@@ -993,6 +1019,7 @@ void MainWindow::on_drawTextButton_clicked()
         ui->drawTextButton->setChecked(true);
         sizes::activeOperation = 2;
         ui->textOptionsWidget->setVisible(true);
+
     }else{
         delete selectionRect;
         selectionRect =NULL;
@@ -1151,19 +1178,42 @@ void MainWindow::on_penButton_clicked()
 
 QPen MainWindow::configPen(QColor &ncol, int alpha)
 {
-    // combopen: 0 round, 1 square, 2 flat, 3 nib, 4 rand round, 5 random square, 6 random red
-    // 7 random green, 8 random blue
-    ncol = sizes::activeColor;
+    // combopen: 0 round, 1 square, 2 flat, 3 nib, 4 fusion 5 rand round, 6 random square, 7 random red
+    // 8 random green, 98 random blue
+
     int jColor= ui->comboPen->currentIndex();
-    if(jColor > 3){ // random
+    if(jColor > 4){ // random
          quint32 red = QRandomGenerator::global()->bounded(128) ;
          quint32 green = QRandomGenerator::global()->bounded(128) ;
-         quint32 blue = QRandomGenerator::global()->bounded(128) ;
-         if(jColor == 6){ green = red * 0.6 ; blue = red * 0.6; red += 128;}
-         else if(jColor == 7){ red = green *0.6; blue = green * 0.6; green += 128;}
-         else if(jColor == 8){ red = blue * 0.6; green = blue *0.6; blue += 128;}
-         else{ red *= 2; green *= 2; blue *=2; }
+         quint32 blue = QRandomGenerator::global()->bounded(128) ;         
+         if(jColor == 7){ green = red * 0.6 ; blue = red * 0.6; red += 128;}
+         else if(jColor == 8){ red = green *0.6; blue = green * 0.6; green += 128;}
+         else if(jColor == 9){ red = blue * 0.6; green = blue *0.6; blue += 128;}
+         else{
+             red = red *2; green = green * 2; blue = blue *2;
+         }
          ncol = QColor(red, green, blue);
+    }
+    else if(jColor == 4){
+
+        int df = sizes::line_width /2;
+        int a = sizes::selX -df;
+        int c = sizes::selY -df;
+
+        QPixmap pxm= pix.copy(a, c, sizes::line_width, sizes::line_width);
+        QImage img = pxm.toImage();
+        int redSum =0;
+        int greenSum = 0;
+        int blueSum =0;
+        for(int i =0; i < sizes::line_width; ++i){
+            for(int j =0; j < sizes::line_width; ++j){
+                redSum = img.pixelColor(i, j).red() + redSum;
+                greenSum = img.pixelColor(i, j).green() + greenSum;
+                blueSum = img.pixelColor(i, j).blue() + blueSum;
+            }
+        }
+        df = sizes::line_width * sizes::line_width;
+        ncol = QColor(redSum/df, greenSum / df, blueSum/df);
     }
 
     if(ui->markerButton->isChecked()){
@@ -1171,7 +1221,7 @@ QPen MainWindow::configPen(QColor &ncol, int alpha)
     }
     QPen pen1(ncol, sizes::line_width);
     if(jColor == 3) pen1.setWidth(1); // nib
-    else if(jColor == 1 || jColor == 5){ pen1.setCapStyle(Qt::SquareCap);}
+    else if(jColor == 1 || jColor == 6){ pen1.setCapStyle(Qt::SquareCap);}
     else if(jColor ==2)                { pen1.setCapStyle(Qt::FlatCap);}
     else                               { pen1.setCapStyle(Qt::RoundCap);}
     return pen1;
@@ -2818,3 +2868,4 @@ void MainWindow::on_comboPen_activated(int index)
 {
     wArea->setCursor(rectCursor());
 }
+
