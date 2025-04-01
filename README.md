@@ -1,4 +1,4 @@
-# Drawish  0.9.9 
+# Drawish  0.9.10 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts and much more.  
 [See features](#features)  
@@ -64,7 +64,7 @@ You can also create a selection by entering the coordinates from the keyboard
 from the "Sizes->Sizes->[Create selection]" menu.  
 To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  
 To make the white area of ​​the selection transparent, check the box
-from the "Edit->Transparent selection" Menu (already selected by default), **before** creating the selection.  
+from the "Edit->Transparent selection" Menu (selected by default).  
 To select everything, use the "Edit->Select all" menu.  
 To save the image to a file select: "Edit->Selection to file".  
 To finish and pasting the selection, click on a point on the image.  
@@ -81,16 +81,16 @@ A prompt allows you to choose between 3 blending ratios.
 From the "Edit->Selection to image (crop)" you can crop the image.
 
 #### Freehand drawing
-Click the [pen] button
-and move the mouse over the drawing area, holding
-down the left mouse button. You can draw
-with the keyboard by selecting in the top menu how many pixels to draw
-when you press the keys.  
+Click the [pen] button and move the mouse over the drawing area, holding down the left mouse button.  
+You can draw with the keyboard by selecting in the top menu how many pixels to draw when you press the keys.  
 Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (< = bottom-left)  (Z = down)  (X = bottom-right). 
 [video](https://drive.google.com/file/d/1Z6KETxX53N0E_YGQgtdDkzLk7GZgHE8c/view?usp=sharing)  
-In the panel that appears above the drawing area you can
-choose attributes. Do not use transparent color to draw (only fill).  
+In the panel that appears above the drawing area you can choose attributes. Do not use transparent color to draw (only fill).  
 Use white color to erase.  
+You can draw with a round, square, linear, or stylus tip.  
+You can draw with a random color pen.  
+You can use the **"fusion"** pen to draw with a color obtained by merging the pixels crossed by the pen.
+The fusion pen can replace the blur effect or can be used for artistic effects.  
 [video](https://drive.google.com/file/d/1KDGYqUujZeACzwIT4wNfv6htVcOB51Dh/view?usp=sharing)
 
 #### Text
@@ -189,10 +189,9 @@ Cancel the operation with ctrl-Z or undo
 ##### Pixel matrix. 
 Right-click on a point of the image, the pixel matrix will appear enlarged for the area in
 the vicinity of the cursor. Clicking on a zoomed pixel with the
-**right** mouse button, it will be replaced with the active color.  
-Clicking with the left mouse button, you get the information about
-the rgb color of the pixel.  
-Remove the enlarged area with another right-click on the image.  
+**right** mouse button, it will be replaced with the active color, or draw with the active color by holding down the right mouse button.  
+Clicking with the **left** mouse button, to get information about the rgb color of the pixel.  
+Remove the enlarged area with another right-click on the image. To reduce the image again, use scaling in this case.
 
 ##### Double the pixels or Increase by 10%.
 If there is an active selection these functions applies to the selection, otherwise they applie to the entire image.
