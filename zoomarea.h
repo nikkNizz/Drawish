@@ -9,10 +9,10 @@ class zoomArea : public QLabel
 public:
     explicit zoomArea(QWidget *parent = nullptr);
     void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
 
 signals:
     void zoomChangeColor();
-
 
 };
 
