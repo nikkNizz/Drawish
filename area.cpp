@@ -42,20 +42,22 @@ void Area::mousePressEvent(QMouseEvent *event)
         sizes::selW = 160;
         emit endRubber();   // reuse this
     }
-    else if(sizes::activeOperation == 3 ){
+    else if(sizes::activeOperation == 3 || sizes::activeOperation == 5){
         sizes::selX = event->pos().x();
         sizes::selY = event->pos().y();
+
         sizes::shape_x_begin = sizes::selX;
-        sizes::shape_y_begin = sizes::selY;
+        sizes::shape_y_begin = sizes::selY;        
         emit drawFirstPoint();
+
     }
-    else if(sizes::activeOperation == 5){
-        sizes::selX = event->pos().x();
-        sizes::selY = event->pos().y();
-        sizes::shape_x_begin = sizes::selX;
-        sizes::shape_y_begin = sizes::selY;
-        emit drawFirstPoint();
-    }
+    // else if(sizes::activeOperation == 5){
+    //     sizes::selX = event->pos().x();
+    //     sizes::selY = event->pos().y();
+    //     sizes::shape_x_begin = sizes::selX;
+    //     sizes::shape_y_begin = sizes::selY;
+    //     emit drawFirstPoint();
+    // }
     else if(sizes::activeOperation == 4){ // fill        
         sizes::selX = event->pos().x();
         sizes::selY = event->pos().y();
@@ -93,17 +95,22 @@ void Area::mouseMoveEvent(QMouseEvent *event)
    else{
 
    if(sizes::activeOperation == 3){
-       sizes::selX = event->pos().x();
-       sizes::selY = event->pos().y();
-       sizes::shape_x_end = sizes::selX;
-       sizes::shape_y_end = sizes::selY;
-      emit penDraw();
+        if(!sizes::mouseCorrection){ six = 6; }
+        if(six == 6){
+            sizes::selX = event->pos().x();
+            sizes::selY = event->pos().y();
+            sizes::shape_x_end = sizes::selX;
+            sizes::shape_y_end = sizes::selY;
+            emit penDraw();
+            six =0;
+        }
+        six++;
     }
 
    else if(sizes::activeOperation == 5){
        sizes::selX = event->pos().x();
        sizes::selY = event->pos().y();
-      emit sprayDraw();
+       emit sprayDraw();
    }
 
    else if(sizes::activeOperation==1){
