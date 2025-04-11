@@ -3649,7 +3649,7 @@
      <rect>
       <x>80</x>
       <y>0</y>
-      <width>501</width>
+      <width>561</width>
       <height>31</height>
      </rect>
     </property>
@@ -3812,6 +3812,49 @@
       <string>Text</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="rtfButton">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>3</y>
+       <width>41</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>163</green>
+           <blue>72</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>163</green>
+           <blue>72</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled/>
+      </palette>
+     </property>
+     <property name="toolTip">
+      <string>Screenshot rich text</string>
+     </property>
+     <property name="text">
+      <string>RTF</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="lineOptionWidget" native="true">
     <property name="geometry">
@@ -3925,9 +3968,9 @@
     <widget class="QRadioButton" name="radioButton">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>252</x>
        <y>4</y>
-       <width>101</width>
+       <width>51</width>
        <height>21</height>
       </rect>
      </property>
@@ -3963,8 +4006,11 @@
        <pointsize>9</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string>Draw with keyboard</string>
+     </property>
      <property name="text">
-      <string>Keyboard 1px</string>
+      <string>1px</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -4010,6 +4056,9 @@
       <font>
        <pointsize>10</pointsize>
       </font>
+     </property>
+     <property name="toolTip">
+      <string>Draw with keyboard</string>
      </property>
      <property name="text">
       <string> 5px</string>
@@ -4392,6 +4441,70 @@
        <string>Random blue</string>
       </property>
      </item>
+    </widget>
+    <widget class="QPushButton" name="wingsButton">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>0</y>
+       <width>31</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>120</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>120</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>120</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>120</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled/>
+      </palette>
+     </property>
+     <property name="toolTip">
+      <string>Fan effetc</string>
+     </property>
+     <property name="text">
+      <string>F</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="infoWidget" native="true">
@@ -5097,6 +5210,7 @@
     <addaction name="actionCopy_selection_to_file"/>
     <addaction name="actionMerge_selection_to_image"/>
     <addaction name="actionTransparent_selection"/>
+    <addaction name="actionMouse_correctio"/>
    </widget>
    <widget class="QMenu" name="menuEffects">
     <property name="title">
@@ -5390,6 +5504,14 @@
   <action name="actionCreate_shape">
    <property name="text">
     <string>Create shape</string>
+   </property>
+  </action>
+  <action name="actionMouse_correctio">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Mouse correction</string>
    </property>
   </action>
  </widget>
