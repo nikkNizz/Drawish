@@ -236,6 +236,7 @@ Click [OK] to apply the new image or [Cancel] to abort the changes.
 #### Color management
 From the [Image->Colors] menu you can perform additional operations on colors.  
 You can create a color by entering rgb values ​​from the keyboard, create gradients and replace pixels based on complex options.  
+You can also get the hexadecimal value of the color.  
 [video](https://drive.google.com/file/d/1PJ-7u52q-H2AVHOg521qymgIlQxkHiOt/view?usp=sharing)  
 [video](https://drive.google.com/file/d/1A_yMq7SHWH1n-Yu3GsRULe9LDZ2Vc3gg/view?usp=sharing)
 
@@ -276,6 +277,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟢️ keyboard line for point A and B  
 🟢️ keyboard line for point A - angle - length  
 🟢️ keyboard drawing: Right left up down and diagonals  
+🟢️ rich text editor  
 🟢️ fill inside black (useful for eliminating an area or background quickly)  
 🟢️ paste from file with automatic union at the bottom or right or leave in the selection  
 🟢️ file saving camera  
@@ -292,12 +294,14 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🔵️ create charts  
 🔵️ open pdf as images and save images as pdf   
 🔵️ quick restore point  
-🔵️ quick web links  
+🔵️ quick web links 
+🟣️ mouse correction  
 🟣️ many effects  
 🟣️ fill for similarity  
 🟣️ grid and pixel color replacement with simple right clicks  
 🟣️ multicolor pen  
 🟣️ fusion pen  
+🟣️ fan effect  
 🟣️ copy selection to the program, not only to clipboard  
 🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
 
