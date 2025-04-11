@@ -1,6 +1,6 @@
-# Drawish  0.9.10 
+# Drawish  0.9.11 
 Is a program for basic drawing.  
-It also allows you to modify existing images, open pdf as images in Linux, draw charts and much more.  
+It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text and much more.  
 [See features](#features)  
 
 ![Image](https://drive.google.com/uc?export=view&id=1cCwyNsqHtCa5vpfMm4IuztqkTI0Dj-Wy)  
@@ -55,9 +55,9 @@ In Linux the image is real, thanks to the poppler-utils generally preinstalled. 
 [video](https://drive.google.com/file/d/1S440ixRX7CHNSXD62h23SyD1GWCo3j0U/view?usp=sharing)
 
 #### Selection
-Click the [selection] button to select a
-portion of the image. The selection will be detached from the image and
+Click the [selection] button to select a portion of the image. The selection will be detached from the image and
 can be dragged with the mouse, and can also be resized by pulling the edges with the mouse.  
+Hold the mouse **near the inside** of the edges to resize the selection.  
 To copy the portion **without detaching it**, select it and,
 before moving it, go to the "Edit->copy selection (no clipboard) " menu.  
 You can also create a selection by entering the coordinates from the keyboard
@@ -82,10 +82,12 @@ From the "Edit->Selection to image (crop)" you can crop the image.
 
 #### Freehand drawing
 Click the [pen] button and move the mouse over the drawing area, holding down the left mouse button.  
+From the "edit" menu you can enable **"Mouse correction"** to avoid drawing every little mouse movement.  
 You can draw with the keyboard by selecting in the top menu how many pixels to draw when you press the keys.  
 Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (< = bottom-left)  (Z = down)  (X = bottom-right). 
 [video](https://drive.google.com/file/d/1Z6KETxX53N0E_YGQgtdDkzLk7GZgHE8c/view?usp=sharing)  
 In the panel that appears above the drawing area you can choose attributes. Do not use transparent color to draw (only fill).  
+You can use a semi-transparent pen. For best results, keep the drawing speed not too high, use a large tip and disable mouse correction.  
 Use white color to erase.  
 You can draw with a round, square, linear, or stylus tip.  
 You can draw with a random color pen.  
@@ -100,6 +102,7 @@ The text area will be displayed and can be moved as desired.
 **The multiline text box and options are displayed at the top**.
 Click the [DRAW] button to actually print the text, then move the text area 
 to continue printing text. Or disable the function by clicking the left button again.
+You can open an **RTF editor** to write formatted text. This text can be saved to a file and can be directly transposed onto the image via a screenshot. After clicking the [text] button, click the [RTF] button to open the editor. Click [Screenshot and close] button to transpose the text into a selection in the image. In the editor you can save texts and open them
 It is possible to paste text from the clipboard, as an image.  
 [video](https://drive.google.com/file/d/1rz-xGREMfjJvdFcvErGzlr8vAbu2eEE8/view?usp=sharing)
 
