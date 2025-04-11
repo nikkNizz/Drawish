@@ -27,3 +27,5 @@ bool sizes::zoomEdited=false;
 int sizes::lineXEnd = 0;
 int sizes::lineYEnd = 0;
 bool sizes::curveStretch = false;
+QString sizes::savedRtf = "";
+bool sizes::mouseCorrection = false;
