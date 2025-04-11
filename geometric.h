@@ -34,6 +34,8 @@ struct sizes
   static int lineXEnd;
   static int lineYEnd;
   static bool curveStretch;
+  static QString savedRtf;
+  static bool mouseCorrection;
 };
 
 #endif // GEOMETRIC_H
