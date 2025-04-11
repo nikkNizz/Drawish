@@ -36,6 +36,11 @@ void dColors::setBgColor()
     ui->showColorWidget->setStyleSheet("background-color: rgb(" + r + "," + g + "," + b + ")");
     sizes::activeColor=QColor(ui->redSpin->value(), ui->greenSpin->value(),ui->blueSpin->value() );
     spinBoxesActivate = true;
+    QString hexr, hexg, hexb;
+    hexr.setNum(ui->redSpin->value(), 16);
+    hexg.setNum(ui->greenSpin->value(), 16);
+    hexb.setNum(ui->blueSpin->value(), 16);
+    ui->hexLabel->setText("#" + hexr + " " + hexg + " " + hexb);
 }
 
 void dColors::on_redSpin_valueChanged(int arg1)
