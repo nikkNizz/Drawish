@@ -20,6 +20,7 @@
 #include "stretchdialog.h"
 #include "fileio.h"
 #include "figures.h"
+#include "richeditor.h"
 #include <QPainter>
 #include <QMessageBox>
 #include <QFileDialog>
@@ -44,10 +45,11 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "0.9.10";
-    // 0.9.10: paste from file addtransparency; png suffix default            ; msgbox paste only for big images
-    // textbox text-size & colors pen-frame   ; add/rem transparency on check ; draw in zoom grid
-    // pen fusion
+    version_info = "0.9.11";
+    // 0.9.11:  focus on texEdit; size-text min 4 ; draw text in correct pos
+    // selection pulling 1 not  ; rtf editor      ; border shape and select to 8 no 5;
+    // simple arrow square area double speed      ;add hex format; mouse correction
+    // fan effect               ; edit text on events;reset cursor
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -297,14 +299,14 @@ void MainWindow::open_link()
 }
 
 void MainWindow::addToRecent(QString pf)
-{
-    if(!configRecent.contains(pf)){
-        configRecent = pf + "\n" + configRecent;
-        if(configRecent.count("\n") > 10){
-            int lastN = configRecent.lastIndexOf("\n");
-            configRecent = configRecent.mid(0, lastN);
-        }
-    }
+{    
+        // remove or move to top
+        QStringList recents= configRecent.split("\n");
+        int a = recents.indexOf(pf);
+        if(a > -1) recents.removeAt(a);
+        if(recents.count() > 10) recents.mid(0,9);
+        configRecent =pf + "\n" + recents.join("\n");
+
 }
 
 QStringList MainWindow::askForValues()
@@ -354,8 +356,6 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
         else if(ev->key()== Qt::Key_E){xFin = sizes::selX +num; yFin =sizes::selY-num;}
         else if(ev->key()== Qt::Key_X){xFin = sizes::selX +num; yFin =sizes::selY+num;}
         else if(ev->key()== Qt::Key_Less){xFin = sizes::selX -num; yFin =sizes::selY+num;}
-
-
 
         pai.drawLine(sizes::selX, sizes::selY, xFin, yFin);
         pai.end();
@@ -556,6 +556,9 @@ QCursor MainWindow::rectCursor()
 void MainWindow::updateInfo()
 {
 
+  if(sizes::activeOperation == 2 && sizes::isSelectionOn){
+        ui->textEdit->setFocus();
+  }
   ui->mouseX_label->setNum(sizes::selX);
   ui->mouseY_label->setNum(sizes::selY);
   if(sizes::isSelectionOn || sizes::isShapeOn){
@@ -590,6 +593,8 @@ void MainWindow::untoggle()
     ui->lineOptionWidget->setVisible(false);
     ui->similaritywidget->setVisible(false);
     ui->widgetPick->setVisible(false);
+    // default mouse
+    wArea->setCursor(Qt::ArrowCursor);
 }
 
 void MainWindow::deleteSel()
@@ -716,8 +721,8 @@ void MainWindow::on_selectionAreaButton_clicked()
             selectionRect = NULL;
         }
         sizes::activeOperation=1;
-        wArea->setCursor(Qt::CrossCursor);
         untoggle();
+        wArea->setCursor(Qt::CrossCursor);        
         ui->selectionAreaButton->setChecked(true);
     }
 }
@@ -726,7 +731,7 @@ void MainWindow::createSelection()
 {
     selectionRect = new selectionArea(wArea);
     selectionRect->resetGeometry();
-    if(sizes::activeOperation != 2){  // selection area for text
+    if(sizes::activeOperation != 2){  // !selection area for text
         QPixmap selPix = pix.copy(sizes::selX , sizes::selY , sizes::selW , sizes::selH );
         if(ui->actionTransparent_selection->isChecked()){
             selPix=addTransparency(selPix, 0,255,255,255);
@@ -1043,7 +1048,7 @@ void MainWindow::on_textEdit_textChanged()
     if(ui->underlineButton->isChecked()){ tFont.setUnderline(true);}
     else{tFont.setUnderline(false);}
     int sizeText = ui->sizeLine->text().toInt();
-    if(sizeText < 4){sizeText = 16;}
+    if(sizeText < 4){sizeText = 4;}
     tFont.setPixelSize(sizeText);
 
     selectionRect->setFont(tFont);
@@ -1065,16 +1070,42 @@ void MainWindow::on_confirmTextButton_clicked()
         if(ui->underlineButton->isChecked()){ tFont.setUnderline(true);}
         else{tFont.setUnderline(false);}
         int sizeText = ui->sizeLine->text().toInt();
-        if(sizeText < 4){sizeText = 16; ui->sizeLine->setText("16");}
+        if(sizeText < 4){sizeText = 4; ui->sizeLine->setText("4");}
         tFont.setPixelSize(sizeText);
         p.setFont(tFont);
         p.setPen(sizes::activeColor);
-        p.drawText(QRect(sizes::selX+2, sizes::selY+2, sizes::selW, sizes::selH), ui->textEdit->toPlainText());
+        int xpos = selectionRect->x();
+        int ypos = selectionRect->y();
+        p.drawText(QRect(xpos+2, ypos+2, sizes::selW, sizes::selH), ui->textEdit->toPlainText());
         wArea->setPixmap(pix);
         selectionRect->resetGeometry();
     }
 
 }
+
+void MainWindow::on_boldButton_clicked()
+{
+    on_textEdit_textChanged();
+}
+
+
+void MainWindow::on_italicButton_clicked()
+{
+    on_textEdit_textChanged();
+}
+
+
+void MainWindow::on_underlineButton_clicked()
+{
+    on_textEdit_textChanged();
+}
+
+
+void MainWindow::on_fontComboBox_currentFontChanged(const QFont &f)
+{
+    on_textEdit_textChanged();
+}
+
 
 //  SET COLORS....
 
@@ -1083,35 +1114,30 @@ void MainWindow::set_activeColor(int R, int G, int B, int A)
     sizes::activeColor= QColor(R,G,B, A);
     ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
     ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
+    if(sizes::activeOperation == 2 && sizes::isSelectionOn){
+        on_textEdit_textChanged();
+    }
 }
 
 void MainWindow::on_blackButton_clicked()
 {
     set_activeColor(0,0,0);
-
 }
-
 
 void MainWindow::on_whiteButton_clicked()
 {
      set_activeColor(255,255,255);
-
 }
-
 
 void MainWindow::on_greyButton_clicked()
 {
      set_activeColor(128,128,128);
-
 }
-
 
 void MainWindow::on_redButton_clicked()
 {
      set_activeColor(255,0,0);
-
 }
-
 
 void MainWindow::on_greenButton_clicked()
 {
@@ -1136,12 +1162,10 @@ void MainWindow::on_magentaButton_clicked()
      set_activeColor(255,0,255);
 }
 
-
 void MainWindow::on_cyanButton_clicked()
 {
      set_activeColor(0,255,255);
 }
-
 
 void MainWindow::on_transparentButton_clicked()
 {
@@ -1150,9 +1174,8 @@ void MainWindow::on_transparentButton_clicked()
 
 void MainWindow::on_addColorButton_clicked()
 {
-    sizes::activeColor = QColorDialog::getColor(Qt::gray, this, tr("Drawish choose color"));
-    ui->colorActiveButton->setStyleSheet("background-color:" + sizes::activeColor.name());
-    ui->rgbLabel->setText("Rgb " + QString::number(sizes::activeColor.red()) + " " + QString::number(sizes::activeColor.green())+ " " + QString::number(sizes::activeColor.blue()));
+   QColor kk = QColorDialog::getColor(Qt::gray, this, tr("Drawish choose color"));
+   set_activeColor(kk.red(), kk.green(), kk.blue());
 }
 //  END COLORS
 
@@ -1179,7 +1202,7 @@ void MainWindow::on_penButton_clicked()
 QPen MainWindow::configPen(QColor &ncol, int alpha)
 {
     // combopen: 0 round, 1 square, 2 flat, 3 nib, 4 fusion 5 rand round, 6 random square, 7 random red
-    // 8 random green, 98 random blue
+    // 8 random green, 9 random blue
 
     int jColor= ui->comboPen->currentIndex();
     if(jColor > 4){ // random
@@ -1215,15 +1238,16 @@ QPen MainWindow::configPen(QColor &ncol, int alpha)
         df = sizes::line_width * sizes::line_width;
         ncol = QColor(redSum/df, greenSum / df, blueSum/df);
     }
-
     if(ui->markerButton->isChecked()){
         ncol.setAlpha(alpha);
     }
+
     QPen pen1(ncol, sizes::line_width);
     if(jColor == 3) pen1.setWidth(1); // nib
     else if(jColor == 1 || jColor == 6){ pen1.setCapStyle(Qt::SquareCap);}
     else if(jColor ==2)                { pen1.setCapStyle(Qt::FlatCap);}
     else                               { pen1.setCapStyle(Qt::RoundCap);}
+
     return pen1;
 }
 
@@ -1233,12 +1257,13 @@ void MainWindow::drawWithPen(){
     updateInfo();
     QPainter pai(&pix);
     QColor ncol = sizes::activeColor;
-    QRect reg(qMin(sizes::shape_x_begin,sizes::shape_x_end), qMin(sizes::shape_y_begin,sizes::shape_y_end), abs(sizes::shape_x_end-sizes::shape_x_begin), abs(sizes::shape_y_end-sizes::shape_y_begin));
+    QRegion reg(qMin(sizes::shape_x_begin,sizes::shape_x_end), qMin(sizes::shape_y_begin,sizes::shape_y_end), abs(sizes::shape_x_end-sizes::shape_x_begin), abs(sizes::shape_y_end-sizes::shape_y_begin));
 
     // stylus
     if(ui->comboPen->currentIndex()== 3){
         int corners = sizes::line_width / 2;
         QPen pen(configPen(ncol));
+        pen.setWidth(0);
         pai.setPen(pen);
         QBrush br(ncol);
         pai.setBrush(br);
@@ -1252,10 +1277,24 @@ void MainWindow::drawWithPen(){
         pai.setPen(pen);
         pai.drawLine(sizes::shape_x_begin, sizes::shape_y_begin, sizes::shape_x_end, sizes::shape_y_end);
         pai.setClipRegion(reg);
-    }
 
-    sizes::shape_x_begin = sizes::shape_x_end ;
-    sizes::shape_y_begin = sizes::shape_y_end;
+    }
+    if(ui->wingsButton->isChecked()){
+        if(sizes::shape_x_begin > sizes::shape_x_end){
+            sizes::shape_x_begin--;
+        }else{
+            sizes::shape_x_begin++;
+        }
+        if(sizes::shape_y_begin > sizes::shape_y_end){
+            sizes::shape_y_begin--;
+        }else{
+            sizes::shape_y_begin++;
+        }
+
+    }else{
+       sizes::shape_x_begin = sizes::shape_x_end ;
+       sizes::shape_y_begin = sizes::shape_y_end ;
+    }
 
     wArea->setPixmap(pix);
 
@@ -1620,7 +1659,7 @@ void MainWindow::createShapeArea()
     QColor ncol = sizes::activeColor;
 
     QPainter pai(&selPix);
-    QPen pen(configPen(ncol, 32));
+    QPen pen(configPen(ncol, 48));
 
     pai.setPen(pen);
 
@@ -1641,7 +1680,7 @@ void MainWindow::draw_shape()
         QColor ncol = sizes::activeColor;
 
         QPainter pai(&pix);
-        QPen pen(configPen(ncol, 32));
+        QPen pen(configPen(ncol, 48));
 
         pai.setPen(pen);
         pai.drawLine(sizes::selX + sizes::shape_x_begin, sizes::selY + sizes::shape_y_begin, sizes::selX + sizes::shape_x_end, sizes::selY +sizes::shape_y_end);
@@ -1957,8 +1996,9 @@ void MainWindow::autoRotation()
     selectionRect->resetGeometry();
     QPixmap sPix = preRotatePix.transformed(tf);
     selectionRect->setPixmap(sPix);
-    QTimer::singleShot(20, this, SLOT(autoRotation()));
+    QTimer::singleShot(22, this, SLOT(autoRotation()));
 }
+
 
 // ----
 //  resize image or selection. scale image
@@ -2418,7 +2458,7 @@ void MainWindow::on_actionCreate_Line_triggered()
         save_previous(tr("Line input"));
         QColor ncol = sizes::activeColor;
         QPainter pai(&pix);
-        QPen pen(configPen(ncol, 32));
+        QPen pen(configPen(ncol, 48));
 
         pai.setPen(pen);
         if(lineD.res == 1) {
@@ -2839,7 +2879,7 @@ void MainWindow::on_actionCreate_shape_triggered()
     QColor ncol = sizes::activeColor;
 
     QPainter pai(&pix);
-    QPen pen(configPen(ncol, 32));
+    QPen pen(configPen(ncol, 48));
 
     pai.setPen(pen);
     sizes::shape_x_begin = sizes::shape_x_begin -(sizes::lineXEnd/2);
@@ -2869,3 +2909,26 @@ void MainWindow::on_comboPen_activated(int index)
     wArea->setCursor(rectCursor());
 }
 
+
+void MainWindow::on_rtfButton_clicked()
+{
+    richEditor rtf;
+    rtf.setModal(true);
+    rtf.exec();
+    if(rtf.passed){
+        // del. text options------------------------
+        delete selectionRect;
+        selectionRect =NULL;
+        sizes::activeOperation = 0;
+        ui->textOptionsWidget->setVisible(false);
+        //------------------------------------------
+        pasteImg(rtf.rtfPix);
+    }
+
+}
+
+
+void MainWindow::on_actionMouse_correctio_triggered(bool checked)
+{
+    sizes::mouseCorrection = checked;
+}
