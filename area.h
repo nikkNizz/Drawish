@@ -35,7 +35,7 @@ signals:
     int originX, originY;
     bool isRubb = false;
     bool rightPressed=false;
-
+    int six =0;
 
 };
 
