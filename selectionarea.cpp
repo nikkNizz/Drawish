@@ -34,19 +34,19 @@ void selectionArea::mouseMoveEvent(QMouseEvent *event)
 
 
     if(!pressed){
-        if(x < 5 ){ this->setCursor(Qt::SizeHorCursor); whereExp="left";}
-        else if(x > this->width()-5){this->setCursor(Qt::SizeHorCursor); whereExp="right";}
-        else if( y > this->height()-5){this->setCursor(Qt::SizeVerCursor); whereExp="bottom";}
-        else if(y < 5){this->setCursor(Qt::SizeVerCursor);whereExp="top"; }
-        else{ this->setCursor(Qt::SizeAllCursor); whereExp="move";}
+        if(x < 8 ){ this->setCursor(Qt::SizeHorCursor); whereExp="left";}
+        else if(x > this->width()-8){this->setCursor(Qt::SizeHorCursor); whereExp="right";}
+        else if( y > this->height()-8){this->setCursor(Qt::SizeVerCursor); whereExp="bottom";}
+        else if(y < 8){this->setCursor(Qt::SizeVerCursor);whereExp="top"; }
+        else{ this->setCursor(Qt::SizeAllCursor); whereExp="move"; }
     }else{
         if(whereExp == "move"){
            sizes::selX  = event->globalPosition().x()-diffx;
            sizes::selY  = event->globalPosition().y()-diffy;
         }
         else if(whereExp== "top" && preY > y){
-           sizes::selY-=2;
-           sizes::selH+=2;
+           sizes::selY--;
+           sizes::selH++;
         }
         else if(whereExp== "top" && preY < y){
            sizes::selY++;
@@ -60,14 +60,14 @@ void selectionArea::mouseMoveEvent(QMouseEvent *event)
            sizes::selW--;
         }
         else if(whereExp== "left" && preX > x){
-            sizes::selX-=2;
-            sizes::selW+=2;
+            sizes::selX--;
+            sizes::selW++;
         }
         else if(whereExp== "bottom" && preY < y){
-           sizes::selH+=2;
+           sizes::selH++;
         }
         else if(whereExp== "right" && preX < x){
-           sizes::selW+=2;
+           sizes::selW++;
         }
         else if(whereExp== "right" && preX > x){
            sizes::selW--;
