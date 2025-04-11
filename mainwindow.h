@@ -240,6 +240,19 @@ private slots:
 
   void on_actionTransparent_selection_toggled(bool arg1);
 
+  void on_rtfButton_clicked();
+
+  void on_actionMouse_correctio_triggered(bool checked);
+
+
+  void on_boldButton_clicked();
+
+  void on_italicButton_clicked();
+
+  void on_underlineButton_clicked();
+
+  void on_fontComboBox_currentFontChanged(const QFont &f);
+
   private:
     Ui::MainWindow *ui;
     QString version_info;
