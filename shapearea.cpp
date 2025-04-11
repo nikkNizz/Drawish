@@ -31,10 +31,10 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
 
 
     if(!pressed){
-        if(x < 5 ){ this->setCursor(Qt::OpenHandCursor); whereExp="left";}
-        else if(x > this->width()-5){this->setCursor(Qt::OpenHandCursor); whereExp="right";}
-        else if( y > this->height()-5){this->setCursor(Qt::OpenHandCursor); whereExp="bottom";}
-        else if(y < 5){this->setCursor(Qt::OpenHandCursor);whereExp="top"; }
+        if(x < 8 ){ this->setCursor(Qt::OpenHandCursor); whereExp="left";}
+        else if(x > this->width()-8){this->setCursor(Qt::OpenHandCursor); whereExp="right";}
+        else if( y > this->height()-8){this->setCursor(Qt::OpenHandCursor); whereExp="bottom";}
+        else if(y < 8){this->setCursor(Qt::OpenHandCursor);whereExp="top"; }
         else{ this->setCursor(Qt::SizeAllCursor); whereExp="move";}
     }else{
         if(whereExp == "move"){
@@ -169,17 +169,17 @@ void shapeArea::drawSomething()
 
         if(sizes::activeShape == "squ"){
             int side = (sizes::selW < sizes::selH) ? sizes::selW : sizes::selH;
-            p.drawRect(side*0.1, side*0.1, side*0.8, side*0.8);
+            p.drawRect(10, 10, side-10-sizes::line_width, side-12-sizes::line_width);
         }
         else if(sizes::activeShape == "rec"){
-            p.drawRect(ww*0.1, hh*0.1, ww*0.8, hh*0.8);
+            p.drawRect(10, 10, ww-10-sizes::line_width, hh-12-sizes::line_width);
         }
         else if(sizes::activeShape == "cir"){
             int side = (sizes::selW < sizes::selH) ? sizes::selW : sizes::selH;
-            p.drawEllipse(side*0.1,side*0.1, side*0.8, side*0.8);
+            p.drawEllipse(10,10, side-10-sizes::line_width, side-12-sizes::line_width);
         }
         else if(sizes::activeShape == "ell"){
-            p.drawEllipse(ww*0.1, hh*0.1, ww*0.8, hh*0.8);
+            p.drawEllipse(10, 10, ww-10-sizes::line_width, hh-12-sizes::line_width);
         }
         else if(sizes::activeShape == "tri"){
             QPolygon poly;
@@ -395,12 +395,14 @@ void shapeArea::drawSomething()
             p.drawPolygon(poly);
         }
         else if(sizes::activeShape == "sar"){
-            int len = width() *0.4;
-            int fLen = len *0.3;
+            sizes::selH = sizes::selW; // area always square
+            resetGeometry();
+            int len = width() *0.48;
+            int fLen = len *0.25;
 
             QLineF lf, lf2, lf3;
             double aa = double(preX) / double(width());
-            aa = aa *360.00;
+            aa = aa *720.00;
             int cx = width()/2;
             int cy = height()/2;
 
@@ -416,6 +418,7 @@ void shapeArea::drawSomething()
             QList <QLineF> listlines;
             listlines << lf << lf2 << lf3;
             p.drawLines(listlines);
+
         }
         this->setPixmap(npix);
     }
