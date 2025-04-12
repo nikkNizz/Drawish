@@ -87,7 +87,7 @@ You can draw with the keyboard by selecting in the top menu how many pixels to d
 Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (< = bottom-left)  (Z = down)  (X = bottom-right). 
 [video](https://drive.google.com/file/d/1Z6KETxX53N0E_YGQgtdDkzLk7GZgHE8c/view?usp=sharing)  
 In the panel that appears above the drawing area you can choose attributes. Do not use transparent color to draw (only fill).  
-You can use a semi-transparent pen. For best results, keep the drawing speed not too high, use a large tip and disable mouse correction.  
+You can use a semi-transparent pen (for best results, keep the drawing speed not too high, use a large tip and disable mouse correction).  
 Use white color to erase.  
 You can draw with a round, square, linear, or stylus tip.  
 You can draw with a random color pen.  
@@ -294,7 +294,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🔵️ create charts  
 🔵️ open pdf as images and save images as pdf   
 🔵️ quick restore point  
-🔵️ quick web links 
+🔵️ quick web links  
 🟣️ mouse correction  
 🟣️ many effects  
 🟣️ fill for similarity  
