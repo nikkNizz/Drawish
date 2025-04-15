@@ -130,6 +130,7 @@ Click the [pen] button. In the panel that appears above the drawing area select 
 When the cursor moves over the active color, it will be replaced by the preferred color.  
 To replace it with white, reset the preferred color with the appropriate button.  
 To perform the similarity replacement, enter the "Fill" function, move the "similarity" bar and then return to the "Pen" function.  
+[video](https://drive.google.com/file/d/1NbB-NSNq2GasxtETI4yEmdrg-jJ0YJwJ/view?usp=sharing)
 
 #### Text
 Click the [text] button, and **click a point** in the drawing area. 
@@ -220,7 +221,8 @@ You can also get the hexadecimal value of the color.
 From the menu [Image-> Set as favorite color] the active color is saved in an image and made available in the color palette as an additional color.  
 The favorite color is also used for the "color eraser" function. The little button next to the favorite color resets it.  
 The colors are saved in the file "<user>/Drawish_Data/drawish_saved_colors.png".  
-From this file it is very simple to pick a color. From the [Image -> Pick from favorites] menu click on a color. This will become the active color.
+From this file it is very simple to pick a color. From the [Image -> Pick from favorites] menu click on a color. This will become the active color.  
+[video](https://drive.google.com/file/d/1SB7doXszCFuWpwYHjILtjKa0UpjAFG5z/view?usp=sharing)
 
 #### Color balance
 See Pick color.  
@@ -343,7 +345,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟣️ grid and pixel color replacement with simple right clicks  
 🟣️ multicolor pen  
 🟣️ fusion pen  
-🟣️ fan effect  
+🟣️ fan effect pen  
 🟣️ favorite colors  
 🟣️ copy selection to the program, not only to clipboard  
 🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
