@@ -52,6 +52,7 @@ private slots:
   void drawWithPen();
   //void drawWithDoublePen(); until 0.9.3
   void draw_first_point();
+  void colorEraser();
   void showPix();
   void save_previous(QString tx="");
   void fill_();
@@ -253,6 +254,17 @@ private slots:
 
   void on_fontComboBox_currentFontChanged(const QFont &f);
 
+  void on_actionSet_as_favorite_color_triggered();
+
+  void on_prefColorButton_clicked();
+
+  void on_actionPick_color_from_an_image_triggered();
+
+  void on_comboPen_highlighted(int index);
+
+
+  void on_resetFavColorButton_clicked();
+
   private:
     Ui::MainWindow *ui;
     QString version_info;
@@ -276,6 +288,7 @@ private slots:
     QString nextColumnToAdd="0593716482";
     QString configRecent, configLinks, configPath;
     QPixmap toRestore;
+    QColor fav = Qt::white;
     //------------------------------
     QPixmap preRotatePix;
     int wPreRotate, hPreRotate;
