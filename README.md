@@ -7,7 +7,7 @@ It also allows you to modify existing images, open pdf as images in Linux, draw 
 
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.11) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.12) page of this project.  
 
 ### COMPILE FROM SOURCE (LINUX):
 Download and unzip the project.  
