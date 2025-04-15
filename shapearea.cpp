@@ -169,17 +169,17 @@ void shapeArea::drawSomething()
 
         if(sizes::activeShape == "squ"){
             int side = (sizes::selW < sizes::selH) ? sizes::selW : sizes::selH;
-            p.drawRect(10, 10, side-10-sizes::line_width, side-12-sizes::line_width);
+            p.drawRect(sizes::line_width+2, sizes::line_width+2, side-14-sizes::line_width, side-14-sizes::line_width);
         }
         else if(sizes::activeShape == "rec"){
-            p.drawRect(10, 10, ww-10-sizes::line_width, hh-12-sizes::line_width);
+            p.drawRect(sizes::line_width+2, sizes::line_width+2, ww-14-sizes::line_width, hh-14-sizes::line_width);
         }
         else if(sizes::activeShape == "cir"){
             int side = (sizes::selW < sizes::selH) ? sizes::selW : sizes::selH;
-            p.drawEllipse(10,10, side-10-sizes::line_width, side-12-sizes::line_width);
+            p.drawEllipse(sizes::line_width+2, sizes::line_width+2, side-14-sizes::line_width, side-14-sizes::line_width);
         }
         else if(sizes::activeShape == "ell"){
-            p.drawEllipse(10, 10, ww-10-sizes::line_width, hh-12-sizes::line_width);
+            p.drawEllipse(sizes::line_width+2, sizes::line_width+2, ww-14-sizes::line_width, hh-14-sizes::line_width);
         }
         else if(sizes::activeShape == "tri"){
             QPolygon poly;
