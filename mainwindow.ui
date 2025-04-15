@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>790</width>
-    <height>450</height>
+    <height>465</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -4336,9 +4336,15 @@
       <rect>
        <x>85</x>
        <y>0</y>
-       <width>88</width>
-       <height>24</height>
+       <width>91</width>
+       <height>21</height>
       </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
      <property name="palette">
       <palette>
@@ -4391,6 +4397,12 @@
        <bold>true</bold>
       </font>
      </property>
+     <property name="maxVisibleItems">
+      <number>15</number>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+     </property>
      <item>
       <property name="text">
        <string>Round cap</string>
@@ -4439,6 +4451,11 @@
      <item>
       <property name="text">
        <string>Random blue</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Erase by color similarity defined in fill</string>
       </property>
      </item>
     </widget>
@@ -4511,7 +4528,7 @@
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>370</y>
+      <y>380</y>
       <width>591</width>
       <height>41</height>
      </rect>
@@ -5154,6 +5171,75 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="prefColorButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>404</y>
+      <width>41</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="toolTip">
+     <string>Favorite color</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="resetFavColorButton">
+    <property name="geometry">
+     <rect>
+      <x>52</x>
+      <y>404</y>
+      <width>21</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Reset</string>
+    </property>
+    <property name="text">
+     <string>x</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
@@ -5162,7 +5248,7 @@
      <x>0</x>
      <y>0</y>
      <width>790</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -5218,6 +5304,8 @@
     </property>
     <addaction name="actionEffects"/>
     <addaction name="actionColors"/>
+    <addaction name="actionSet_as_favorite_color"/>
+    <addaction name="actionPick_color_from_an_image"/>
     <addaction name="actionMirror"/>
     <addaction name="actionMirror_vertically"/>
     <addaction name="actionStretch_area"/>
@@ -5512,6 +5600,16 @@
    </property>
    <property name="text">
     <string>Mouse correction</string>
+   </property>
+  </action>
+  <action name="actionSet_as_favorite_color">
+   <property name="text">
+    <string>Set as favorite color</string>
+   </property>
+  </action>
+  <action name="actionPick_color_from_an_image">
+   <property name="text">
+    <string>Pick from favorites</string>
    </property>
   </action>
  </widget>
