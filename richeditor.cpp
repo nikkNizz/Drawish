@@ -160,8 +160,3 @@ void richEditor::on_saveButton_clicked()
     fileIO fio;
     fio.createFile(ui->textEdit->toHtml(), f);
 }
-
-
-
-
-
