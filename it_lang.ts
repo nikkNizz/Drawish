@@ -289,14 +289,14 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="139"/>
-        <location filename="mainwindow.cpp" line="1310"/>
+        <location filename="mainwindow.cpp" line="1328"/>
         <source>Pen</source>
         <oldsource>Pens</oldsource>
         <translation>Penne</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="174"/>
-        <location filename="mainwindow.cpp" line="1403"/>
+        <location filename="mainwindow.cpp" line="1441"/>
         <source>Fill</source>
         <translation>Riempimento</translation>
     </message>
@@ -312,7 +312,7 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="279"/>
-        <location filename="mainwindow.cpp" line="1678"/>
+        <location filename="mainwindow.cpp" line="1716"/>
         <source>Line</source>
         <translation>Linea</translation>
     </message>
@@ -328,7 +328,7 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="384"/>
-        <location filename="mainwindow.cpp" line="1836"/>
+        <location filename="mainwindow.cpp" line="1874"/>
         <source>Curve line</source>
         <translation>Linea curva</translation>
     </message>
@@ -379,7 +379,7 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="3812"/>
-        <location filename="mainwindow.cpp" line="1063"/>
+        <location filename="mainwindow.cpp" line="1068"/>
         <source>Text</source>
         <translation>Testo</translation>
     </message>
@@ -389,12 +389,12 @@ dell&apos;istogramma</translation>
         <translation>Larghezza</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4406"/>
+        <location filename="mainwindow.ui" line="4418"/>
         <source>Flat cap</source>
         <translation>Punta piatta</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4396"/>
+        <location filename="mainwindow.ui" line="4408"/>
         <source>Round cap</source>
         <translation>Punta tonda</translation>
     </message>
@@ -597,137 +597,163 @@ dell&apos;istogramma</translation>
         <translation>Croce diagonale</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4500"/>
+        <location filename="mainwindow.ui" line="5237"/>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="5612"/>
+        <source>Pick from favorites</source>
+        <translation>Colore da preferiti</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="1324"/>
+        <source>Color eraser</source>
+        <translation>Gomma per colore</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="4517"/>
         <source>Fan effetc</source>
         <oldsource>Wings effetc</oldsource>
         <translation>Effetto ventaglio</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4503"/>
+        <location filename="mainwindow.ui" line="4520"/>
         <source>F</source>
         <oldsource>W</oldsource>
         <translation>V</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5514"/>
+        <location filename="mainwindow.ui" line="5221"/>
+        <source>Favorite color</source>
+        <translation>Colore preferito</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="5602"/>
         <source>Mouse correction</source>
         <translation>Correzione mouse</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="5607"/>
+        <source>Set as favorite color</source>
+        <translation>Imposta come colore preferito</translation>
     </message>
     <message>
         <source>Nib cap</source>
         <translation type="vanished">Pennino</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4401"/>
+        <location filename="mainwindow.ui" line="4413"/>
         <source>Square cap</source>
         <translation>Punta quadra</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4411"/>
+        <location filename="mainwindow.ui" line="4423"/>
         <source>Nib cap \</source>
         <translation>Stilo \</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4421"/>
+        <location filename="mainwindow.ui" line="4433"/>
         <source>Random color round cap</source>
         <translation>Punta tonda colore casuale</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4426"/>
+        <location filename="mainwindow.ui" line="4438"/>
         <source>Random color square cap</source>
         <translation>Punta quadra colore casuale</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4431"/>
+        <location filename="mainwindow.ui" line="4443"/>
         <source>Random red</source>
         <translation>Rosso casuale</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4436"/>
+        <location filename="mainwindow.ui" line="4448"/>
         <source>Random green</source>
         <translation>Verde casuale</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4441"/>
+        <location filename="mainwindow.ui" line="4453"/>
         <source>Random blue</source>
         <translation>Blu casuale</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4912"/>
+        <location filename="mainwindow.ui" line="4929"/>
         <source>Similarity</source>
         <translation>Somiglianza</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4925"/>
+        <location filename="mainwindow.ui" line="4942"/>
         <source>Fill for similarity (0 fill the exact color)</source>
         <translation>Riempi per somiglianza (0 riempi al colore esatto)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4944"/>
+        <location filename="mainwindow.ui" line="4961"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4989"/>
-        <location filename="mainwindow.cpp" line="1462"/>
+        <location filename="mainwindow.ui" line="5006"/>
+        <location filename="mainwindow.cpp" line="1500"/>
         <source>Fill inside black</source>
         <translation>Riempi dentro il nero</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4529"/>
+        <location filename="mainwindow.ui" line="4546"/>
         <source>Mouse</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4545"/>
-        <location filename="mainwindow.ui" line="4590"/>
+        <location filename="mainwindow.ui" line="4562"/>
+        <location filename="mainwindow.ui" line="4607"/>
+        <location filename="mainwindow.ui" line="5240"/>
         <source>x</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4561"/>
-        <location filename="mainwindow.ui" line="4606"/>
+        <location filename="mainwindow.ui" line="4578"/>
+        <location filename="mainwindow.ui" line="4623"/>
         <source>y</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4574"/>
+        <location filename="mainwindow.ui" line="4591"/>
         <source>Selection</source>
         <translation>Selezione</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4619"/>
-        <location filename="mainwindow.ui" line="5217"/>
+        <location filename="mainwindow.ui" line="4636"/>
+        <location filename="mainwindow.ui" line="5303"/>
         <source>Image</source>
         <translation>Immagine</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4635"/>
+        <location filename="mainwindow.ui" line="4652"/>
         <source>w</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4651"/>
+        <location filename="mainwindow.ui" line="4668"/>
         <source>h</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4664"/>
+        <location filename="mainwindow.ui" line="4681"/>
         <source>Rgb 0,0,0</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4678"/>
+        <location filename="mainwindow.ui" line="4695"/>
         <source>Rotate left</source>
         <translation>Ruota sinistra</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4698"/>
+        <location filename="mainwindow.ui" line="4715"/>
         <source>Rotate right</source>
         <translation>Ruota destra</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4718"/>
+        <location filename="mainwindow.ui" line="4735"/>
         <source>Rotation angle</source>
         <translation>Angolo rotazione</translation>
     </message>
@@ -736,253 +762,258 @@ dell&apos;istogramma</translation>
         <translation type="vanished">90°</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4743"/>
+        <location filename="mainwindow.ui" line="4760"/>
         <source>Remove last...</source>
         <translation>Rimuovi ultimo...</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5506"/>
+        <location filename="mainwindow.ui" line="5594"/>
         <source>Create shape</source>
         <translation>Crea forma</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5476"/>
+        <location filename="mainwindow.ui" line="5564"/>
         <source>Add remove link</source>
         <translation>Aggiungi rimuovi link</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5481"/>
+        <location filename="mainwindow.ui" line="5569"/>
         <source>Horizontal bars</source>
         <translation>Barre orizzontali</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5486"/>
+        <location filename="mainwindow.ui" line="5574"/>
         <source>Vertical bars</source>
         <translation>Barre verticali</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5491"/>
+        <location filename="mainwindow.ui" line="5579"/>
         <source>Pie</source>
         <translation>Torta</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5496"/>
+        <location filename="mainwindow.ui" line="5584"/>
         <source>Set as restore point</source>
         <translation>Imposta a punto di ripristino</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5501"/>
+        <location filename="mainwindow.ui" line="5589"/>
         <source>Restore</source>
         <translation>Ripristina</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2679"/>
+        <location filename="mainwindow.cpp" line="2717"/>
         <source>Add link</source>
         <translation>Aggiungi link</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4794"/>
-        <location filename="mainwindow.cpp" line="1791"/>
+        <location filename="mainwindow.ui" line="4811"/>
+        <location filename="mainwindow.cpp" line="1829"/>
         <source>Connected lines</source>
         <translation>Linee connesse</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4862"/>
-        <location filename="mainwindow.cpp" line="1612"/>
+        <location filename="mainwindow.ui" line="4879"/>
+        <location filename="mainwindow.cpp" line="1650"/>
         <source>Color balance</source>
         <translation>Bilanciamento colore</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5120"/>
+        <location filename="mainwindow.ui" line="5137"/>
         <source>Add semi transparency</source>
         <translation>Aggiungi semi trasparenza</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5144"/>
+        <location filename="mainwindow.ui" line="5161"/>
         <source>Auto rotation</source>
         <translation>Rotazione automatica</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5170"/>
+        <location filename="mainwindow.ui" line="5256"/>
         <source>File</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5174"/>
+        <location filename="mainwindow.ui" line="5260"/>
         <source>Recent</source>
         <translation>Recenti</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5179"/>
+        <location filename="mainwindow.ui" line="5265"/>
         <source>Links</source>
         <translation>Link</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5194"/>
+        <location filename="mainwindow.ui" line="5280"/>
         <source>Edit</source>
         <translation>Modifica</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5198"/>
+        <location filename="mainwindow.ui" line="5284"/>
         <source>Paste from file</source>
         <translation>Incolla da file</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5235"/>
+        <location filename="mainwindow.ui" line="5323"/>
         <source>Camera</source>
         <translation>Telecamera</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5244"/>
-        <location filename="mainwindow.ui" line="5388"/>
+        <location filename="mainwindow.ui" line="5332"/>
+        <location filename="mainwindow.ui" line="5476"/>
         <source>About</source>
         <translation>Di noi</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5261"/>
+        <location filename="mainwindow.ui" line="5349"/>
         <source>Charts</source>
         <translation>Grafici</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5277"/>
+        <location filename="mainwindow.ui" line="5365"/>
         <source>New</source>
         <translation>Nuovo</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5282"/>
-        <location filename="mainwindow.cpp" line="165"/>
-        <location filename="mainwindow.cpp" line="182"/>
-        <location filename="mainwindow.cpp" line="653"/>
+        <location filename="mainwindow.ui" line="5370"/>
+        <location filename="mainwindow.cpp" line="167"/>
+        <location filename="mainwindow.cpp" line="184"/>
+        <location filename="mainwindow.cpp" line="658"/>
         <source>Open</source>
         <translation>Apri</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5287"/>
+        <location filename="mainwindow.ui" line="5375"/>
         <source>Save</source>
         <translation>Salva</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5292"/>
+        <location filename="mainwindow.ui" line="5380"/>
         <source>Close</source>
         <translation>Chiudi</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5297"/>
+        <location filename="mainwindow.ui" line="5385"/>
         <source>Save as</source>
         <translation>Salva come</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5302"/>
+        <location filename="mainwindow.ui" line="5390"/>
         <source>Select all</source>
         <translation>Seleziona tutto</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5307"/>
+        <location filename="mainwindow.ui" line="5395"/>
         <source>Copy selection</source>
         <translation>Copia selezione</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5312"/>
+        <location filename="mainwindow.ui" line="5400"/>
         <source>Paste from clipboard</source>
         <translation>Incolla da appunti</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5317"/>
+        <location filename="mainwindow.ui" line="5405"/>
         <source>Selection to file</source>
         <translation>Selezione a file</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5328"/>
+        <location filename="mainwindow.ui" line="5416"/>
         <source>Transparent selection</source>
         <translation>Selezione trasparente</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5333"/>
+        <location filename="mainwindow.ui" line="5421"/>
         <source>Copy selection (no clipboard)</source>
         <translation>Copia selezione (no appunti)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5338"/>
-        <location filename="mainwindow.cpp" line="2077"/>
+        <location filename="mainwindow.ui" line="5426"/>
+        <location filename="mainwindow.cpp" line="2115"/>
         <source>Effects</source>
         <translation>Effetti</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5251"/>
-        <location filename="mainwindow.ui" line="5451"/>
+        <location filename="mainwindow.ui" line="5339"/>
+        <location filename="mainwindow.ui" line="5539"/>
         <source>Sizes</source>
         <translation>Misure</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4416"/>
+        <location filename="mainwindow.ui" line="4428"/>
         <source>Fusion</source>
         <translation>Fusione</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4759"/>
+        <location filename="mainwindow.ui" line="4458"/>
+        <source>Erase by color similarity defined in fill</source>
+        <translation>Cancella per somiglianza definita in riempimento</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="4776"/>
         <source>Connected curves</source>
         <translation>Curve connesse</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5343"/>
+        <location filename="mainwindow.ui" line="5431"/>
         <source>Mirror horizontally</source>
         <translation>Rispecchia orizzontalmente</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5348"/>
+        <location filename="mainwindow.ui" line="5436"/>
         <source>Mirror vertically</source>
         <translation>Rispecchia verticalmente</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5353"/>
+        <location filename="mainwindow.ui" line="5441"/>
         <source>To greyscale</source>
         <translation>A scala di grigi</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5358"/>
-        <location filename="mainwindow.cpp" line="2234"/>
+        <location filename="mainwindow.ui" line="5446"/>
+        <location filename="mainwindow.cpp" line="2272"/>
         <source>Invert colors</source>
         <translation>Inverti colori</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5363"/>
+        <location filename="mainwindow.ui" line="5451"/>
         <source>Create</source>
         <translation>Crea</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5368"/>
+        <location filename="mainwindow.ui" line="5456"/>
         <source>Save image</source>
         <translation>Salva immagine</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5373"/>
+        <location filename="mainwindow.ui" line="5461"/>
         <source>Delete camera</source>
         <translation>Elimina telecamera</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5378"/>
-        <location filename="mainwindow.cpp" line="2104"/>
+        <location filename="mainwindow.ui" line="5466"/>
+        <location filename="mainwindow.cpp" line="2142"/>
         <source>Colors</source>
         <translation>Colori</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5383"/>
+        <location filename="mainwindow.ui" line="5471"/>
         <source>Reduce to RGB</source>
         <translation>Riduci a RGB</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5456"/>
+        <location filename="mainwindow.ui" line="5544"/>
         <source>Quadruple the pixels</source>
         <translation>Quadruplica pixel</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5466"/>
-        <location filename="mainwindow.cpp" line="2631"/>
+        <location filename="mainwindow.ui" line="5554"/>
+        <location filename="mainwindow.cpp" line="2669"/>
         <source>Increment 10%</source>
         <translation>Incrementa 10%</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5471"/>
+        <location filename="mainwindow.ui" line="5559"/>
         <source>Zoom</source>
         <translation>Zoom</translation>
     </message>
@@ -991,72 +1022,72 @@ dell&apos;istogramma</translation>
         <translation type="vanished">Quadruplica i pixels ◰</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5461"/>
-        <location filename="mainwindow.cpp" line="2427"/>
+        <location filename="mainwindow.ui" line="5549"/>
+        <location filename="mainwindow.cpp" line="2465"/>
         <source>Divide by 4</source>
         <translation>Dividi per 4</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5393"/>
+        <location filename="mainwindow.ui" line="5481"/>
         <source>Create Line</source>
         <translation>Crea linea</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5398"/>
+        <location filename="mainwindow.ui" line="5486"/>
         <source>Github</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5406"/>
+        <location filename="mainwindow.ui" line="5494"/>
         <source>Merge selection to image</source>
         <translation>Fondi selezione e immagine</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5411"/>
+        <location filename="mainwindow.ui" line="5499"/>
         <source>To base64</source>
         <translation>A base64</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5416"/>
+        <location filename="mainwindow.ui" line="5504"/>
         <source>To Pdf</source>
         <translation>A Pdf</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5421"/>
+        <location filename="mainwindow.ui" line="5509"/>
         <source>Add right</source>
         <translation>Aggiungi a destra</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5426"/>
+        <location filename="mainwindow.ui" line="5514"/>
         <source>Add bottom</source>
         <translation>Aggiungi in basso</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5431"/>
+        <location filename="mainwindow.ui" line="5519"/>
         <source>Add as selection</source>
         <translation>Aggiungi a selezione</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5436"/>
+        <location filename="mainwindow.ui" line="5524"/>
         <source>Stretch area</source>
         <translation>Area di stiramento</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5441"/>
+        <location filename="mainwindow.ui" line="5529"/>
         <source>To sepia</source>
         <translation>Effetto seppia</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5446"/>
+        <location filename="mainwindow.ui" line="5534"/>
         <source>Set selection as image (crop)</source>
         <translation>Selezione a immagine (ritaglia)</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="89"/>
-        <location filename="mainwindow.cpp" line="178"/>
-        <location filename="mainwindow.cpp" line="215"/>
-        <location filename="mainwindow.cpp" line="512"/>
-        <location filename="mainwindow.cpp" line="518"/>
+        <location filename="mainwindow.cpp" line="180"/>
+        <location filename="mainwindow.cpp" line="217"/>
+        <location filename="mainwindow.cpp" line="513"/>
+        <location filename="mainwindow.cpp" line="519"/>
         <source>Unsupported file</source>
         <translation>File non supportato</translation>
     </message>
@@ -1066,21 +1097,21 @@ dell&apos;istogramma</translation>
         <translation>Immagine originale</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="166"/>
+        <location filename="mainwindow.cpp" line="168"/>
         <location filename="mainwindow.cpp" line="401"/>
-        <location filename="mainwindow.cpp" line="635"/>
-        <location filename="mainwindow.cpp" line="654"/>
-        <location filename="mainwindow.cpp" line="668"/>
+        <location filename="mainwindow.cpp" line="640"/>
+        <location filename="mainwindow.cpp" line="659"/>
+        <location filename="mainwindow.cpp" line="673"/>
         <source>Save image?</source>
         <translation>Salvare l&apos;immagine?</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="203"/>
+        <location filename="mainwindow.cpp" line="205"/>
         <source>Enter page number to convert</source>
         <translation>Inserire il numero di pagina da convertire</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="211"/>
+        <location filename="mainwindow.cpp" line="213"/>
         <source>Error executing command</source>
         <translation>Errore di esecuzione del comando</translation>
     </message>
@@ -1092,201 +1123,214 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="419"/>
-        <location filename="mainwindow.cpp" line="2011"/>
-        <location filename="mainwindow.cpp" line="2017"/>
+        <location filename="mainwindow.cpp" line="2049"/>
+        <location filename="mainwindow.cpp" line="2055"/>
         <source>Resize</source>
         <translation>Ridimensiona</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="459"/>
-        <location filename="mainwindow.cpp" line="2288"/>
+        <location filename="mainwindow.cpp" line="2326"/>
         <source>Drawish save...</source>
         <translation>Drawish salva...</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="473"/>
-        <location filename="mainwindow.cpp" line="503"/>
+        <location filename="mainwindow.cpp" line="504"/>
         <source>Drawish...Select image</source>
         <translation>Drawish...Scegli immagine</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="643"/>
+        <location filename="mainwindow.cpp" line="648"/>
         <source>New Image</source>
         <translation>Nuova immagine</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="678"/>
-        <location filename="mainwindow.cpp" line="1006"/>
+        <location filename="mainwindow.cpp" line="683"/>
+        <location filename="mainwindow.cpp" line="1011"/>
         <source>Drawish save image</source>
         <translation>Drawish salva immagine</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="861"/>
+        <location filename="mainwindow.cpp" line="866"/>
         <source>The image is in a selection</source>
         <translation>L&apos;immagine è nella selzione</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="870"/>
+        <location filename="mainwindow.cpp" line="875"/>
         <source>No area selected</source>
         <translation>Nessuna area selezionata</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="879"/>
+        <location filename="mainwindow.cpp" line="884"/>
         <source>Levels</source>
         <translation>Livelli</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="952"/>
-        <location filename="mainwindow.cpp" line="962"/>
-        <location filename="mainwindow.cpp" line="984"/>
+        <location filename="mainwindow.cpp" line="957"/>
+        <location filename="mainwindow.cpp" line="967"/>
+        <location filename="mainwindow.cpp" line="989"/>
         <source>Invalid image!</source>
         <translation>Immagine non valida!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="965"/>
+        <location filename="mainwindow.cpp" line="970"/>
         <source>Paste right</source>
         <translation>Incolla a destra</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="987"/>
+        <location filename="mainwindow.cpp" line="992"/>
         <source>Paste bottom</source>
         <translation>Incolla in basso</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1040"/>
+        <location filename="mainwindow.cpp" line="1045"/>
         <source>Click a point on the canvas, before</source>
         <translation>Clicca un punto sull&apos; area di disegno</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1177"/>
+        <location filename="mainwindow.cpp" line="1182"/>
         <source>Drawish choose color</source>
         <translation>Drawish scegli colore</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1748"/>
+        <location filename="mainwindow.cpp" line="1786"/>
         <source>Do you want to activate shapes?</source>
         <translation>Vuoi attivare le forme?</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2680"/>
+        <location filename="mainwindow.cpp" line="2718"/>
         <source>Remove link</source>
         <translation>Elimina link</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2685"/>
+        <location filename="mainwindow.cpp" line="2723"/>
         <source>Enter url</source>
         <translation>Inserire Url</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2689"/>
+        <location filename="mainwindow.cpp" line="2727"/>
         <source>Select link to remove</source>
         <translation>Seleziona link da rimuovere</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2716"/>
+        <location filename="mainwindow.cpp" line="2754"/>
         <source>Create chart</source>
         <oldsource>Create graphic</oldsource>
         <translation>Crea grafico</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2850"/>
+        <location filename="mainwindow.cpp" line="2888"/>
         <source>Restore point created</source>
         <oldsource>Created restore point</oldsource>
         <translation>Punto di ripristino creato</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2853"/>
+        <location filename="mainwindow.cpp" line="2891"/>
         <source>Restore point overwritten</source>
         <translation>Punto di ripristino sovrascritto</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="2998"/>
+        <source>No color saved</source>
+        <translation>Nessun colore salvato</translation>
     </message>
     <message>
         <source>Double pen</source>
         <translation type="vanished">Doppia penna</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1696"/>
+        <location filename="mainwindow.cpp" line="1734"/>
         <source>Shape</source>
         <translation>Forma</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1949"/>
-        <location filename="mainwindow.cpp" line="1968"/>
+        <location filename="mainwindow.cpp" line="1987"/>
+        <location filename="mainwindow.cpp" line="2006"/>
         <source>No selection</source>
         <translation>Nessuna selezione</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2038"/>
-        <location filename="mainwindow.cpp" line="2048"/>
+        <location filename="mainwindow.cpp" line="2076"/>
+        <location filename="mainwindow.cpp" line="2086"/>
         <source>An area is already selected</source>
         <translation>Un&apos; area è già selezionata</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2148"/>
+        <location filename="mainwindow.cpp" line="2186"/>
         <source>Greyscale</source>
         <translation>Scala di grigi</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2165"/>
+        <location filename="mainwindow.cpp" line="2203"/>
         <source>Sepia</source>
         <translation>Seppia</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2200"/>
+        <location filename="mainwindow.cpp" line="2238"/>
         <source>Reduce to rgb</source>
         <translation>Riduci a rgb</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2271"/>
+        <location filename="mainwindow.cpp" line="2309"/>
         <source>Enter width</source>
         <translation>Inserici larghezza</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2272"/>
+        <location filename="mainwindow.cpp" line="2310"/>
         <source>Enter height</source>
         <translation>Inserisci altezza</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2274"/>
+        <location filename="mainwindow.cpp" line="2312"/>
         <source>Too small selection</source>
         <translation>Selezione troppo piccola</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2375"/>
+        <location filename="mainwindow.cpp" line="2413"/>
         <source>Quadruple</source>
         <translation>Quadruplica</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2458"/>
+        <location filename="mainwindow.cpp" line="2496"/>
         <source>Line input</source>
         <translation>Linea da input</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2494"/>
+        <location filename="mainwindow.cpp" line="2532"/>
         <source>No active cam!</source>
         <translation>Nessuna telecamera!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2504"/>
+        <location filename="mainwindow.cpp" line="2542"/>
         <source>base64 code has been copied to clipboard!</source>
         <translation>codice base64 copiato negli appunti!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2536"/>
+        <location filename="mainwindow.cpp" line="2574"/>
         <source>Failed to open image!</source>
         <translation>Apertura immagine fallita!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2541"/>
+        <location filename="mainwindow.cpp" line="2579"/>
         <source>Saved in
 </source>
         <translation>Salvato in
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2551"/>
-        <location filename="mainwindow.cpp" line="2579"/>
+        <location filename="mainwindow.cpp" line="2589"/>
+        <location filename="mainwindow.cpp" line="2617"/>
         <source>No selection!</source>
         <translation>Nessuna selezione!</translation>
+    </message>
+</context>
+<context>
+    <name>PickPalette</name>
+    <message>
+        <location filename="pickpalette.ui" line="17"/>
+        <source>Drawish</source>
+        <translation type="unfinished">Drawish</translation>
     </message>
 </context>
 <context>
