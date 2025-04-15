@@ -21,6 +21,7 @@
 #include "fileio.h"
 #include "figures.h"
 #include "richeditor.h"
+#include "pickpalette.h"
 #include <QPainter>
 #include <QMessageBox>
 #include <QFileDialog>
@@ -45,11 +46,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "0.9.11";
-    // 0.9.11:  focus on texEdit; size-text min 4 ; draw text in correct pos
-    // selection pulling 1 not  ; rtf editor      ; border shape and select to 8 no 5;
-    // simple arrow square area double speed      ;add hex format; mouse correction
-    // fan effect               ; edit text on events;reset cursor
+    version_info = "0.9.12";
+    // 0.9.12: color eraser              ;  shape correction;  favorite color;
+    // cursor always cross for selection ;  correct bug save; save favorite ;
+    // open favorite
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -127,7 +127,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->yellowButton->setStyleSheet("background-color: yellow");
     ui->magentaButton->setStyleSheet("background-color: magenta");
     ui->cyanButton->setStyleSheet("background-color: cyan");
+    ui->prefColorButton->setStyleSheet("background-color: white");
 #endif
+
 
     readConfig();
 
@@ -222,15 +224,13 @@ QPixmap MainWindow::openPdf(QString fileName)
 
 void MainWindow::readConfig()
 {
+
     QString user = QDir::homePath();
-    configPath = user + "/AppData/Roaming/DrawishConfig.txt";
-    if(isLinux){
-        QDir c(user + "/.config");
-        if(!c.exists()){
-            c.mkdir(user + "/.config");
-        }
-        configPath = user + "/.config/DrawishConfig.txt";
+    QDir c(user + "/Drawish_Data");
+    if(!c.exists()){
+        c.mkdir(user + "/Drawish_Data");
     }
+    configPath = user + "/Drawish_Data/DrawishConfig.txt";
 
     fileIO fio;
     if(!QFile::exists(configPath)){
@@ -479,6 +479,7 @@ void MainWindow::savePix(QPixmap pixToSave, QString f)
     if(f.endsWith(".jpg", Qt::CaseInsensitive)){ pixToSave.save(f, "jpg");}
     else if(f.endsWith(".ico", Qt::CaseInsensitive)){ pixToSave.save(f, "ico");}
     else if(f.endsWith(".bmp", Qt::CaseInsensitive)){ pixToSave.save(f, "BMP");}
+    else if(f.endsWith(".png", Qt::CaseInsensitive)){ pixToSave.save(f, "png");}//0.9.12
     else{pixToSave.save(f + ".png", "PNG");}  // 0.9.10
 }
 
@@ -594,7 +595,11 @@ void MainWindow::untoggle()
     ui->similaritywidget->setVisible(false);
     ui->widgetPick->setVisible(false);
     // default mouse
-    wArea->setCursor(Qt::ArrowCursor);
+    if(sizes::activeOperation == 1){
+        wArea->setCursor(Qt::CrossCursor);
+    }else{
+        wArea->setCursor(Qt::ArrowCursor);
+    }
 }
 
 void MainWindow::deleteSel()
@@ -1205,7 +1210,8 @@ QPen MainWindow::configPen(QColor &ncol, int alpha)
     // 8 random green, 9 random blue
 
     int jColor= ui->comboPen->currentIndex();
-    if(jColor > 4){ // random
+
+    if(jColor > 4 && jColor < 10){ // random but not eraser
          quint32 red = QRandomGenerator::global()->bounded(128) ;
          quint32 green = QRandomGenerator::global()->bounded(128) ;
          quint32 blue = QRandomGenerator::global()->bounded(128) ;         
@@ -1217,7 +1223,7 @@ QPen MainWindow::configPen(QColor &ncol, int alpha)
          }
          ncol = QColor(red, green, blue);
     }
-    else if(jColor == 4){
+    else if(jColor == 4){ // fusion
 
         int df = sizes::line_width /2;
         int a = sizes::selX -df;
@@ -1255,12 +1261,13 @@ QPen MainWindow::configPen(QColor &ncol, int alpha)
 void MainWindow::drawWithPen(){
 
     updateInfo();
-    QPainter pai(&pix);
+
     QColor ncol = sizes::activeColor;
     QRegion reg(qMin(sizes::shape_x_begin,sizes::shape_x_end), qMin(sizes::shape_y_begin,sizes::shape_y_end), abs(sizes::shape_x_end-sizes::shape_x_begin), abs(sizes::shape_y_end-sizes::shape_y_begin));
 
     // stylus
     if(ui->comboPen->currentIndex()== 3){
+        QPainter pai(&pix);
         int corners = sizes::line_width / 2;
         QPen pen(configPen(ncol));
         pen.setWidth(0);
@@ -1271,8 +1278,13 @@ void MainWindow::drawWithPen(){
         poly << QPoint(sizes::shape_x_begin + corners, sizes::shape_y_begin + corners) << QPoint(sizes::shape_x_begin - corners, sizes::shape_y_begin - corners) << QPoint(sizes::shape_x_end - corners, sizes::shape_y_end - corners) << QPoint(sizes::shape_x_end + corners, sizes::shape_y_end + corners);
         pai.drawPolygon(poly);
         pai.setClipRegion(reg);
-    }else{
+    }
+    else if(ui->comboPen->currentIndex() == 10){
+        colorEraser();
+    }
+    else{
         // normal pen
+        QPainter pai(&pix);
         QPen pen(configPen(ncol));
         pai.setPen(pen);
         pai.drawLine(sizes::shape_x_begin, sizes::shape_y_begin, sizes::shape_x_end, sizes::shape_y_end);
@@ -1302,12 +1314,18 @@ void MainWindow::drawWithPen(){
 
 void MainWindow::draw_first_point()
 {
+
     if(sizes::activeOperation == 5){
         save_previous("Spray");
         return;
     }
     else{
-        save_previous(tr("Pen"));
+        if(ui->comboPen->currentIndex()== 10){
+            save_previous(tr("Color eraser"));
+            colorEraser();
+            return;
+        }
+        else{ save_previous(tr("Pen"));}
     }
     updateInfo();
     QPainter pai(&pix);
@@ -1319,6 +1337,26 @@ void MainWindow::draw_first_point()
     pai.drawPoint(sizes::shape_x_begin, sizes::shape_y_begin);
     pai.end();
     wArea->setPixmap(pix);
+}
+
+void MainWindow::colorEraser()
+{
+    int ax = sizes::shape_x_begin - (sizes::line_width/2);
+    int ay = sizes::shape_y_begin - (sizes::line_width/2);
+    int similarity= ui->similaritySlider->value();
+    QPixmap pxm = pix.copy(ax, ay, sizes::line_width, sizes::line_width );
+    QImage img = pxm.toImage();
+    for(int ix=0; ix < img.width(); ++ix){
+        for(int iy=0; iy < img.height(); ++iy){
+            if(isSimil(QColor(img.pixelColor(ix, iy)), sizes::activeColor, similarity)){
+                img.setPixelColor(ix, iy, fav);
+            }
+        }
+    }
+    pxm = QPixmap::fromImage(img);
+    QPainter p(&pix);
+    p.drawPixmap(ax, ay, pxm);
+    p.end();
 }
 
 
@@ -2507,7 +2545,7 @@ void MainWindow::on_actionbase64_triggered()
 
 void MainWindow::on_actionTo_Pdf_triggered()
 {
-    QString outName =QDir::homePath() + "/drawish";
+    QString outName =QDir::homePath() + "/Drawish_Data/drawish";
     if(activePathFile != ""){
         const QFileInfo info(activePathFile);
         outName =QDir::homePath() + "/" + info.fileName();
@@ -2931,4 +2969,45 @@ void MainWindow::on_rtfButton_clicked()
 void MainWindow::on_actionMouse_correctio_triggered(bool checked)
 {
     sizes::mouseCorrection = checked;
+}
+
+void MainWindow::on_actionSet_as_favorite_color_triggered()
+{
+    ui->prefColorButton->setStyleSheet("background-color:" + sizes::activeColor.name());
+    fav = sizes::activeColor;
+    // save to image
+    fileIO fio;
+    fio.saveFav_color(fav, QDir::homePath() + "/Drawish_Data/drawish_saved_colors.png");
+}
+
+
+void MainWindow::on_prefColorButton_clicked()
+{
+    set_activeColor(fav.red(), fav.green(), fav.blue(), 255);
+}
+
+
+void MainWindow::on_actionPick_color_from_an_image_triggered()
+{
+    if(QFile::exists(QDir::homePath() + "/Drawish_Data/drawish_saved_colors.png")){
+        QPixmap paletteImg(QDir::homePath() + "/Drawish_Data/drawish_saved_colors.png");
+        PickPalette pickPalette(paletteImg);
+        pickPalette.exec();
+        set_activeColor(pickPalette.pickd.red(),pickPalette.pickd.green(), pickPalette.pickd.blue(), 255);
+    }
+    else{QMessageBox::information(this, "Drawish", tr("No color saved"));}
+}
+
+
+void MainWindow::on_comboPen_highlighted(int index)
+{
+    QString tx= ui->comboPen->itemText(index);
+    ui->comboPen->setToolTip(tx);
+}
+
+
+void MainWindow::on_resetFavColorButton_clicked()
+{
+    ui->prefColorButton->setStyleSheet("background-color: #FFFFFF");
+    fav = Qt::white;
 }
