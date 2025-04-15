@@ -1,4 +1,4 @@
-# Drawish  0.9.11 
+# Drawish  0.9.12 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text and much more.  
 [See features](#features)  
@@ -24,6 +24,34 @@ sudo make install
 
 Or install and compile directly from **Qt Creator** on Windows, Mac, or Linux, without changing a single line of code!
 
+On some Linux systems you may need to download the following libraries:  
+apt install \
+    libfontconfig1-dev \  
+    libfreetype-dev \  
+    libx11-dev \  
+    libx11-xcb-dev \  
+    libxcb-cursor-dev \  
+    libxcb-glx0-dev \  
+    libxcb-icccm4-dev \  
+    libxcb-image0-dev \  
+    libxcb-keysyms1-dev \  
+    libxcb-randr0-dev \  
+    libxcb-render-util0-dev \  
+    libxcb-shape0-dev \  
+    libxcb-shm0-dev \  
+    libxcb-sync-dev \  
+    libxcb-util-dev \  
+    libxcb-xfixes0-dev \  
+    libxcb-xinerama0-dev \  
+    libxcb-xkb-dev \  
+    libxcb1-dev \  
+    libxext-dev \  
+    libxfixes-dev \  
+    libxi-dev \  
+    libxkbcommon-dev \  
+    libxkbcommon-x11-dev \  
+    libxrender-dev  
+
 #### USAGE
 You can open images from the" File->Open" menu. You can also drag a file on the drawing area, 
 paste an image from the clipboard ("Edit->Paste from clipboard") or from a file ("Edit->Paste from file").
@@ -34,6 +62,7 @@ The first color on the top left is the active color (default black). Change the 
 -by clicking on a quick color or on the + button  
 -from the "Image->Colors" menu and entering the rgb values ​​manually  
 -using the pick color on the image.  
+-From saved colors.  
 
 When you select an option it will be active for the drawing area,
 when you deselect it, it will no longer be active and any
@@ -95,6 +124,12 @@ You can use the **"fusion"** pen to draw with a color obtained by merging the pi
 The fusion pen can replace the blur effect or can be used for artistic effects.
 [video](https://drive.google.com/file/d/15WTKDzYWJppr3aST-LWUw6-EzQZaqXTG/view?usp=sharing)  
 [video](https://drive.google.com/file/d/1KDGYqUujZeACzwIT4wNfv6htVcOB51Dh/view?usp=sharing)
+
+#### Color eraser
+Click the [pen] button. In the panel that appears above the drawing area select "Erase by color similaraty defined in fill".  
+When the cursor moves over the active color, it will be replaced by the preferred color.  
+To replace it with white, reset the preferred color with the appropriate button.  
+To perform the similarity replacement, enter the "Fill" function, move the "similarity" bar and then return to the "Pen" function.  
 
 #### Text
 Click the [text] button, and **click a point** in the drawing area. 
@@ -174,19 +209,25 @@ The real-time display of the bezier curve is not available.
 Click the [connected curves] button.
 click 4 points of the image to draw the first curve, the following ones will be connected.  
 
+#### Color management
+From the [Image->Colors] menu you can perform additional operations on colors.  
+You can create a color by entering rgb values ​​from the keyboard, create gradients and replace pixels based on complex options.  
+You can also get the hexadecimal value of the color.  
+[video](https://drive.google.com/file/d/1PJ-7u52q-H2AVHOg521qymgIlQxkHiOt/view?usp=sharing)  
+[video](https://drive.google.com/file/d/1A_yMq7SHWH1n-Yu3GsRULe9LDZ2Vc3gg/view?usp=sharing)
+
+#### Favorite colors
+From the menu [Image-> Set as favorite color] the active color is saved in an image and made available in the color palette as an additional color.  
+The favorite color is also used for the "color eraser" function. The little button next to the favorite color resets it.  
+The colors are saved in the file "<user>/Drawish_Data/drawish_saved_colors.png".  
+From this file it is very simple to pick a color. From the [Image -> Pick from favorites] menu click on a color. This will become the active color.
+
+#### Color balance
+See Pick color.  
+[video](https://drive.google.com/file/d/1M87q7asCIgoTUkzosI1L7IYRID0MK-JZ/view?usp=sharing)  
+
 #### Charts
 Select the [Charts] menu and choose a chart type. Enter positive values ​​(one per line) in the box that opens.  
-
-#### Undo/Redo
-In the top left selection box you can navigate through the history of
-the last 15 changes. You can also use the ctrl-Z key combination to go back.   
-To return to the left image, press the top left button [Redo].  
-If a change is made from a previous image, the left image will no longer be available.
-
-#### Restore point
-You can save a restore point from the [image->Set as restore point] menu. Any previous points will be deleted.  
-Go back to the saved point at any time from the [Image->Restore] menu.  
-Cancel the operation with ctrl-Z or undo
 
 #### Zoom
 [video](https://drive.google.com/file/d/1exjhHi0g1fYensnA7L1kjqlH964XHt0q/view?usp=sharing)  
@@ -218,27 +259,12 @@ If you don't know how many degrees to rotate the image, start the automatic rota
 To mirror the image go to the "Image->Mirror horizontally "or "Image->Mirror vertically" menu.  
 [video](https://drive.google.com/file/d/1M5SMg7tclV4CMdQZlDANKdyLmEfvo7yT/view?usp=sharing)
 
-#### Sizes
-From the" Sizes->Sizes" menu you can scale or resize the image based on manually entered values.  
-You can also create a selection manually.  
-
-#### Color balance
-See Pick color.  
-[video](https://drive.google.com/file/d/1M87q7asCIgoTUkzosI1L7IYRID0MK-JZ/view?usp=sharing)  
-
 #### Effects
 From the "Image->Effects" menu a window opens that allows you to apply effects to the image in the selection.  
 If there is no selection, the effects are applied to the entire image.  
 After each change, click the [Update] button to make the changes effective, or select the "update automatically" 
 checkbox if the function allows it.
 Click [OK] to apply the new image or [Cancel] to abort the changes.
-
-#### Color management
-From the [Image->Colors] menu you can perform additional operations on colors.  
-You can create a color by entering rgb values ​​from the keyboard, create gradients and replace pixels based on complex options.  
-You can also get the hexadecimal value of the color.  
-[video](https://drive.google.com/file/d/1PJ-7u52q-H2AVHOg521qymgIlQxkHiOt/view?usp=sharing)  
-[video](https://drive.google.com/file/d/1A_yMq7SHWH1n-Yu3GsRULe9LDZ2Vc3gg/view?usp=sharing)
 
 #### Stretch Area
 From the "Image->Stretch area", you can open a window to distort the edges of the selected image.
@@ -251,6 +277,10 @@ The effects allow you to reduce the image to grayscale, invert the colors,
 reduce to rgb (eliminates the minority channels and keeps only the prevalent one),
 mirror the image, give sepia effect.
 
+#### Sizes
+From the" Sizes->Sizes" menu you can scale or resize the image based on manually entered values.  
+You can also create a selection manually.  
+
 #### Camera
 A camera is a delimited area of ​​the image, whose dimensions
 are defined by the user, and which can be saved in a file.  
@@ -261,11 +291,22 @@ Delete the camera from the" Camera->Delete camera " menu.
 You can save the framed image in base64 format to the clipboard from the "Camera->To base64" menu. 
 [Video](https://drive.google.com/file/d/1nAk2Pm1FmSXZ3rD-pW398qp9vDhU7IQS/view?usp=sharing)
 
+#### Undo/Redo
+In the top left selection box you can navigate through the history of
+the last 15 changes. You can also use the ctrl-Z key combination to go back.   
+To return to the left image, press the top left button [Redo].  
+If a change is made from a previous image, the left image will no longer be available.
+
+#### Restore point
+You can save a restore point from the [image->Set as restore point] menu. Any previous points will be deleted.  
+Go back to the saved point at any time from the [Image->Restore] menu.  
+Cancel the operation with ctrl-Z or undo
+
 #### Saving
 Images are saved in png format.  
 To save in jpg, ico or bmp format, enter the extension to the file name
 in the save window.  
-You can directly save the image to **PDF** from the "File->To PDF" menu.
+You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" folder.  
 For base64 format, see previous chapter.
 
 #### Features
@@ -298,10 +339,12 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟣️ mouse correction  
 🟣️ many effects  
 🟣️ fill for similarity  
+🟣️ eraser for color by similarity  
 🟣️ grid and pixel color replacement with simple right clicks  
 🟣️ multicolor pen  
 🟣️ fusion pen  
 🟣️ fan effect  
+🟣️ favorite colors  
 🟣️ copy selection to the program, not only to clipboard  
 🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
 
