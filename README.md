@@ -165,8 +165,7 @@ active color.
 If the [color balance] check box is checked, you can balance the colors of the image based on the selected color and the active color. 
 For example, if you want to balance the white, you will have to set white as the active color and click on a color in the image that should be white, but is not.
 [video](https://drive.google.com/file/d/1M87q7asCIgoTUkzosI1L7IYRID0MK-JZ/view?usp=sharing)  
-Click on the pick button again to proceed.
-with other operations.
+Click on the pick button again to proceed with other operations.
 
 #### Line
 Click the [line] button and then on the point in the image
@@ -221,7 +220,7 @@ You can also get the hexadecimal value of the color.
 From the menu [Image-> Set as favorite color] the active color is saved in an image and made available in the color palette as an additional color.  
 The favorite color is also used for the "color eraser" function. The little button next to the favorite color resets it.  
 The colors are saved in the file "<user>/Drawish_Data/drawish_saved_colors.png".  
-From this file it is very simple to pick a color. From the [Image -> Pick from favorites] menu click on a color. This will become the active color.  
+From this file is very simple to pick a color. From the [Image -> Pick from favorites] menu click on a color. This will become the active color.  
 [video](https://drive.google.com/file/d/1SB7doXszCFuWpwYHjILtjKa0UpjAFG5z/view?usp=sharing)
 
 #### Color balance
@@ -238,14 +237,14 @@ Right-click on a point of the image, the pixel matrix will appear enlarged for t
 the vicinity of the cursor. Clicking on a zoomed pixel with the
 **right** mouse button, it will be replaced with the active color, or draw with the active color by holding down the right mouse button.  
 Clicking with the **left** mouse button, to get information about the rgb color of the pixel.  
-Remove the enlarged area with another right-click on the image. To reduce the image again, use scaling in this case.
+Remove the enlarged area with another right-click on the image. 
 
 ##### Double the pixels or Increase by 10%.
 If there is an active selection these functions applies to the selection, otherwise they applie to the entire image.
 From the "Sizes->Quadruple the pixel" menu you can get a new image with the pixels doubled in width and height. 
 The image can be enlarged several times without loss of quality, but it is not a zoom, but a new image.
 In the same way, to divide the pixels, use the **"Sizes->Divide by 4"** menu.
-From the "Sizes->Increment 10%" menu you can increase image size by 10% without loss.
+From the "Sizes->Increment 10%" menu you can increase image size by 10% without loss. To reduce the image again, use scaling in this case.
 
 ##### Scaling
 Increase the image size by scaling it from the menu "Sizes->Sizes" with loss of quality.  
@@ -309,7 +308,7 @@ Images are saved in png format.
 To save in jpg, ico or bmp format, enter the extension to the file name
 in the save window.  
 You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" folder.  
-For base64 format, see previous chapter.
+For base64 format, see "Camera" chapter.
 
 #### Features
 Here are some of Drawish's unique features (The most common functions are omitted):  
