@@ -4,6 +4,7 @@ It also allows you to modify existing images, open pdf as images in Linux, draw 
 [See features](#features)  
 
 ![Image](https://drive.google.com/uc?export=view&id=1cCwyNsqHtCa5vpfMm4IuztqkTI0Dj-Wy)  
+![Image](https://drive.google.com/uc?export=view&id=13neZoaokNAvgTob2PyyN_iQvlGlBkE80)
 
 
 ### PRECOMPILED PACKAGES:
