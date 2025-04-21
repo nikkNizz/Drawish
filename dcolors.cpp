@@ -223,19 +223,20 @@ void dColors::on_pushButton_clicked()// gradient
                   QBrush brush(gradient);
                   QPainter p(&origPix);
                   p.setBrush(brush);
-                  p.drawRect(0,0, origPix.width()-1, origPix.height()-1);
+                  p.drawRect(-1,-1, origPix.width()+1, origPix.height()+1);
                   p.end();
                   newPix = origPix;
               }
               else if(ui->RadialRadio->isChecked()){
                   int radius = qMin(Img.width(), Img.height());
-                  QRadialGradient gradient(QPoint(Img.width()/2, Img.height()/2), radius/2);
+                  QRadialGradient gradient(QPoint(Img.width()/2, Img.height()/2), radius/2);                  
                   gradient.setColorAt(0, QColor(startR, startG, startB));
                   gradient.setColorAt(1, QColor(endR, endG, endB));
                   QBrush brush(gradient);
+
                   QPainter p(&origPix);
                   p.setBrush(brush);
-                  p.drawRect(0,0, origPix.width()-1, origPix.height()-1);
+                  p.drawRect(-1,-1, origPix.width()+1, origPix.height()+1);
                   p.end();
                   newPix = origPix;
               }
