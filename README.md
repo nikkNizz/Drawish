@@ -77,7 +77,7 @@ If you launch the program from the command line, you can also add the path of an
 
 For Italian users: you can run Drawish in English by adding the "en" parameter.   
  `/path/Drawish-x86_64.Appimage en`  or  
- `/path/Drawish-x86_64.Appimageh /path/to/image en`  
+ `/path/Drawish-x86_64.Appimage /path/to/image en`  
 
 #### Open Pdf
 It is possible to open pdf as images, dragging them onto the drawing area, or from the menu, or from the command line.   
