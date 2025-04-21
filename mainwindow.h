@@ -4,6 +4,7 @@
 #include "savecam.h"
 #include <QMainWindow>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -264,6 +265,8 @@ private slots:
 
 
   void on_resetFavColorButton_clicked();
+
+  void on_actionDesktop_shortcut_triggered();
 
   private:
     Ui::MainWindow *ui;
