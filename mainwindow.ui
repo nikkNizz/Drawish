@@ -36,6 +36,12 @@
       <height>331</height>
      </rect>
     </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
     <property name="widgetResizable">
      <bool>true</bool>
     </property>
@@ -5248,7 +5254,7 @@
      <x>0</x>
      <y>0</y>
      <width>790</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -5273,6 +5279,7 @@
     <addaction name="menuRecent"/>
     <addaction name="menuLinks"/>
     <addaction name="actionAdd_link"/>
+    <addaction name="actionDesktop_shortcut"/>
     <addaction name="actionClose"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
@@ -5610,6 +5617,15 @@
   <action name="actionPick_color_from_an_image">
    <property name="text">
     <string>Pick from favorites</string>
+   </property>
+  </action>
+  <action name="actionDesktop_shortcut">
+   <property name="icon">
+    <iconset resource="Drawish.qrc">
+     <normaloff>:/res/draw.png</normaloff>:/res/draw.png</iconset>
+   </property>
+   <property name="text">
+    <string>Desktop shortcut</string>
    </property>
   </action>
  </widget>
