@@ -39,6 +39,7 @@
 #include <QPrinter>
 #include <QProcess>
 #include <QTimer>
+#include <QScrollBar>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -46,10 +47,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "0.9.12";
-    // 0.9.12: color eraser              ;  shape correction;  favorite color;
-    // cursor always cross for selection ;  correct bug save; save favorite ;
-    // open favorite
+    version_info = "0.9.13";
+    // 0.9.13: bug cursor       ; addToRecent after 'save as'  ; no border after gradients
+    // updateinfo after keypress; paste at scrollbars position ; shortcut for appimage & Windows
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -388,7 +388,7 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
        }
        historyCount++;
    }
-
+   updateInfo();
 }
 
 void MainWindow::closeEvent(QCloseEvent *ev)
@@ -682,6 +682,7 @@ void MainWindow::on_actionSave_as_triggered()
     QFileDialog dialog(this);
     QString f =dialog.getSaveFileName(this, tr("Drawish save image"), QDir::homePath());
     if(f ==""){return;}
+    addToRecent(f);
     savePix(pix, f);
 }
 
@@ -706,7 +707,6 @@ void MainWindow::on_undoButton_clicked()
 void MainWindow::on_selectionAreaButton_clicked()
 {
     if(sizes::activeOperation==1){ // deactivate
-
         sizes::activeOperation=0;
         wArea->setCursor(Qt::ArrowCursor);
         if(sizes::isSelectionOn){
@@ -844,8 +844,8 @@ void MainWindow::pasteImg(QPixmap passedPix)
     if(wi > wArea->width()){ sizes::areaWidth = wi+8;}
     if(he > wArea->height()){sizes::areaHeight = he+8;}
     reSize();
-    sizes::selX =0;
-    sizes::selY =0;
+    sizes::selX =ui->scrollArea->horizontalScrollBar()->value();
+    sizes::selY =ui->scrollArea->verticalScrollBar()->value();
     sizes::selH = he;
     sizes::selW = wi;
 
@@ -865,6 +865,8 @@ void MainWindow::pasteImg(QPixmap passedPix)
     if((sizes::selW * sizes::selH) > (sizes::areaWidth * sizes::areaHeight * 0.6) ){
         QMessageBox::information(this, "Drawish", tr("The image is in a selection"));
     }  // 0.9.10
+    //ui->scrollArea->ensureVisible(0,0);
+
     raiseBorders();
 }
 
@@ -1022,10 +1024,9 @@ void MainWindow::on_drawTextButton_clicked()
         sizes::isSelectionOn=false;
         drawCopy();
     }
-    wArea->setCursor(Qt::ArrowCursor);
-
     if(ui->drawTextButton->isChecked()){
         untoggle();
+        wArea->setCursor(Qt::ArrowCursor);
         ui->drawTextButton->setChecked(true);
         sizes::activeOperation = 2;
         ui->textOptionsWidget->setVisible(true);
@@ -1366,9 +1367,9 @@ void MainWindow::on_conn_Curve_clicked()
         sizes::isSelectionOn=false;
         drawCopy();
     }
-    wArea->setCursor(Qt::ArrowCursor);
     if(ui->conn_Curve->isChecked()){
         untoggle();
+        wArea->setCursor(Qt::ArrowCursor);
         ui->conn_Curve->setChecked(true);
         sizes::activeOperation = 10;
         sizes::shape_x_begin = -1;
@@ -1419,10 +1420,9 @@ void MainWindow::on_fillButton_clicked()
         sizes::isSelectionOn=false;
         drawCopy();
     }
-
-    wArea->setCursor(Qt::ArrowCursor);
     if(ui->fillButton->isChecked()){
         untoggle();
+        wArea->setCursor(Qt::ArrowCursor);
         ui->fillButton->setChecked(true);
         sizes::activeOperation = 4;
         ui->similaritywidget->setVisible(true);
@@ -1613,11 +1613,12 @@ void MainWindow::on_pickerButton_clicked()
         sizes::isSelectionOn=false;
         drawCopy();
     }
-    wArea->setCursor(Qt::ArrowCursor);
+
     if(ui->pickerButton->isChecked()){
         untoggle();
         ui->pickerButton->setChecked(true);
         ui->widgetPick->setVisible(true);
+        wArea->setCursor(Qt::ArrowCursor);
         sizes::activeOperation = 6;
     }else{
         ui->widgetPick->setVisible(false);
@@ -1666,9 +1667,10 @@ void MainWindow::on_lineButton_clicked()
         sizes::isSelectionOn=false;
         drawCopy();
     }
-    wArea->setCursor(Qt::ArrowCursor);
+
     if(ui->lineButton->isChecked()){
         untoggle();
+        wArea->setCursor(Qt::ArrowCursor);
         ui->lineButton->setChecked(true);
         sizes::activeOperation = 7;
         ui->lineOptionWidget->setVisible(true);
@@ -1758,10 +1760,10 @@ void MainWindow::on_shapeButton_clicked()
     if(sizes::isSelectionOn){
         sizes::isSelectionOn=false;
         drawCopy();
-    }
-    wArea->setCursor(Qt::ArrowCursor);
+    }   
     if(ui->shapeButton->isChecked()){
         untoggle();
+         wArea->setCursor(Qt::ArrowCursor);
         ui->shapeButton->setChecked(true);
         sizes::activeOperation = 8;
         ui->lineOptionWidget->setVisible(true);
@@ -1801,9 +1803,10 @@ void MainWindow::on_connLine_clicked()
         sizes::isSelectionOn=false;
         drawCopy();
     }
-    wArea->setCursor(Qt::ArrowCursor);
+
     if(ui->connLine->isChecked()){
         untoggle();
+        wArea->setCursor(Qt::ArrowCursor);
         ui->connLine->setChecked(true);
         sizes::activeOperation = 11;
         sizes::shape_x_begin = -1;
@@ -1848,9 +1851,9 @@ void MainWindow::on_curveButton_clicked()
         sizes::isSelectionOn=false;
         drawCopy();
     }
-    wArea->setCursor(Qt::ArrowCursor);
     if(ui->curveButton->isChecked()){
         untoggle();
+        wArea->setCursor(Qt::ArrowCursor);
         ui->curveButton->setChecked(true);
         sizes::activeOperation = 9;
         ui->lineOptionWidget->setVisible(true);
@@ -3010,4 +3013,96 @@ void MainWindow::on_resetFavColorButton_clicked()
 {
     ui->prefColorButton->setStyleSheet("background-color: #FFFFFF");
     fav = Qt::white;
+}
+
+
+void MainWindow::on_actionDesktop_shortcut_triggered()
+{
+#ifdef Q_OS_LINUX
+    // find my process
+    QByteArray result;
+    QProcess proc;
+    QStringList args;
+    args << "-n" << "1" << "-bc" << "-w" << "500";
+    proc.start("top", args);
+    bool started = proc.waitForStarted();
+    proc.waitForFinished();
+    result = proc.readAllStandardOutput();
+    QString res = result;
+    // search .appimage
+    QStringList processes = res.split("\n");
+    args.clear();
+    QString d="";
+    foreach (QString r, processes) {
+        if(r.endsWith(".appimage", Qt::CaseInsensitive)){
+            if(r.contains("drawish", Qt::CaseInsensitive)){
+                int idx = r.indexOf("/");
+                d = r.mid(idx, r.length()-idx);
+                args.push_back(d);
+            }
+        }
+    }
+    if(args.count() == 0){
+        QMessageBox::information(this, "Drawish", tr("Add the name Drawish and the suffix .AppImage to the program"));
+        return;
+    }
+    else if(args.count() > 1){
+        QMessageBox::information(this, "Drawish", tr("Keep only one instance of Drawish open."));
+        return;
+    }
+
+    //   create icon
+    QString pathIco=QDir::homePath() + "/.local/share/icons/drawish.png";
+    QDir myApp;
+    QPixmap ikon(":/res/draw.png");
+    if(!myApp.exists(QDir::homePath() + "/.local/share/icons")){
+        myApp.mkdir(QDir::homePath() + "/.icons");
+        pathIco = QDir::homePath() + "/.icons/drawish.png";
+        ikon.save(pathIco, "PNG");
+    }
+    else{
+        if(QFile::exists(QDir::homePath() + "/.local/share/icons/drawish.png")== false){
+            ikon.save(QDir::homePath() + "/.local/share/icons/drawish.png", "PNG");        }
+    }
+    //  create desktop file
+
+    QString desk="[Desktop Entry]\nVersion=1.0\nType=Application\nName=Drawish\nComment=Simple and complete drawing app\nExec=" + args.at(0) + " %F\nIcon=" + pathIco + "\nCategories=Graphics\nTerminal=false\nStartupNotify=false" ;
+    fileIO fio;
+    fio.createFile(desk, QDir::homePath() + "/.local/share/applications/Drawish.desktop");
+    QMessageBox::information(this, "Drawish", tr("Add Drawish to menu"));
+
+#endif
+
+#ifdef Q_OS_WIN
+    // create vbscript
+    // find path
+    QString myPathApp =QCoreApplication::applicationDirPath();
+    QString myFilePath = QCoreApplication::applicationFilePath();
+    // create icon
+    QPixmap icona(":/res/draw.png");
+    if(!QFile::exists(myPathApp + "/drawish.ico")){
+        icona.save(myPathApp + "/drawish.ico", "ico");
+    }
+
+    // create vbscript
+    QString vbs ="set ws= WScript.CreateObject(\"WScript.shell\")\n";
+    vbs += "strD = ws.SpecialFolders(\"Desktop\")\n";
+    vbs += "set ossl= ws.CreateShortcut(strD & \"\\Drawish.lnk\")\n";
+    QString myPath2 = myPathApp.replace("/","\\");
+    vbs += "ossl.IconLocation = \"" + myPath2 + "\\drawish.ico\"\n";
+    myPathApp.replace("\\","/");
+    myPath2 = myFilePath.replace("/", "\\");
+    vbs += "ossl.TargetPath = \"" + myPath2 + "\"\n";
+
+    vbs += "ossl.WindowStyle = 1\nossl.Save";
+    // create file
+    fileIO fio;
+    fio.createFile(vbs, myPathApp + "/desktopShortcut.vbs" );
+
+    // launch vbs
+    QDesktopServices::openUrl(myPathApp + "/desktopShortcut.vbs");
+    QMessageBox::information(this, "Drawish", tr("Add Drawish to desktop"));
+
+#endif
+
 }
