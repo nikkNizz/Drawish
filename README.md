@@ -1,4 +1,4 @@
-# Drawish  0.9.12 
+# Drawish  0.9.13 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text and much more.  
 [See features](#features)  
@@ -8,7 +8,8 @@ It also allows you to modify existing images, open pdf as images in Linux, draw 
 
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.12) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.13) page of this project.  
+From the [File -> Desktop shortcut] menu, a menu item is created in Linux or a desktop shortcut in Windows.
 
 ### COMPILE FROM SOURCE (LINUX):
 Download and unzip the project.  
@@ -71,12 +72,12 @@ pending operations will be deleted.
 
 #### Command line
 If you launch the program from the command line, you can also add the path of an image.  
- `/path/Drawish_package/usr/drawish.sh`  or  
- `/path/Drawish_package/usr/drawish.sh /path/to/image`  
+ `/path/Drawish-x86_64.Appimage`  or  
+ `/path/Drawish-x86_64.Appimage /path/to/image`  
 
 For Italian users: you can run Drawish in English by adding the "en" parameter.   
- `/path/Drawish_package/usr/drawish.sh en`  or  
- `/path/Drawish_package/usr/drawish.sh /path/to/image en`  
+ `/path/Drawish-x86_64.Appimage en`  or  
+ `/path/Drawish-x86_64.Appimageh /path/to/image en`  
 
 #### Open Pdf
 It is possible to open pdf as images, dragging them onto the drawing area, or from the menu, or from the command line.   
