@@ -11,6 +11,8 @@ class curveLineArea : public QLabel
 public:     
     explicit curveLineArea(QWidget *parent = nullptr);
     void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
 
 signals:
     void finishCurve();
