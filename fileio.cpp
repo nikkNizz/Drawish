@@ -5,7 +5,7 @@
 #include <QDir>
 #include <qpainter.h>
 #include <qpixmap.h>
-#include<QFile>
+
 
 fileIO::fileIO() {}
 
