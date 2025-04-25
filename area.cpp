@@ -68,7 +68,7 @@ void Area::mousePressEvent(QMouseEvent *event)
         sizes::selY = event->pos().y();
         emit getColor();
     }
-    else if(sizes::activeOperation == 7 || sizes::activeOperation == 8 ){ // line shape
+    else if(sizes::activeOperation == 8 ){ // line shape
         if(sizes::isShapeOn == false ){
           sizes::selX = event->pos().x();
           sizes::selY = event->pos().y();
