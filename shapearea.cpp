@@ -29,7 +29,6 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
     int x = event->pos().x();
     int y = event->pos().y();
 
-
     if(!pressed){
         if(x < 8 ){ this->setCursor(Qt::OpenHandCursor); whereExp="left";}
         else if(x > this->width()-8){this->setCursor(Qt::OpenHandCursor); whereExp="right";}
@@ -40,9 +39,9 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
         if(whereExp == "move"){
            sizes::selX  = event->globalPosition().x()-diffx;
            sizes::selY  = event->globalPosition().y()-diffy;
-           if(sizes::activeOperation == 7){
-               redrawLine(x, y, sizes::shape_x_begin, sizes::shape_y_begin);
-           }
+           // if(sizes::activeOperation == 7){
+           //     redrawLine(x, y, sizes::shape_x_begin, sizes::shape_y_begin);
+           // }
            resetGeometry();
         }
         else if(whereExp== "top"  ){
@@ -50,24 +49,15 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
            sizes::selH = sizes::selH + incY;
            sizes::selY = event->globalPosition().y()-diffy;
            resetGeometry();
-           if(sizes::activeOperation == 7){
-              sizes::shape_y_begin += incY;
-              redrawLine(x, y, sizes::shape_x_begin, sizes::shape_y_begin);
-           }else{
-               //sizes::shape_x_end = x;
-               drawSomething();
-           }
+           drawSomething();
+
         }
 
         else if(whereExp== "bottom" ){
            sizes::selH = y;
            resetGeometry();
-           if(sizes::activeOperation == 7){
-               redrawLine(x, y, sizes::shape_x_begin, sizes::shape_y_begin);
-            }else{
-               //sizes::shape_x_end = x;
-               drawSomething();
-           }
+           drawSomething();
+
         }
 
         else if(whereExp== "left" ){
@@ -76,24 +66,15 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
            sizes::selX = event->globalPosition().x()-diffx;
 
            resetGeometry();
-           if(sizes::activeOperation == 7){
-              sizes::shape_x_begin += incX;
-              redrawLine(x, y, sizes::shape_x_begin, sizes::shape_y_begin);
-            }else{
-               //sizes::shape_y_end = y;
-               drawSomething();
-           }
+           drawSomething();
+
 
         }
         else if(whereExp== "right" ){
            sizes::selW = x;
            resetGeometry();
-           if(sizes::activeOperation == 7){
-              redrawLine(x, y, sizes::shape_x_begin, sizes::shape_y_begin);
-           }else{
-               //sizes::shape_y_end = y;
-               drawSomething();
-           }
+           drawSomething();
+
         }
     }
     preX=x; preY=y;
@@ -114,18 +95,18 @@ void shapeArea::resetGeometry()
     this->setGeometry(sizes::selX, sizes::selY, sizes::selW, sizes::selH);
 }
 
-void shapeArea::redrawLine(int to_x, int to_y, int from_x,int from_y )
-{
-    if(this->width() < 5 || this->height() < 5)return;
-    QPixmap npix(sizes::selW, sizes::selH);
-    npix.fill(QColor(255,255,255,0));
-    QPainter p(&npix);
-    QPen pen2(sizes::activeColor);
-    pen2.setWidth(sizes::line_width);
-    p.setPen(pen2);
-    p.drawLine(from_x, from_y, to_x, to_y);
-    this->setPixmap(npix);
-}
+// void shapeArea::redrawLine(int to_x, int to_y, int from_x,int from_y )
+// {
+//     if(this->width() < 5 || this->height() < 5)return;
+//     QPixmap npix(sizes::selW, sizes::selH);
+//     npix.fill(QColor(255,255,255,0));
+//     QPainter p(&npix);
+//     QPen pen2(sizes::activeColor);
+//     pen2.setWidth(sizes::line_width);
+//     p.setPen(pen2);
+//     p.drawLine(from_x, from_y, to_x, to_y);
+//     this->setPixmap(npix);
+// }
 
 QBrush shapeArea::bru()
 {
