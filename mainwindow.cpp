@@ -47,9 +47,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "0.9.13";
-    // 0.9.13: bug cursor       ; addToRecent after 'save as'  ; no border after gradients
-    // updateinfo after keypress; paste at scrollbars position ; shortcut for appimage & Windows
+    version_info = "0.9.14";
+    // 0.9.14: line traditional ; undo scale in combo; correct resize when curvearea
+    // config    ;
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -238,11 +238,10 @@ void MainWindow::readConfig()
     }
 
     QString config = fio.readFile(configPath);
-    int init = config.indexOf("<recent>",0, Qt::CaseInsensitive) + 8;
-    int endit = config.indexOf("</recent>", init,Qt::CaseInsensitive);
-    configRecent = config.mid(init, endit-init);
+
+    configRecent = midstring(config, "recent");
+    if(configRecent != ""){
     QStringList recents = configRecent.split("\n");
-    if(recents.count() > 0){
     // create actions
     int maxR = recents.count();
     if(maxR > 10) maxR = 10;
@@ -257,11 +256,10 @@ void MainWindow::readConfig()
         }
     }
     }
-    init = config.indexOf("<links>",0, Qt::CaseInsensitive) + 7;
-    endit = config.indexOf("</links>", init,Qt::CaseInsensitive);
-    configLinks =config.mid(init, endit-init);
+
+    configLinks =midstring(config, "links");
+    if(configLinks != ""){
     QStringList links = configLinks.split("\n");
-    if(links.count() > 0){
         // create actions
         int maxR = links.count();
         if(maxR > 10) maxR = 10;
@@ -276,6 +274,38 @@ void MainWindow::readConfig()
             }
         }
     }
+    // set values if present
+
+    QString k = midstring(config, "penWidth");
+    if(k == "")  k = "6";
+    ui->lineWidthBox->setValue(k.toInt());
+    k = midstring(config, "textSize");
+    if(k.toInt() == 0) k = "16";
+    ui->sizeLine->setText(k);
+    k = midstring(config, "textFont");
+    if(k != ""){
+    for(int i=0; i < ui->fontComboBox->count(); ++i){
+        if(ui->fontComboBox->itemText(i) == k){
+            ui->fontComboBox->setCurrentFont(k);
+            break;
+        }
+    }
+    }
+    k = midstring(config, "textStyle");
+    if(k.contains("b", Qt::CaseInsensitive)){ ui->boldButton->setChecked(true);}
+    if(k.contains("i", Qt::CaseInsensitive)){ ui->italicButton->setChecked(true);}
+    if(k.contains("u", Qt::CaseInsensitive)){ ui->underlineButton->setChecked(true);}
+    k = midstring(config, "degrees");
+    if(k.toInt() > 0 && k.toInt() < 360){ ui->RotatioAngleSpin->setValue(k.toInt());}
+
+}
+
+QString MainWindow::midstring(QString from, QString tag)
+{
+    int init = from.indexOf("<" + tag + ">", 0, Qt::CaseInsensitive) + tag.length()+2;
+    int endit = from.indexOf("</" + tag + ">", 0, Qt::CaseInsensitive);
+    if(init == -1 || endit == -1) return "";
+    return from.mid(init, endit-init);
 }
 
 void MainWindow::open_file()
@@ -394,14 +424,25 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
 void MainWindow::closeEvent(QCloseEvent *ev)
 {
     if(activePathFile != "")  addToRecent(activePathFile);
+    // save some values: penWidth, textSize, textFont, textStyle, degrees
+    QString val="\n<penWidth>" + QString::number(sizes::line_width) + "</penWidth>\n";
+    val += "<textSize>" + ui->sizeLine->text() + "</textSize>\n";
+    val += "<textFont>" + ui->fontComboBox->currentText() + "</textFont>\n";
+    QString textstyle ="";
+    if(ui->boldButton->isChecked()) textstyle += "b";
+    if(ui->italicButton->isChecked()) textstyle += "i";
+    if(ui->underlineButton->isChecked()) textstyle += "u";
+    val += "<textStyle>" + textstyle + "</textStyle>\n";
+    val +=  "<degrees>" + QString::number(ui->RotatioAngleSpin->value()) + "</degrees>";
+
     fileIO fio;
-    fio.createFile("<recent>" + configRecent + "</recent><links>" + configLinks + "</links>" , configPath);
+    fio.createFile("<recent>" + configRecent + "</recent><links>" + configLinks + "</links>" + val , configPath);
 
     if(sizes::modify){
         int q = QMessageBox::question(this, "Drawish", tr("Save image?"),QMessageBox::Yes| QMessageBox::No | QMessageBox::Cancel );
         if(q == QMessageBox::Yes){
             imgSave();
-            fio.createFile("<recent>" + configRecent + "</recent><links>" + configLinks + "</links>" , configPath);
+            fio.createFile("<recent>" + configRecent + "</recent><links>" + configLinks + "</links>" + val, configPath);
         }
         else if(q==QMessageBox::Cancel){ev->ignore();}
         else{ev->accept();}
@@ -420,7 +461,12 @@ void MainWindow::reSize()
    sizes::startResize=true;
    areaSize();
    if(sizes::isCurveLineAreaOn){
-       cl_area->setGeometry(0,0, sizes::areaWidth, sizes::areaHeight);
+       if(sizes::activeOperation == 7 || sizes::activeOperation == 11){
+           finish_lines();
+       }
+       else if(sizes::activeOperation == 10){
+           finish_curve();
+       }
    }
    QPixmap pix2(sizes::areaWidth-8, sizes::areaHeight-8);
    pix2.fill(Qt::white);
@@ -1041,6 +1087,7 @@ void MainWindow::on_drawTextButton_clicked()
 
 void MainWindow::on_textEdit_textChanged()
 {
+    if(sizes::activeOperation !=2) return; // prevent crash at start
     if(!sizes::isSelectionOn){
         wArea->setFocus();
         QMessageBox::information(this, "Drawish", tr("Click a point on the canvas, before"));
@@ -1208,7 +1255,7 @@ void MainWindow::on_penButton_clicked()
 QPen MainWindow::configPen(QColor &ncol, int alpha)
 {
     // combopen: 0 round, 1 square, 2 flat, 3 nib, 4 fusion 5 rand round, 6 random square, 7 random red
-    // 8 random green, 9 random blue
+    // 8 random green, 9 random blue, 10 eraser
 
     int jColor= ui->comboPen->currentIndex();
 
@@ -1282,7 +1329,7 @@ void MainWindow::drawWithPen(){
     }
     else if(ui->comboPen->currentIndex() == 10){
         colorEraser();
-    }
+    }   
     else{
         // normal pen
         QPainter pai(&pix);
@@ -1290,10 +1337,10 @@ void MainWindow::drawWithPen(){
         pai.setPen(pen);
         pai.drawLine(sizes::shape_x_begin, sizes::shape_y_begin, sizes::shape_x_end, sizes::shape_y_end);
         pai.setClipRegion(reg);
-
     }
+
     if(ui->wingsButton->isChecked()){
-        if(sizes::shape_x_begin > sizes::shape_x_end){
+        if(sizes::shape_x_begin  > sizes::shape_x_end){
             sizes::shape_x_begin--;
         }else{
             sizes::shape_x_begin++;
@@ -1660,7 +1707,7 @@ void MainWindow::get_color()
 
 //--------------------------------------------------------------------------------------------
 
-// shapes
+// line
 void MainWindow::on_lineButton_clicked()
 {
     if(sizes::isSelectionOn){
@@ -1674,13 +1721,18 @@ void MainWindow::on_lineButton_clicked()
         ui->lineButton->setChecked(true);
         sizes::activeOperation = 7;
         ui->lineOptionWidget->setVisible(true);
+        cl_area = new curveLineArea(wArea);
+        connect(cl_area, SIGNAL(finishLines()), this, SLOT(finish_lines()));
+        sizes::isCurveLineAreaOn = true;
+        cl_area->show();
+
     }else{
         sizes::activeOperation = 0;
         ui->lineOptionWidget->setVisible(false);
-        if(sizes::isShapeOn){
-          delete shape_area;
-          shape_area =NULL;
-          sizes::isShapeOn =false;
+        if(sizes::isCurveLineAreaOn){
+            sizes::isCurveLineAreaOn = false;
+            delete cl_area;
+            cl_area =NULL;
         }
     }
 }
@@ -1713,23 +1765,8 @@ void MainWindow::createShapeArea()
 
 void MainWindow::draw_shape()
 {
-    // line -- shape
-    if(sizes::activeOperation == 7 && sizes::isShapeOn){
-        save_previous(tr("Line"));
-        updateInfo();
-        QColor ncol = sizes::activeColor;
-
-        QPainter pai(&pix);
-        QPen pen(configPen(ncol, 48));
-
-        pai.setPen(pen);
-        pai.drawLine(sizes::selX + sizes::shape_x_begin, sizes::selY + sizes::shape_y_begin, sizes::selX + sizes::shape_x_end, sizes::selY +sizes::shape_y_end);
-        wArea->setPixmap(pix);
-        sizes::isShapeOn = false;
-        delete shape_area;
-        shape_area =NULL;
-    }
-    else if(sizes::activeOperation >6 && sizes::activeOperation < 9 && sizes::isShapeOn ==false){
+    // shape
+    if(sizes::activeOperation == 8 && sizes::isShapeOn ==false){
         createShapeArea();
     }    
     else if(sizes::activeOperation == 8 && sizes::isShapeOn == true){
@@ -1829,7 +1866,8 @@ void MainWindow::on_connLine_clicked()
 
 void MainWindow::finish_lines()
 {
-    save_previous(tr("Connected lines"));
+    if(sizes::activeOperation == 7){ save_previous(tr("Line")); }
+    else {save_previous(tr("Connected lines"));}
     if(sizes::isCurveLineAreaOn){
       QPixmap cPix = cl_area->pixmap();
       QPainter p(&pix);
@@ -2055,10 +2093,10 @@ void MainWindow::on_actionSizes_2_triggered()
     }
 
     else if(dSize.returned == 2){
-        save_previous(tr("Resize"));
+        save_previous(tr("Scale"));
         areaSize();
         if(sizes::isCurveLineAreaOn){
-            cl_area->setGeometry(0,0, sizes::areaWidth, sizes::areaHeight);
+            finish_lines();
         }
         QPixmap pix2(sizes::areaWidth-8, sizes::areaHeight-8);
         pix2.fill(Qt::white);
@@ -2416,6 +2454,14 @@ void MainWindow::on_actionQuadruple_the_pixels_2_triggered()
   save_previous(tr("Quadruple"));
   sizes::areaWidth = (sizes::areaWidth * 2) -8;
   sizes::areaHeight =(sizes::areaHeight * 2) -8;
+  if(sizes::isCurveLineAreaOn){
+      if(sizes::activeOperation == 7 || sizes::activeOperation == 11){
+          finish_lines();
+      }
+      else if(sizes::activeOperation == 10){
+          finish_curve();
+      }
+  }
   QPixmap bigPix(sizes::areaWidth-8, sizes::areaHeight-8);
   QImage bigImage = bigPix.toImage();
   QImage img = pix.toImage();
@@ -2672,6 +2718,14 @@ void MainWindow::on_actionIncrement_10_triggered()
         save_previous(tr("Increment 10%"));
         sizes::areaWidth = (sizes::areaWidth - 8) * 1.1 +8;
         sizes::areaHeight =(sizes::areaHeight - 8) * 1.1 +8;
+        if(sizes::isCurveLineAreaOn){
+            if(sizes::activeOperation == 7 || sizes::activeOperation == 11){
+                finish_lines();
+            }
+            else if(sizes::activeOperation == 10){
+                finish_curve();
+            }
+        }
         QPixmap bigPix(sizes::areaWidth-8, sizes::areaHeight-8);
         QImage bigImage = bigPix.toImage();
         QImage img = pix.toImage();
