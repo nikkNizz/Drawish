@@ -51,7 +51,6 @@ private slots:
   void pasteImg(QPixmap passedPix);
   QPixmap addTransparency(QPixmap passedPix, int opacity, int red, int green, int blue);
   void drawWithPen();
-  //void drawWithDoublePen(); until 0.9.3
   void draw_first_point();
   void colorEraser();
   void showPix();
@@ -72,14 +71,16 @@ private slots:
   void mirror(bool horizontal, bool vertical);
   QPixmap openPdf(QString fileName);
   void readConfig();
+  QString midstring(QString from, QString tag);
   void open_file();
   void open_link();
   void addToRecent(QString pf);
   QStringList askForValues();
   double graphicFactor(QStringList sl, double graphDim);
   void addGraphic(QPixmap gr);
-  QPen configPen(QColor& ncol, int alpha=16);
+  QPen configPen(QColor& ncol, int alpha=12);
   void autoRotation();
+
 
   void on_actionNew_triggered();
 
@@ -235,7 +236,6 @@ private slots:
 
   void on_actionCreate_shape_triggered();
 
-
   void on_autoRotationButton_clicked();
 
   void on_comboPen_activated(int index);
@@ -245,7 +245,6 @@ private slots:
   void on_rtfButton_clicked();
 
   void on_actionMouse_correctio_triggered(bool checked);
-
 
   void on_boldButton_clicked();
 
@@ -263,10 +262,10 @@ private slots:
 
   void on_comboPen_highlighted(int index);
 
-
   void on_resetFavColorButton_clicked();
 
   void on_actionDesktop_shortcut_triggered();
+
 
   private:
     Ui::MainWindow *ui;
