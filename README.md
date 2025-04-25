@@ -9,7 +9,7 @@ It also allows you to modify existing images, open pdf as images in Linux, draw 
 
 ### PRECOMPILED PACKAGES:
 The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.14) page of this project.  
-From the [File -> Desktop shortcut] menu, a menu item is created in Linux or a desktop shortcut in Windows.
+Once the program is open you can create a quick link: from the [File -> Desktop shortcut] menu, a menu item is created in Linux or a desktop shortcut in Windows.
 
 ### COMPILE FROM SOURCE (LINUX):
 Download and unzip the project.  
@@ -116,11 +116,11 @@ From the "Edit->Selection to image (crop)" you can crop the image.
 #### Freehand drawing
 Click the [pen] button and move the mouse over the drawing area, holding down the left mouse button.  
 From the "edit" menu you can enable **"Mouse correction"** to avoid drawing every little mouse movement.  
-You can draw with the keyboard by selecting in the top menu how many pixels to draw when you press the keys.  
+You can draw with the keyboard by selecting in the top menu how many pixels to draw when you press the keys ( 1 or 5).  
 Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (< = bottom-left)  (Z = down)  (X = bottom-right). 
 [video](https://drive.google.com/file/d/1Z6KETxX53N0E_YGQgtdDkzLk7GZgHE8c/view?usp=sharing)  
 In the panel that appears above the drawing area you can choose attributes. Do not use transparent color to draw (only fill).  
-You can use a semi-transparent pen (for best results, keep the drawing speed not too high, use a large tip and disable mouse correction).  
+You can use a semi-transparent pen (for best results move the mouse at a slow speed, use a large tip and disable mouse correction).  
 Use white color to erase.  
 You can draw with a round, square, linear, or stylus tip.  
 You can draw with a random color pen.  
@@ -166,7 +166,7 @@ Click the [spray] button and move the mouse over the drawing area, holding down 
 Click the [pick] button and then on a point in the
 image that you want to get the color of. This will become the
 active color.  
-If the [color balance] check box is checked, you can balance the colors of the image based on the selected color and the active color. 
+If the [color balance] check box is checked, you can balance the colors of the image based on the clicked color and the active color. 
 For example, if you want to balance the white, you will have to set white as the active color and click on a color in the image that should be white, but is not.
 [video](https://drive.google.com/file/d/1M87q7asCIgoTUkzosI1L7IYRID0MK-JZ/view?usp=sharing)  
 Click on the pick button again to proceed with other operations.
@@ -174,7 +174,6 @@ Click on the pick button again to proceed with other operations.
 #### Line
 Click the [Line] button and then draw the line with the left mouse button.  
 In the top menu choose the attributes of the line.  
-To deactivate it, uncheck the line button.  
 From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.  
 The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**
 The angles are in the order shown in the image:  
@@ -207,8 +206,8 @@ click on 4 points of the image through which the bezier curve will pass.
 The real-time display of the bezier curve is not available.  
 
 #### Connected curves
-Click the [connected curves] button.
-click 4 points of the image to draw the first curve, the following ones will be connected.  
+Click the [connected curves] button.  
+Click 4 points of the image to draw the first curve, the following ones will be connected.  
 
 #### Color management
 From the [Image->Colors] menu you can perform additional operations on colors.  
@@ -242,13 +241,13 @@ Remove the enlarged area with another right-click on the image.
 
 ##### Double the pixels or Increase by 10%.
 If there is an active selection these functions applies to the selection, otherwise they applie to the entire image.
-From the "Sizes->Quadruple the pixel" menu you can get a new image with the pixels doubled in width and height. 
-The image can be enlarged several times without loss of quality, but it is not a zoom, but a new image.
+From the "Sizes->Quadruple the pixel" menu you can increase the image with the pixels doubled in width and height. 
+The image can be enlarged several times without loss of quality, but it is not a zoom, but an image modification.
 In the same way, to divide the pixels, use the **"Sizes->Divide by 4"** menu.
 From the "Sizes->Increment 10%" menu you can increase image size by 10% without loss. To reduce the image again, use scaling in this case.
 
 ##### Scaling
-Increase the image size by scaling it from the menu "Sizes->Sizes" with loss of quality.  
+Increase (or decrease) the image size by scaling it from the menu "Sizes->Sizes" with loss of quality.  
 
 ##### View.
 The zoom of the entire image is obtained from the "Sizes->Zoom" menu, but
@@ -258,7 +257,7 @@ in view only.
 This function requires an active selection.  
 Enter the degrees of rotation in the small box on the left and then click the right or left buttons to rotate.  
 If you don't know how many degrees to rotate the image, start the automatic rotation by clicking the small button with the stopwatch and then click again to stop it in the desired position.
-To mirror the image go to the "Image->Mirror horizontally "or "Image->Mirror vertically" menu.  
+To mirror the image (or selection) go to the "Image->Mirror horizontally "or "Image->Mirror vertically" menu.  
 [video](https://drive.google.com/file/d/1M5SMg7tclV4CMdQZlDANKdyLmEfvo7yT/view?usp=sharing)
 
 #### Effects
@@ -269,7 +268,8 @@ checkbox if the function allows it.
 Click [OK] to apply the new image or [Cancel] to abort the changes.
 
 #### Stretch Area
-From the "Image->Stretch area", you can open a window to distort the edges of the selected image.
+From the "Image->Stretch area", you can open a window to distort the edges of the selected image.  
+Curve-like distortion is only possible on the top edge.  
 [video](https://drive.google.com/file/d/13nJmQQh9MX6NQCLNx9SEzTcdI9UxFTbo/view?usp=sharing)
 
 #### Other effects
