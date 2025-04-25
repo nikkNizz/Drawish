@@ -172,13 +172,13 @@ For example, if you want to balance the white, you will have to set white as the
 Click on the pick button again to proceed with other operations.
 
 #### Line
-Click the [line] button and then draw the line in the image.    
-In the top menu choose the attributes of the line. 
-To actually draw it, click on a point in the image.  
-To deactivate it, uncheck the line button.
+Click the [line] button and then draw the line with the left mouse button.  
+In the top menu choose the attributes of the line.  
+To deactivate it, uncheck the line button.  
 From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.  
-The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**  
-The angles are in the order shown in the image:![image](https://drive.google.com/uc?export=download&id=1GYvPe_yhgc-y3qFFtwj_QH60IaK1Wj6F)  
+The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**
+The angles are in the order shown in the image:  
+![image](https://drive.google.com/uc?export=download&id=1GYvPe_yhgc-y3qFFtwj_QH60IaK1Wj6F)  
 [video](https://drive.google.com/file/d/1-m5hCy9B364MJM_8_3dB3ntcSPhIQD43/view?usp=sharing)
 
 
