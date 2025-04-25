@@ -179,6 +179,7 @@ To deactivate it, uncheck the line button.
 From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.  
 The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**  
 The angles are in the order shown in the image:![image](https://drive.google.com/uc?export=download&id=1GYvPe_yhgc-y3qFFtwj_QH60IaK1Wj6F)  
+[video](https://drive.google.com/file/d/1-m5hCy9B364MJM_8_3dB3ntcSPhIQD43/view?usp=sharing)
 
 
 #### Shapes
@@ -194,7 +195,7 @@ Many filling options are available from the choice box at the top right.
 You can create rectangles, squares, circles and ellipses by entering data from the keyboard from the "Image-->Create Shapes" menu.  
 **Enter the center** as the shape coordinate.  
 You can draw the center of these shapes or not.  
-[video](https://drive.google.com/file/d/1mo5_hRFjhWKopEgxHDCf6VrIs4WEHD25/view?usp=sharing)
+[video](https://drive.google.com/file/d/1-m5hCy9B364MJM_8_3dB3ntcSPhIQD43/view?usp=sharing)
 
 #### Connected lines
 Click the [connected lines] button.
