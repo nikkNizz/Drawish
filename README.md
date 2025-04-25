@@ -172,7 +172,7 @@ For example, if you want to balance the white, you will have to set white as the
 Click on the pick button again to proceed with other operations.
 
 #### Line
-Click the [line] button and then draw the line with the left mouse button.  
+Click the [Line] button and then draw the line with the left mouse button.  
 In the top menu choose the attributes of the line.  
 To deactivate it, uncheck the line button.  
 From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.  
