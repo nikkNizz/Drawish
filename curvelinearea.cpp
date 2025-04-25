@@ -16,6 +16,12 @@ curveLineArea::curveLineArea(QWidget *parent)  : QLabel{parent}
 
 void curveLineArea::mousePressEvent(QMouseEvent *event)
 {
+    if(sizes::activeOperation == 7){
+        if(countClicks == 0){
+            countClicks =1;
+            startPoint = event->pos();
+        }
+    }
     if(sizes::activeOperation == 11){  // lines
         if(sizes::shape_x_begin == -1 && sizes::shape_y_begin == -1){
             sizes::shape_x_begin = event->pos().x();
@@ -104,5 +110,25 @@ void curveLineArea::mousePressEvent(QMouseEvent *event)
    }
     countClicks++;
     }
+}
+
+void curveLineArea::mouseMoveEvent(QMouseEvent *event)
+{
+    if(sizes::activeOperation == 7 && countClicks == 1){
+    endPoint = event->pos();
+    tPix.fill(QColor(255,255,255,0));
+    QPainter p(&tPix);
+    QPen pen(sizes::activeColor);
+    pen.setWidth(sizes::line_width);
+    p.setPen(pen);
+    p.drawLine(startPoint, endPoint);
+    p.end();
+    this->setPixmap(tPix);
+    }
+}
+
+void curveLineArea::mouseReleaseEvent(QMouseEvent *event)
+{
+    if(sizes::activeOperation == 7) emit finishLines();
 }
 
