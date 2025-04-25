@@ -1,4 +1,4 @@
-# Drawish  0.9.13 
+# Drawish  0.9.14 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text and much more.  
 [See features](#features)  
@@ -8,7 +8,7 @@ It also allows you to modify existing images, open pdf as images in Linux, draw 
 
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.13) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.14) page of this project.  
 From the [File -> Desktop shortcut] menu, a menu item is created in Linux or a desktop shortcut in Windows.
 
 ### COMPILE FROM SOURCE (LINUX):
@@ -55,8 +55,10 @@ apt install \
     libxrender-dev  
 
 #### USAGE
-You can open images from the" File->Open" menu. You can also drag a file on the drawing area, 
-paste an image from the clipboard ("Edit->Paste from clipboard") or from a file ("Edit->Paste from file").
+You can start drawing or you can open an image.  
+Open images from the" File->Open" menu. You can also drag a file on the drawing area, 
+paste an image from the clipboard ("Edit->Paste from clipboard") or from a file ("Edit->Paste from file").  
+Some **settings**, such as pen size or text options, are automatically restored from the previous session.  
 
 The drawing options are visible on the left of the drawing area.
 The color palette is also visible here.
@@ -170,20 +172,17 @@ For example, if you want to balance the white, you will have to set white as the
 Click on the pick button again to proceed with other operations.
 
 #### Line
-Click the [line] button and then on the point in the image
-where you want to start the shape area. Drag the edges of the
-area to create the line.  The line can be moved by dragging the area
-with the mouse or from keyboard (A W S Z keys).  
+Click the [line] button and then draw the line in the image.    
 In the top menu choose the attributes of the line. 
 To actually draw it, click on a point in the image.  
 To deactivate it, uncheck the line button.
 From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.  
 The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**  
 The angles are in the order shown in the image:![image](https://drive.google.com/uc?export=download&id=1GYvPe_yhgc-y3qFFtwj_QH60IaK1Wj6F)  
-[video](https://drive.google.com/file/d/1mo5_hRFjhWKopEgxHDCf6VrIs4WEHD25/view?usp=sharing)
+
 
 #### Shapes
-As for the line. Click the [shapes] button, or select a shape from the selection box.  
+Click the [shapes] button, or select a shape from the selection box.  
 The shape can be moved by dragging the area with the mouse or from keyboard (A W S Z keys).  
 Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS, CROSSES. 
 The simple arrow can be rotated by moving the mouse along the top or bottom edge of the layer. While it can be enlarged by dragging the left and right edges.  
@@ -200,7 +199,6 @@ You can draw the center of these shapes or not.
 #### Connected lines
 Click the [connected lines] button.
 After each click on the drawing area you will get connected lines. 
-[video](https://drive.google.com/file/d/1mo5_hRFjhWKopEgxHDCf6VrIs4WEHD25/view?usp=sharing)
 
 #### Curved line
 Click the [curved line] button.  You will be able to
