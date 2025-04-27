@@ -1,6 +1,6 @@
 # Drawish  0.9.14 
 Is a program for basic drawing.  
-It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text and much more.  
+It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
 
 ![Image](https://drive.google.com/uc?export=view&id=1WWkkXWaGSLCC28bo-Yu_8ZsdXd2vtKXr)  
