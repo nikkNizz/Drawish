@@ -266,8 +266,8 @@ If there is no selection, the effects are applied to the entire image.
 After each change, click the [Update] button to make the changes effective, or select the "update automatically" 
 checkbox if the function allows it.
 Click [OK] to apply the new image or [Cancel] to abort the changes.  
-> When an image is particularly faded, and is represented by very close intensity values, instead of increasing the contrast, try to perform "histogram equalization". 
-> I implemented the function following the instructions on Wikipedia.
+> When an image is particularly faded, and is represented by very close intensity values, instead of increasing the contrast, try to perform "histogram equalization".   
+> I implemented the function following the instructions on [Wikipedia](https://en.wikipedia.org/wiki/Histogram_equalization).
 
 #### Stretch Area
 From the "Image->Stretch area", you can open a window to distort the edges of the selected image.  
