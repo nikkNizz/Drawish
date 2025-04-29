@@ -142,7 +142,7 @@ void richEditor::on_openButton_clicked()
     fileDialog.setFileMode(QFileDialog::ExistingFile);
 
     if (fileDialog.exec() != QDialog::Accepted)  return;
-    const QString f = fileDialog.selectedFiles().first();
+    const QString f = fileDialog.selectedFiles().constFirst();
     fileIO fio;
     QString data = fio.readFile(f);
     ui->textEdit->setHtml(data);
@@ -155,7 +155,7 @@ void richEditor::on_saveButton_clicked()
     QFileDialog fileDialog(this, tr("Save as..."));
     fileDialog.setAcceptMode(QFileDialog::AcceptSave);
     if (fileDialog.exec() != QDialog::Accepted)  return;
-    const QString f = fileDialog.selectedFiles().first();
+    const QString f = fileDialog.selectedFiles().constFirst();
     if( f.isEmpty()) return;
     fileIO fio;
     fio.createFile(ui->textEdit->toHtml(), f);
