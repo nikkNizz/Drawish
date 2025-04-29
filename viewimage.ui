@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Drawish view image</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Drawish.qrc">
+    <normaloff>:/res/draw.png</normaloff>:/res/draw.png</iconset>
+  </property>
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
@@ -90,6 +94,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="Drawish.qrc"/>
+ </resources>
  <connections/>
 </ui>
