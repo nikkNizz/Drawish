@@ -1,4 +1,4 @@
-# Drawish  0.9.14 
+# Drawish  0.9.15 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
@@ -8,7 +8,7 @@ It also allows you to modify existing images, open pdf as images in Linux, draw 
 
 
 ### PRECOMPILED PACKAGES:
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases/tag/v0.9.14) page of this project.  
+The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases) page of this project.  
 Once the program is open you can create a quick link: from the [File -> Desktop shortcut] menu, a menu item is created in Linux or a desktop shortcut in Windows.
 
 ### COMPILE FROM SOURCE (LINUX):
