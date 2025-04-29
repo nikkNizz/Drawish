@@ -111,7 +111,6 @@
         <location filename="dialogeffects.ui" line="549"/>
         <source>Histogram 
 Equalization</source>
-        <oldsource>Histogram Equalization</oldsource>
         <translation>Equalizzatore 
 dell&apos;istogramma</translation>
     </message>
@@ -136,7 +135,7 @@ dell&apos;istogramma</translation>
     <message>
         <location filename="dialogsize.ui" line="354"/>
         <source>New              Width      Height</source>
-        <translation>Nuova larghezza altezza</translation>
+        <translation>Nuova     larghezza     altezza</translation>
     </message>
     <message>
         <location filename="dialogsize.ui" line="408"/>
@@ -166,7 +165,7 @@ dell&apos;istogramma</translation>
     <message>
         <location filename="dialogsize.ui" line="796"/>
         <source>New       X         Y      Width  Height</source>
-        <translation>Nuovi     X         Y      Larg...Altezza</translation>
+        <translation>Nuovi     X         Y     Larg...Altezza</translation>
     </message>
     <message>
         <location filename="dialogsize.ui" line="849"/>
@@ -182,47 +181,47 @@ dell&apos;istogramma</translation>
         <translation>Drawish Crea Linea</translation>
     </message>
     <message>
-        <location filename="linedialog.ui" line="37"/>
+        <location filename="linedialog.ui" line="41"/>
         <source>X          Y</source>
         <translation>X          Y</translation>
     </message>
     <message>
-        <location filename="linedialog.ui" line="55"/>
+        <location filename="linedialog.ui" line="59"/>
         <source>Line start</source>
         <translation>Inizio linea</translation>
     </message>
     <message>
-        <location filename="linedialog.ui" line="73"/>
+        <location filename="linedialog.ui" line="77"/>
         <source>Line End</source>
         <translation>Fine linea</translation>
     </message>
     <message>
-        <location filename="linedialog.ui" line="146"/>
+        <location filename="linedialog.ui" line="150"/>
         <source>Ok </source>
         <translation>Ok </translation>
     </message>
     <message>
-        <location filename="linedialog.ui" line="159"/>
+        <location filename="linedialog.ui" line="163"/>
         <source>Cancel</source>
         <translation>Annulla</translation>
     </message>
     <message>
-        <location filename="linedialog.ui" line="177"/>
+        <location filename="linedialog.ui" line="181"/>
         <source>Line Angle</source>
         <translation>Angolo linea</translation>
     </message>
     <message>
-        <location filename="linedialog.ui" line="205"/>
+        <location filename="linedialog.ui" line="209"/>
         <source>Line by start-end</source>
         <translation>Linea per inizio-fine</translation>
     </message>
     <message>
-        <location filename="linedialog.ui" line="221"/>
+        <location filename="linedialog.ui" line="225"/>
         <source>Line by angle</source>
         <translation>Linea per angolo</translation>
     </message>
     <message>
-        <location filename="linedialog.ui" line="239"/>
+        <location filename="linedialog.ui" line="243"/>
         <source>Line Length</source>
         <translation>Lunghezza linea</translation>
     </message>
@@ -289,14 +288,13 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="145"/>
-        <location filename="mainwindow.cpp" line="1376"/>
+        <location filename="mainwindow.cpp" line="1411"/>
         <source>Pen</source>
-        <oldsource>Pens</oldsource>
-        <translation>Penne</translation>
+        <translation>Penna</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="180"/>
-        <location filename="mainwindow.cpp" line="1488"/>
+        <location filename="mainwindow.cpp" line="1523"/>
         <source>Fill</source>
         <translation>Riempimento</translation>
     </message>
@@ -312,7 +310,7 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="285"/>
-        <location filename="mainwindow.cpp" line="1869"/>
+        <location filename="mainwindow.cpp" line="1904"/>
         <source>Line</source>
         <translation>Linea</translation>
     </message>
@@ -328,7 +326,7 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="390"/>
-        <location filename="mainwindow.cpp" line="1915"/>
+        <location filename="mainwindow.cpp" line="1950"/>
         <source>Curve line</source>
         <translation>Linea curva</translation>
     </message>
@@ -379,7 +377,7 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="3818"/>
-        <location filename="mainwindow.cpp" line="1116"/>
+        <location filename="mainwindow.cpp" line="1136"/>
         <source>Text</source>
         <translation>Testo</translation>
     </message>
@@ -401,7 +399,6 @@ dell&apos;istogramma</translation>
     <message>
         <location filename="mainwindow.ui" line="3858"/>
         <source>Screenshot rich text</source>
-        <oldsource>Screenshot riche text</oldsource>
         <translation>Cattura testo formattato</translation>
     </message>
     <message>
@@ -413,7 +410,6 @@ dell&apos;istogramma</translation>
         <location filename="mainwindow.ui" line="4016"/>
         <location filename="mainwindow.ui" line="4067"/>
         <source>Draw with keyboard</source>
-        <oldsource>Keyboard 1px</oldsource>
         <translation>Disegna con tastiera</translation>
     </message>
     <message>
@@ -612,20 +608,18 @@ dell&apos;istogramma</translation>
         <translation>Collegamento desktop</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1372"/>
+        <location filename="mainwindow.cpp" line="1407"/>
         <source>Color eraser</source>
         <translation>Gomma per colore</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4523"/>
         <source>Fan effetc</source>
-        <oldsource>Wings effetc</oldsource>
         <translation>Effetto ventaglio</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4526"/>
         <source>F</source>
-        <oldsource>W</oldsource>
         <translation>V</translation>
     </message>
     <message>
@@ -699,7 +693,7 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5012"/>
-        <location filename="mainwindow.cpp" line="1547"/>
+        <location filename="mainwindow.cpp" line="1582"/>
         <source>Fill inside black</source>
         <translation>Riempi dentro il nero</translation>
     </message>
@@ -807,19 +801,19 @@ dell&apos;istogramma</translation>
         <translation>Ripristina</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2774"/>
+        <location filename="mainwindow.cpp" line="2809"/>
         <source>Add link</source>
         <translation>Aggiungi link</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4817"/>
-        <location filename="mainwindow.cpp" line="1870"/>
+        <location filename="mainwindow.cpp" line="1905"/>
         <source>Connected lines</source>
         <translation>Linee connesse</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4885"/>
-        <location filename="mainwindow.cpp" line="1698"/>
+        <location filename="mainwindow.cpp" line="1733"/>
         <source>Color balance</source>
         <translation>Bilanciamento colore</translation>
     </message>
@@ -881,9 +875,9 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5377"/>
-        <location filename="mainwindow.cpp" line="167"/>
-        <location filename="mainwindow.cpp" line="184"/>
-        <location filename="mainwindow.cpp" line="704"/>
+        <location filename="mainwindow.cpp" line="168"/>
+        <location filename="mainwindow.cpp" line="185"/>
+        <location filename="mainwindow.cpp" line="724"/>
         <source>Open</source>
         <translation>Apri</translation>
     </message>
@@ -934,7 +928,7 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5433"/>
-        <location filename="mainwindow.cpp" line="2156"/>
+        <location filename="mainwindow.cpp" line="2191"/>
         <source>Effects</source>
         <translation>Effetti</translation>
     </message>
@@ -976,7 +970,7 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5453"/>
-        <location filename="mainwindow.cpp" line="2313"/>
+        <location filename="mainwindow.cpp" line="2348"/>
         <source>Invert colors</source>
         <translation>Inverti colori</translation>
     </message>
@@ -997,7 +991,7 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5473"/>
-        <location filename="mainwindow.cpp" line="2183"/>
+        <location filename="mainwindow.cpp" line="2218"/>
         <source>Colors</source>
         <translation>Colori</translation>
     </message>
@@ -1013,7 +1007,7 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5561"/>
-        <location filename="mainwindow.cpp" line="2718"/>
+        <location filename="mainwindow.cpp" line="2753"/>
         <source>Increment 10%</source>
         <translation>Incrementa 10%</translation>
     </message>
@@ -1028,7 +1022,7 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5556"/>
-        <location filename="mainwindow.cpp" line="2514"/>
+        <location filename="mainwindow.cpp" line="2549"/>
         <source>Divide by 4</source>
         <translation>Dividi per 4</translation>
     </message>
@@ -1089,178 +1083,175 @@ dell&apos;istogramma</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="89"/>
-        <location filename="mainwindow.cpp" line="180"/>
-        <location filename="mainwindow.cpp" line="217"/>
-        <location filename="mainwindow.cpp" line="559"/>
-        <location filename="mainwindow.cpp" line="565"/>
+        <location filename="mainwindow.cpp" line="181"/>
+        <location filename="mainwindow.cpp" line="218"/>
+        <location filename="mainwindow.cpp" line="573"/>
+        <location filename="mainwindow.cpp" line="582"/>
         <source>Unsupported file</source>
         <translation>File non supportato</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="110"/>
+        <location filename="mainwindow.cpp" line="111"/>
         <source>Original image</source>
         <translation>Immagine originale</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="168"/>
-        <location filename="mainwindow.cpp" line="442"/>
-        <location filename="mainwindow.cpp" line="686"/>
-        <location filename="mainwindow.cpp" line="705"/>
-        <location filename="mainwindow.cpp" line="719"/>
+        <location filename="mainwindow.cpp" line="169"/>
+        <location filename="mainwindow.cpp" line="456"/>
+        <location filename="mainwindow.cpp" line="706"/>
+        <location filename="mainwindow.cpp" line="725"/>
+        <location filename="mainwindow.cpp" line="739"/>
         <source>Save image?</source>
         <translation>Salvare l&apos;immagine?</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="205"/>
+        <location filename="mainwindow.cpp" line="206"/>
         <source>Enter page number to convert</source>
         <translation>Inserire il numero di pagina da convertire</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="213"/>
+        <location filename="mainwindow.cpp" line="214"/>
         <source>Error executing command</source>
         <translation>Errore di esecuzione del comando</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="344"/>
+        <location filename="mainwindow.cpp" line="353"/>
         <source>Enter Positive values (One per line!)</source>
-        <oldsource>Enter values (One per line!)</oldsource>
         <translation>Inserire valori positivi (uno per riga)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="460"/>
-        <location filename="mainwindow.cpp" line="2090"/>
+        <location filename="mainwindow.cpp" line="474"/>
+        <location filename="mainwindow.cpp" line="2125"/>
         <source>Resize</source>
         <translation>Ridimensiona</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="505"/>
-        <location filename="mainwindow.cpp" line="2367"/>
+        <location filename="mainwindow.cpp" line="519"/>
+        <location filename="mainwindow.cpp" line="2402"/>
         <source>Drawish save...</source>
         <translation>Drawish salva...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="519"/>
-        <location filename="mainwindow.cpp" line="550"/>
+        <location filename="mainwindow.cpp" line="533"/>
+        <location filename="mainwindow.cpp" line="564"/>
         <source>Drawish...Select image</source>
         <translation>Drawish...Scegli immagine</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="694"/>
+        <location filename="mainwindow.cpp" line="714"/>
         <source>New Image</source>
         <translation>Nuova immagine</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="729"/>
-        <location filename="mainwindow.cpp" line="1059"/>
+        <location filename="mainwindow.cpp" line="749"/>
+        <location filename="mainwindow.cpp" line="1079"/>
         <source>Drawish save image</source>
         <translation>Drawish salva immagine</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="912"/>
+        <location filename="mainwindow.cpp" line="932"/>
         <source>The image is in a selection</source>
         <translation>L&apos;immagine è nella selzione</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="923"/>
+        <location filename="mainwindow.cpp" line="943"/>
         <source>No area selected</source>
         <translation>Nessuna area selezionata</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="932"/>
+        <location filename="mainwindow.cpp" line="952"/>
         <source>Levels</source>
         <translation>Livelli</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1005"/>
-        <location filename="mainwindow.cpp" line="1015"/>
-        <location filename="mainwindow.cpp" line="1037"/>
+        <location filename="mainwindow.cpp" line="1025"/>
+        <location filename="mainwindow.cpp" line="1035"/>
+        <location filename="mainwindow.cpp" line="1057"/>
         <source>Invalid image!</source>
         <translation>Immagine non valida!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1018"/>
+        <location filename="mainwindow.cpp" line="1038"/>
         <source>Paste right</source>
         <translation>Incolla a destra</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1040"/>
+        <location filename="mainwindow.cpp" line="1060"/>
         <source>Paste bottom</source>
         <translation>Incolla in basso</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1093"/>
+        <location filename="mainwindow.cpp" line="1113"/>
         <source>Click a point on the canvas, before</source>
         <translation>Clicca un punto sull&apos; area di disegno</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1230"/>
+        <location filename="mainwindow.cpp" line="1250"/>
         <source>Drawish choose color</source>
         <translation>Drawish scegli colore</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1825"/>
+        <location filename="mainwindow.cpp" line="1860"/>
         <source>Do you want to activate shapes?</source>
         <translation>Vuoi attivare le forme?</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2096"/>
+        <location filename="mainwindow.cpp" line="2131"/>
         <source>Scale</source>
         <translation>Scala</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2775"/>
+        <location filename="mainwindow.cpp" line="2810"/>
         <source>Remove link</source>
         <translation>Elimina link</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2780"/>
+        <location filename="mainwindow.cpp" line="2815"/>
         <source>Enter url</source>
         <translation>Inserire Url</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2784"/>
+        <location filename="mainwindow.cpp" line="2819"/>
         <source>Select link to remove</source>
         <translation>Seleziona link da rimuovere</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2811"/>
+        <location filename="mainwindow.cpp" line="2846"/>
         <source>Create chart</source>
-        <oldsource>Create graphic</oldsource>
         <translation>Crea grafico</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2945"/>
+        <location filename="mainwindow.cpp" line="2980"/>
         <source>Restore point created</source>
-        <oldsource>Created restore point</oldsource>
         <translation>Punto di ripristino creato</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2948"/>
+        <location filename="mainwindow.cpp" line="2983"/>
         <source>Restore point overwritten</source>
         <translation>Punto di ripristino sovrascritto</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="3055"/>
+        <location filename="mainwindow.cpp" line="3090"/>
         <source>No color saved</source>
         <translation>Nessun colore salvato</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="3100"/>
+        <location filename="mainwindow.cpp" line="3135"/>
         <source>Add the name Drawish and the suffix .AppImage to the program</source>
         <translation>Aggiungi il nome Drawish e l&apos;estensione .AppImage al programma</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="3104"/>
+        <location filename="mainwindow.cpp" line="3139"/>
         <source>Keep only one instance of Drawish open.</source>
         <translation>Tenere aperta una sola istanza di Drawish.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="3126"/>
+        <location filename="mainwindow.cpp" line="3161"/>
         <source>Add Drawish to menu</source>
         <translation>Drawish aggiunto al menu</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="3158"/>
+        <location filename="mainwindow.cpp" line="3193"/>
         <source>Add Drawish to desktop</source>
         <translation>Drawish aggiunto al desktop</translation>
     </message>
@@ -1269,87 +1260,87 @@ dell&apos;istogramma</translation>
         <translation type="vanished">Doppia penna</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1773"/>
+        <location filename="mainwindow.cpp" line="1808"/>
         <source>Shape</source>
         <translation>Forma</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2028"/>
-        <location filename="mainwindow.cpp" line="2047"/>
+        <location filename="mainwindow.cpp" line="2063"/>
+        <location filename="mainwindow.cpp" line="2082"/>
         <source>No selection</source>
         <translation>Nessuna selezione</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2117"/>
-        <location filename="mainwindow.cpp" line="2127"/>
+        <location filename="mainwindow.cpp" line="2152"/>
+        <location filename="mainwindow.cpp" line="2162"/>
         <source>An area is already selected</source>
         <translation>Un&apos; area è già selezionata</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2227"/>
+        <location filename="mainwindow.cpp" line="2262"/>
         <source>Greyscale</source>
         <translation>Scala di grigi</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2244"/>
+        <location filename="mainwindow.cpp" line="2279"/>
         <source>Sepia</source>
         <translation>Seppia</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2279"/>
+        <location filename="mainwindow.cpp" line="2314"/>
         <source>Reduce to rgb</source>
         <translation>Riduci a rgb</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2350"/>
+        <location filename="mainwindow.cpp" line="2385"/>
         <source>Enter width</source>
         <translation>Inserici larghezza</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2351"/>
+        <location filename="mainwindow.cpp" line="2386"/>
         <source>Enter height</source>
         <translation>Inserisci altezza</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2353"/>
+        <location filename="mainwindow.cpp" line="2388"/>
         <source>Too small selection</source>
         <translation>Selezione troppo piccola</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2454"/>
+        <location filename="mainwindow.cpp" line="2489"/>
         <source>Quadruple</source>
         <translation>Quadruplica</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2545"/>
+        <location filename="mainwindow.cpp" line="2580"/>
         <source>Line input</source>
         <translation>Linea da input</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2581"/>
+        <location filename="mainwindow.cpp" line="2616"/>
         <source>No active cam!</source>
         <translation>Nessuna telecamera!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2591"/>
+        <location filename="mainwindow.cpp" line="2626"/>
         <source>base64 code has been copied to clipboard!</source>
         <translation>codice base64 copiato negli appunti!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2623"/>
+        <location filename="mainwindow.cpp" line="2658"/>
         <source>Failed to open image!</source>
         <translation>Apertura immagine fallita!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2628"/>
+        <location filename="mainwindow.cpp" line="2663"/>
         <source>Saved in
 </source>
         <translation>Salvato in
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2638"/>
-        <location filename="mainwindow.cpp" line="2666"/>
+        <location filename="mainwindow.cpp" line="2673"/>
+        <location filename="mainwindow.cpp" line="2701"/>
         <source>No selection!</source>
         <translation>Nessuna selezione!</translation>
     </message>
@@ -1370,19 +1361,18 @@ dell&apos;istogramma</translation>
         <translation>Stira</translation>
     </message>
     <message>
-        <location filename="stretchdialog.ui" line="41"/>
+        <location filename="stretchdialog.ui" line="45"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="stretchdialog.ui" line="54"/>
+        <location filename="stretchdialog.ui" line="58"/>
         <source>Cancel</source>
         <translation>Annulla</translation>
     </message>
     <message>
-        <location filename="stretchdialog.ui" line="67"/>
+        <location filename="stretchdialog.ui" line="71"/>
         <source>simulate curvature (upwards only)</source>
-        <oldsource>simulate curve</oldsource>
         <translation>Simula curvatura (solo dall&apos;alto)</translation>
     </message>
 </context>
@@ -1391,7 +1381,6 @@ dell&apos;istogramma</translation>
     <message>
         <location filename="dcolors.ui" line="14"/>
         <source>Drawish Colors</source>
-        <oldsource>Drawish Coloors</oldsource>
         <translation>Drawish Colori</translation>
     </message>
     <message>
@@ -1597,42 +1586,42 @@ dell&apos;istogramma</translation>
         <translation>Drawish crea forme</translation>
     </message>
     <message>
-        <location filename="figures.ui" line="31"/>
+        <location filename="figures.ui" line="35"/>
         <source>Width</source>
         <translation>Larghezza</translation>
     </message>
     <message>
-        <location filename="figures.ui" line="49"/>
+        <location filename="figures.ui" line="53"/>
         <source>Height</source>
         <translation>Altezza</translation>
     </message>
     <message>
-        <location filename="figures.ui" line="87"/>
+        <location filename="figures.ui" line="91"/>
         <source>Draw center</source>
         <translation>Disegna il centro</translation>
     </message>
     <message>
-        <location filename="figures.ui" line="103"/>
+        <location filename="figures.ui" line="107"/>
         <source>Rectangle</source>
         <translation>Rettangolo</translation>
     </message>
     <message>
-        <location filename="figures.ui" line="116"/>
+        <location filename="figures.ui" line="120"/>
         <source>Ellipse</source>
         <translation>Ellisse</translation>
     </message>
     <message>
-        <location filename="figures.ui" line="129"/>
+        <location filename="figures.ui" line="133"/>
         <source>Cancel</source>
         <translation>Annulla</translation>
     </message>
     <message>
-        <location filename="figures.ui" line="142"/>
+        <location filename="figures.ui" line="146"/>
         <source>Center X</source>
         <translation>Centro X</translation>
     </message>
     <message>
-        <location filename="figures.ui" line="165"/>
+        <location filename="figures.ui" line="169"/>
         <source>Y</source>
         <translation></translation>
     </message>
@@ -1645,75 +1634,79 @@ dell&apos;istogramma</translation>
         <translation>Rtf Drawish</translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="84"/>
+        <location filename="richeditor.ui" line="88"/>
         <source>Clear</source>
         <translation>Pulisci</translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="87"/>
+        <location filename="richeditor.ui" line="91"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="222"/>
+        <location filename="richeditor.ui" line="226"/>
         <source>B</source>
         <translation>G</translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="243"/>
+        <location filename="richeditor.ui" line="247"/>
         <source>I</source>
         <translation>C</translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="264"/>
+        <location filename="richeditor.ui" line="268"/>
         <source>U</source>
         <translation>S</translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="280"/>
+        <location filename="richeditor.ui" line="284"/>
         <source>Save </source>
         <translation>Salva </translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="293"/>
+        <location filename="richeditor.ui" line="297"/>
         <source>Screenshot
  and close</source>
         <translation>Screenshot
  e chiudi</translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="386"/>
+        <location filename="richeditor.ui" line="390"/>
         <source>Choose text color</source>
         <translation>Scegli colore testo</translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="437"/>
-        <source>Font color</source>
-        <translation>Colore font</translation>
+        <location filename="richeditor.ui" line="441"/>
+        <source>Background color</source>
+        <translation>Colore sfondo</translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="544"/>
+        <source>Font color</source>
+        <translation type="vanished">Colore font</translation>
+    </message>
+    <message>
+        <location filename="richeditor.ui" line="548"/>
         <source>Set background white</source>
         <translation>Imposta sfondo bianco</translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="389"/>
-        <location filename="richeditor.ui" line="440"/>
+        <location filename="richeditor.ui" line="393"/>
+        <location filename="richeditor.ui" line="444"/>
         <source>+</source>
         <translation>+</translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="191"/>
+        <location filename="richeditor.ui" line="195"/>
         <source>Set text color black</source>
         <translation>Imposta colore testo nero</translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="402"/>
+        <location filename="richeditor.ui" line="406"/>
         <source>Font size</source>
         <translation>Dimensione font</translation>
     </message>
     <message>
-        <location filename="richeditor.ui" line="424"/>
+        <location filename="richeditor.ui" line="428"/>
         <source>Open</source>
         <translation>Apri</translation>
     </message>
@@ -1742,32 +1735,32 @@ dell&apos;istogramma</translation>
         <translation>Drawish vista immagine</translation>
     </message>
     <message>
-        <location filename="viewimage.ui" line="27"/>
+        <location filename="viewimage.ui" line="31"/>
         <source>2.0</source>
         <translation>2.0</translation>
     </message>
     <message>
-        <location filename="viewimage.ui" line="32"/>
+        <location filename="viewimage.ui" line="36"/>
         <source>1.0</source>
         <translation>1.0</translation>
     </message>
     <message>
-        <location filename="viewimage.ui" line="37"/>
+        <location filename="viewimage.ui" line="41"/>
         <source>1.5</source>
         <translation>1.5</translation>
     </message>
     <message>
-        <location filename="viewimage.ui" line="42"/>
+        <location filename="viewimage.ui" line="46"/>
         <source>3.0</source>
         <translation>3.0</translation>
     </message>
     <message>
-        <location filename="viewimage.ui" line="47"/>
+        <location filename="viewimage.ui" line="51"/>
         <source>4.0</source>
         <translation>4.0</translation>
     </message>
     <message>
-        <location filename="viewimage.ui" line="89"/>
+        <location filename="viewimage.ui" line="93"/>
         <source>Zoom</source>
         <translation>Zoom</translation>
     </message>
