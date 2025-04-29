@@ -39,9 +39,6 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
         if(whereExp == "move"){
            sizes::selX  = event->globalPosition().x()-diffx;
            sizes::selY  = event->globalPosition().y()-diffy;
-           // if(sizes::activeOperation == 7){
-           //     redrawLine(x, y, sizes::shape_x_begin, sizes::shape_y_begin);
-           // }
            resetGeometry();
         }
         else if(whereExp== "top"  ){
@@ -94,19 +91,6 @@ void shapeArea::resetGeometry()
 {
     this->setGeometry(sizes::selX, sizes::selY, sizes::selW, sizes::selH);
 }
-
-// void shapeArea::redrawLine(int to_x, int to_y, int from_x,int from_y )
-// {
-//     if(this->width() < 5 || this->height() < 5)return;
-//     QPixmap npix(sizes::selW, sizes::selH);
-//     npix.fill(QColor(255,255,255,0));
-//     QPainter p(&npix);
-//     QPen pen2(sizes::activeColor);
-//     pen2.setWidth(sizes::line_width);
-//     p.setPen(pen2);
-//     p.drawLine(from_x, from_y, to_x, to_y);
-//     this->setPixmap(npix);
-// }
 
 QBrush shapeArea::bru()
 {
