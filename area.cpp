@@ -51,13 +51,7 @@ void Area::mousePressEvent(QMouseEvent *event)
         emit drawFirstPoint();
 
     }
-    // else if(sizes::activeOperation == 5){
-    //     sizes::selX = event->pos().x();
-    //     sizes::selY = event->pos().y();
-    //     sizes::shape_x_begin = sizes::selX;
-    //     sizes::shape_y_begin = sizes::selY;
-    //     emit drawFirstPoint();
-    // }
+    
     else if(sizes::activeOperation == 4){ // fill        
         sizes::selX = event->pos().x();
         sizes::selY = event->pos().y();
