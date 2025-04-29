@@ -75,6 +75,7 @@ private slots:
   void open_file();
   void open_link();
   void addToRecent(QString pf);
+  void removeFromRecent(QString pf);
   QStringList askForValues();
   double graphicFactor(QStringList sl, double graphDim);
   void addGraphic(QPixmap gr);
