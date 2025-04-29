@@ -47,9 +47,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "0.9.14";
-    // 0.9.14: line traditional ; undo scale in combo; correct resize when curvearea
-    // config    ;
+    version_info = "0.9.15";
+    // 0.9.15: correction rtf ui; improve semitrasp. pen; remove from recents files not supported
+    //  limit to recents in configFile;
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -87,6 +87,7 @@ MainWindow::MainWindow(QWidget *parent)
         }
             if(npix.isNull()){
                 QMessageBox::information(this, "Drawish", tr("Unsupported file"));
+                removeFromRecent(activePathFile);
                  // set default image to area
                 pix =QPixmap(sizes::areaWidth-8, sizes::areaHeight-8);
                 pix.fill(Qt::white);
@@ -339,6 +340,14 @@ void MainWindow::addToRecent(QString pf)
 
 }
 
+void MainWindow::removeFromRecent(QString pf)
+{
+    QStringList recents= configRecent.split("\n");
+    int a = recents.indexOf(pf);
+    if(a > -1) recents.removeAt(a);
+    configRecent =recents.join("\n");
+}
+
 QStringList MainWindow::askForValues()
 {
    QString x = QInputDialog::getMultiLineText(this, "Drawish", tr("Enter Positive values (One per line!)"));
@@ -424,6 +433,11 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
 void MainWindow::closeEvent(QCloseEvent *ev)
 {
     if(activePathFile != "")  addToRecent(activePathFile);
+    QStringList recents = configRecent.split("\n");
+    if(recents.count() > 11){
+        recents = recents.mid(0,10);
+        configRecent = recents.join("\n");
+    }
     // save some values: penWidth, textSize, textFont, textStyle, degrees
     QString val="\n<penWidth>" + QString::number(sizes::line_width) + "</penWidth>\n";
     val += "<textSize>" + ui->sizeLine->text() + "</textSize>\n";
@@ -556,13 +570,19 @@ void MainWindow::newImage(QString from, QString path)
           npix = openPdf(f);
       }else{
           npix = QPixmap(f);
-          if(npix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file")); return;}
+          if(npix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file"));
+              removeFromRecent(f);
+              return;
+          }
           activePathFile = f;
           addToRecent(activePathFile);
       }
       sizes::modify= false;
 
-      if(npix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file")); return;}
+      if(npix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file"));
+          removeFromRecent(f);
+          return;
+      }
       pix = npix;
       sizes::areaHeight=pix.height()+8;
       sizes::areaWidth=pix.width()+8;
@@ -1329,7 +1349,22 @@ void MainWindow::drawWithPen(){
     }
     else if(ui->comboPen->currentIndex() == 10){
         colorEraser();
-    }   
+    }
+    else if(ui->markerButton->isChecked()){
+        int difx = sizes::shape_x_begin - sizes::shape_x_end;
+        int dify = sizes::shape_y_begin - sizes::shape_y_end;
+
+        QPen pen(configPen(ncol, 3));
+        for(int i=1; i < 10; ++i){
+            QPainter pai(&pix);
+            pai.setPen(pen);
+            //pai.drawLine(sizes::shape_x_begin +(difx/(10-i)), sizes::shape_y_begin +(dify/(10-i)), sizes::shape_x_end, sizes::shape_y_end);
+            pai.drawLine(sizes::shape_x_begin +(difx/(10-i)), sizes::shape_y_begin +(dify/(10-i)), sizes::shape_x_begin, sizes::shape_y_begin );
+
+            pai.setClipRegion(reg);
+            pai.end();
+        }
+    }
     else{
         // normal pen
         QPainter pai(&pix);
