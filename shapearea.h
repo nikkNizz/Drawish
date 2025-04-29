@@ -19,7 +19,7 @@ signals:
     void setInfo();
 
 private slots:
-    //void redrawLine(int to_x, int to_y, int from_x,int from_y );
+    
     QBrush bru();
     void drawSomething();
 
