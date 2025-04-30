@@ -142,9 +142,9 @@ The text area will be displayed and can be moved as desired.
 **The multiline text box and options are displayed at the top**.
 Click the [DRAW] button to actually print the text, then move the text area 
 to continue printing text. Or disable the function by clicking the left button again.
-You can open an **RTF editor** to write formatted text. This text can be saved to a file and can be directly transposed onto the image via a screenshot. After clicking the [text] button, click the [RTF] button to open the editor. Click [Screenshot and close] button to transpose the text into a selection in the image. In the editor you can save texts and open them. [video](https://drive.google.com/file/d/1wc_7hcBQUekflSYK2ZmWEcYWVj9uNXG7/view?usp=sharing)  
+You can open an **RTF editor** to write formatted text. This text can be saved to a file and can be directly transposed onto the image via a screenshot. After clicking the [text] button, click the [RTF] button to open the editor. Click [Screenshot and close] button to transpose the text into a selection in the image. In the editor you can save texts and open them.  
 It is possible to paste text from the clipboard, as an image.  
-[video](https://drive.google.com/file/d/1rz-xGREMfjJvdFcvErGzlr8vAbu2eEE8/view?usp=sharing)
+[video](https://drive.google.com/file/d/1GrowsX4R_jyyqmt8AIxP22UySknR3SwT/view?usp=sharing)
 
 #### Fill / Fill inside black
 Click the [fill] button and click on the
@@ -231,7 +231,7 @@ See Pick color.
 Select the [Charts] menu and choose a chart type. Enter positive values ​​(one per line) in the box that opens.  
 
 #### Zoom
-[video](https://drive.google.com/file/d/1exjhHi0g1fYensnA7L1kjqlH964XHt0q/view?usp=sharing)  
+[video](https://drive.google.com/file/d/1yt9mdPGuCbq3xDaTYTPDDsTTHxxIYfdv/view?usp=sharing)  
 ##### Pixel matrix. 
 Right-click on a point of the image, the pixel matrix will appear enlarged for the area in
 the vicinity of the cursor. Clicking on a zoomed pixel with the
