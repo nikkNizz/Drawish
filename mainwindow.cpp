@@ -47,9 +47,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "0.9.15";
-    // 0.9.15: correction rtf ui; improve semitrasp. pen; remove from recents files not supported
-    //  limit to recents in configFile;
+    version_info = "1.0";
+    // 1.0: copy hex ; shapeArea display sizes
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -626,6 +625,7 @@ void MainWindow::updateInfo()
   if(sizes::activeOperation == 2 && sizes::isSelectionOn){
         ui->textEdit->setFocus();
   }
+
   ui->mouseX_label->setNum(sizes::selX);
   ui->mouseY_label->setNum(sizes::selY);
   if(sizes::isSelectionOn || sizes::isShapeOn){
@@ -3163,7 +3163,6 @@ void MainWindow::on_actionDesktop_shortcut_triggered()
 #endif
 
 #ifdef Q_OS_WIN
-    // create vbscript
     // find path
     QString myPathApp =QCoreApplication::applicationDirPath();
     QString myFilePath = QCoreApplication::applicationFilePath();
