@@ -22,6 +22,7 @@ void shapeArea::mousePressEvent(QMouseEvent *event)
     int gy = event->globalPosition().y();
     diffx = gx-sizes::selX;
     diffy = gy-sizes::selY;
+    emit setInfo();
 }
 
 void shapeArea::mouseMoveEvent(QMouseEvent *event)
@@ -39,6 +40,7 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
         if(whereExp == "move"){
            sizes::selX  = event->globalPosition().x()-diffx;
            sizes::selY  = event->globalPosition().y()-diffy;
+           
            resetGeometry();
         }
         else if(whereExp== "top"  ){
@@ -74,6 +76,7 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
 
         }
     }
+    emit setInfo();
     preX=x; preY=y;
 }
 
