@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include <qpainter.h>
 #include <QInputDialog>
+#include <QClipboard>
 
 
 dColors::dColors(QWidget *parent, QPixmap ePix ) :
@@ -40,7 +41,7 @@ void dColors::setBgColor()
     hexr.setNum(ui->redSpin->value(), 16);
     hexg.setNum(ui->greenSpin->value(), 16);
     hexb.setNum(ui->blueSpin->value(), 16);
-    ui->hexLabel->setText("#" + hexr + " " + hexg + " " + hexb);
+    ui->hexValButton->setText("#" + hexr + " " + hexg + " " + hexb);
 }
 
 void dColors::on_redSpin_valueChanged(int arg1)
@@ -255,4 +256,12 @@ void dColors::on_comboReplace_currentIndexChanged(int index)
         replaceColors(index);
     }
     ui->comboReplace->setCurrentIndex(0);
+}
+
+
+void dColors::on_hexValButton_clicked()
+{
+     QClipboard *p_Clipboard = QApplication::clipboard();
+    p_Clipboard->setText(ui->hexValButton->text());
+     QMessageBox::information(this,"Drawish", "Copied!");
 }
