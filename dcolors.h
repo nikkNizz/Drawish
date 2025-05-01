@@ -39,6 +39,8 @@ private slots:
 
     void on_comboReplace_currentIndexChanged(int index);
 
+    void on_hexValButton_clicked();
+
 private:
     Ui::dColors *ui;    
     QPixmap newPix;
