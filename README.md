@@ -181,7 +181,8 @@ From the "Image->Create line" menu **you can also create a line by entering the 
 The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**
 The angles are in the order shown in the image:  
 ![image](https://drive.google.com/uc?export=download&id=1GYvPe_yhgc-y3qFFtwj_QH60IaK1Wj6F)  
-
+[video](https://drive.google.com/file/d/1z3qcvtxO0pj5NvT5CZHCLOQmpNo4UeXj/view?usp=sharing)  
+[video](https://drive.google.com/file/d/1hArIyCshNnlM2Vb6YnhPleDx2v98CpSU/view?usp=sharing)  
 
 
 #### Shapes
