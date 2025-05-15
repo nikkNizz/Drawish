@@ -11,6 +11,7 @@ shapeArea::shapeArea(QWidget *parent)  : QLabel{parent}
     this->setFrameStyle(QFrame:: Box| QFrame::Raised);
     this->setMouseTracking(true);
     resetGeometry();
+    drawSomething();
 }
 
 void shapeArea::mousePressEvent(QMouseEvent *event)
@@ -131,6 +132,7 @@ void shapeArea::drawSomething()
         QPainter p(&npix);
         QPen pen2(sizes::activeColor);
         pen2.setWidth(sizes::line_width);
+        pen2.setCapStyle(Qt::RoundCap);
         pen2.setJoinStyle(Qt::MiterJoin);
         p.setPen(pen2);
         p.setBrush(bru());
@@ -165,7 +167,7 @@ void shapeArea::drawSomething()
             p.drawPolygon(poly);
         }
         else if(sizes::activeShape == "rou"){
-            p.drawRoundedRect(ww*0.1, hh*0.1, ww*0.8, hh*0.8, 10,10);
+            p.drawRoundedRect(sizes::line_width+2, sizes::line_width+2, ww-14-sizes::line_width, hh-14-sizes::line_width, 12,12);
         }
         else if(sizes::activeShape == "sta"){
             int x1 = ww/2;
@@ -362,30 +364,22 @@ void shapeArea::drawSomething()
             poly << QPoint(x1, y1) << QPoint(x2, y2) << QPoint(x3, y3) << QPoint(x4, y4) << QPoint(x5, y5) << QPoint(x6, y6) << QPoint(x7, y7) << QPoint(x8, y8) ;
             p.drawPolygon(poly);
         }
-        else if(sizes::activeShape == "sar"){
-            sizes::selH = sizes::selW; // area always square
-            resetGeometry();
-            int len = width() *0.48;
-            int fLen = len *0.25;
 
-            QLineF lf, lf2, lf3;
-            double aa = double(preX) / double(width());
-            aa = aa *720.00;
-            int cx = width()/2;
-            int cy = height()/2;
+        else if(sizes::activeShape == "sol"){
 
-            lf.setP1(QPoint(cx, cy));
-            lf.setAngle(-aa + 15);
-            lf.setLength(fLen);
-            lf2.setP1(QPoint(cx, cy));
-            lf2.setLength(fLen);
-            lf2.setAngle(-aa -15);
-            lf3.setP1(QPoint(cx, cy));
-            lf3.setLength(len);
-            lf3.setAngle(-aa ); // line
-            QList <QLineF> listlines;
-            listlines << lf << lf2 << lf3;
-            p.drawLines(listlines);
+            QPoint p1(sizes::line_width +2, hh-sizes::line_width-2);
+            QPoint p2(sizes::line_width +2, hh *0.3);
+            QPoint p3(ww*0.3, sizes::line_width+2);
+            QPoint p4(ww-sizes::line_width-2, sizes::line_width+2);
+            QPoint p5(ww -sizes::line_width-2 , hh*0.7);
+            QPoint p6(ww*0.7, hh -sizes::line_width-2);
+            QPoint p7(ww*0.3, hh*0.7);
+            QPoint p8(ww*0.7, hh*0.3);
+            QList<QLine> Lines;
+            Lines << QLine(p1,p2) << QLine(p2,p3) << QLine(p3,p4)
+                  << QLine(p4,p5) << QLine(p5,p6) << QLine(p6,p1) << QLine(p8,p4)
+                  << QLine(p1,p7) << QLine(p7,p3) << QLine(p2,p8) << QLine(p8,p6) << QLine(p7,p5);
+            p.drawLines(Lines);
 
         }
         this->setPixmap(npix);
