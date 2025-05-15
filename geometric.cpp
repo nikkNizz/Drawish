@@ -29,3 +29,4 @@ int sizes::lineYEnd = 0;
 bool sizes::curveStretch = false;
 QString sizes::savedRtf = "";
 bool sizes::mouseCorrection = false;
+bool sizes::isArrow = false;
