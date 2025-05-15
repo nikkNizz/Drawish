@@ -196,7 +196,6 @@ Many filling options are available from the choice box at the top right.
 You can create rectangles, squares, circles and ellipses by entering data from the keyboard from the "Image-->Create Shapes" menu.  
 **Enter the center** as the shape coordinate.  
 You can draw the center of these shapes or not.  
-[video](https://drive.google.com/file/d/1-m5hCy9B364MJM_8_3dB3ntcSPhIQD43/view?usp=sharing)
 
 
 #### Curved line
