@@ -272,8 +272,8 @@
    <widget class="QPushButton" name="lineButton">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>126</y>
+      <x>4</x>
+      <y>190</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -282,7 +282,7 @@
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="toolTip">
-     <string>Line</string>
+     <string>Line or Arrow</string>
     </property>
     <property name="text">
      <string/>
@@ -307,8 +307,8 @@
    <widget class="QPushButton" name="shapeButton">
     <property name="geometry">
      <rect>
-      <x>4</x>
-      <y>190</y>
+      <x>40</x>
+      <y>126</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -377,8 +377,8 @@
    <widget class="QPushButton" name="curveButton">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>190</y>
+      <x>4</x>
+      <y>158</y>
       <width>40</width>
       <height>36</height>
      </rect>
@@ -3974,7 +3974,7 @@
     <widget class="QRadioButton" name="radioButton">
      <property name="geometry">
       <rect>
-       <x>252</x>
+       <x>230</x>
        <y>4</y>
        <width>51</width>
        <height>21</height>
@@ -4025,7 +4025,7 @@
     <widget class="QRadioButton" name="radioButton_2">
      <property name="geometry">
       <rect>
-       <x>310</x>
+       <x>290</x>
        <y>4</y>
        <width>51</width>
        <height>21</height>
@@ -4198,7 +4198,7 @@
      </item>
      <item>
       <property name="text">
-       <string>Simple arrow →</string>
+       <string>Solid ❐</string>
       </property>
      </item>
     </widget>
@@ -4465,70 +4465,6 @@
       </property>
      </item>
     </widget>
-    <widget class="QPushButton" name="wingsButton">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>0</y>
-       <width>31</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="palette">
-      <palette>
-       <active>
-        <colorrole role="Text">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>120</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="ButtonText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>120</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </active>
-       <inactive>
-        <colorrole role="Text">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>120</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="ButtonText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>120</green>
-           <blue>0</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </inactive>
-       <disabled/>
-      </palette>
-     </property>
-     <property name="toolTip">
-      <string>Fan effetc</string>
-     </property>
-     <property name="text">
-      <string>F</string>
-     </property>
-     <property name="checkable">
-      <bool>true</bool>
-     </property>
-    </widget>
    </widget>
    <widget class="QWidget" name="infoWidget" native="true">
     <property name="geometry">
@@ -4787,41 +4723,6 @@
     <property name="icon">
      <iconset resource="Drawish.qrc">
       <normaloff>:/res/conCurve.png</normaloff>:/res/conCurve.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>28</width>
-      <height>30</height>
-     </size>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="connLine">
-    <property name="geometry">
-     <rect>
-      <x>4</x>
-      <y>158</y>
-      <width>40</width>
-      <height>36</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="toolTip">
-     <string>Connected lines</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="Drawish.qrc">
-      <normaloff>:/res/lineConn.png</normaloff>:/res/lineConn.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -5246,6 +5147,39 @@
      <string>x</string>
     </property>
    </widget>
+   <widget class="QComboBox" name="comboLines">
+    <property name="geometry">
+     <rect>
+      <x>38</x>
+      <y>193</y>
+      <width>40</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>Line options</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>___Line</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>-&gt;Arrow</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ϟ Connected lines</string>
+     </property>
+    </item>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
@@ -5319,6 +5253,7 @@
     <addaction name="actionTo_greyscale"/>
     <addaction name="actionTo_sepia"/>
     <addaction name="actionReduce_to_RGB"/>
+    <addaction name="actionCreate_mask"/>
     <addaction name="actionInvert_colors"/>
     <addaction name="actionCreate_Line"/>
     <addaction name="actionCreate_shape"/>
@@ -5626,6 +5561,11 @@
    </property>
    <property name="text">
     <string>Desktop shortcut</string>
+   </property>
+  </action>
+  <action name="actionCreate_mask">
+   <property name="text">
+    <string>Outline</string>
    </property>
   </action>
  </widget>
