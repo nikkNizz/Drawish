@@ -121,7 +121,40 @@ void curveLineArea::mouseMoveEvent(QMouseEvent *event)
     QPen pen(sizes::activeColor);
     pen.setWidth(sizes::line_width);
     p.setPen(pen);
-    p.drawLine(startPoint, endPoint);
+    if(sizes::isArrow == false){
+        p.drawLine(startPoint, endPoint);
+    }
+    else{
+        int basisLen = abs(startPoint.x() - endPoint.x());  // cosine
+        int heightLen = abs(startPoint.y() - endPoint.y());  // sin
+        double tan = double(basisLen) / double(heightLen);    // tan
+        double atan = qAtan(tan);     // opposite tan in radians
+        double deg = qRadiansToDegrees(atan);   // radians to deg.
+        double flen = sqrt(basisLen*basisLen + heightLen*heightLen);  // hypotenuse (equal to length arrow)
+        int len = flen *0.3;   // length of arrowhead
+        QLineF lf, lf1, lf2;
+
+        lf = QLine(startPoint, endPoint);
+
+         if(startPoint.x() <= endPoint.x() && startPoint.y() >= endPoint.y() ){ deg += 90;} // top right
+         else if(startPoint.x() >= endPoint.x() && startPoint.y() >= endPoint.y() ){ deg = 90-deg  ;} // top left
+         else if(startPoint.x() <= endPoint.x() && startPoint.y() <= endPoint.y() ){ deg = 270-deg;} // bott right
+         else if(startPoint.x() >= endPoint.x() && startPoint.y() <= endPoint.y() ){ deg = deg-90;} // bott left
+
+
+        lf1.setP1(endPoint);
+        lf1.setAngle(-deg+15);
+        lf1.setLength(len);
+
+        lf2.setP1(endPoint);
+        lf2.setAngle(-deg-15);
+        lf2.setLength(len);
+
+        QList <QLineF> listlines;
+        listlines << lf << lf1 << lf2 ;
+        p.drawLines(listlines);
+
+    }
     p.end();
     this->setPixmap(tPix);
     }
