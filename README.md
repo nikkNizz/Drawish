@@ -338,6 +338,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🔵️ open pdf as images and save images as pdf   
 🔵️ quick restore point  
 🔵️ quick web links  
+🔵️ object outline  
 🟣️ mouse correction  
 🟣️ many effects  
 🟣️ fill for similarity  
