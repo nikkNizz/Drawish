@@ -193,8 +193,6 @@ private slots:
 
   void on_actionbase64_triggered();
 
-  void on_connLine_clicked();
-
   void on_actionTo_Pdf_triggered();
 
   void on_actionAdd_as_selection_triggered();
@@ -267,6 +265,13 @@ private slots:
 
   void on_actionDesktop_shortcut_triggered();
 
+  void on_actionCreate_mask_triggered();
+
+  void createLineArea(int op);
+
+  void on_comboLines_currentIndexChanged(int index);
+
+  void on_comboLines_highlighted(int index);
 
   private:
     Ui::MainWindow *ui;
