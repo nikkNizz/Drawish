@@ -47,8 +47,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "1.0";
-    // 1.0: copy hex ; shapeArea display sizes
+    version_info = "1.1";
+    // 1.1: correct rounded rect; simple arrow as line ; add solid shape
+    // correct save ; outline  ; removed fan; changed gui
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -517,6 +518,7 @@ void MainWindow::imgSave()
         QFileDialog dialog(this);
         f =dialog.getSaveFileName(this, tr("Drawish save..."), QDir::homePath(),"Images (*.png *.jpg *.ico *bmp)");
         if(f ==""){return;}
+        activePathFile = f;
     }else{
      f = activePathFile;
 
@@ -653,7 +655,6 @@ void MainWindow::untoggle()
     ui->lineButton->setChecked(false);
     ui->shapeButton->setChecked(false);
     ui->curveButton->setChecked(false);
-    ui->connLine->setChecked(false);
 
     // hide widgets
     ui->textOptionsWidget->setVisible(false);
@@ -1374,22 +1375,9 @@ void MainWindow::drawWithPen(){
         pai.setClipRegion(reg);
     }
 
-    if(ui->wingsButton->isChecked()){
-        if(sizes::shape_x_begin  > sizes::shape_x_end){
-            sizes::shape_x_begin--;
-        }else{
-            sizes::shape_x_begin++;
-        }
-        if(sizes::shape_y_begin > sizes::shape_y_end){
-            sizes::shape_y_begin--;
-        }else{
-            sizes::shape_y_begin++;
-        }
-
-    }else{
        sizes::shape_x_begin = sizes::shape_x_end ;
        sizes::shape_y_begin = sizes::shape_y_end ;
-    }
+
 
     wArea->setPixmap(pix);
 
@@ -1743,7 +1731,19 @@ void MainWindow::get_color()
 //--------------------------------------------------------------------------------------------
 
 // line
-void MainWindow::on_lineButton_clicked()
+
+void MainWindow::on_comboLines_currentIndexChanged(int index)
+    {
+        if(index == 1){sizes::isArrow = true;}
+        else{ sizes::isArrow = false; }
+        ui->lineButton->setChecked(false);
+        createLineArea(0);
+        ui->lineButton->setChecked(true);
+        if(index < 2){ createLineArea(7);}
+        else{createLineArea(11);}
+}
+
+void MainWindow::createLineArea(int op)
 {
     if(sizes::isSelectionOn){
         sizes::isSelectionOn=false;
@@ -1754,7 +1754,11 @@ void MainWindow::on_lineButton_clicked()
         untoggle();
         wArea->setCursor(Qt::ArrowCursor);
         ui->lineButton->setChecked(true);
-        sizes::activeOperation = 7;
+        sizes::activeOperation = op;
+        if(op == 11){
+            sizes::shape_x_begin = -1;
+            sizes::shape_y_begin = -1;
+        }
         ui->lineOptionWidget->setVisible(true);
         cl_area = new curveLineArea(wArea);
         connect(cl_area, SIGNAL(finishLines()), this, SLOT(finish_lines()));
@@ -1772,28 +1776,23 @@ void MainWindow::on_lineButton_clicked()
     }
 }
 
+void MainWindow::on_lineButton_clicked()
+{
+    int j = ui->comboLines->currentIndex();
+    if(j < 2){createLineArea(7);}
+    else if( j == 2){ createLineArea(11); }
+
+}
+
 void MainWindow::createShapeArea()
 {    
     sizes::selH =80;
     sizes::selW =80;
-    sizes::shape_x_begin= 40;
-    sizes::shape_y_begin= 40;
-    shape_area = new shapeArea(wArea);
-    shape_area->resetGeometry();
-    QPixmap selPix(80,80);
 
-    selPix.fill(QColor(255,255,255,0));
-    QColor ncol = sizes::activeColor;
-
-    QPainter pai(&selPix);
-    QPen pen(configPen(ncol, 48));
-
-    pai.setPen(pen);
-
-    pai.drawPoint(40,40);
-    shape_area->setPixmap(selPix);
+    shape_area = new shapeArea(wArea);  
     sizes::isShapeOn=true;
     shape_area->show();
+
     updateInfo();
     connect(shape_area, SIGNAL(setInfo()), this, SLOT(updateInfo()));
 }
@@ -1854,54 +1853,26 @@ void MainWindow::on_shapeButton_clicked()
 void MainWindow::on_shapesCombo_currentIndexChanged(int index)
 {
     QStringList shapeNames;
-    shapeNames << "squ" << "rec" << "cir" << "ell" << "tri" << "rou" << "sta" << "aup" << "ari" << "ado" << "ale" << "aul" << "aur" << "abr" << "abl" << "crp" << "crx" << "sar";
+    shapeNames << "squ" << "rec" << "cir" << "ell" << "tri" << "rou" << "sta" << "aup" << "ari" << "ado" << "ale" << "aul" << "aur" << "abr" << "abl" << "crp" << "crx" << "sol";
     sizes::activeShape = shapeNames.at(index);
     if(ui->shapeButton->isChecked() == false){
         int q = QMessageBox::question(this,"Drawish", tr("Do you want to activate shapes?"), QMessageBox::Yes|QMessageBox::No);
         if(q == QMessageBox::Yes){
             untoggle();
-             ui->lineOptionWidget->setVisible(true);
+            ui->lineOptionWidget->setVisible(true);
             ui->shapeButton->setChecked(true);
             sizes::activeOperation = 8;
         }
-    }
+    }    
 }
 
-
-// connected lines
-void MainWindow::on_connLine_clicked()
-{
-    if(sizes::isSelectionOn){
-        sizes::isSelectionOn=false;
-        drawCopy();
-    }
-
-    if(ui->connLine->isChecked()){
-        untoggle();
-        wArea->setCursor(Qt::ArrowCursor);
-        ui->connLine->setChecked(true);
-        sizes::activeOperation = 11;
-        sizes::shape_x_begin = -1;
-        sizes::shape_y_begin = -1;
-        ui->lineOptionWidget->setVisible(true);
-        cl_area = new curveLineArea(wArea);
-        connect(cl_area, SIGNAL(finishLines()), this, SLOT(finish_lines()));
-        sizes::isCurveLineAreaOn = true;
-        cl_area->show();
-    }else{
-        sizes::activeOperation = 0;
-        ui->lineOptionWidget->setVisible(false);
-        if(sizes::isCurveLineAreaOn){
-            sizes::isCurveLineAreaOn = false;
-            delete cl_area;
-            cl_area =NULL;
-        }
-    }
-}
 
 void MainWindow::finish_lines()
 {
-    if(sizes::activeOperation == 7){ save_previous(tr("Line")); }
+    if(sizes::activeOperation == 7){
+        if(sizes::isArrow == false){ save_previous(tr("Line"));}
+        else{save_previous(tr("Simple arrow"));}
+    }
     else {save_previous(tr("Connected lines"));}
     if(sizes::isCurveLineAreaOn){
       QPixmap cPix = cl_area->pixmap();
@@ -2339,6 +2310,48 @@ void MainWindow::on_actionReduce_to_RGB_triggered()
     }else{
       pix = QPixmap::fromImage(img);
       showPix();
+    }
+}
+
+void MainWindow::on_actionCreate_mask_triggered()
+{
+    save_previous(tr("Outline"));
+    QPixmap Epix = pix;
+    if(sizes::isSelectionOn){
+        Epix = selectionRect->pixmap().scaled(sizes::selW, sizes::selH);
+    }
+    QImage img = Epix.toImage();
+    QImage img2= img;
+
+    int v = QInputDialog::getInt(this, "Drawish", tr("Enter limit"), 15, 2, 64);
+
+    for (int y = 0; y < (img.height()-1); ++y) {
+        for (int x = 0; x < (img.width()-1); ++x) {
+            QColor col1 = img.pixelColor(x,y);
+            QColor col3 = img.pixelColor(x+1, y);
+            QColor col2 = img.pixelColor(x, y+1);
+            int r = col1.red();
+            int g = col1.green();
+            int b = col1.blue();
+            int r2 = col2.red();
+            int g2 = col2.green();
+            int b2 = col2.blue();
+            int r3 = col3.red();
+            int g3 = col3.green();
+            int b3 = col3.blue();
+            if(abs(r-r2) > v || abs(g-g2)> v || abs(b-b2) > v || abs(r-r3) > v || abs(g-g3) > v || abs(b-b3) > v){
+                img2.setPixelColor(x,y, Qt::black);
+            }else{
+                img2.setPixelColor(x,y, Qt::gray);
+            }
+        }
+    }
+
+    if(sizes::isSelectionOn){
+        selectionRect->setPixmap(QPixmap::fromImage(img2));
+    }else{
+        pix = QPixmap::fromImage(img2);
+        showPix();
     }
 }
 
@@ -3193,4 +3206,11 @@ void MainWindow::on_actionDesktop_shortcut_triggered()
 
 #endif
 
+}
+
+
+void MainWindow::on_comboLines_highlighted(int index)
+{
+    QString tx= ui->comboLines->itemText(index);
+    ui->comboLines->setToolTip(tx);
 }
