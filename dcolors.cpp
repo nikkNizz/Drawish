@@ -265,3 +265,4 @@ void dColors::on_hexValButton_clicked()
     p_Clipboard->setText(ui->hexValButton->text());
      QMessageBox::information(this,"Drawish", "Copied!");
 }
+
