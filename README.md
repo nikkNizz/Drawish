@@ -1,10 +1,10 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  1.0 
+# Drawish  1.1 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
 
-![Image](https://drive.google.com/uc?export=view&id=1WWkkXWaGSLCC28bo-Yu_8ZsdXd2vtKXr)  
+![Image](https://github.com/nikkNizz/Drawish/blob/main/png/DRAWISCREEN.png)  
 
 
 
@@ -172,24 +172,24 @@ For example, if you want to balance the white, you will have to set white as the
 [video](https://drive.google.com/file/d/1M87q7asCIgoTUkzosI1L7IYRID0MK-JZ/view?usp=sharing)  
 Click on the pick button again to proceed with other operations.
 
-#### Line
-Click the [Line] button and then draw the line with the left mouse button.  
+#### Line / Simple arrow / Connected lines
+Click the [Line] button In the selection box next to it, select a line or a simple arrow or connected lines.  
 In the top menu choose the attributes of the line.  
+To draw lines and arrows use the mouse on the image with the left button pressed.  
+To get connected lines click on the points to connect.  
 From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.  
 The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**
 The angles are in the order shown in the image:  
 ![image](https://drive.google.com/uc?export=download&id=1GYvPe_yhgc-y3qFFtwj_QH60IaK1Wj6F)  
-[video](https://drive.google.com/file/d/1-m5hCy9B364MJM_8_3dB3ntcSPhIQD43/view?usp=sharing)
+
 
 
 #### Shapes
 Click the [shapes] button, or select a shape from the selection box.  
 The shape can be moved by dragging the area with the mouse or from keyboard (A W S Z keys).  
 Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS, CROSSES. 
-The simple arrow can be rotated by moving the mouse along the top or bottom edge of the layer. While it can be enlarged by dragging the left and right edges.  
 Border width is defined by line width box. 
 Many filling options are available from the choice box at the top right.  
-[video](https://drive.google.com/file/d/1t4i03DvqtAWYFMJfBzxKOIYCBJa3QD-V/view?usp=sharing)
 
 #### Shapes by keyboard
 You can create rectangles, squares, circles and ellipses by entering data from the keyboard from the "Image-->Create Shapes" menu.  
@@ -197,9 +197,6 @@ You can create rectangles, squares, circles and ellipses by entering data from t
 You can draw the center of these shapes or not.  
 [video](https://drive.google.com/file/d/1-m5hCy9B364MJM_8_3dB3ntcSPhIQD43/view?usp=sharing)
 
-#### Connected lines
-Click the [connected lines] button.
-After each click on the drawing area you will get connected lines. 
 
 #### Curved line
 Click the [curved line] button.  You will be able to
@@ -280,7 +277,7 @@ From the Image menu you can apply the listed effects to the selection.
 If there is no selection, the changes are applied to the entire image.  
 The effects allow you to reduce the image to grayscale, invert the colors,
 reduce to rgb (eliminates the minority channels and keeps only the prevalent one),
-mirror the image, give sepia effect.
+mirror the image, give sepia effect, find the outlines of objects.  
 
 #### Sizes
 From the" Sizes->Sizes" menu you can scale or resize the image based on manually entered values.  
@@ -347,8 +344,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟣️ eraser for color by similarity  
 🟣️ grid and pixel color replacement with simple right clicks  
 🟣️ multicolor pen  
-🟣️ fusion pen  
-🟣️ fan effect pen  
+🟣️ fusion pen    
 🟣️ favorite colors  
 🟣️ copy selection to the program, not only to clipboard  
 🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
