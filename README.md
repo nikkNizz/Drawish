@@ -173,7 +173,7 @@ For example, if you want to balance the white, you will have to set white as the
 Click on the pick button again to proceed with other operations.
 
 #### Line / Simple arrow / Connected lines
-Click the [Line] button In the selection box next to it, select a line or a simple arrow or connected lines.  
+Click the [Line] button. In the selection box next to it, select a line or a simple arrow or connected lines.  
 In the top menu choose the attributes of the line.  
 To draw lines and arrows use the mouse on the image with the left button pressed.  
 To get connected lines click on the points to connect.  
