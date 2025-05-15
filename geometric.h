@@ -9,7 +9,8 @@ struct sizes
   static int areaWidth;
   static int areaHeight;
   static bool startResize;
-  static int activeOperation; //1=selection  2=text 3=pen 4=fill 5=spray  6=picker 7=line 8=shape 9=curve 10= conn_curve 11 = connLine 12=stretch
+  static int activeOperation; //1=selection  2=text 3=pen 4=fill 5=spray  6=picker 7=line 8=shape 9=curve
+                              //10= conn_curve 11 = connLine 12=stretch
 // selection geometry
   static int selX;
   static int selY;
@@ -36,6 +37,7 @@ struct sizes
   static bool curveStretch;
   static QString savedRtf;
   static bool mouseCorrection;
+  static bool isArrow;
 };
 
 #endif // GEOMETRIC_H
