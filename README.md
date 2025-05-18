@@ -208,7 +208,7 @@ The angles are in the order shown in the image:
 #### Shapes
 Click the [shapes] button, or select a shape from the selection box.  
 The shape can be moved by dragging the area with the mouse or from keyboard (A W S Z keys).  
-Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS, CROSSES (for simple arrow see previous chapter).  
+Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS, CROSSES (for simple arrow see "Line / Simple arrow / Connected lines" chapter).  
 Border width is defined by line width box. 
 Many filling options are available from the choice box at the top right.  
 
