@@ -7,7 +7,6 @@ It also allows you to modify existing images, open pdf as images in Linux, draw 
 ![Image](https://github.com/nikkNizz/Drawish/blob/main/png/DRAWISCREEN.png)  
 
 
-
 ### PRECOMPILED PACKAGES:
 The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases) page of this project.  
 Once the program is open you can create a quick link: from the [File -> Desktop shortcut] menu, a menu item is created in Linux or a desktop shortcut in Windows.
@@ -55,6 +54,7 @@ apt install \
     libxkbcommon-x11-dev \  
     libxrender-dev  
 
+
 #### USAGE
 You can start drawing or you can open an image.  
 Open images from the" File->Open" menu. You can also drag a file on the drawing area, 
@@ -81,6 +81,26 @@ If you launch the program from the command line, you can also add the path of an
 For Italian users: you can run Drawish in English by adding the "en" parameter.   
  `/path/Drawish-x86_64.Appimage en`  or  
  `/path/Drawish-x86_64.Appimage /path/to/image en`  
+
+#### Saving
+Images are saved in png format.  
+To save in jpg, ico or bmp format, enter the extension to the file name
+in the save window.  
+You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" folder.  
+For base64 format, see "Camera" chapter.
+
+#### Undo/Redo
+In the top left selection box you can navigate through the history of
+the last 15 changes. You can also use the ctrl-Z key combination to go back.   
+To return to the left image, press the top left button [Redo].  
+If a change is made from a previous image, the left image will no longer be available.  
+[Video](https://drive.google.com/file/d/1jMbZppeGw3zGTbC74FTZjxg4T8YVSmn-/view?usp=sharing)
+
+#### Restore point
+You can save a restore point from the [image->Set as restore point] menu. Any previous points will be deleted.  
+Go back to the saved point at any time from the [Image->Restore] menu.  
+Cancel the operation with ctrl-Z or undo
+
 
 #### Open Pdf
 It is possible to open pdf as images, dragging them onto the drawing area, or from the menu, or from the command line.   
@@ -293,23 +313,6 @@ Delete the camera from the" Camera->Delete camera " menu.
 You can save the framed image in base64 format to the clipboard from the "Camera->To base64" menu. 
 [Video](https://drive.google.com/file/d/1nAk2Pm1FmSXZ3rD-pW398qp9vDhU7IQS/view?usp=sharing)
 
-#### Undo/Redo
-In the top left selection box you can navigate through the history of
-the last 15 changes. You can also use the ctrl-Z key combination to go back.   
-To return to the left image, press the top left button [Redo].  
-If a change is made from a previous image, the left image will no longer be available.
-
-#### Restore point
-You can save a restore point from the [image->Set as restore point] menu. Any previous points will be deleted.  
-Go back to the saved point at any time from the [Image->Restore] menu.  
-Cancel the operation with ctrl-Z or undo
-
-#### Saving
-Images are saved in png format.  
-To save in jpg, ico or bmp format, enter the extension to the file name
-in the save window.  
-You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" folder.  
-For base64 format, see "Camera" chapter.
 
 #### Features
 Here are some of Drawish's unique features (The most common functions are omitted):  
