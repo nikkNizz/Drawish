@@ -9,6 +9,7 @@ Area::Area(QWidget *parent)  : QLabel{parent}
 
 void Area::mousePressEvent(QMouseEvent *event)
 {
+    if(sizes::isRotating) return;
     if(event->button()== Qt::RightButton){
         rightPressed = true;
         sizes::selX = event->pos().x();
@@ -51,7 +52,7 @@ void Area::mousePressEvent(QMouseEvent *event)
         emit drawFirstPoint();
 
     }
-    
+
     else if(sizes::activeOperation == 4){ // fill        
         sizes::selX = event->pos().x();
         sizes::selY = event->pos().y();
@@ -80,6 +81,7 @@ void Area::mousePressEvent(QMouseEvent *event)
 
 void Area::mouseMoveEvent(QMouseEvent *event)
 {
+   if(sizes::isRotating) return;
    if(rightPressed){
        sizes::selX = event->pos().x();
        sizes::selY = event->pos().y();
