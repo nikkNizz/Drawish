@@ -26,10 +26,7 @@ private slots:
     QImage setSaturationHue(int v);
     void on_gammaSlider_sliderReleased();
 
-    void on_valSlider_sliderReleased();
-
     void on_highlightPlusButton_clicked();
-
 
     void on_highlightMinusButton_clicked();
 
@@ -53,7 +50,6 @@ private slots:
 
     void on_pixelizeButton_clicked();
 
-
     void on_saturationPlusButton_2_clicked();
 
     void on_saturationMinusButton_2_clicked();
@@ -63,6 +59,10 @@ private slots:
     void on_huePlus_clicked();
 
     void on_hueMinus_clicked();
+
+    void on_contrastPlus_clicked();
+
+    void on_contrastLess_clicked();
 
 private:
     Ui::DialogEffects *ui;
