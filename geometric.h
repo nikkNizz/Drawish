@@ -38,6 +38,7 @@ struct sizes
   static QString savedRtf;
   static bool mouseCorrection;
   static bool isArrow;
+  static bool isRotating;
 };
 
 #endif // GEOMETRIC_H
