@@ -47,9 +47,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "1.1";
-    // 1.1: correct rounded rect; simple arrow as line ; add solid shape
-    // correct save ; outline  ; removed fan; changed gui
+    version_info = "1.2";
+    // 1.2: rotate aut. show degrees; contrast ; add readme link; correct selection undo
+    // undo to 25  ; avoid crash when click and auto rotation!  ; option no grid right click
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -690,6 +690,7 @@ void MainWindow::deleteSel()
 
 void MainWindow::createSelectionFromRubb()
 {
+    save_previous("Image");
     save_previous("Selection*" + QString::number(sizes::selX) + "*" + QString::number(sizes::selY) + "*" + QString::number(sizes::selW) + "*" + QString::number(sizes::selH) );
     createSelection();
 }
@@ -810,7 +811,7 @@ void MainWindow::createSelection()
         }
 
       selectionRect->setPixmap(selPix);
-      QPixmap blank(sizes::selW ,sizes::selH );
+      QPixmap blank(sizes::selW ,sizes::selH);
       blank.fill(Qt::white);
       QPainter p(&pix);
       p.drawPixmap(sizes::selX ,sizes::selY, blank);
@@ -828,13 +829,14 @@ void MainWindow::createSelection()
 
 void MainWindow::drawCopy()
 {    
-    QPixmap selectedImage(selectionRect->pixmap());
+    QPixmap selectedImage(selectionRect->pixmap());    
+    save_previous("From selection");
     QPainter p(&pix);  
     p.drawPixmap(sizes::selX ,sizes::selY, selectedImage.scaled(sizes::selW, sizes::selH));
     wArea->setPixmap(pix);
     delete selectionRect;
     selectionRect = NULL;
-    save_previous("Selection*" + QString::number(sizes::selX) + "*" + QString::number(sizes::selY) + "*" + QString::number(sizes::selW) + "*" + QString::number(sizes::selH) );
+   // save_previous("Selection*" + QString::number(sizes::selX) + "*" + QString::number(sizes::selY) + "*" + QString::number(sizes::selW) + "*" + QString::number(sizes::selH) );
     updateInfo();
 }
 
@@ -845,6 +847,7 @@ void MainWindow::on_actionSelect_all_triggered()
     sizes::selY =0;
     sizes::selH = sizes::areaHeight-8;
     sizes::selW = sizes::areaWidth-8;
+    save_previous("Image");
     save_previous("Selection*" + QString::number(sizes::selX) + "*" + QString::number(sizes::selY) + "*" + QString::number(sizes::selW) + "*" + QString::number(sizes::selH) );
     untoggle();
     sizes::activeOperation= 1;
@@ -1473,7 +1476,7 @@ void MainWindow::save_previous(QString tx)
     historyList.push_back(tx);
     prePix = QPixmap();
     historyPix.push_back(pix);
-    if(historyList.count() > 15){
+    if(historyList.count() > 25){
         historyList.removeFirst();
         historyPix.removeFirst();
     }
@@ -1936,6 +1939,7 @@ void MainWindow::finish_curve()
 // ZOOM
 void MainWindow::view_zoom()
 {
+    if(ui->actionNo_grid->isChecked() == true) return;
     if(zoom_area == nullptr){
       sizes::zoomEdited = false;
       zoom_area = new zoomArea(wArea);
@@ -2057,12 +2061,14 @@ void MainWindow::on_autoRotationButton_clicked()
         wPreRotate = sizes::selW;
         hPreRotate = sizes::selH;
         preRotatePix = selectionRect->pixmap();
-        goRotate = true;
+
+        sizes::isRotating= true;
         autoRotation();
 
     }else{
         ui->autoRotationButton->setIcon(QIcon(":/res/crono1.png"));
-        goRotate = false;
+
+        sizes::isRotating = false;
         preAngle =0;
         updateInfo();
     }
@@ -2070,7 +2076,7 @@ void MainWindow::on_autoRotationButton_clicked()
 
 void MainWindow::autoRotation()
 {
-    if(!goRotate)return;
+    if(!sizes::isRotating)return;
     preAngle++;
     if(preAngle > 360) preAngle =0;
     QTransform tf;
@@ -2081,7 +2087,8 @@ void MainWindow::autoRotation()
     selectionRect->resetGeometry();
     QPixmap sPix = preRotatePix.transformed(tf);
     selectionRect->setPixmap(sPix);
-    QTimer::singleShot(22, this, SLOT(autoRotation()));
+    ui->RotatioAngleSpin->setValue(preAngle);
+    QTimer::singleShot(25, this, SLOT(autoRotation()));
 }
 
 
@@ -2123,6 +2130,7 @@ void MainWindow::on_actionSizes_2_triggered()
                 QMessageBox::information(this, "Drawish", tr("An area is already selected"));
                 return;
             }else{
+                save_previous("Image");
                 save_previous("Selection*" + QString::number(sizes::selX) + "*" + QString::number(sizes::selY) + "*" + QString::number(sizes::selW) + "*" + QString::number(sizes::selH) );
                 createSelection();
             }
@@ -2136,6 +2144,7 @@ void MainWindow::on_actionSizes_2_triggered()
             sizes::activeOperation=1;
             untoggle();
             ui->selectionAreaButton->setChecked(true);
+            save_previous("Image");
             save_previous("Selection*" + QString::number(sizes::selX) + "*" + QString::number(sizes::selY) + "*" + QString::number(sizes::selW) + "*" + QString::number(sizes::selH) );
             createSelection();
         }
@@ -2611,11 +2620,6 @@ void MainWindow::on_actionCreate_Line_triggered()
     }
 }
 
-
-void MainWindow::on_actionGithub_triggered()
-{
-    QDesktopServices::openUrl(QUrl("https://github.com/nikkNizz/Drawish"));
-}
 
 void MainWindow::on_comboBox_activated(int index)
 {
@@ -3208,9 +3212,18 @@ void MainWindow::on_actionDesktop_shortcut_triggered()
 
 }
 
-
 void MainWindow::on_comboLines_highlighted(int index)
 {
     QString tx= ui->comboLines->itemText(index);
     ui->comboLines->setToolTip(tx);
+}
+
+void MainWindow::on_actionGithub_triggered()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/nikkNizz/Drawish"));
+}
+
+void MainWindow::on_actionReadme_and_help_triggered()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/nikkNizz/Drawish/blob/main/README.md"));
 }
