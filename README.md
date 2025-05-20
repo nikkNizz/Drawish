@@ -1,5 +1,5 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  1.1 
+# Drawish  1.2 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
@@ -91,7 +91,7 @@ For base64 format, see "Camera" chapter.
 
 #### Undo/Redo
 In the top left selection box you can navigate through the history of
-the last 15 changes. You can also use the ctrl-Z key combination to go back.   
+the last 25 changes. You can also use the ctrl-Z key combination to go back.   
 To return to the left image, press the top left button [Redo].  
 If a change is made from a previous image, the left image will no longer be available.  
 [Video](https://drive.google.com/file/d/1jMbZppeGw3zGTbC74FTZjxg4T8YVSmn-/view?usp=sharing)
@@ -251,11 +251,11 @@ Select the [Charts] menu and choose a chart type. Enter positive values ​​(o
 #### Zoom
 [video](https://drive.google.com/file/d/1yt9mdPGuCbq3xDaTYTPDDsTTHxxIYfdv/view?usp=sharing)  
 ##### Pixel matrix. 
-Right-click on a point of the image, the pixel matrix will appear enlarged for the area in
-the vicinity of the cursor. Clicking on a zoomed pixel with the
-**right** mouse button, it will be replaced with the active color, or draw with the active color by holding down the right mouse button.  
+Right-click on a point of the image, the pixel matrix will appear enlarged for the area in the vicinity of the cursor.  
+Clicking on a zoomed pixel with the **right** mouse button, it will be replaced with the active color, or draw with the active color by holding down the right mouse button.  
 Clicking with the **left** mouse button, to get information about the rgb color of the pixel.  
-Remove the enlarged area with another right-click on the image. 
+Remove the enlarged area with another right-click on the image.  
+*Disable grid on right click from the menu [Edit->No grid on right click]*
 
 ##### Double the pixels or Increase by 10%.
 If there is an active selection these functions applies to the selection, otherwise they applie to the entire image.
