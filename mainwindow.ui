@@ -5238,6 +5238,7 @@
     <addaction name="actionMerge_selection_to_image"/>
     <addaction name="actionTransparent_selection"/>
     <addaction name="actionMouse_correctio"/>
+    <addaction name="actionNo_grid"/>
    </widget>
    <widget class="QMenu" name="menuEffects">
     <property name="title">
@@ -5275,6 +5276,7 @@
     </property>
     <addaction name="actionAbout"/>
     <addaction name="actionGithub"/>
+    <addaction name="actionReadme_and_help"/>
    </widget>
    <widget class="QMenu" name="menuSizes">
     <property name="title">
@@ -5566,6 +5568,19 @@
   <action name="actionCreate_mask">
    <property name="text">
     <string>Outline</string>
+   </property>
+  </action>
+  <action name="actionReadme_and_help">
+   <property name="text">
+    <string>Readme and help</string>
+   </property>
+  </action>
+  <action name="actionNo_grid">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>No grid on right click</string>
    </property>
   </action>
  </widget>
