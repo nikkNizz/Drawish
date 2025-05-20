@@ -30,3 +30,4 @@ bool sizes::curveStretch = false;
 QString sizes::savedRtf = "";
 bool sizes::mouseCorrection = false;
 bool sizes::isArrow = false;
+bool sizes::isRotating = false;
