@@ -61,47 +61,62 @@ void DialogEffects::on_gammaSlider_sliderReleased()
     ui->labelThumb->setPixmap( newPix.scaled(200,170));
 
 }
-
-
-void DialogEffects::on_valSlider_sliderReleased()
-{    
-    int value = ui->valSlider->value();
-    int vb = value*2.5;
-
-    QImage imgg;
-    imgg = contrast(vb);
+void DialogEffects::on_contrastPlus_clicked()
+{
+    QImage imgg = contrast(1);
     newPix = QPixmap::fromImage(imgg);
     ui->labelThumb->setPixmap( newPix.scaled(200,170));
-
+    if(ui->autoUpdateCheck->isChecked()){origPix = newPix;}
 }
+
+
+void DialogEffects::on_contrastLess_clicked()
+{
+    QImage imgg = contrast(-1);
+    newPix = QPixmap::fromImage(imgg);
+    ui->labelThumb->setPixmap( newPix.scaled(200,170));
+    if(ui->autoUpdateCheck->isChecked()){origPix = newPix;}
+}
+
+
 
 QImage DialogEffects::contrast(int v)
 {
-     QImage qImgRet= origPix.toImage();
-     double F = (259*(v+255)) / (255 *(259-v));
-     for (int y = 0; y < qImgRet.height(); ++y) {
-         QRgb *line = reinterpret_cast<QRgb*>(qImgRet.scanLine(y));
-         for (int x = 0; x < qImgRet.width(); ++x) {
-             QRgb &rgb = line[x];
+    QImage qImgRet= origPix.toImage();
 
-             int r = qRed(rgb) ;
-             int g = qGreen(rgb);
-             int b = qBlue(rgb);
+    int lighter = qImgRet.pixelColor(0,0).lightness();
+    int darker = lighter;
+    int p;
 
-             r = (F * (r-128) +128);
-             g =  (F * (g-128) +128);
-             b = (F * (b-128) +128);
-             if(r < 0) r =0;
-             else if(r > 255)r = 255;
-             if(g < 0) g =0;
-             else if(g > 255)g = 255;
-             if(b < 0) b =0;
-             else if(b > 255)b = 255;
-             qImgRet.setPixelColor(x, y, QColor(r,g,b));
+    for (int y = 0; y < qImgRet.height(); ++y) {
 
-         }
-     }
-     return qImgRet;
+            for (int x = 0; x < qImgRet.width(); ++x) {
+            p = qImgRet.pixelColor(x, y).lightness();
+                if( p > lighter) lighter =p;
+                if( p < darker) darker =p;
+            }
+    }
+    int medium= (lighter + darker) / 2 ;
+    QColor k;
+    for (int y = 0; y < qImgRet.height(); ++y) {
+        QRgb *line = reinterpret_cast<QRgb*>(qImgRet.scanLine(y));
+        for (int x = 0; x < qImgRet.width(); ++x) {
+            QRgb &rgb = line[x];
+            k = QColor(rgb);
+            p= k.lightness();
+            if( v == 1){
+            if(p > medium) k = k.lighter(105);
+            else if( p < medium) k = k.darker(110);
+            }
+            else{
+                if(p > medium) k = k.darker(110);
+                else if( p < medium) k = k.lighter(105);
+            }
+           qImgRet.setPixelColor(x, y, k);
+        }
+    }
+    return qImgRet;
+
 }
 
 QImage DialogEffects::highlightEffect(int v)
@@ -486,4 +501,3 @@ void DialogEffects::on_histograButton_clicked()
     newPix = QPixmap::fromImage(Img);
     ui->labelThumb->setPixmap( newPix.scaled(200,170));
 }
-
