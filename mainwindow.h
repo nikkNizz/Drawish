@@ -273,6 +273,8 @@ private slots:
 
   void on_comboLines_highlighted(int index);
 
+  void on_actionReadme_and_help_triggered();
+
   private:
     Ui::MainWindow *ui;
     QString version_info;
@@ -301,7 +303,6 @@ private slots:
     QPixmap preRotatePix;
     int wPreRotate, hPreRotate;
     int preAngle =0;
-    bool goRotate = false;
     //-------------------------------
 
 
