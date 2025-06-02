@@ -17,6 +17,12 @@ public:
 
 signals:
     void setInfo();
+    void setCopy();
+
+private slots:
+    void createActions();
+    void copyClip();
+
 
 
 private:
@@ -24,6 +30,9 @@ private:
     QString whereExp; // top, bottom, left right
     int preX, preY;
     int diffx, diffy;
+    QMenu *menu;
+    QAction *copy; QAction *clear;
+
 
 };
 
