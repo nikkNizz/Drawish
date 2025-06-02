@@ -47,9 +47,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "1.2";
-    // 1.2: rotate aut. show degrees; contrast ; add readme link; correct selection undo
-    // undo to 25  ; avoid crash when click and auto rotation!  ; option no grid right click
+    version_info = "1.3";
+    // 1.3: redo correction (del. possible selection); draw circle and squares quickly;
+    // add tranps. selection in config; removed option grid, add context menu
+    //todo: rel for lubuntu 25.04
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -149,6 +150,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(wArea, SIGNAL(setInfo()), this, SLOT(updateInfo()));
     connect(wArea, SIGNAL(drawShape()), this, SLOT(draw_shape()));
     connect(wArea, SIGNAL(viewZoom()), this, SLOT(view_zoom()));
+    connect(wArea, SIGNAL(setPaste()), this, SLOT(on_actionPaste_from_clipboard_triggered()));
 
     historyCount = 1;
     updateInfo();
@@ -283,6 +285,8 @@ void MainWindow::readConfig()
     k = midstring(config, "textSize");
     if(k.toInt() == 0) k = "16";
     ui->sizeLine->setText(k);
+    k = midstring(config, "transSel");
+    if(k == "false"){ ui->actionTransparent_selection->setChecked(false);}
     k = midstring(config, "textFont");
     if(k != ""){
     for(int i=0; i < ui->fontComboBox->count(); ++i){
@@ -440,6 +444,11 @@ void MainWindow::closeEvent(QCloseEvent *ev)
     }
     // save some values: penWidth, textSize, textFont, textStyle, degrees
     QString val="\n<penWidth>" + QString::number(sizes::line_width) + "</penWidth>\n";
+    if(ui->actionTransparent_selection->isChecked() == false){
+        val += "<transSel>false</transSel>";
+    }else{
+        val += "<transSel>true</transSel>";
+    }
     val += "<textSize>" + ui->sizeLine->text() + "</textSize>\n";
     val += "<textFont>" + ui->fontComboBox->currentText() + "</textFont>\n";
     QString textstyle ="";
@@ -764,6 +773,11 @@ void MainWindow::on_actionClose_triggered()
 void MainWindow::on_undoButton_clicked()
 {
     if(!prePix.isNull()){
+        if(sizes::isSelectionOn){
+            sizes::isSelectionOn=false;
+            delete selectionRect;
+            selectionRect = NULL;
+        }
       pix=prePix;
       newImage("pix");
       historyCount =1;
@@ -824,6 +838,7 @@ void MainWindow::createSelection()
     raiseBorders();
     updateInfo();
     connect(selectionRect, SIGNAL(setInfo()), this, SLOT(updateInfo()));
+    connect(selectionRect, SIGNAL(setCopy()), this, SLOT(on_actionCopy_triggered()));
 }
 
 
@@ -1939,7 +1954,6 @@ void MainWindow::finish_curve()
 // ZOOM
 void MainWindow::view_zoom()
 {
-    if(ui->actionNo_grid->isChecked() == true) return;
     if(zoom_area == nullptr){
       sizes::zoomEdited = false;
       zoom_area = new zoomArea(wArea);
@@ -1980,6 +1994,7 @@ void MainWindow::view_zoom()
     else{
         // copy zoomed image
         if(sizes::zoomEdited){ save_previous("Zoom");}
+        sizes::zoomEdited = false;
         QImage img = zoom_area->pixmap().toImage();
         QPixmap cPix(17,17);
         QColor k;
