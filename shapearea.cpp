@@ -48,6 +48,9 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
            int incY = sizes::selY - (event->globalPosition().y()-diffy);
            sizes::selH = sizes::selH + incY;
            sizes::selY = event->globalPosition().y()-diffy;
+           if(sizes::activeShape == "squ" || sizes::activeShape == "cir"){
+               sizes::selW = sizes::selH;
+           }
            resetGeometry();
            drawSomething();
 
@@ -55,6 +58,9 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
 
         else if(whereExp== "bottom" ){
            sizes::selH = y;
+            if(sizes::activeShape == "squ" || sizes::activeShape == "cir"){
+                sizes::selW = sizes::selH;
+            }
            resetGeometry();
            drawSomething();
 
@@ -64,7 +70,9 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
            int incX = sizes::selX - (event->globalPosition().x()-diffx);
            sizes::selW = sizes::selW + incX;
            sizes::selX = event->globalPosition().x()-diffx;
-
+           if(sizes::activeShape == "squ" || sizes::activeShape == "cir"){
+               sizes::selH = sizes::selW;
+           }
            resetGeometry();
            drawSomething();
 
@@ -72,6 +80,9 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
         }
         else if(whereExp== "right" ){
            sizes::selW = x;
+            if(sizes::activeShape == "squ" || sizes::activeShape == "cir"){
+                sizes::selH = sizes::selW;
+            }
            resetGeometry();
            drawSomething();
 
@@ -94,6 +105,7 @@ void shapeArea::mouseReleaseEvent(QMouseEvent *event)
 void shapeArea::resetGeometry()
 {
     this->setGeometry(sizes::selX, sizes::selY, sizes::selW, sizes::selH);
+
 }
 
 QBrush shapeArea::bru()
