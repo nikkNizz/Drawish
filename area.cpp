@@ -1,21 +1,24 @@
 #include "area.h"
 #include "geometric.h"
 #include <QMouseEvent>
+#include <QMenu>
+#include <QAction>
 
 Area::Area(QWidget *parent)  : QLabel{parent}
 {
-
+    createMenu();
 }
 
 void Area::mousePressEvent(QMouseEvent *event)
 {
     if(sizes::isRotating) return;
     if(event->button()== Qt::RightButton){
-        rightPressed = true;
         sizes::selX = event->pos().x();
         sizes::selY = event->pos().y();
-        // create zoom label
-        emit viewZoom();
+        if(sizes::zoomEdited) emit viewZoom();
+        else{
+           menu->exec((QPoint(event->globalPosition().x(),event->globalPosition().y())));
+        }
     }
     else if(event->button()== Qt::LeftButton){
         rightPressed = false;
@@ -146,4 +149,34 @@ void Area::mouseReleaseEvent(QMouseEvent *event)
    else if(sizes::activeOperation == 3 || sizes::activeOperation == 5 ){
          if(!rightPressed) emit finishDrawPen();
      }
+}
+
+void Area::createMenu()
+{
+    createActions();
+    menu = new QMenu(this);
+    menu->addAction(Paste);
+    menu->addAction(Zoomy);
+    menu->addSeparator();
+    menu->addAction(tr("Cancel"));
+}
+
+void Area::createActions()
+{
+    Paste =new QAction(tr("Paste"), this);
+   connect(Paste, SIGNAL(triggered()), this, SLOT(actPaste()));
+    Zoomy = new QAction(tr("Show Grid"));
+   connect(Zoomy, SIGNAL(triggered()), this, SLOT(actZoom()));
+}
+
+void Area::actPaste()
+{
+    emit setPaste();
+}
+
+void Area::actZoom()
+{
+    rightPressed = true;
+    // create zoom label
+    emit viewZoom();
 }
