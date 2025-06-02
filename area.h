@@ -28,7 +28,13 @@ signals:
     void setInfo();
     void drawShape();
     void viewZoom();
+    void setPaste();
 
+private slots:
+    void createMenu();
+    void createActions();
+    void actPaste();
+    void actZoom();
 
     private:
     QRubberBand *rubb;
@@ -36,6 +42,9 @@ signals:
     bool isRubb = false;
     bool rightPressed=false;
     int six =0;
+    QMenu *menu;
+    QAction *Paste; QAction *Zoomy;
+
 
 };
 
