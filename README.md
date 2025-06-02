@@ -1,5 +1,5 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  1.2 
+# Drawish  1.3 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
@@ -252,7 +252,7 @@ Select the [Charts] menu and choose a chart type. Enter positive values ​​(o
 #### Zoom
 [video](https://drive.google.com/file/d/1yt9mdPGuCbq3xDaTYTPDDsTTHxxIYfdv/view?usp=sharing)  
 ##### Pixel matrix. 
-Right-click on a point of the image, the pixel matrix will appear enlarged for the area in the vicinity of the cursor.  
+Right click on the image->Show Grid: the pixel matrix will appear enlarged for the area in the vicinity of the cursor.  
 Clicking on a zoomed pixel with the **right** mouse button, it will be replaced with the active color, or draw with the active color by holding down the right mouse button.  
 Clicking with the **left** mouse button, to get information about the rgb color of the pixel.  
 Remove the enlarged area with another right-click on the image.  
@@ -347,7 +347,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟣️ many effects  
 🟣️ fill for similarity  
 🟣️ eraser for color by similarity  
-🟣️ grid and pixel color replacement with simple right clicks  
+🟣️ grid and pixel color replacement with right clicks  
 🟣️ multicolor pen  
 🟣️ fusion pen    
 🟣️ favorite colors  
