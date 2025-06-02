@@ -1,37 +1,48 @@
 #include "selectionarea.h"
 #include "geometric.h"
 #include <QMouseEvent>
+#include <QMenu>
+#include <QAction>
 
 
 selectionArea::selectionArea(QWidget *parent)  : QLabel{parent}
 {
-    this->setCursor(Qt::SizeAllCursor);
-    this->setFrameStyle(QFrame:: Box| QFrame::Raised);
-    this->setMouseTracking(true);
-    this->setScaledContents(true);
-    this->setAlignment(Qt::AlignTop | Qt::AlignLeft);  // for text
-    this->setIndent(0);
-    this->setMinimumWidth(5);
-    this->setMinimumHeight(5);
+    setCursor(Qt::SizeAllCursor);
+    setFrameStyle(QFrame::Box| QFrame::Raised);
+    setMouseTracking(true);
+    setScaledContents(true);
+    setAlignment(Qt::AlignTop | Qt::AlignLeft);  // for text
+    setIndent(0);
+    setMinimumWidth(5);
+    setMinimumHeight(5);
     resetGeometry();
+    createActions();
+    menu =new QMenu(this);
+    menu->addAction(copy);
+    menu->addAction(tr("Cancel"));
+
 }
 
 void selectionArea::mousePressEvent(QMouseEvent *event)
 {
-      pressed= true;
+    if(event->button()== Qt::RightButton){
+        menu->exec((QPoint(event->globalPosition().x(),event->globalPosition().y())));
+    }
+    else{
+    pressed= true;
       preX=event->pos().x();
       preY=event->pos().y();
       int gx = event->globalPosition().x();
       int gy = event->globalPosition().y();
       diffx = gx-sizes::selX;
       diffy = gy-sizes::selY;
+    }
 }
 
 void selectionArea::mouseMoveEvent(QMouseEvent *event)
 {
     int x = event->pos().x();
     int y=event->pos().y();
-
 
     if(!pressed){
         if(x < 8 ){ this->setCursor(Qt::SizeHorCursor); whereExp="left";}
@@ -75,7 +86,6 @@ void selectionArea::mouseMoveEvent(QMouseEvent *event)
         resetGeometry();
     }
     preX=x; preY=y;
-
 }
 
 void selectionArea::mouseReleaseEvent(QMouseEvent *event)
@@ -84,10 +94,20 @@ void selectionArea::mouseReleaseEvent(QMouseEvent *event)
     preX=0;
     preY=0;
     emit setInfo();
-
 }
 
 void selectionArea::resetGeometry()
 {
-    this->setGeometry(sizes::selX, sizes::selY, sizes::selW, sizes::selH);
+    setGeometry(sizes::selX, sizes::selY, sizes::selW, sizes::selH);
+}
+
+void selectionArea::createActions()
+{
+    copy =new QAction(tr("Copy"), this);
+    connect(copy, SIGNAL(triggered()), this, SLOT(copyClip()));
+}
+
+void selectionArea::copyClip()
+{
+    emit setCopy();
 }
