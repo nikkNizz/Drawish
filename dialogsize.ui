@@ -32,18 +32,18 @@
       <colorrole role="WindowText">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>192</red>
-         <green>28</green>
-         <blue>40</blue>
+         <red>255</red>
+         <green>120</green>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Button">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>192</red>
-         <green>28</green>
-         <blue>40</blue>
+         <red>255</red>
+         <green>120</green>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -124,8 +124,8 @@
       <colorrole role="WindowText">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>0</red>
-         <green>0</green>
+         <red>255</red>
+         <green>120</green>
          <blue>0</blue>
         </color>
        </brush>
@@ -133,9 +133,9 @@
       <colorrole role="Button">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>239</red>
-         <green>239</green>
-         <blue>239</blue>
+         <red>255</red>
+         <green>120</green>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -225,9 +225,9 @@
       <colorrole role="Button">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>192</red>
-         <green>28</green>
-         <blue>40</blue>
+         <red>255</red>
+         <green>120</green>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -330,7 +330,7 @@
     </font>
    </property>
    <property name="frameShape">
-    <enum>QFrame::Box</enum>
+    <enum>QFrame::Shape::Box</enum>
    </property>
    <property name="text">
     <string/>
@@ -340,10 +340,37 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>70</y>
+     <y>60</y>
      <width>231</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="palette">
+    <palette>
+     <active>
+      <colorrole role="WindowText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>163</green>
+         <blue>72</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </active>
+     <inactive>
+      <colorrole role="WindowText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>163</green>
+         <blue>72</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </inactive>
+     <disabled/>
+    </palette>
    </property>
    <property name="font">
     <font>
@@ -358,7 +385,7 @@
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>90</y>
+     <y>80</y>
      <width>61</width>
      <height>24</height>
     </rect>
@@ -376,7 +403,7 @@
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>90</y>
+     <y>80</y>
      <width>61</width>
      <height>24</height>
     </rect>
@@ -394,7 +421,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>120</y>
+     <y>110</y>
      <width>31</width>
      <height>21</height>
     </rect>
@@ -412,7 +439,7 @@
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>120</y>
+     <y>110</y>
      <width>61</width>
      <height>24</height>
     </rect>
@@ -427,7 +454,7 @@
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>120</y>
+     <y>110</y>
      <width>61</width>
      <height>24</height>
     </rect>
@@ -442,7 +469,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>230</y>
+     <y>240</y>
      <width>91</width>
      <height>21</height>
     </rect>
@@ -453,18 +480,18 @@
       <colorrole role="WindowText">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>192</red>
-         <green>28</green>
-         <blue>40</blue>
+         <red>255</red>
+         <green>120</green>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Button">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>192</red>
-         <green>28</green>
-         <blue>40</blue>
+         <red>255</red>
+         <green>120</green>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -545,8 +572,8 @@
       <colorrole role="WindowText">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>0</red>
-         <green>0</green>
+         <red>255</red>
+         <green>120</green>
          <blue>0</blue>
         </color>
        </brush>
@@ -554,9 +581,9 @@
       <colorrole role="Button">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>239</red>
-         <green>239</green>
-         <blue>239</blue>
+         <red>255</red>
+         <green>120</green>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -646,9 +673,9 @@
       <colorrole role="Button">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>192</red>
-         <green>28</green>
-         <blue>40</blue>
+         <red>255</red>
+         <green>120</green>
+         <blue>0</blue>
         </color>
        </brush>
       </colorrole>
@@ -739,14 +766,14 @@
   <widget class="QCheckBox" name="keep_checkBox">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>150</y>
+     <x>110</x>
+     <y>140</y>
      <width>131</width>
      <height>22</height>
     </rect>
    </property>
    <property name="text">
-    <string>keep image ratio</string>
+    <string>keep aspect ratio</string>
    </property>
    <property name="checked">
     <bool>true</bool>
@@ -786,6 +813,33 @@
      <width>321</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="palette">
+    <palette>
+     <active>
+      <colorrole role="WindowText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>163</green>
+         <blue>72</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </active>
+     <inactive>
+      <colorrole role="WindowText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>163</green>
+         <blue>72</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </inactive>
+     <disabled/>
+    </palette>
    </property>
    <property name="font">
     <font>
@@ -847,6 +901,32 @@
    </property>
    <property name="text">
     <string>Create selection</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>220</y>
+     <width>301</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Orientation::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonDecrem10">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>20</y>
+     <width>91</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Scale -10%</string>
    </property>
   </widget>
  </widget>
