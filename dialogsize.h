@@ -32,6 +32,10 @@ private slots:
 
     void on_createSelectionButton_clicked();
 
+    void saveSelData();
+
+    void on_buttonDecrem10_clicked();
+
 private:
     Ui::DialogSize *ui;
     QString preTextW, preTextH, prePercW, prePercH;
