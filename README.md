@@ -1,5 +1,5 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  1.3 
+# Drawish  1.4 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
@@ -272,8 +272,7 @@ Increase (or decrease) the image size by scaling it from the menu "Sizes->Sizes"
 The zoom of the entire image is obtained from the "Sizes->Zoom" menu, but
 in view only.
 
-#### Rotation 
-This function requires an active selection.  
+#### Rotation  
 Enter the degrees of rotation in the small box on the left and then click the right or left buttons to rotate.  
 If you don't know how many degrees to rotate the image, start the automatic rotation by clicking the small button with the stopwatch and then click again to stop it in the desired position.
 To mirror the image (or selection) go to the "Image->Mirror horizontally "or "Image->Mirror vertically" menu.  
