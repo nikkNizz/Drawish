@@ -84,6 +84,9 @@
       <height>30</height>
      </size>
     </property>
+    <property name="shortcut">
+     <string>Ctrl+R</string>
+    </property>
     <property name="checkable">
      <bool>false</bool>
     </property>
@@ -4471,8 +4474,8 @@
      <rect>
       <x>80</x>
       <y>380</y>
-      <width>591</width>
-      <height>41</height>
+      <width>600</width>
+      <height>45</height>
      </rect>
     </property>
     <widget class="QLabel" name="label_4">
@@ -4621,6 +4624,69 @@
      </property>
      <property name="text">
       <string>Rgb 0,0,0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelRestorePoint">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>28</y>
+       <width>161</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="WindowText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>120</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>120</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="WindowText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>120</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>120</green>
+           <blue>0</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled/>
+      </palette>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>No restore point</string>
      </property>
     </widget>
    </widget>
@@ -5332,6 +5398,9 @@
    <property name="text">
     <string>Select all</string>
    </property>
+   <property name="shortcut">
+    <string>Alt+A</string>
+   </property>
   </action>
   <action name="actionCopy">
    <property name="text">
@@ -5367,6 +5436,9 @@
   <action name="actionEffects">
    <property name="text">
     <string>Effects</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+E</string>
    </property>
   </action>
   <action name="actionMirror">
@@ -5408,6 +5480,9 @@
    <property name="text">
     <string>Colors</string>
    </property>
+   <property name="shortcut">
+    <string>Alt+C</string>
+   </property>
   </action>
   <action name="actionReduce_to_RGB">
    <property name="text">
@@ -5422,6 +5497,9 @@
   <action name="actionCreate_Line">
    <property name="text">
     <string>Create Line</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+L</string>
    </property>
   </action>
   <action name="actionGithub">
@@ -5466,6 +5544,9 @@
    <property name="text">
     <string>Stretch area</string>
    </property>
+   <property name="shortcut">
+    <string>Alt+T</string>
+   </property>
   </action>
   <action name="actionTo_sepia">
    <property name="text">
@@ -5481,20 +5562,32 @@
    <property name="text">
     <string>Sizes</string>
    </property>
+   <property name="shortcut">
+    <string>Alt+S</string>
+   </property>
   </action>
   <action name="actionQuadruple_the_pixels_2">
    <property name="text">
     <string>Quadruple the pixels</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Q</string>
    </property>
   </action>
   <action name="actionDivide_by_5">
    <property name="text">
     <string>Divide by 4</string>
    </property>
+   <property name="shortcut">
+    <string>Alt+D</string>
+   </property>
   </action>
   <action name="actionIncrement_10">
    <property name="text">
     <string>Increment 10%</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Y</string>
    </property>
   </action>
   <action name="actionZoom_2">
@@ -5526,15 +5619,24 @@
    <property name="text">
     <string>Set as restore point</string>
    </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
   </action>
   <action name="actionRestore">
    <property name="text">
     <string>Restore</string>
    </property>
+   <property name="shortcut">
+    <string>F12</string>
+   </property>
   </action>
   <action name="actionCreate_shape">
    <property name="text">
     <string>Create shape</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+H</string>
    </property>
   </action>
   <action name="actionMouse_correctio">
