@@ -275,6 +275,7 @@ private slots:
 
   void on_actionReadme_and_help_triggered();
 
+
   private:
     Ui::MainWindow *ui;
     QString version_info;
