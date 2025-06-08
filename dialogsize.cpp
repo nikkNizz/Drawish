@@ -7,15 +7,29 @@ DialogSize::DialogSize(QWidget *parent) :
     ui(new Ui::DialogSize)
 {
     ui->setupUi(this);
-    ui->OriginalSize_label->setText(QString::number(sizes::areaWidth)+ " x " + QString::number(sizes::areaHeight));
-    preTextW = QString::number(sizes::areaWidth);
-    preTextH = QString::number(sizes::areaHeight);
+    ui->OriginalSize_label->setText(QString::number(sizes::areaWidth-8)+ " x " + QString::number(sizes::areaHeight-8));
+    preTextW = QString::number(sizes::areaWidth-8);
+    preTextH = QString::number(sizes::areaHeight-8);
     prePercW ="100";
     prePercH ="100";
     ui->newWidth_lineEdit->setText(preTextW);
     ui->newHeight_lineEdit->setText(preTextH);
     ui->wPerc_lineEdit->setText("100");
     ui->hPerc_lineEdit->setText("100");
+    // load selection data
+    if(sizes::selectData == "0 0 0 0" && sizes::isSelectionOn){
+        ui->newXsel_lineEdit->setText(QString::number(sizes::selX));
+        ui->newYsel_lineEdit->setText(QString::number(sizes::selY));
+        ui->newWsel_lineEdit->setText(QString::number(sizes::selW));
+        ui->newHsel_lineEdit->setText(QString::number(sizes::selH));
+    }
+    else{
+        QStringList sdata= sizes::selectData.split(" ");
+        ui->newXsel_lineEdit->setText(sdata.at(0));
+        ui->newYsel_lineEdit->setText(sdata.at(1));
+        ui->newWsel_lineEdit->setText(sdata.at(2));
+        ui->newHsel_lineEdit->setText(sdata.at(3));
+    }
 }
 
 DialogSize::~DialogSize()
@@ -118,18 +132,20 @@ void DialogSize::on_hPerc_lineEdit_textEdited(const QString &arg1)
 
 void DialogSize::on_resizeButton_clicked()
 {
-    sizes::areaWidth = ui->newWidth_lineEdit->text().toInt();
-    sizes::areaHeight = ui->newHeight_lineEdit->text().toInt();
+    sizes::areaWidth = ui->newWidth_lineEdit->text().toInt() + 8;
+    sizes::areaHeight = ui->newHeight_lineEdit->text().toInt() + 8;
     returned = 1;
+    saveSelData();
     close();
 }
 
 
 void DialogSize::on_scaleButton_clicked()
 {
-    sizes::areaWidth = ui->newWidth_lineEdit->text().toInt();
-    sizes::areaHeight = ui->newHeight_lineEdit->text().toInt();
+    sizes::areaWidth = ui->newWidth_lineEdit->text().toInt() + 8;
+    sizes::areaHeight = ui->newHeight_lineEdit->text().toInt() + 8;
     returned = 2;
+    saveSelData();
     close();
 }
 
@@ -155,6 +171,34 @@ void DialogSize::on_createSelectionButton_clicked()
    sizes::selH = hs;
 
    returned =3;
+   saveSelData();
    close();
 }
 
+void DialogSize::saveSelData()
+{
+    QString a = ui->newXsel_lineEdit->text();
+    if(a == "") a = "0";
+    sizes::selectData = a + " ";
+    a = ui->newYsel_lineEdit->text();
+    if(a == "") a = "0";
+    sizes::selectData += a + " ";
+    a = ui->newWsel_lineEdit->text();
+    if(a == "") a = "0";
+    sizes::selectData += a + " ";
+    a = ui->newHsel_lineEdit->text();
+    if(a == "") a = "0";
+    sizes::selectData += a;
+}
+
+
+void DialogSize::on_buttonDecrem10_clicked()
+{
+    sizes::areaWidth *= 0.9;
+    sizes::areaWidth += 8;
+    sizes::areaHeight *= 0.9;
+    sizes::areaHeight += 8;
+    returned = 2;
+    saveSelData();
+    close();
+}
