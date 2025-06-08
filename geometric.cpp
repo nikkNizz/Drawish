@@ -31,3 +31,4 @@ QString sizes::savedRtf = "";
 bool sizes::mouseCorrection = false;
 bool sizes::isArrow = false;
 bool sizes::isRotating = false;
+QString sizes::selectData ="0 0 0 0";
