@@ -47,10 +47,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "1.3";
-    // 1.3: redo correction (del. possible selection); draw circle and squares quickly;
-    // add tranps. selection in config; removed option grid, add context menu
-    //todo: rel for lubuntu 25.04
+    version_info = "1.4";
+    // 1.4: rotatiion full image; save selection data in 'sizes'; correct position label in dcolor
+    // print pdf all pages ; quick scaling -10% ; bug in sizes; shortcuts; resize info widget;
+    // label restore point; no paste empty text;
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -475,7 +475,7 @@ void MainWindow::closeEvent(QCloseEvent *ev)
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
     ui->scrollArea->setGeometry(80,30,this->width()-91, this->height()-120);
-    ui->infoWidget->setGeometry(80,this->height()-88,591,41);
+    ui->infoWidget->setGeometry(80,this->height()-88, 600, 45);
 }
 
 void MainWindow::reSize()
@@ -910,6 +910,7 @@ void MainWindow::on_actionPaste_from_clipboard_triggered()
             QPixmap cpix =(qvariant_cast<QPixmap>(mimeData->imageData()));
             pasteImg(cpix);
     }else if(mimeData->hasText()){
+        if(clipboard->text() == "") return;
         QPixmap pxm(pix.width(), pix.height());
         pxm.fill(QColor(255,255,255,0));
         QPainter p(&pxm);
@@ -2049,19 +2050,29 @@ void MainWindow::on_rotateRightButton_clicked()
 
 void MainWindow::rotation(int a)
 {
-    if(!sizes::isSelectionOn){
-        QMessageBox::information(this, "Drawish", tr("No selection"));
-        return;
-    }
-
     QTransform tf;
     tf.rotate(ui->RotatioAngleSpin->value() * a);
+    if(!sizes::isSelectionOn){
+        save_previous(tr("Image rotation"));
+        QRect rect = tf.mapRect(QRect(0,0,sizes::areaWidth, sizes::areaHeight));
+        sizes::areaWidth = rect.width();
+        sizes::areaHeight = rect.height();
+        areaSize();
+        pix = pix.transformed(tf);
+        showPix();
+        borderB->resetGeometry();
+        borderR->resetGeometry();
+        corner->resetGeometry();
+        raiseBorders();
+    }
+    else{
     QRect rect = tf.mapRect(QRect(0,0,sizes::selW, sizes::selH));
     sizes::selW =rect.width();
     sizes::selH = rect.height();
     selectionRect->resetGeometry();
     QPixmap sPix = selectionRect->pixmap().transformed(tf);
     selectionRect->setPixmap(sPix);
+    }
     updateInfo();
 }
 
@@ -2107,6 +2118,7 @@ void MainWindow::autoRotation()
 }
 
 
+
 // ----
 //  resize image or selection. scale image
 void MainWindow::on_actionSizes_2_triggered()
@@ -2114,12 +2126,12 @@ void MainWindow::on_actionSizes_2_triggered()
     DialogSize dSize;
     dSize.setModal(true);
     dSize.exec();
+
     if(dSize.returned == 1){
         save_previous(tr("Resize"));
         reSize();
         sizes::startResize = false;
     }
-
     else if(dSize.returned == 2){
         save_previous(tr("Scale"));
         areaSize();
@@ -2137,7 +2149,6 @@ void MainWindow::on_actionSizes_2_triggered()
         borderR->resetGeometry();
         corner->resetGeometry();
     }
-
     else if(dSize.returned == 3){
         if(sizes::activeOperation==1){
 
@@ -2164,6 +2175,7 @@ void MainWindow::on_actionSizes_2_triggered()
             createSelection();
         }
     }
+    updateInfo();
 }
 
 //  effects
@@ -2690,7 +2702,13 @@ void MainWindow::on_actionTo_Pdf_triggered()
            QMessageBox::warning(this, "Drawish", tr("Failed to open image!"));
            return ;
        }
-    painter.drawPixmap(0,0, sizes::areaWidth-8, sizes::areaHeight-8, pix);
+    int offset = 0;
+       while(offset < pix.height()) {
+           QRectF source(QPoint(0, offset), printer.pageRect(QPrinter::DevicePixel).size());
+           painter.drawPixmap(printer.pageRect(QPrinter::DevicePixel), pix, source);
+           offset += printer.pageRect(QPrinter::DevicePixel).height();
+           printer.newPage();
+       }
     painter.end();
     QMessageBox::information(this, "Drawish", tr("Saved in\n") + cmpName);
 }
@@ -2733,6 +2751,7 @@ void MainWindow::on_actionSet_triggered()
          QMessageBox::information(this, "Drawish", tr("No selection!"));
     }
 }
+
 
 
 void MainWindow::on_actionIncrement_10_triggered()
@@ -3015,6 +3034,7 @@ void MainWindow::on_actionSet_as_restore_point_triggered()
         QMessageBox::information(this, "Drawish", tr("Restore point overwritten"));
     }
     toRestore = pix;
+    ui->labelRestorePoint->setText("");
 }
 
 
@@ -3164,7 +3184,7 @@ void MainWindow::on_actionDesktop_shortcut_triggered()
         }
     }
     if(args.count() == 0){
-        QMessageBox::information(this, "Drawish", tr("Add the name Drawish and the suffix .AppImage to the program"));
+        QMessageBox::information(this, "Drawish", tr("No appimage called 'Drawish' found!"));
         return;
     }
     else if(args.count() > 1){
