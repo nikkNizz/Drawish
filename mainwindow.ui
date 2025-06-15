@@ -4475,7 +4475,7 @@
       <x>80</x>
       <y>380</y>
       <width>600</width>
-      <height>45</height>
+      <height>55</height>
      </rect>
     </property>
     <widget class="QLabel" name="label_4">
@@ -5431,6 +5431,9 @@
   <action name="actionCopy_selection_no_clipboard">
    <property name="text">
     <string>Copy selection (no clipboard)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl++</string>
    </property>
   </action>
   <action name="actionEffects">
