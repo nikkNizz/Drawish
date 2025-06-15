@@ -113,7 +113,7 @@ In Linux the image is real, thanks to the poppler-utils generally preinstalled. 
 Click the [selection] button to select a portion of the image. The selection will be detached from the image and
 can be dragged with the mouse, and can also be resized by pulling the edges with the mouse.  
 Hold the mouse **near the inside** of the edges to resize the selection.  
-To copy the portion **without detaching it**, select it and, before moving it, go to the "Edit->copy selection (no clipboard) " menu, or press **X** on your keyboard or ctrl + .  
+To copy the portion **without detaching it**, select it and, before moving it, go to the "Edit->copy selection (no clipboard) " menu, or press **+** on your keyboard or ctrl + .  
 You can also create a selection by entering the coordinates from the keyboard
 from the "Sizes->Sizes->[Create selection]" menu.  
 To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  
@@ -168,11 +168,8 @@ It is possible to paste text from the clipboard, as an image.
 [video](https://drive.google.com/file/d/1GrowsX4R_jyyqmt8AIxP22UySknR3SwT/view?usp=sharing)
 
 #### Fill / Fill inside black
-Click the [fill] button and click on the
-point in the image where you want to replace a color with the
-active color. The replacement occurs on the exact color that you clicked.  
-To perform the replacement by color affinity, move the slider that
-appears at the top.  
+Click the [fill] button and click on the point in the image where you want to replace a color with the active color. The replacement occurs on the exact color that you clicked.  
+To perform the replacement by color affinity, move the slider that appears at the top.  
 Increasing the value decreases the affinity.  
 The transparent color cannot fill a white area. First fill the
 white area with another color.
@@ -197,7 +194,7 @@ Click the [Line] button. In the selection box next to it, select a line or a sim
 In the top menu choose the attributes of the line.  
 To draw lines and arrows use the mouse on the image with the left button pressed.  
 To get connected lines click on the points to connect.  
-From the "Image->Create line" menu **you can also create a line by entering the coordinates from the keyboard**.  
+From the "Image->Create line" menu (or ALT + L) **you can also create a line by entering the coordinates from the keyboard**.  
 The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**
 The angles are in the order shown in the image:  
 ![image](https://drive.google.com/uc?export=download&id=1GYvPe_yhgc-y3qFFtwj_QH60IaK1Wj6F)  
@@ -208,19 +205,18 @@ The angles are in the order shown in the image:
 #### Shapes
 Click the [shapes] button, or select a shape from the selection box.  
 The shape can be moved by dragging the area with the mouse or from keyboard (A W S Z keys).  
-Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS, CROSSES (for simple arrow see "Line / Simple arrow / Connected lines" chapter).  
+Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS, SOLID, CROSSES (for simple arrow see "Line / Simple arrow / Connected lines" chapter).  
 Border width is defined by line width box. 
 Many filling options are available from the choice box at the top right.  
 
 #### Shapes by keyboard
-You can create rectangles, squares, circles and ellipses by entering data from the keyboard from the "Image-->Create Shapes" menu.  
+You can create rectangles, squares, circles and ellipses by entering data from the keyboard from the "Image-->Create Shapes" menu (or ALT + H).  
 **Enter the center** as the shape coordinate.  
 You can draw the center of these shapes or not.  
 
 
 #### Curved line
-Click the [curved line] button.  You will be able to
-click on 4 points of the image through which the bezier curve will pass.    
+Click the [curved line] button.  You will be able to click on 4 points of the image through which the bezier curve will pass.    
 The real-time display of the bezier curve is not available.  
 
 #### Connected curves
@@ -255,14 +251,13 @@ Right click on the image->Show Grid: the pixel matrix will appear enlarged for t
 Clicking on a zoomed pixel with the **right** mouse button, it will be replaced with the active color, or draw with the active color by holding down the right mouse button.  
 Clicking with the **left** mouse button, to get information about the rgb color of the pixel.  
 Remove the enlarged area with another right-click on the image.  
-*Disable grid on right click from the menu [Edit->No grid on right click]*
 
 ##### Double the pixels or Increase by 10%.
 If there is an active selection these functions applies to the selection, otherwise they applie to the entire image.
-From the "Sizes->Quadruple the pixel" menu you can increase the image with the pixels doubled in width and height. 
+From the "Sizes->Quadruple the pixel" menu (or ALT + Q) you can increase the image with the pixels doubled in width and height. 
 The image can be enlarged several times without loss of quality, but it is not a zoom, but an image modification.
-In the same way, to divide the pixels, use the **"Sizes->Divide by 4"** menu.
-From the "Sizes->Increment 10%" menu you can increase image size by 10% without loss. To reduce the image again, use scaling in this case.
+In the same way, to divide the pixels, use the **"Sizes->Divide by 4"** menu (ALT + D).
+From the "Sizes->Increment 10%" (ALT + Y) menu you can increase image size by 10% without loss. To reduce the image again, use scaling in this case.
 
 ##### Scaling
 Increase (or decrease) the image size by scaling it from the menu "Sizes->Sizes" with loss of quality.  
