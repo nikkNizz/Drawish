@@ -1,8 +1,8 @@
 #include "geometric.h"
 
 QString sizes::passedFile ="";
-int sizes::areaHeight=320;
-int sizes::areaWidth= 480;
+int sizes::areaHeight=328;
+int sizes::areaWidth= 488;
 bool sizes::startResize=false;
 int sizes::activeOperation=0;
 int sizes::selX=0;
