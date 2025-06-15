@@ -40,6 +40,7 @@
 #include <QProcess>
 #include <QTimer>
 #include <QScrollBar>
+#include <QSysInfo>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -47,10 +48,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "1.4";
-    // 1.4: rotatiion full image; save selection data in 'sizes'; correct position label in dcolor
-    // print pdf all pages ; quick scaling -10% ; bug in sizes; shortcuts; resize info widget;
-    // label restore point; no paste empty text;
+    version_info = "1.4.1";
+    // 1.5: resize bug !!!; shortcut + ctrl++; style fusion; area cpp show/hide grid; geometric w h values
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -134,6 +133,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     readConfig();
+
 
     // signals
     connect(borderB, SIGNAL(sizeChange()), this, SLOT(reSize()) );
@@ -377,6 +377,9 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
             spix.fill(Qt::white);
             selectionRect->setPixmap(spix);
         }
+        else if(ev->key() == Qt::Key_Plus && sizes::activeOperation == 1){
+            on_actionCopy_selection_no_clipboard_triggered();
+        }
         selectionRect->resetGeometry();
     }
     else if(sizes::activeOperation == 3){
@@ -442,12 +445,12 @@ void MainWindow::closeEvent(QCloseEvent *ev)
         recents = recents.mid(0,10);
         configRecent = recents.join("\n");
     }
-    // save some values: penWidth, textSize, textFont, textStyle, degrees
+    // save some values: penWidth, textSize, textFont, textStyle, degrees, width height
     QString val="\n<penWidth>" + QString::number(sizes::line_width) + "</penWidth>\n";
     if(ui->actionTransparent_selection->isChecked() == false){
-        val += "<transSel>false</transSel>";
+        val += "<transSel>false</transSel>\n";
     }else{
-        val += "<transSel>true</transSel>";
+        val += "<transSel>true</transSel>\n";
     }
     val += "<textSize>" + ui->sizeLine->text() + "</textSize>\n";
     val += "<textFont>" + ui->fontComboBox->currentText() + "</textFont>\n";
@@ -483,14 +486,14 @@ void MainWindow::reSize()
    if(!sizes::startResize){save_previous(tr("Resize"));}
    sizes::startResize=true;
    areaSize();
-   if(sizes::isCurveLineAreaOn){
-       if(sizes::activeOperation == 7 || sizes::activeOperation == 11){
-           finish_lines();
-       }
-       else if(sizes::activeOperation == 10){
-           finish_curve();
-       }
-   }
+   // if(sizes::isCurveLineAreaOn){
+   //     if(sizes::activeOperation == 7 || sizes::activeOperation == 11){
+   //         finish_lines();
+   //     }
+   //     else if(sizes::activeOperation == 10){
+   //         finish_curve();
+   //     }
+   // }
    QPixmap pix2(sizes::areaWidth-8, sizes::areaHeight-8);
    pix2.fill(Qt::white);
    QPainter p(&pix2);
@@ -3157,9 +3160,16 @@ void MainWindow::on_resetFavColorButton_clicked()
 }
 
 
+
+
 void MainWindow::on_actionDesktop_shortcut_triggered()
 {
 #ifdef Q_OS_LINUX
+    // for lubuntu/kubuntu 25.04
+    //QString ap= QCoreApplication::applicationFilePath();
+    //install(ap);
+    //return;
+    //----------------
     // find my process
     QByteArray result;
     QProcess proc;
@@ -3192,25 +3202,8 @@ void MainWindow::on_actionDesktop_shortcut_triggered()
         return;
     }
 
-    //   create icon
-    QString pathIco=QDir::homePath() + "/.local/share/icons/drawish.png";
-    QDir myApp;
-    QPixmap ikon(":/res/draw.png");
-    if(!myApp.exists(QDir::homePath() + "/.local/share/icons")){
-        myApp.mkdir(QDir::homePath() + "/.icons");
-        pathIco = QDir::homePath() + "/.icons/drawish.png";
-        ikon.save(pathIco, "PNG");
-    }
-    else{
-        if(QFile::exists(QDir::homePath() + "/.local/share/icons/drawish.png")== false){
-            ikon.save(QDir::homePath() + "/.local/share/icons/drawish.png", "PNG");        }
-    }
-    //  create desktop file
+    install(args.at(0));
 
-    QString desk="[Desktop Entry]\nVersion=1.0\nType=Application\nName=Drawish\nComment=Simple and complete drawing app\nExec=" + args.at(0) + " %F\nIcon=" + pathIco + "\nCategories=Graphics\nTerminal=false\nStartupNotify=false" ;
-    fileIO fio;
-    fio.createFile(desk, QDir::homePath() + "/.local/share/applications/Drawish.desktop");
-    QMessageBox::information(this, "Drawish", tr("Add Drawish to menu"));
 
 #endif
 
@@ -3247,6 +3240,31 @@ void MainWindow::on_actionDesktop_shortcut_triggered()
 
 }
 
+void MainWindow::install(QString execPath)
+{
+    //   create icon
+    QString pathIco=QDir::homePath() + "/.local/share/icons/drawish.png";
+    QDir myApp;
+    QPixmap ikon(":/res/draw.png");
+    if(!myApp.exists(QDir::homePath() + "/.local/share/icons")){
+        myApp.mkdir(QDir::homePath() + "/.icons");
+        pathIco = QDir::homePath() + "/.icons/drawish.png";
+        ikon.save(pathIco, "PNG");
+    }
+    else{
+        if(QFile::exists(QDir::homePath() + "/.local/share/icons/drawish.png")== false){
+            ikon.save(QDir::homePath() + "/.local/share/icons/drawish.png", "PNG");        }
+    }
+    //  create desktop file
+
+    QString desk="[Desktop Entry]\nVersion=1.0\nType=Application\nName=Drawish\nComment=Simple and complete drawing app\nExec=" + execPath + " %F\nIcon=" + pathIco + "\nCategories=Graphics\nTerminal=false\nStartupNotify=false" ;
+    QDir share(QDir::homePath());
+    share.mkpath(".local/share/applications");
+    fileIO fio;
+    fio.createFile(desk, QDir::homePath() + "/.local/share/applications/Drawish.desktop");
+    QMessageBox::information(this, "Drawish", tr("Add Drawish to menu"));
+}
+
 void MainWindow::on_comboLines_highlighted(int index)
 {
     QString tx= ui->comboLines->itemText(index);
@@ -3262,3 +3280,5 @@ void MainWindow::on_actionReadme_and_help_triggered()
 {
     QDesktopServices::openUrl(QUrl("https://github.com/nikkNizz/Drawish/blob/main/README.md"));
 }
+
+
