@@ -9,6 +9,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+     a.setStyle("fusion");
+    
     bool trsl = true;
     if(argc == 2){
         if(QString(argv[1]) == "en"){ trsl = false; }
