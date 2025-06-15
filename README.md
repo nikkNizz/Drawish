@@ -1,5 +1,5 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  1.4 
+# Drawish  1.4.1 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
@@ -113,8 +113,7 @@ In Linux the image is real, thanks to the poppler-utils generally preinstalled. 
 Click the [selection] button to select a portion of the image. The selection will be detached from the image and
 can be dragged with the mouse, and can also be resized by pulling the edges with the mouse.  
 Hold the mouse **near the inside** of the edges to resize the selection.  
-To copy the portion **without detaching it**, select it and,
-before moving it, go to the "Edit->copy selection (no clipboard) " menu.  
+To copy the portion **without detaching it**, select it and, before moving it, go to the "Edit->copy selection (no clipboard) " menu, or press **X** on your keyboard or ctrl + .  
 You can also create a selection by entering the coordinates from the keyboard
 from the "Sizes->Sizes->[Create selection]" menu.  
 To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  
