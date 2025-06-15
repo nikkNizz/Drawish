@@ -14,9 +14,10 @@
         <translation>Incolla</translation>
     </message>
     <message>
-        <location filename="area.cpp" line="168"/>
-        <source>Show Grid</source>
-        <translation>Mostra Griglia</translation>
+       <location filename="area.cpp" line="168"/>
+        <source>Show/Hide Grid</source>
+        <oldsource>Show Grid</oldsource>
+        <translation type="unfinished">Mostra/Nascondi Griglia</translation>
     </message>
 </context>
 <context>
