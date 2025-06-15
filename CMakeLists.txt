@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required(VERSION 3.5)
 
-project(Drawish VERSION 1.4 LANGUAGES CXX)
+project(Drawish VERSION 1.4.1 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
