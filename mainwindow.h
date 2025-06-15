@@ -264,6 +264,7 @@ private slots:
   void on_resetFavColorButton_clicked();
 
   void on_actionDesktop_shortcut_triggered();
+  void install(QString execPath);
 
   void on_actionCreate_mask_triggered();
 
