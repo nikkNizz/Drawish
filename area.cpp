@@ -165,7 +165,7 @@ void Area::createActions()
 {
     Paste =new QAction(tr("Paste"), this);
    connect(Paste, SIGNAL(triggered()), this, SLOT(actPaste()));
-    Zoomy = new QAction(tr("Show Grid"));
+    Zoomy = new QAction(tr("Show/Hide Grid"));
    connect(Zoomy, SIGNAL(triggered()), this, SLOT(actZoom()));
 }
 
