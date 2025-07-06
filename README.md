@@ -360,12 +360,12 @@ Here are some of Drawish's unique features (The most common functions are omitte
 
 #### Key combination
 <p style="Font-family:monospace">
-CTRL˖ Z  UNDO
-CTRL˖ R  REDO
-+        COPY SELECTION (NO CLIPBOARD)
-CTRL˖ +  COPY SELECTION (NO CLIPBOARD)
-ALT˖  A  SELECT ALL
-ALT˖  C  OPEN COLORS WINDOW
+CTRL˖ Z  UNDO  
+CTRL˖ R  REDO  
++        COPY SELECTION (NO CLIPBOARD)  
+CTRL˖ +  COPY SELECTION (NO CLIPBOARD)  
+ALT˖  A  SELECT ALL  
+ALT˖  C  OPEN COLORS WINDOW  
 ALT˖  D  DIVIDE BY 4
 ALT˖  E  OPEN EFFECTS WINDOW
 ALT˖  G  GITHUB / GUIDE
