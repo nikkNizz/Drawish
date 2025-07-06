@@ -30,6 +30,7 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
 {
     int x = event->pos().x();
     int y = event->pos().y();
+    QString shapeLis="squ.cir.aur.aul.abr.abl.";
 
     if(!pressed){
         if(x < 8 ){ this->setCursor(Qt::OpenHandCursor); whereExp="left";}
@@ -48,7 +49,7 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
            int incY = sizes::selY - (event->globalPosition().y()-diffy);
            sizes::selH = sizes::selH + incY;
            sizes::selY = event->globalPosition().y()-diffy;
-           if(sizes::activeShape == "squ" || sizes::activeShape == "cir"){
+           if(shapeLis.contains(sizes::activeShape)){
                sizes::selW = sizes::selH;
            }
            resetGeometry();
@@ -58,7 +59,7 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
 
         else if(whereExp== "bottom" ){
            sizes::selH = y;
-            if(sizes::activeShape == "squ" || sizes::activeShape == "cir"){
+            if(shapeLis.contains(sizes::activeShape)){
                 sizes::selW = sizes::selH;
             }
            resetGeometry();
@@ -70,7 +71,7 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
            int incX = sizes::selX - (event->globalPosition().x()-diffx);
            sizes::selW = sizes::selW + incX;
            sizes::selX = event->globalPosition().x()-diffx;
-           if(sizes::activeShape == "squ" || sizes::activeShape == "cir"){
+           if(shapeLis.contains(sizes::activeShape)){
                sizes::selH = sizes::selW;
            }
            resetGeometry();
@@ -80,7 +81,7 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
         }
         else if(whereExp== "right" ){
            sizes::selW = x;
-            if(sizes::activeShape == "squ" || sizes::activeShape == "cir"){
+            if(shapeLis.contains(sizes::activeShape)){
                 sizes::selH = sizes::selW;
             }
            resetGeometry();
