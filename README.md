@@ -358,25 +358,5 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟣️ copy selection to the program, not only to clipboard  
 🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
 
-#### Key combination
-<p style="Font-family:monospace">
-CTRL˖ Z  UNDO  <br>
-CTRL˖ R  REDO  <br>
-+        COPY SELECTION (NO CLIPBOARD)  <br>
-CTRL˖ +  COPY SELECTION (NO CLIPBOARD)  <br>
-ALT˖  A  SELECT ALL  <br>
-ALT˖  C  OPEN COLORS WINDOW <br>  
-ALT˖  D  DIVIDE BY 4 <br>
-ALT˖  E  OPEN EFFECTS WINDOW <br>
-ALT˖  G  GITHUB / GUIDE <br>
-ALT˖  H  CREATE SHAPE <br>
-ALT˖  K  SCREENSHOT (CLIPBOARD) <br>
-ALT˖  L  CREATE LINE <br>
-ALT˖  Q  QUADRUPLE PIXELS <br>
-ALT˖  T  OPEN STRETCH AREA <br>
-ALT˖  S  OPEN SIZE WINDOW <br>
-ALT˖  Y  INCREMENT 10% <br>
-F1       SET RESTORE POINT <br>
-F12      RESTORE  <br>
-</p>
+
 
