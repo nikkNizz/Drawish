@@ -45,6 +45,7 @@ private slots:
   void updateInfo();
   void untoggle();
   void deleteSel();
+  void removeSelectionBorder();
   void createSelectionFromRubb();
   void createSelection();
   void drawCopy();
@@ -276,6 +277,12 @@ private slots:
 
   void on_actionReadme_and_help_triggered();
 
+
+  void on_actionWindow_size_triggered();
+
+  void on_actionSerialize_triggered();
+
+  void on_actionScreenshot_me_triggered();
 
   private:
     Ui::MainWindow *ui;
