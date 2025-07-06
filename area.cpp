@@ -42,8 +42,8 @@ void Area::mousePressEvent(QMouseEvent *event)
     else if(sizes::activeOperation == 2 && sizes::isSelectionOn == false ){ // text
         sizes::selX = event->pos().x();
         sizes::selY = event->pos().y();
-        sizes::selH = 40;
-        sizes::selW = 160;
+        sizes::selH = 100;
+        sizes::selW = 210;
         emit endRubber();   // reuse this
     }
     else if(sizes::activeOperation == 3 || sizes::activeOperation == 5){
