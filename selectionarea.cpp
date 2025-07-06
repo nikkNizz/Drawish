@@ -8,7 +8,7 @@
 selectionArea::selectionArea(QWidget *parent)  : QLabel{parent}
 {
     setCursor(Qt::SizeAllCursor);
-    setFrameStyle(QFrame::Box| QFrame::Raised);
+    setFrameStyle(QFrame::Box | QFrame::Raised);
     setMouseTracking(true);
     setScaledContents(true);
     setAlignment(Qt::AlignTop | Qt::AlignLeft);  // for text
@@ -42,7 +42,7 @@ void selectionArea::mousePressEvent(QMouseEvent *event)
 void selectionArea::mouseMoveEvent(QMouseEvent *event)
 {
     int x = event->pos().x();
-    int y=event->pos().y();
+    int y = event->pos().y();
 
     if(!pressed){
         if(x < 8 ){ this->setCursor(Qt::SizeHorCursor); whereExp="left";}
@@ -54,14 +54,15 @@ void selectionArea::mouseMoveEvent(QMouseEvent *event)
         if(whereExp == "move"){
            sizes::selX  = event->globalPosition().x()-diffx;
            sizes::selY  = event->globalPosition().y()-diffy;
+           setFrameStyle(QFrame::NoFrame);
         }
         else if(whereExp== "top" && preY > y){
-           sizes::selY--;
-           sizes::selH++;
+           sizes::selY-=2;
+           sizes::selH+=2;
         }
         else if(whereExp== "top" && preY < y){
            sizes::selY++;
-           sizes::selH--;           
+           sizes::selH--;
         }
         else if(whereExp== "bottom" && preY > y){
            sizes::selH--;
@@ -71,14 +72,16 @@ void selectionArea::mouseMoveEvent(QMouseEvent *event)
            sizes::selW--;
         }
         else if(whereExp== "left" && preX > x){
-            sizes::selX--;
-            sizes::selW++;
+            sizes::selX-=2;
+            sizes::selW+=2;
         }
         else if(whereExp== "bottom" && preY < y){
-           sizes::selH++;
+           sizes::selH+=2;
+
         }
         else if(whereExp== "right" && preX < x){
-           sizes::selW++;
+           sizes::selW+=2;
+
         }
         else if(whereExp== "right" && preX > x){
            sizes::selW--;
@@ -93,6 +96,7 @@ void selectionArea::mouseReleaseEvent(QMouseEvent *event)
     pressed = false;
     preX=0;
     preY=0;
+    setFrameStyle(QFrame::Box | QFrame::Raised);
     emit setInfo();
 }
 
