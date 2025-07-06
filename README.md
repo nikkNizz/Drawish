@@ -316,6 +316,9 @@ You can save the framed image in base64 format to the clipboard from the "Camera
 From the "Sizes->Window size" menu you can set the size of the Drawish window.  
 From the "About->Capture me (to clipboard)" menu or with the Alt+K combination you can save the screenshot of the window to the clipboard.  
 
+#### Key combination
+![Image](https://github.com/nikkNizz/Drawish/blob/main/png/Keys.png)  
+
 #### Features
 Here are some of Drawish's unique features (The most common functions are omitted):  
 
@@ -357,6 +360,5 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟣️ favorite colors  
 🟣️ copy selection to the program, not only to clipboard  
 🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
-
 
 
