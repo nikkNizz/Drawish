@@ -22,6 +22,7 @@
 #include "figures.h"
 #include "richeditor.h"
 #include "pickpalette.h"
+#include "serialize.h"
 #include <QPainter>
 #include <QMessageBox>
 #include <QFileDialog>
@@ -48,8 +49,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "1.4.1";
-    // 1.5: resize bug !!!; shortcut + ctrl++; style fusion; area cpp show/hide grid; geometric w h values
+    version_info = "1.5";
+    // 1.5: correct camera geometry for saving; selection no border when move; input window size;
+    // removed status bar                     ; TEXT selection quick drag    ; bigger text area ;
+    // arrow always in square                 ; save as ppm xbm, xpm         ; SERIALIZE        ;
+    // screenshot me                          ; add suffix inputbox
+
 
     isLinux = false;
 #ifdef Q_OS_LINUX
@@ -368,10 +373,17 @@ MainWindow::~MainWindow()
 void MainWindow::keyPressEvent(QKeyEvent *ev)
 {
     if(sizes::isSelectionOn){
-        if(ev->key() ==Qt::Key_W || ev->key()== Qt::Key_Q){sizes::selY--;}
-        else if(ev->key()== Qt::Key_A){sizes::selX--;}
-        else if(ev->key()== Qt::Key_S){sizes::selX++;}
-        else if(ev->key()== Qt::Key_Z || ev->key()== Qt::Key_X){sizes::selY++;}
+        if(selectionRect->frameStyle() != QFrame::NoFrame){
+            removeSelectionBorder();
+        }
+        if(ev->key() ==Qt::Key_W || ev->key()== Qt::Key_Q){            
+            sizes::selY--;}
+        else if(ev->key()== Qt::Key_A){
+            sizes::selX--;}
+        else if(ev->key()== Qt::Key_S){
+            sizes::selX++;}
+        else if(ev->key()== Qt::Key_Z || ev->key()== Qt::Key_X){
+            sizes::selY++;}
         else if(ev->key()== Qt::Key_Delete){
             QPixmap spix = selectionRect->pixmap().scaled(sizes::selW, sizes::selH);
             spix.fill(Qt::white);
@@ -436,6 +448,7 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
    }
    updateInfo();
 }
+
 
 void MainWindow::closeEvent(QCloseEvent *ev)
 {
@@ -527,13 +540,17 @@ void MainWindow::imgSave()
 {
     QString f;
     if(activePathFile== ""){
+        QStringList suffix;
+        suffix << ".png" << ".jpeg" << ".ico" << ".bmp" << ".ppm" << ".xbm" << ".xpm";
+        QString ext = QInputDialog::getItem(this, "Drawish", tr("Format"), suffix);
         QFileDialog dialog(this);
-        f =dialog.getSaveFileName(this, tr("Drawish save..."), QDir::homePath(),"Images (*.png *.jpg *.ico *bmp)");
+        f =dialog.getSaveFileName(this, tr("Drawish save..."), QDir::homePath()); //,"Images (*.png *.jpg *.ico *.bmp *.ppm *.xbm *.xpm)");
         if(f ==""){return;}
-        activePathFile = f;
+        f = f + ext;
+        //QMessageBox::information(this, "", f);
+        activePathFile = f ;
     }else{
      f = activePathFile;
-
     }
     addToRecent(f);
        savePix(pix, f);
@@ -549,11 +566,15 @@ QString MainWindow::ChooseImg()
 
 void MainWindow::savePix(QPixmap pixToSave, QString f)
 {
-    if(f.endsWith(".jpg", Qt::CaseInsensitive)){ pixToSave.save(f, "jpg");}
+    if(f.endsWith(".jpeg", Qt::CaseInsensitive)){ pixToSave.save(f, "jpeg");}
     else if(f.endsWith(".ico", Qt::CaseInsensitive)){ pixToSave.save(f, "ico");}
     else if(f.endsWith(".bmp", Qt::CaseInsensitive)){ pixToSave.save(f, "BMP");}
-    else if(f.endsWith(".png", Qt::CaseInsensitive)){ pixToSave.save(f, "png");}//0.9.12
-    else{pixToSave.save(f + ".png", "PNG");}  // 0.9.10
+    else if(f.endsWith(".png", Qt::CaseInsensitive)){ pixToSave.save(f, "png");}
+    else if(f.endsWith(".ppm", Qt::CaseInsensitive)){ pixToSave.save(f, "ppm");}
+    else if(f.endsWith(".xbm", Qt::CaseInsensitive)){ pixToSave.save(f, "xbm");}
+    else if(f.endsWith(".xpm", Qt::CaseInsensitive)){ pixToSave.save(f, "xpm");}
+
+    else{pixToSave.save(f + ".png", "PNG");}
 }
 
 void MainWindow::newImage(QString from, QString path)
@@ -700,6 +721,17 @@ void MainWindow::deleteSel()
     }
 }
 
+void MainWindow::removeSelectionBorder()
+{
+    if(!sizes::isSelectionOn) return;
+    if(selectionRect->frameStyle() == QFrame::NoFrame){
+        selectionRect->setFrameStyle(QFrame::Box | QFrame::Raised);
+    }else{
+        selectionRect->setFrameStyle(QFrame::NoFrame);
+        QTimer::singleShot(1000, this, SLOT(removeSelectionBorder()));
+    }
+}
+
 void MainWindow::createSelectionFromRubb()
 {
     save_previous("Image");
@@ -759,9 +791,13 @@ void MainWindow::on_actionSave_triggered()
 
 void MainWindow::on_actionSave_as_triggered()
 {
+    QStringList suffix;
+    suffix << ".png" << ".jpeg" << ".ico" << ".bmp" << ".ppm" << ".xbm" << ".xpm";
+    QString ext = QInputDialog::getItem(this, "Drawish", tr("Format"), suffix);
     QFileDialog dialog(this);
     QString f =dialog.getSaveFileName(this, tr("Drawish save image"), QDir::homePath());
     if(f ==""){return;}
+    f = f + ext;
     addToRecent(f);
     savePix(pix, f);
 }
@@ -822,11 +858,12 @@ void MainWindow::createSelection()
     selectionRect = new selectionArea(wArea);
     selectionRect->resetGeometry();
     if(sizes::activeOperation != 2){  // !selection area for text
+
         QPixmap selPix = pix.copy(sizes::selX , sizes::selY , sizes::selW , sizes::selH );
+
         if(ui->actionTransparent_selection->isChecked()){
             selPix=addTransparency(selPix, 0,255,255,255);
         }
-
       selectionRect->setPixmap(selPix);
       QPixmap blank(sizes::selW ,sizes::selH);
       blank.fill(Qt::white);
@@ -849,7 +886,7 @@ void MainWindow::drawCopy()
 {    
     QPixmap selectedImage(selectionRect->pixmap());    
     save_previous("From selection");
-    QPainter p(&pix);  
+    QPainter p(&pix);
     p.drawPixmap(sizes::selX ,sizes::selY, selectedImage.scaled(sizes::selW, sizes::selH));
     wArea->setPixmap(pix);
     delete selectionRect;
@@ -1136,6 +1173,7 @@ void MainWindow::on_textEdit_textChanged()
         QMessageBox::information(this, "Drawish", tr("Click a point on the canvas, before"));
         return;
     }
+
     QFont tFont(ui->fontComboBox->currentFont());
     if(ui->boldButton->isChecked()){ tFont.setBold(true);}
     else{tFont.setBold(false);}
@@ -1147,9 +1185,20 @@ void MainWindow::on_textEdit_textChanged()
     if(sizeText < 4){sizeText = 4;}
     tFont.setPixelSize(sizeText);
 
+
+    // QString str = ui->textEdit->toPlainText();
+    // QStringList strList = str.split("\n");
+    // sizes::selH = (sizeText * strList.count()) + sizeText*2;
+    // int maxLen =strList.at(0).length();
+    // for(int i=1; i< strList.count(); ++i){
+    //     if(strList.at(i).length() > maxLen){ maxLen = strList.at(i).length(); }
+    // }
+    // sizes::selW = maxLen * (sizeText*0.70);
+    //selectionRect->resetGeometry();
     selectionRect->setFont(tFont);
     selectionRect->setStyleSheet("color:" + sizes::activeColor.name());
     selectionRect->setText(ui->textEdit->toPlainText());
+
 }
 
 
@@ -2449,7 +2498,8 @@ void MainWindow::on_actionCreate_triggered()
 void MainWindow::on_actionSave_image_triggered()
 {
     if(isCam){
-        QPixmap camPix = pix.copy(save_area->pos().x(), save_area->pos().y(), save_area->width(), save_area->height());
+        // 1.5 correct position & dim. (+2 -4)
+        QPixmap camPix = pix.copy(save_area->pos().x()+2, save_area->pos().y()+2, save_area->width()-4, save_area->height()-4);
         QFileDialog dialog(this);
         QString f =dialog.getSaveFileName(this, tr("Drawish save..."), QDir::homePath(),"Images (*.png *.jpg *.ico *bmp)");
         if(f ==""){return;}
@@ -3282,3 +3332,30 @@ void MainWindow::on_actionReadme_and_help_triggered()
 }
 
 
+void MainWindow::on_actionWindow_size_triggered()
+{
+    int ww = QInputDialog::getInt(this, "Drawish", tr("Enter new width"), this->width());
+    int hh = QInputDialog::getInt(this, "Drawish", tr("Enter new height"), this->height());
+    if(ww < 32 || hh < 32){
+        QMessageBox::information(this, "Drawish", tr("Too small size"));
+        return;
+    }
+    setGeometry(pos().x(), pos().y(), ww, hh);
+}
+
+
+void MainWindow::on_actionSerialize_triggered()
+{
+    Serialize *serial = new Serialize(this);
+    serial->setModal(true);
+    serial->exec();
+}
+
+
+void MainWindow::on_actionScreenshot_me_triggered()
+{
+    QPixmap shot = this->grab();
+    QClipboard *p_Clipboard = QApplication::clipboard();
+    p_Clipboard->setPixmap(shot);
+    QMessageBox::information(this, "Drawish", tr("Done!"));
+}
