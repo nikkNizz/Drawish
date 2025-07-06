@@ -1,5 +1,5 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  1.4.1 
+# Drawish  1.5 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
@@ -84,10 +84,15 @@ For Italian users: you can run Drawish in English by adding the "en" parameter.
 
 #### Saving
 Images are saved in png format.  
-To save in jpg, ico or bmp format, enter the extension to the file name
-in the save window.  
+To save in jpg, ico, bmp, ppm, xbm or xpm  format, choose the extension from the "format" box that appears.  
 You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" folder.  
 For base64 format, see "Camera" chapter.
+
+#### Serialize
+From the "Edit->Serialize" menu a window opens from which you can choose operations to perform on all the images contained in a folder.  
+Choose the folder, check the operations of interest and enter any parameters.  
+The **original images will not be overwritten** as a new folder will be created for the modified files.  
+The operations will be performed in the order in which they are listed.
 
 #### Undo/Redo
 In the top left selection box you can navigate through the history of
@@ -98,8 +103,8 @@ If a change is made from a previous image, the left image will no longer be avai
 [Video](https://drive.google.com/file/d/1jMbZppeGw3zGTbC74FTZjxg4T8YVSmn-/view?usp=sharing)
 
 #### Restore point
-You can save a restore point from the [image->Set as restore point] menu. Any previous points will be deleted.  
-Go back to the saved point at any time from the [Image->Restore] menu.  
+You can save a restore point from the [image->Set as restore point] menu (or F1 key). Any previous points will be deleted.  
+Go back to the saved point at any time from the [Image->Restore] menu (F12).  
 Cancel the operation with ctrl-Z or undo
 
 
@@ -307,6 +312,9 @@ Delete the camera from the" Camera->Delete camera " menu.
 You can save the framed image in base64 format to the clipboard from the "Camera->To base64" menu. 
 [Video](https://drive.google.com/file/d/1nAk2Pm1FmSXZ3rD-pW398qp9vDhU7IQS/view?usp=sharing)
 
+#### Window
+From the "Sizes->Window size" menu you can set the size of the Drawish window.  
+From the "About->Capture me (to clipboard)" menu or with the Alt+K combination you can save the screenshot of the window to the clipboard.  
 
 #### Features
 Here are some of Drawish's unique features (The most common functions are omitted):  
@@ -332,7 +340,8 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🔵️ fill with semi transparency    
 🔵️ reduce to rgb    
 🔵️ create charts  
-🔵️ open pdf as images and save images as pdf   
+🔵️ open pdf as images and save images as pdf  
+🔵️ Interface for Batch functions  
 🔵️ quick restore point  
 🔵️ quick web links  
 🔵️ object outline  
@@ -342,8 +351,32 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟣️ eraser for color by similarity  
 🟣️ grid and pixel color replacement with right clicks  
 🟣️ multicolor pen  
+🟣️ set the window size  
+🟣️ screenshot of the window  
 🟣️ fusion pen    
 🟣️ favorite colors  
 🟣️ copy selection to the program, not only to clipboard  
 🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
+
+#### Key combination
+<p style="Font-family:monospace">
+CTRL˖ Z  UNDO
+CTRL˖ R  REDO
++        COPY SELECTION (NO CLIPBOARD)
+CTRL˖ +  COPY SELECTION (NO CLIPBOARD)
+ALT˖  A  SELECT ALL
+ALT˖  C  OPEN COLORS WINDOW
+ALT˖  D  DIVIDE BY 4
+ALT˖  E  OPEN EFFECTS WINDOW
+ALT˖  G  GITHUB / GUIDE
+ALT˖  H  CREATE SHAPE
+ALT˖  K  SCREENSHOT (CLIPBOARD)
+ALT˖  L  CREATE LINE
+ALT˖  Q  QUADRUPLE PIXELS
+ALT˖  T  OPEN STRETCH AREA
+ALT˖  S  OPEN SIZE WINDOW
+ALT˖  Y  INCREMENT 10%
+F1       SET RESTORE POINT
+F12      RESTORE
+</p>
 
