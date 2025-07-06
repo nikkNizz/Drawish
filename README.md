@@ -360,8 +360,8 @@ Here are some of Drawish's unique features (The most common functions are omitte
 
 #### Key combination
 <p style="Font-family:monospace">
-CTRL˖ Z  UNDO  
-CTRL˖ R  REDO  
+CTRL˖ Z  UNDO  <br>
+CTRL˖ R  REDO  <br>
 +        COPY SELECTION (NO CLIPBOARD)  
 CTRL˖ +  COPY SELECTION (NO CLIPBOARD)  
 ALT˖  A  SELECT ALL  
