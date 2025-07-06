@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>790</width>
-    <height>465</height>
+    <height>470</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -4475,7 +4475,7 @@
       <x>80</x>
       <y>380</y>
       <width>600</width>
-      <height>55</height>
+      <height>61</height>
      </rect>
     </property>
     <widget class="QLabel" name="label_4">
@@ -5247,7 +5247,6 @@
     </item>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -5302,6 +5301,7 @@
     <addaction name="menuPaste_from_file"/>
     <addaction name="actionCopy_selection_to_file"/>
     <addaction name="actionMerge_selection_to_image"/>
+    <addaction name="actionSerialize"/>
     <addaction name="actionTransparent_selection"/>
     <addaction name="actionMouse_correctio"/>
    </widget>
@@ -5342,6 +5342,7 @@
     <addaction name="actionAbout"/>
     <addaction name="actionGithub"/>
     <addaction name="actionReadme_and_help"/>
+    <addaction name="actionScreenshot_me"/>
    </widget>
    <widget class="QMenu" name="menuSizes">
     <property name="title">
@@ -5352,6 +5353,7 @@
     <addaction name="actionDivide_by_5"/>
     <addaction name="actionIncrement_10"/>
     <addaction name="actionZoom_2"/>
+    <addaction name="actionWindow_size"/>
    </widget>
    <widget class="QMenu" name="menuGraphics">
     <property name="title">
@@ -5677,6 +5679,27 @@
   <action name="actionReadme_and_help">
    <property name="text">
     <string>Readme and help</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+G</string>
+   </property>
+  </action>
+  <action name="actionWindow_size">
+   <property name="text">
+    <string>Window size</string>
+   </property>
+  </action>
+  <action name="actionSerialize">
+   <property name="text">
+    <string>Serialize</string>
+   </property>
+  </action>
+  <action name="actionScreenshot_me">
+   <property name="text">
+    <string>Capture me (to clipboard)</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+K</string>
    </property>
   </action>
  </widget>
