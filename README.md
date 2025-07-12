@@ -134,7 +134,7 @@ From the "Edit->Paste from file" menu you can merge two images with three option
 #### Merge selection
 From the "Edit->Merge selection to image" menu you can merge the portion of the image below into the selection. 
 A prompt allows you to choose between 3 blending ratios.
-[video](https://drive.google.com/file/d/1GjlgFmv3VamLUOMfETiolQuof1ETXacL/view?usp=sharing)
+[video](https://drive.google.com/file/d/15H6inAFvbu6iay29mfOW9ALRBSV0VWz6/view?usp=sharing)
 
 #### Crop
 From the "Edit->Selection to image (crop)" you can crop the image.
