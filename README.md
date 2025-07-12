@@ -118,7 +118,7 @@ In Linux the image is real, thanks to the poppler-utils generally preinstalled. 
 Click the [selection] button to select a portion of the image. The selection will be detached from the image and
 can be dragged with the mouse, and can also be resized by pulling the edges with the mouse.  
 Hold the mouse **near the inside** of the edges to resize the selection.  
-To copy the portion **without detaching it**, select it and, before moving it, go to the "Edit->copy selection (no clipboard) " menu, or press **+** on your keyboard or ctrl + .  
+To copy the portion **without detaching it**, select it and, before moving it, go to the "Edit->copy selection (no clipboard) " menu, or press **+** on your keyboard or ctrl + .[video](https://drive.google.com/file/d/1t025EHseLYV5s-1YnYc8WolSRT5IJJB2/view?usp=sharing).  
 You can also create a selection by entering the coordinates from the keyboard
 from the "Sizes->Sizes->[Create selection]" menu.  
 To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  
