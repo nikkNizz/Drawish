@@ -1,5 +1,5 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  1.5 
+# Drawish  1.6 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
@@ -210,7 +210,7 @@ The angles are in the order shown in the image:
 #### Shapes
 Click the [shapes] button, or select a shape from the selection box.  
 The shape can be moved by dragging the area with the mouse or from keyboard (A W S Z keys).  
-Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, STAR, ARROWS, SOLID, CROSSES (for simple arrow see "Line / Simple arrow / Connected lines" chapter).  
+Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, ROUNDED SQUARE, STAR, ARROWS, SOLID, CROSSES (for simple arrow see "Line / Simple arrow / Connected lines" chapter).  
 Border width is defined by line width box. 
 Many filling options are available from the choice box at the top right.  
 
@@ -253,8 +253,8 @@ Select the [Charts] menu and choose a chart type. Enter positive values ​​(o
 [video](https://drive.google.com/file/d/1yt9mdPGuCbq3xDaTYTPDDsTTHxxIYfdv/view?usp=sharing)  
 ##### Pixel matrix. 
 Right click on the image->Show Grid: the pixel matrix will appear enlarged for the area in the vicinity of the cursor.  
-Clicking on a zoomed pixel with the **right** mouse button, it will be replaced with the active color, or draw with the active color by holding down the right mouse button.  
-Clicking with the **left** mouse button, to get information about the rgb color of the pixel.  
+Clicking on a zoomed pixel with the **right** mouse button, it will be replaced with the active color (or draw with the active color by holding down the right mouse button).  
+Clicking with the **left** mouse button, to get information about the rgb color of the pixel and possibly set it as the active color.  
 Remove the enlarged area with another right-click on the image.  
 
 ##### Double the pixels or Increase by 10%.
