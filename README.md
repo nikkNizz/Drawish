@@ -324,39 +324,38 @@ From the "About->Capture me (to clipboard)" menu or with the Alt+K combination y
 
 #### Key combination
 key combination
----------------------------------------------------
+
 button + button |  Function
--------+--------+----------------------------------
-CTRL   |    Z   |   UNDO
-CTRL   |    R   |   REDO
-+      |        |   COPY SELECTION (NO CLIPBOARD)
-CTRL   |    +   |   COPY SELECTION (NO CLIPBOARD)
-ALT    |    A   |   SELECT ALL
-ALT    |    C   |   OPEN COLORS WINDOW
-ALT    |    D   |   DIVIDE BY 4
-ALT    |    E   |   OPEN EFFECTS WINDOW
-ALT    |    G   |   GITHUB / GUIDE
-ALT    |    H   |   CREATE SHAPE
-ALT    |    K   |   SCREENSHOT (CLIPBOARD)
-ALT    |    L   |   CREATE LINE
-ALT    |    Q   |   QUADRUPLE PIXELS
-ALT    |    T   |   OPEN STRETCH AREA
-ALT    |    S   |   OPEN SIZE WINDOW
-F1     |        |   SET RESTORE POINT
-F12    |        |   RESTORE
+CTRL   |    Z   |   UNDO  
+CTRL   |    R   |   REDO  
++      |        |   COPY SELECTION (NO CLIPBOARD)  
+CTRL   |    +   |   COPY SELECTION (NO CLIPBOARD)  
+ALT    |    A   |   SELECT ALL  
+ALT    |    C   |   OPEN COLORS WINDOW  
+ALT    |    D   |   DIVIDE BY 4  
+ALT    |    E   |   OPEN EFFECTS WINDOW  
+ALT    |    G   |   GITHUB / GUIDE  
+ALT    |    H   |   CREATE SHAPE  
+ALT    |    K   |   SCREENSHOT (CLIPBOARD)  
+ALT    |    L   |   CREATE LINE  
+ALT    |    Q   |   QUADRUPLE PIXELS  
+ALT    |    T   |   OPEN STRETCH AREA  
+ALT    |    S   |   OPEN SIZE WINDOW  
+F1     |        |   SET RESTORE POINT  
+F12    |        |   RESTORE  
 
-MOVE SELECTION OR CAMERA
-      A, S, W, Z = LEFT,RIGHT,TOP, BOTTOM
-
-WRITE WITH PEN
-       Q = TOP-LEFT
-       W = TOP
-       E = TOP-RIGHT
-       A = LEFT
-       S = RIGHT
-       < = BOTTOM-LEFT
-       Z = BOTTOM
-       X = BOTTOM-RIGHT
+MOVE SELECTION OR CAMERA  
+      A, S, W, Z = LEFT,RIGHT,TOP, BOTTOM  
+  
+WRITE WITH PEN  
+       Q = TOP-LEFT  
+       W = TOP  
+       E = TOP-RIGHT  
+       A = LEFT  
+       S = RIGHT  
+       < = BOTTOM-LEFT  
+       Z = BOTTOM  
+       X = BOTTOM-RIGHT  
 
 #### Features
 Here are some of Drawish's unique features (The most common functions are omitted):  
