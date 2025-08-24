@@ -240,6 +240,7 @@ The real-time display of the bezier curve is not available.
 #### Connected curves
 Click the [connected curves] button.  
 Click 4 points of the image to draw the first curve, then click on two points to create more curves.  
+[video](https://drive.google.com/file/d/1HAuOjxhacs0KzekiKnL53k9hrXIMokUr/view?usp=sharing)
 
 #### Color management
 From the [Image->Colors] menu you can perform additional operations on colors.  
@@ -325,10 +326,11 @@ From the "About->Capture me (to clipboard)" menu or with the Alt+K combination y
 #### Key combination
 key combination  
   
-button + button |  Function  
+|button | button |  Function  
+---------------------------------------------------------------
 CTRL   |    Z   |   UNDO  
 CTRL   |    R   |   REDO  
-'+      |        |   COPY SELECTION (NO CLIPBOARD)  
+\+     |        |   COPY SELECTION (NO CLIPBOARD)
 CTRL   |    +   |   COPY SELECTION (NO CLIPBOARD)  
 ALT    |    A   |   SELECT ALL  
 ALT    |    C   |   OPEN COLORS WINDOW  
