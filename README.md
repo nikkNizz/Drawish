@@ -328,7 +328,7 @@ key combination
 button + button |  Function  
 CTRL   |    Z   |   UNDO  
 CTRL   |    R   |   REDO  
-+      |        |   COPY SELECTION (NO CLIPBOARD)  
+'+      |        |   COPY SELECTION (NO CLIPBOARD)  
 CTRL   |    +   |   COPY SELECTION (NO CLIPBOARD)  
 ALT    |    A   |   SELECT ALL  
 ALT    |    C   |   OPEN COLORS WINDOW  
