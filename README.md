@@ -1,5 +1,5 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  1.6 
+# Drawish  2.0 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
@@ -96,8 +96,8 @@ The operations will be performed in the order in which they are listed.
 
 #### Undo/Redo
 In the top left selection box you can navigate through the history of
-the last 25 changes. You can also use the ctrl-Z key combination to go back.   
-To return to the left image, press the top left button [Redo].  
+the last 25 changes. You can also use the **ctrl-Z** key combination to go back.   
+To return to the left image, press the top left button or **ctrl-E** [Redo].  
 ![image](https://github.com/nikkNizz/Drawish/blob/main/png/REDO.png)  
 If a change is made from a previous image, the left image will no longer be available.  
 [Video](https://drive.google.com/file/d/1jMbZppeGw3zGTbC74FTZjxg4T8YVSmn-/view?usp=sharing)
@@ -128,16 +128,25 @@ To select everything, use the "Edit->Select all" menu.
 To save the image to a file select: "Edit->Selection to file".  
 To finish and pasting the selection, click on a point on the image.  
 
-#### Merge images
-From the "Edit->Paste from file" menu you can merge two images with three options. The second image can be put into a selection that can be moved to the desired point, or the second image can be automatically added to the right or below the first.
+#### Freehand selection
+Click the [Free hand selection] to start making a freehand selection with the mouse.  
+See also 'Fill inside black'.
 
 #### Merge selection
 From the "Edit->Merge selection to image" menu you can merge the portion of the image below into the selection. 
 A prompt allows you to choose between 3 blending ratios.
 [video](https://drive.google.com/file/d/15H6inAFvbu6iay29mfOW9ALRBSV0VWz6/view?usp=sharing)
 
+#### Merge images
+From the "Edit->Paste from file" menu you can merge two images with three options. The second image can be put into a selection that can be moved to the desired point, or the second image can be automatically added to the right or below the first.
+
 #### Crop
-From the "Edit->Selection to image (crop)" you can crop the image.
+From the "Edit->Set selection as image (crop)" you can crop the image. 
+> On very large images, you can crop them for faster processing and then paste them again using the 'Paste over file' function. The prompt will remind you the coordinates of the last crop.
+> 
+#### Paste over file
+From the "Edit->Paste over file" menu, you can paste the current image into a file at the specified coordinates.  
+If a crop has been previously made, the crop coordinates are proposed at the prompt.
 
 #### Freehand drawing
 Click the [pen] button and move the mouse over the drawing area, holding down the left mouse button.  
@@ -171,6 +180,10 @@ to continue printing text. Or disable the function by clicking the left button a
 You can open an **RTF editor** to write formatted text. This text can be saved to a file and can be directly transposed onto the image via a screenshot. After clicking the [text] button, click the [RTF] button to open the editor. Click [Screenshot and close] button to transpose the text into a selection in the image. In the editor you can save texts and open them.  
 It is possible to paste text from the clipboard, as an image.  
 [video](https://drive.google.com/file/d/1GrowsX4R_jyyqmt8AIxP22UySknR3SwT/view?usp=sharing)
+
+#### Tracer
+Click [tracer] to activate it.  
+The tracer can be used if you use Drawish in demonstrations. Allows you to draw a highlight line that automatically disappears.
 
 #### Fill / Fill inside black
 Click the [fill] button and click on the point in the image where you want to replace a color with the active color. The replacement occurs on the exact color that you clicked.  
@@ -226,7 +239,7 @@ The real-time display of the bezier curve is not available.
 
 #### Connected curves
 Click the [connected curves] button.  
-Click 4 points of the image to draw the first curve, the following ones will be connected.  
+Click 4 points of the image to draw the first curve, then click on two points to create more curves.  
 
 #### Color management
 From the [Image->Colors] menu you can perform additional operations on colors.  
@@ -250,26 +263,19 @@ See Pick color.
 Select the [Charts] menu and choose a chart type. Enter positive values ​​(one per line) in the box that opens.  
 
 #### Zoom
-[video](https://drive.google.com/file/d/1yt9mdPGuCbq3xDaTYTPDDsTTHxxIYfdv/view?usp=sharing)  
+From the "Zoom" menu choose a predefined zoom level or a custom level.  
+
 ##### Pixel matrix. 
 Right click on the image->Show Grid: the pixel matrix will appear enlarged for the area in the vicinity of the cursor.  
 Clicking on a zoomed pixel with the **right** mouse button, it will be replaced with the active color (or draw with the active color by holding down the right mouse button).  
 Clicking with the **left** mouse button, to get information about the rgb color of the pixel and possibly set it as the active color.  
 Remove the enlarged area with another right-click on the image.  
 
-##### Double the pixels or Increase by 10%.
+##### Double the pixels.
 If there is an active selection these functions applies to the selection, otherwise they applie to the entire image.
 From the "Sizes->Quadruple the pixel" menu (or ALT + Q) you can increase the image with the pixels doubled in width and height. 
 The image can be enlarged several times without loss of quality, but it is not a zoom, but an image modification.
 In the same way, to divide the pixels, use the **"Sizes->Divide by 4"** menu (ALT + D).
-From the "Sizes->Increment 10%" (ALT + Y) menu you can increase image size by 10% without loss. To reduce the image again, use scaling in this case.
-
-##### Scaling
-Increase (or decrease) the image size by scaling it from the menu "Sizes->Sizes" with loss of quality.  
-
-##### View.
-The zoom of the entire image is obtained from the "Sizes->Zoom" menu, but
-in view only.
 
 #### Rotation  
 Enter the degrees of rotation in the small box on the left and then click the right or left buttons to rotate.  
@@ -288,8 +294,8 @@ Click [OK] to apply the new image or [Cancel] to abort the changes.
 
 #### Stretch Area
 From the "Image->Stretch area", you can open a window to distort the edges of the selected image.  
-Curve-like distortion is only possible on the top edge.  
-[video](https://drive.google.com/file/d/13nJmQQh9MX6NQCLNx9SEzTcdI9UxFTbo/view?usp=sharing)
+You can perform a curved distortion by selecting the appropriate box.  
+
 
 #### Other effects
 From the Image menu you can apply the listed effects to the selection.  
@@ -299,7 +305,7 @@ reduce to rgb (eliminates the minority channels and keeps only the prevalent one
 mirror the image, give sepia effect, find the outlines of objects.  
 
 #### Sizes
-From the" Sizes->Sizes" menu you can scale or resize the image based on manually entered values.  
+From the" Sizes->Sizes" (Alt-S) menu you can scale or resize the image based on manually entered values.  
 You can also create a selection manually.  
 
 #### Camera
@@ -317,7 +323,40 @@ From the "Sizes->Window size" menu you can set the size of the Drawish window.
 From the "About->Capture me (to clipboard)" menu or with the Alt+K combination you can save the screenshot of the window to the clipboard.  
 
 #### Key combination
-![Image](https://github.com/nikkNizz/Drawish/blob/main/png/keys.png)  
+key combination
+---------------------------------------------------
+button + button |  Function
+-------+--------+----------------------------------
+CTRL   |    Z   |   UNDO
+CTRL   |    R   |   REDO
++      |        |   COPY SELECTION (NO CLIPBOARD)
+CTRL   |    +   |   COPY SELECTION (NO CLIPBOARD)
+ALT    |    A   |   SELECT ALL
+ALT    |    C   |   OPEN COLORS WINDOW
+ALT    |    D   |   DIVIDE BY 4
+ALT    |    E   |   OPEN EFFECTS WINDOW
+ALT    |    G   |   GITHUB / GUIDE
+ALT    |    H   |   CREATE SHAPE
+ALT    |    K   |   SCREENSHOT (CLIPBOARD)
+ALT    |    L   |   CREATE LINE
+ALT    |    Q   |   QUADRUPLE PIXELS
+ALT    |    T   |   OPEN STRETCH AREA
+ALT    |    S   |   OPEN SIZE WINDOW
+F1     |        |   SET RESTORE POINT
+F12    |        |   RESTORE
+
+MOVE SELECTION OR CAMERA
+      A, S, W, Z = LEFT,RIGHT,TOP, BOTTOM
+
+WRITE WITH PEN
+       Q = TOP-LEFT
+       W = TOP
+       E = TOP-RIGHT
+       A = LEFT
+       S = RIGHT
+       < = BOTTOM-LEFT
+       Z = BOTTOM
+       X = BOTTOM-RIGHT
 
 #### Features
 Here are some of Drawish's unique features (The most common functions are omitted):  
@@ -334,10 +373,12 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟢️ file saving camera  
 🟢️ get code base64 (from Camera)  
 🔵️ merging selection and image with 3 levels of strength  
+🔵️ paste over file    
 🔵️ manual or continuous selection rotation  
 🔵️ curve-like stretching  
 🔵️ gradients  
 🔵️ keyboard color definition  
+🔵️ tracer  
 🔵️ semi-transparent pen    
 🔵️ keyboard shapes with center displayed  
 🔵️ fill with semi transparency    
