@@ -323,9 +323,9 @@ From the "Sizes->Window size" menu you can set the size of the Drawish window.
 From the "About->Capture me (to clipboard)" menu or with the Alt+K combination you can save the screenshot of the window to the clipboard.  
 
 #### Key combination
-key combination
-
-button + button |  Function
+key combination  
+  
+button + button |  Function  
 CTRL   |    Z   |   UNDO  
 CTRL   |    R   |   REDO  
 +      |        |   COPY SELECTION (NO CLIPBOARD)  
