@@ -130,7 +130,7 @@ To finish and pasting the selection, click on a point on the image.
 
 #### Freehand selection
 Click the [Free hand selection] to start making a freehand selection with the mouse.  
-See also 'Fill inside black'.[title](https://github.com/nikkNizz/Drawish/blob/main/README.md#fill--fill-inside-black)
+See also [Fill inside black](https://github.com/nikkNizz/Drawish/blob/main/README.md#fill--fill-inside-black)
 
 #### Merge selection
 From the "Edit->Merge selection to image" menu you can merge the portion of the image below into the selection. 
