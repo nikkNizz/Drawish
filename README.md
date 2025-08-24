@@ -296,6 +296,7 @@ Click [OK] to apply the new image or [Cancel] to abort the changes.
 #### Stretch Area
 From the "Image->Stretch area", you can open a window to distort the edges of the selected image.  
 You can perform a curved distortion by selecting the appropriate box.  
+[video](https://drive.google.com/file/d/1Bu-tI1thtWPNiWgkfMz513TjMefXXL8-/view?usp=sharing)
 
 
 #### Other effects
