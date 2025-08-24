@@ -130,7 +130,7 @@ To finish and pasting the selection, click on a point on the image.
 
 #### Freehand selection
 Click the [Free hand selection] to start making a freehand selection with the mouse.  
-See also 'Fill inside black'.
+See also 'Fill inside black'.[title](https://github.com/nikkNizz/Drawish/blob/main/README.md#fill--fill-inside-black)
 
 #### Merge selection
 From the "Edit->Merge selection to image" menu you can merge the portion of the image below into the selection. 
@@ -326,8 +326,8 @@ From the "About->Capture me (to clipboard)" menu or with the Alt+K combination y
 #### Key combination
 key combination  
   
-|button | button |  Function  
----------------------------------------------------------------
+|button | button |  Function  |
+--------|--------|----------------------------------------------|
 CTRL   |    Z   |   UNDO  
 CTRL   |    R   |   REDO  
 \+     |        |   COPY SELECTION (NO CLIPBOARD)
