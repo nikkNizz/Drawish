@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required(VERSION 3.5)
 
-project(Drawish VERSION 1.6 LANGUAGES CXX)
+project(Drawish VERSION 2.0 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -12,8 +12,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets )
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 find_package(Qt6 REQUIRED COMPONENTS PrintSupport)
+qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} it_lang.ts)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -52,9 +53,6 @@ set(PROJECT_SOURCES
         dcolors.h
         dcolors.cpp
         dcolors.ui
-        viewimage.h
-        viewimage.cpp
-        viewimage.ui
         savecam.h
         savecam.cpp
         richeditor.cpp
@@ -74,6 +72,8 @@ set(PROJECT_SOURCES
         serialize.cpp
         serialize.h
         serialize.ui
+        tracer.h
+        tracer.cpp
         Drawish.qrc
 )
 
