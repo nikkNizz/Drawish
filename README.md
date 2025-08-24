@@ -97,7 +97,7 @@ The operations will be performed in the order in which they are listed.
 #### Undo/Redo
 In the top left selection box you can navigate through the history of
 the last 25 changes. You can also use the **ctrl-Z** key combination to go back.   
-To return to the left image, press the top left button or **ctrl-E** [Redo].  
+To return to the left image, press the top left button or **ctrl-R** [Redo].  
 ![image](https://github.com/nikkNizz/Drawish/blob/main/png/REDO.png)  
 If a change is made from a previous image, the left image will no longer be available.  
 [Video](https://drive.google.com/file/d/1jMbZppeGw3zGTbC74FTZjxg4T8YVSmn-/view?usp=sharing)
