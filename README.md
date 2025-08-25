@@ -189,8 +189,6 @@ The tracer can be used if you use Drawish in demonstrations. Allows you to draw 
 Click the [fill] button and click on the point in the image where you want to replace a color with the active color. The replacement occurs on the exact color that you clicked.  
 To perform the replacement by color affinity, move the slider that appears at the top.  
 Increasing the value decreases the affinity.  
-The transparent color cannot fill a white area. First fill the
-white area with another color.
 It is possible to fill with semi transparency of the active color with the switch at the top right.[video](https://drive.google.com/file/d/1GynDndzshitoALd6C1AE_JqcklSExQDD/view?usp=sharing)  
 If the check box [Fill inside black] is selected, the entire area around the click, **included within a black line**, is filled in black. 
 [video](https://drive.google.com/file/d/1yWAFPJW5sjcYRTpn0P7AlbdcRmab0lex/view?usp=sharing)  
