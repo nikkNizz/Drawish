@@ -1,5 +1,5 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  2.0 
+# Drawish  2.1 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
@@ -84,7 +84,7 @@ For Italian users: you can run Drawish in English by adding the "en" parameter.
 
 #### Saving
 Images are saved in png format.  
-To save in jpg, ico, bmp, ppm, xbm or xpm  format, choose the extension from the "format" box that appears.  
+To save in jpg, ico, bmp, ppm, xbm or xpm format, choose the extension from the "format" box that appears.  
 You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" folder.  
 For base64 format, see "Camera" chapter.
 
@@ -118,9 +118,8 @@ In Linux the image is real, thanks to the poppler-utils generally preinstalled. 
 Click the [selection] button to select a portion of the image. The selection will be detached from the image and
 can be dragged with the mouse, and can also be resized by pulling the edges with the mouse.  
 Hold the mouse **near the inside** of the edges to resize the selection.  
-To copy the portion **without detaching it**, select it and, before moving it, go to the "Edit->copy selection (no clipboard) " menu, or press **+** on your keyboard or ctrl + .[video](https://drive.google.com/file/d/1t025EHseLYV5s-1YnYc8WolSRT5IJJB2/view?usp=sharing).  
-You can also create a selection by entering the coordinates from the keyboard
-from the "Sizes->Sizes->[Create selection]" menu.  
+To copy the portion **without detaching it** (stamp), select it and, before moving it, go to the "Edit->copy selection (no clipboard) " menu, or press **+** on your keyboard or ctrl + .[video](https://drive.google.com/file/d/1t025EHseLYV5s-1YnYc8WolSRT5IJJB2/view?usp=sharing).  
+You can also create a selection by entering the coordinates from the keyboard from the "Sizes->Sizes->[Create selection]" menu.  
 To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  
 To make the white area of ​​the selection transparent, check the box
 from the "Edit->Transparent selection" Menu (selected by default).  
@@ -129,7 +128,7 @@ To save the image to a file select: "Edit->Selection to file".
 To finish and pasting the selection, click on a point on the image.  
 
 #### Freehand selection
-Click the [Free hand selection] to start making a freehand selection with the mouse.  
+Click the [Freehand selection] to start making a freehand selection with the mouse.  
 See also [Fill inside black](https://github.com/nikkNizz/Drawish/blob/main/README.md#fill--fill-inside-black)
 
 #### Merge selection
@@ -232,12 +231,14 @@ You can draw the center of these shapes or not.
 
 
 #### Curved line
-Click the [curved line] button.  You will be able to click on 4 points of the image through which the bezier curve will pass.    
-The real-time display of the bezier curve is not available.  
+Click the [curved line] button. You will be able to click on **6 points** of the image through which the bezier curve will pass.    
+By moving the handles, you can create any complex curved shape.
+To confirm the drawing, click a point on the image.
+[video](https://drive.google.com/file/d/1sRTAQ8MWXeTsjSYYcyFzLdEWoPF3-TAZ/view?usp=sharing)
 
 #### Connected curves
 Click the [connected curves] button.  
-Click 4 points of the image to draw the first curve, then click on two points to create more curves.  
+Click **four** points of the image to draw the first curve, then click on **two** points to create more curves.  
 [video](https://drive.google.com/file/d/1HAuOjxhacs0KzekiKnL53k9hrXIMokUr/view?usp=sharing)
 
 #### Color management
@@ -344,6 +345,9 @@ ALT    |    T   |   OPEN STRETCH AREA
 ALT    |    S   |   OPEN SIZE WINDOW  
 F1     |        |   SET RESTORE POINT  
 F12    |        |   RESTORE  
+1      |        |   ZOOM 100 %  
+2      |        |   ZOOM 200 %  
+5      |        |   ZOOM 50 %  
 
 MOVE SELECTION OR CAMERA  
       A, S, W, Z = LEFT,RIGHT,TOP, BOTTOM  
@@ -372,6 +376,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟢️ paste from file with automatic union at the bottom or right or leave in the selection  
 🟢️ file saving camera  
 🟢️ get code base64 (from Camera)  
+🟢️ complex curves  
 🔵️ merging selection and image with 3 levels of strength  
 🔵️ paste over file    
 🔵️ manual or continuous selection rotation  
