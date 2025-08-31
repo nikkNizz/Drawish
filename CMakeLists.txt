@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required(VERSION 3.5)
 
-project(Drawish VERSION 2.0 LANGUAGES CXX)
+project(Drawish VERSION 2.1 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -14,7 +14,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 find_package(Qt6 REQUIRED COMPONENTS PrintSupport)
-qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} it_lang.ts)
+qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} translations/it_lang.ts)
+
+# !!!
+# run the first build by COMMENTING out the following line. Uncomment and run the build AGAIN
+# configure_file(${QM_FILES} ${CMAKE_SOURCE_DIR} COPYONLY)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -74,6 +78,8 @@ set(PROJECT_SOURCES
         serialize.ui
         tracer.h
         tracer.cpp
+        bezierpoint.cpp
+        bezierpoint.h
         Drawish.qrc
 )
 
