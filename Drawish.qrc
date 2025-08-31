@@ -19,6 +19,6 @@
     <file>res/rotateRight.png</file>  
     <file>res/draw.png</file>
     <file>res/tracerPen.png</file>
-    <file>it_lang.qm</file>
+    <file>res/it_lang.qm</file>  
 </qresource>
 </RCC>
