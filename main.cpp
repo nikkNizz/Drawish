@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     QString local =  QLocale::languageToString(QLocale::system().language());
 
     QTranslator trs;
-    trs.load(":/it_lang.qm");
+    trs.load(":/res/it_lang.qm");
     if(local == QString("Italian") && trsl == true){
        a.installTranslator(&trs);
     }
