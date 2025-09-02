@@ -50,8 +50,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     version_info = "2.1";
-    // 2.1: better curve; add a selection to history; shortcut; cam position; shape combo sintax error
-    // semi trasp pen value; add label path
+    // 2.1.1: bug fix in color balance;
 
 
 
