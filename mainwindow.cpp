@@ -1900,10 +1900,10 @@ void MainWindow::get_color()
     updateInfo();
     QImage img = pix.toImage();
     if(ui->colorBalanceCheck->isChecked()){
-        QColor colorRif = QColor::fromRgba(img.pixel(sizes::selX, sizes::selY));
-        double deltaR =  double(sizes::activeColor.red()) / double(colorRif.red());
-        double deltaG = double(sizes::activeColor.green()) / double(colorRif.green());
-        double deltaB = double(sizes::activeColor.blue()) / double(colorRif.blue());
+        QColor colorRif = QColor::fromRgba(img.pixel(sizes::selX / zoomLevel, sizes::selY / zoomLevel));
+        double deltaR =  double(sizes::activeColor.red()+1.00) / double(colorRif.red()+1.00);
+        double deltaG = double(sizes::activeColor.green()+1.00) / double(colorRif.green()+1.00);
+        double deltaB = double(sizes::activeColor.blue()+1.00) / double(colorRif.blue()+1.00);
         int newr, newg, newb;
         for(int ih=0; ih < img.height(); ++ih){
             for(int iw =0; iw < img.width(); ++iw){
