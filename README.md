@@ -85,7 +85,7 @@ For Italian users: you can run Drawish in English by adding the "en" parameter.
 #### Saving
 Images are saved in png format.  
 To save in jpg, ico, bmp, ppm, xbm or xpm format, choose the extension from the "format" box that appears.  
-You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" folder.  
+You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" or in Home folder.  
 For base64 format, see "Camera" chapter.
 
 #### Serialize
