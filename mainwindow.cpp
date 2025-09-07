@@ -49,7 +49,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "2.1";
+    version_info = "2.1.1";
     // 2.1.1: bug fix in color balance;
 
 
