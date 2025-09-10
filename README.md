@@ -75,12 +75,12 @@ pending operations will be deleted.
 
 #### Command line
 If you launch the program from the command line, you can also add the path of an image.  
- `/path/Drawish-x86_64.Appimage`  or  
- `/path/Drawish-x86_64.Appimage /path/to/image`  
+ `/path/Drawish_xxxx.Appimage`  or  
+ `/path/Drawish_xxxx.Appimage /path/to/image`  
 
 For Italian users: you can run Drawish in English by adding the "en" parameter.   
- `/path/Drawish-x86_64.Appimage en`  or  
- `/path/Drawish-x86_64.Appimage /path/to/image en`  
+ `/path/Drawish_xxxx.Appimage en`  or  
+ `/path/Drawish_xxxx.Appimage /path/to/image en`  
 
 #### Saving
 Images are saved in png format.  
