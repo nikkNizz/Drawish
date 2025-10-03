@@ -1,5 +1,5 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  2.1.1 
+# Drawish  2.2 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
@@ -307,7 +307,8 @@ mirror the image, give sepia effect, find the outlines of objects.
 
 #### Sizes
 From the" Sizes->Sizes" (Alt-S) menu you can scale or resize the image based on manually entered values.  
-You can also create a selection manually.  
+It is also possible to adapt the image to a new **form factor**.  
+You can also create a **selection manually**.  
 
 #### Camera
 A camera is a delimited area of ​​the image, whose dimensions
@@ -395,7 +396,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🔵️ quick web links  
 🔵️ object outline  
 🟣️ mouse correction  
-🟣️ many effects  
+🟣️ effects  
 🟣️ fill for similarity  
 🟣️ eraser for color by similarity  
 🟣️ grid and pixel color replacement with right clicks  
