@@ -45,8 +45,8 @@ void stretchView::mouseMoveEvent(QMouseEvent *event)
         else{ this->setCursor(Qt::SizeAllCursor); whereExp="move";}
     }else{
         if(whereExp == "move"){
-           x  = event->globalPosition().x()-diffx;
-           y  = event->globalPosition().y()-diffy;
+            x  = event->globalPosition().x()-diffx;
+            y  = event->globalPosition().y()-diffy;
         }
         else if(whereExp== "top" && preY > y1){
            y--;
