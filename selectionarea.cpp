@@ -115,4 +115,3 @@ void selectionArea::copyClip()
 {
     emit setCopy();
 }
-
