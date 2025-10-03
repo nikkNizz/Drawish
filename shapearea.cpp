@@ -140,7 +140,7 @@ void shapeArea::drawSomething()
         npix.fill(QColor(255,255,255,0));
         QPainter p(&npix);
         QPen pen2(sizes::activeColor);
-        pen2.setWidth(sizes::line_width * Zoom);
+        pen2.setWidth(sizes::line_width); // * Zoom
         pen2.setCapStyle(Qt::RoundCap);
         pen2.setJoinStyle(Qt::MiterJoin);
         p.setPen(pen2);
@@ -398,4 +398,3 @@ void shapeArea::drawSomething()
         this->setPixmap(npix);
     }
 }
-
