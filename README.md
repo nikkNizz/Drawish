@@ -303,12 +303,15 @@ From the Image menu you can apply the listed effects to the selection.
 If there is no selection, the changes are applied to the entire image.  
 The effects allow you to reduce the image to grayscale, invert the colors,
 reduce to rgb (eliminates the minority channels and keeps only the prevalent one),
-mirror the image, give sepia effect, find the outlines of objects.  
+mirror the image, give sepia effect, find the outlines of objects. 
+[video](https://drive.google.com/file/d/1pdrpBKdsCYndaHA34EnvAZ_ENh_BBu5D/view?usp=sharing)  
 
 #### Sizes
 From the" Sizes->Sizes" (Alt-S) menu you can scale or resize the image based on manually entered values.  
-It is also possible to adapt the image to a new **form factor**.  
+It is also possible to adapt the image to a new **form factor**. [video](https://drive.google.com/file/d/1LXlnjbYWZuqWUPemhjpaHtxBgadD2UWA/view?usp=sharing)  
 You can also create a **selection manually**.  
+
+
 
 #### Camera
 A camera is a delimited area of ​​the image, whose dimensions
