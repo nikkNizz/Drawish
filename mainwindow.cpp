@@ -49,8 +49,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "2.2";
-    // BUG draw shape with zoom; lamp effect; fit form factor; fit in serialize; save .jpg
+    version_info = "2.3";
+    // 2.3: BUG autoratation button;
 
     setGeometry(50,80,790,487);
 
@@ -2400,11 +2400,12 @@ void MainWindow::rotation(int a)
 
 void MainWindow::on_autoRotationButton_clicked()
 {
-    if(ui->autoRotationButton->isChecked()){
-        if(!sizes::isSelectionOn){
-            QMessageBox::information(this, "Drawish", tr("No selection"));
-            return;
-        }
+    if(!sizes::isSelectionOn){
+        QMessageBox::information(this, "Drawish", tr("No selection"));
+        ui->autoRotationButton->setChecked(false);
+        return;
+    }
+    if(ui->autoRotationButton->isChecked()){        
         ui->autoRotationButton->setIcon(QIcon(":/res/crono2.png"));
         wPreRotate = sizes::selW;
         hPreRotate = sizes::selH;
@@ -3659,6 +3660,3 @@ void MainWindow::on_actionMore_triggered()
     int l = QInputDialog::getInt(this,"Drawish", tr("Enter zoom level (10-400)"), 100, 10, 400);
     zoomAll(double(l));
 }
-
-
-
