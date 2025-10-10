@@ -50,7 +50,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     version_info = "2.2";
-    // 2.1.: BUG draw shape with zoom; lamp effect; fit form factor; fit in serialize; save .jpg
+    // BUG draw shape with zoom; lamp effect; fit form factor; fit in serialize; save .jpg
 
     setGeometry(50,80,790,487);
 
