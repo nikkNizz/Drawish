@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QMenu>
 #include <QRubberBand>
 
 class Area : public QLabel
