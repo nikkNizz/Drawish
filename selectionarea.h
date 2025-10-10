@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QWidget>
+#include <QMenu>
 #include <QLabel>
 
 class selectionArea : public QLabel
