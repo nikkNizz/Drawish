@@ -4030,7 +4030,6 @@
           </color>
          </brush>
         </colorrole>
-       
        </active>
        <inactive>
         <colorrole role="WindowText">
@@ -4177,7 +4176,6 @@
           </color>
          </brush>
         </colorrole>
-        
        </inactive>
        <disabled>
         <colorrole role="WindowText">
@@ -4324,7 +4322,6 @@
           </color>
          </brush>
         </colorrole>
-       
        </disabled>
       </palette>
      </property>
@@ -6370,10 +6367,16 @@
    <property name="text">
     <string>300</string>
    </property>
+   <property name="shortcut">
+    <string>3</string>
+   </property>
   </action>
   <action name="action400">
    <property name="text">
     <string>400</string>
+   </property>
+   <property name="shortcut">
+    <string>4</string>
    </property>
   </action>
   <action name="action50">
@@ -6387,6 +6390,9 @@
   <action name="action30">
    <property name="text">
     <string>30</string>
+   </property>
+   <property name="shortcut">
+    <string>6</string>
    </property>
   </action>
   <action name="actionMore">
