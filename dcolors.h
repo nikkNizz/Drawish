@@ -45,6 +45,8 @@ private slots:
 
     void on_getColorBtn2_clicked();
 
+    void on_pushButton_5_clicked();
+
 private:
     Ui::dColors *ui;    
     QPixmap newPix;
