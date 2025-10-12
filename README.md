@@ -12,7 +12,7 @@ The compiled program for Linux and Windows can be downloaded from the [releases]
 Once the program is open you can create a quick link: from the [File -> Desktop shortcut] menu, a menu item is created in Linux or a desktop shortcut in Windows.
 
 ### COMPILE FROM SOURCE (latest version LINUX):
-(*By compiling from source code you may get a more up-to-date version than the released executable*.)
+(*By compiling from source code you may get a more up-to-date version than the released executable*.)  
 Download and unzip the project.  
 Give the following commands from the terminal:
 
