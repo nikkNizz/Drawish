@@ -287,3 +287,30 @@ void dColors::on_getColorBtn2_clicked()
     ui->endColorsLine->setText(writeRgb());
 }
 
+
+void dColors::on_pushButton_5_clicked() // if not active color invert
+{
+    QImage Img = origPix.toImage();
+    QColor k;
+    int r = sizes::activeColor.red() +128;
+    int g = sizes::activeColor.green()+128;
+    int b = sizes::activeColor.blue()+128;
+    if(r > 255) r = r-255;
+    if(g > 255) g = g-255;
+    if(b > 255) b = b -255;
+    int counter =0;
+    QColor newColor(r, g, b);
+    for (int y = 0; y < Img.height(); ++y) {
+        for (int x = 0; x < Img.width(); ++x) {
+            k = Img.pixelColor(x, y);
+            if(k != sizes::activeColor){
+                Img.setPixelColor(x, y, newColor);
+                counter++;
+            }
+        }
+    }
+    newPix = QPixmap::fromImage(Img);
+    ui->labelThumb->setPixmap( newPix.scaled(200,170));
+    ui->label_replaced->setText(QString::number(counter) + tr(" pixel replaced"));
+    if(ui->checkAuto->isChecked()) origPix = newPix;
+}
