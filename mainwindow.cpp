@@ -50,7 +50,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     version_info = "2.3";
-    // 2.3: BUG autoratation button;
+    // 2.3: BUG autoratation button; add invert color if not active color (dColors);
+    // value for transparency (pen); add zoom shortcut
 
     setGeometry(50,80,790,487);
 
@@ -1528,7 +1529,7 @@ void MainWindow::drawWithPen(){
         QPainter pai(&pix);
         QPen pen;
         if(ui->markerButton->isChecked()){
-            int t = 60 / sizes::line_width ;
+            int t = 70 / sizes::line_width ;
             pen =QPen(configPen(ncol, t));
         }else{
             pen= QPen(configPen(ncol));
@@ -3660,3 +3661,5 @@ void MainWindow::on_actionMore_triggered()
     int l = QInputDialog::getInt(this,"Drawish", tr("Enter zoom level (10-400)"), 100, 10, 400);
     zoomAll(double(l));
 }
+
+
