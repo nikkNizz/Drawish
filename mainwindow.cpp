@@ -52,8 +52,8 @@ MainWindow::MainWindow(QWidget *parent)
     version_info = "2.3";
     // 2.3: BUG autoratation button; add invert color if not active color (dColors);
     // value for transparency (pen); add zoom shortcut;
-    // *** add sprayDraw at first point; pen width for spray; change cursor
-    // *** default path; better square pen
+    // add sprayDraw at first point; pen width for spray; change cursor
+    // default path; better square pen
 
     setGeometry(50,80,790,487);
 
