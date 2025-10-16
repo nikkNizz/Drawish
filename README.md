@@ -23,7 +23,7 @@ sudo apt install qt6-base-dev
 cd /path/to/Drawish_project  
 cmake .  
 make  
-sudo make install  
+sudo make install  [optional]
 
 Or install and compile directly from **Qt Creator** on Windows, Mac, or Linux, without changing a single line of code!
 
