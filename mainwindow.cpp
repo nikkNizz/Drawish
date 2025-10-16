@@ -52,8 +52,8 @@ MainWindow::MainWindow(QWidget *parent)
     version_info = "2.3";
     // 2.3: BUG autoratation button; add invert color if not active color (dColors);
     // value for transparency (pen); add zoom shortcut; translator in if
-    // add sprayDraw at first point; pen width for spray; *** change cursor
-    // default path; better square pen; *** add average color; *** bug in zoom cursor
+    // add sprayDraw at first point; pen width for spray; change cursor
+    // default path; better square pen; add average color; bug in zoom cursor
 
     setGeometry(50,80,790,487);
 
@@ -1505,8 +1505,8 @@ QPen MainWindow::configPen(QColor &ncol, int alpha)
 
     QPen pen1(ncol, sizes::line_width);
     if(jColor == 3 || jColor == 4 || jColor ==1 ) pen1.setWidth(1); // nib or square
-    else if(jColor == 1 || jColor == 7){ pen1.setCapStyle(Qt::SquareCap);}
-    else if(jColor ==2)                { pen1.setCapStyle(Qt::FlatCap);}
+    else if(jColor == 7){ pen1.setCapStyle(Qt::SquareCap);}
+    else if(jColor ==1 ||  jColor == 2){ pen1.setCapStyle(Qt::FlatCap);}
     else                               { pen1.setCapStyle(Qt::RoundCap);}
 
     return pen1;
@@ -1551,7 +1551,7 @@ void MainWindow::drawWithPen(){
         }else{
             pen= QPen(configPen(ncol));
         }
-        pai.setPen(pen);
+       pai.setPen(pen);
         if(penIndex == 1){ // square
             int ptx1 = sizes::shape_x_begin/zoomLevel; int pty1 = sizes::shape_y_begin/zoomLevel;
             int ptx2 = sizes::shape_x_end/zoomLevel; int pty2 = sizes::shape_y_end/zoomLevel;
@@ -1561,9 +1561,9 @@ void MainWindow::drawWithPen(){
             QPolygon poly;
             QPoint p1, p2, p3, p4, p5, p6;
             if(ptx2 > ptx1 && pty2 <= pty1){
-                p1 = QPoint( ptx1 + corners, pty1-corners);
-                p2 = QPoint( ptx1-corners, pty1-corners);
-                p3 = QPoint( ptx1 - corners, pty1+corners);
+                p1 = QPoint( ptx1 - corners, pty1-corners);
+                p2 = QPoint( ptx1-corners, pty1+corners);
+                p3 = QPoint( ptx1 + corners, pty1+corners);
                 p4 = QPoint( ptx2+corners, pty2+corners);
                 p5 = QPoint( ptx2 + corners, pty2-corners);
                 p6 = QPoint( ptx2-corners, pty2-corners);
@@ -1592,11 +1592,12 @@ void MainWindow::drawWithPen(){
                 p5 = QPoint( ptx2 - corners, pty2+corners);
                 p6 = QPoint( ptx2-corners, pty2-corners);
             }
-            poly << p1 << p2 << p3 << p4 << p5 << p6 << p1;
+            poly << p1 << p2 << p3 << p4 << p5 << p6;
             pai.drawPolygon(poly);
         }
         // end square
         else{
+
           pai.drawLine(sizes::shape_x_begin/zoomLevel, sizes::shape_y_begin/zoomLevel, sizes::shape_x_end/zoomLevel, sizes::shape_y_end/zoomLevel);
         }
             pai.end();
@@ -3730,5 +3731,4 @@ void MainWindow::on_actionMore_triggered()
     int l = QInputDialog::getInt(this,"Drawish", tr("Enter zoom level (10-400)"), 100, 10, 400);
     zoomAll(double(l));
 }
-
 
