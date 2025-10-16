@@ -11,7 +11,7 @@ It also allows you to modify existing images, open pdf as images in Linux, draw 
 The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases) page of this project.  
 Once the program is open you can create a quick link: from the [File -> Desktop shortcut] menu, a menu item is created in Linux or a desktop shortcut in Windows.
 
-### COMPILE FROM SOURCE (latest version LINUX):
+### COMPILE FROM SOURCE (2.3):
 (*By compiling from source code you may get a more up-to-date version than the released executable*.)  
 Download and unzip the project.  
 Give the following commands from the terminal:
@@ -23,7 +23,8 @@ sudo apt install qt6-base-dev
 cd /path/to/Drawish_project  
 cmake .  
 make  
-sudo make install  [optional]
+*optional*  
+sudo make install 
 
 Or install and compile directly from **Qt Creator** on Windows, Mac, or Linux, without changing a single line of code!
 
