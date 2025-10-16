@@ -16,15 +16,15 @@ Once the program is open you can create a quick link: from the [File -> Desktop 
 Download and unzip the project.  
 Give the following commands from the terminal:
 
-sudo apt update  
-sudo apt install g++  
-sudo apt install cmake  
-sudo apt install qt6-base-dev  
-cd /path/to/Drawish_project  
-cmake .  
-make  
+`sudo apt update`  
+`sudo apt install g++`  
+`sudo apt install cmake`  
+`sudo apt install qt6-base-dev`  
+`cd /path/to/Drawish_project`  
+`cmake .`  
+`make`  
 *optional*  
-sudo make install 
+`sudo make install` 
 
 Or install and compile directly from **Qt Creator** on Windows, Mac, or Linux, without changing a single line of code!
 
