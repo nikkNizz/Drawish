@@ -676,7 +676,10 @@ void MainWindow::newImage(QString from, QString path)
 
 void MainWindow::on_actionDefault_path_for_file_picker_triggered()
 {
-    QString p= QInputDialog::getText(this, "Drawish", tr("Enter name of an existing folder"));
+   QString field = defaultPathDialog;
+    if(defaultPathDialog == ""){field = QDir::homePath();}
+    QString p= QInputDialog::getText(this, "Drawish", tr("Enter name of an existing folder"),
+                                      QLineEdit::Normal, field);
     if(p != "") defaultPathDialog = p;
 }
 
