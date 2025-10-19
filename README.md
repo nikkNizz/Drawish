@@ -1,5 +1,5 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  2.2 
+# Drawish  2.3 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
@@ -12,7 +12,6 @@ The compiled program for Linux and Windows can be downloaded from the [releases]
 Once the program is open you can create a quick link: from the [File -> Desktop shortcut] menu, a menu item is created in Linux or a desktop shortcut in Windows.
 
 ### COMPILE FROM SOURCE:
-(*Version 2.3*)  
 Download and unzip the project.  
 Give the following commands from the terminal:
 
@@ -30,7 +29,7 @@ When there are changes, replace only the modified files with the newer ones and 
 
 Or install and compile directly from **Qt Creator** on Windows, Mac, or Linux, without changing a single line of code!
 
-On some Linux systems you may need to download the following libraries:  
+On some Linux systems, you may need to download the following libraries in order to compile:
 apt install \
     libfontconfig1-dev \  
     libfreetype-dev \  
@@ -90,7 +89,8 @@ For Italian users: you can run Drawish in English by adding the "en" parameter.
 Images are saved in png format.  
 To save in jpg, ico, bmp, ppm, xbm or xpm format, choose the extension from the "format" box that appears.  
 You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" or in home folder.  
-For base64 format, see "Camera" chapter.
+For base64 format, see "Camera" chapter.  
+You can set a **default folder** for the file picker: "Menu ->Default path for file picker".
 
 #### Serialize
 From the "Edit->Serialize" menu a window opens from which you can choose operations to perform on all the images contained in a folder.  
@@ -197,7 +197,8 @@ If the check box [Fill inside black] is selected, the entire area around the cli
 [video](https://drive.google.com/file/d/1yWAFPJW5sjcYRTpn0P7AlbdcRmab0lex/view?usp=sharing)  
 
 #### Spray
-Click the [spray] button and move the mouse over the drawing area, holding down the left mouse button.
+Click the [spray] button and move the mouse over the drawing area, holding down the left mouse button.  
+The size of the spray is defined by the size of the pen.
 
 #### Pick color
 Click the [pick] button and then on a point in the
@@ -247,8 +248,9 @@ Click **four** points of the image to draw the first curve, then click on **two*
 
 #### Color management
 From the [Image->Colors] menu you can perform additional operations on colors.  
+*If transparent selection is active, the transparent color is treated as black*.  
 You can create a color by entering rgb values ​​from the keyboard, create gradients and replace pixels based on complex options.  
-You can also get the hexadecimal value of the color.  
+You can also get the hexadecimal value of the color and the average color of the image.  
 [video](https://drive.google.com/file/d/1PJ-7u52q-H2AVHOg521qymgIlQxkHiOt/view?usp=sharing)  
 [video](https://drive.google.com/file/d/1A_yMq7SHWH1n-Yu3GsRULe9LDZ2Vc3gg/view?usp=sharing)
 
@@ -289,6 +291,7 @@ To mirror the image (or selection) go to the "Image->Mirror horizontally "or "Im
 
 #### Effects
 From the "Image->Effects" menu a window opens that allows you to apply effects to the image in the selection.  
+*If transparent selection is active, the transparent color is treated as black*.  
 If there is no selection, the effects are applied to the entire image.  
 After each change, click the [Update] button to make the changes effective, or select the "update automatically" 
 checkbox if the function allows it.
@@ -314,7 +317,6 @@ mirror the image, give sepia effect, find the outlines of objects.
 From the" Sizes->Sizes" (Alt-S) menu you can scale or resize the image based on manually entered values.  
 It is also possible to adapt the image to a new **form factor**. [video](https://drive.google.com/file/d/1LXlnjbYWZuqWUPemhjpaHtxBgadD2UWA/view?usp=sharing)  
 You can also create a **selection manually**.  
-
 
 
 #### Camera
@@ -355,7 +357,10 @@ F1     |        |   SET RESTORE POINT
 F12    |        |   RESTORE  
 1      |        |   ZOOM 100 %  
 2      |        |   ZOOM 200 %  
+3      |        |   ZOOM 300 %  
+4      |        |   ZOOM 400 %  
 5      |        |   ZOOM 50 %  
+6      |        |   ZOOM 30 %  
 
 MOVE SELECTION OR CAMERA  
       A, S, W, Z = LEFT,RIGHT,TOP, BOTTOM  
@@ -404,6 +409,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🔵️ object outline  
 🟣️ mouse correction  
 🟣️ effects  
+🟣️ average color  
 🟣️ fill for similarity  
 🟣️ eraser for color by similarity  
 🟣️ grid and pixel color replacement with right clicks  
