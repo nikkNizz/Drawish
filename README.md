@@ -13,7 +13,7 @@ Once the program is open you can create a quick link: from the [File -> Desktop 
 
 ### COMPILE FROM SOURCE:
 Download and unzip the project.  
-Give the following commands from the terminal:
+Give the following commands from the terminal (instructions for Debian derivatives):
 
 `sudo apt update`  
 `sudo apt install g++`  
