@@ -29,7 +29,7 @@ When there are changes, replace only the modified files with the newer ones and 
 
 Or install and compile directly from **Qt Creator** on Windows, Mac, or Linux, without changing a single line of code!
 
-On some Linux systems, you may need to download the following libraries in order to compile:
+On some Linux systems, you may need to download the following libraries in order to compile:  
 apt install \
     libfontconfig1-dev \  
     libfreetype-dev \  
