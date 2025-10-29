@@ -1,5 +1,5 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  2.3 
+# Drawish  2.4 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
@@ -158,12 +158,12 @@ You can draw with the keyboard by selecting in the top menu how many pixels to d
 Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (< = bottom-left)  (Z = down)  (X = bottom-right). 
 [video](https://drive.google.com/file/d/1Z6KETxX53N0E_YGQgtdDkzLk7GZgHE8c/view?usp=sharing)  
 In the panel that appears above the drawing area you can choose attributes. Do not use transparent color to draw (only fill).  
-You can use a semi-transparent pen (for best results move the mouse at a slow speed, use a large tip and disable mouse correction).  
+You can use a semi-transparent pen (for best results disable mouse correction).  
 Use white color to erase.  
 You can draw with a round, square, linear, or stylus tip.  
 You can draw with a random color pen.  
-You can use the **"fusion"** pen to draw with a color obtained by merging the pixels crossed by the pen.
-The fusion pen can replace the blur effect or can be used for artistic effects.
+You can use the **"fusion"** pen to draw with a color obtained by merging the pixels crossed by the pen.  
+
 [video](https://drive.google.com/file/d/15WTKDzYWJppr3aST-LWUw6-EzQZaqXTG/view?usp=sharing)  
 [video](https://drive.google.com/file/d/1KDGYqUujZeACzwIT4wNfv6htVcOB51Dh/view?usp=sharing)
 
