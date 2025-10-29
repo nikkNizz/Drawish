@@ -165,7 +165,6 @@ You can draw with a random color pen.
 You can use the **"fusion"** pen to draw with a color obtained by merging the pixels crossed by the pen.  
 
 [video](https://drive.google.com/file/d/15WTKDzYWJppr3aST-LWUw6-EzQZaqXTG/view?usp=sharing)  
-[video](https://drive.google.com/file/d/1KDGYqUujZeACzwIT4wNfv6htVcOB51Dh/view?usp=sharing)
 
 #### Color eraser
 Click the [pen] button. In the panel that appears above the drawing area select "Erase by color similaraty defined in fill".  
