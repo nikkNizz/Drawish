@@ -269,6 +269,7 @@ Select the [Charts] menu and choose a chart type. Enter positive values ​​(o
 
 #### Zoom
 From the "Zoom" menu choose a predefined zoom level or a custom level.  
+For quick zoom levels you can press the 1 to 6 keys on your keyboard!
 
 ##### Pixel matrix. 
 Right click on the image->Show Grid: the pixel matrix will appear enlarged for the area in the vicinity of the cursor.  
