@@ -57,6 +57,14 @@ apt install \
     libxkbcommon-x11-dev \  
     libxrender-dev  
 
+#### Command line
+If you launch the program from the command line, you can also add the path of an image.  
+ `/path/Drawish_xxxx.Appimage`  or  
+ `/path/Drawish_xxxx.Appimage /path/to/image`  
+
+For Italian users: you can run Drawish in English by adding the "en" parameter.   
+ `/path/Drawish_xxxx.Appimage en`  or  
+ `/path/Drawish_xxxx.Appimage /path/to/image en`  
 
 #### USAGE
 You can start drawing or you can open an image.  
@@ -76,14 +84,6 @@ When you select an option it will be active for the drawing area,
 when you deselect it, it will no longer be active and any
 pending operations will be deleted.
 
-#### Command line
-If you launch the program from the command line, you can also add the path of an image.  
- `/path/Drawish_xxxx.Appimage`  or  
- `/path/Drawish_xxxx.Appimage /path/to/image`  
-
-For Italian users: you can run Drawish in English by adding the "en" parameter.   
- `/path/Drawish_xxxx.Appimage en`  or  
- `/path/Drawish_xxxx.Appimage /path/to/image en`  
 
 #### Saving
 Images are saved in png format.  
