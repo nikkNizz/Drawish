@@ -51,6 +51,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     version_info = "2.4";
     // 2.4: highlighter; edit random pen; fusion
+    // removed pens
 
     setGeometry(50,80,790,487);
 
