@@ -8,7 +8,8 @@
     <file>res/redo.png</file>    
     <file>res/selez.png</file> 
     <file>res/freeSel.png</file> 
-    <file>res/shapes.png</file>  
+    <file>res/shapes.png</file> 
+    <file>res/shap_sel.png</file> 
     <file>res/curve.png</file> 
     <file>res/spray.png</file>    
     <file>res/text.png</file> 
@@ -19,6 +20,6 @@
     <file>res/rotateRight.png</file>  
     <file>res/draw.png</file>
     <file>res/tracerPen.png</file>
-    <file>res/it_lang.qm</file>  
+    <file>res/it_lang.qm</file>    
 </qresource>
 </RCC>
