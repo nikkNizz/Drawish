@@ -1,7 +1,7 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  2.4 
+# Drawish  2.5 
 Is a program for basic drawing.  
-It also allows you to modify existing images, open pdf as images in Linux, draw charts, use rich text, save portions framed by a "camera" and much more.  
+It also allows you to modify existing images, open pdf as images in Linux, draw using the keyboard, rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
 
 ![Image](https://github.com/nikkNizz/Drawish/blob/main/png/DRAWISCREEN1.png)  
@@ -134,6 +134,12 @@ To finish and pasting the selection, click on a point on the image.
 #### Freehand selection
 Click the [Freehand selection] to start making a freehand selection with the mouse.  
 See also [Fill inside black](https://github.com/nikkNizz/Drawish/blob/main/README.md#fill--fill-inside-black)
+
+#### Elliptical selection and other shapes
+You can transform a shape into a selection.
+Draw a shape as usual, then press the button to the right of the fill selection box to convert the shape into a selection.  
+[video](https://drive.google.com/file/d/1OmfOUle8yHQT_zte3cJ2GencHQ7gQVGY/view?usp=sharing)
+
 
 #### Merge selection
 From the "Edit->Merge selection to image" menu you can merge the portion of the image below into the selection. 
@@ -391,6 +397,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟢️ get code base64 (from Camera)  
 🟢️ complex curves  
 🔵️ merging selection and image with 3 levels of strength  
+🔵️ shapes to selection  
 🔵️ paste over file    
 🔵️ manual or continuous selection rotation  
 🔵️ curve-like stretching  
