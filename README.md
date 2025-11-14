@@ -1,7 +1,7 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
 # Drawish  2.5 
 Is a program for basic drawing.  
-It also allows you to modify existing images, open pdf as images in Linux, draw using the keyboard, rich text, save portions framed by a "camera" and much more.  
+It also allows you to modify existing images, open pdf as images in Linux, draw using the keyboard, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
 
 ![Image](https://github.com/nikkNizz/Drawish/blob/main/png/DRAWISCREEN1.png)  
@@ -25,7 +25,7 @@ Give the following commands from the terminal (instructions for Debian derivativ
 *optional*  
 `sudo make install` 
 
-When there are changes, replace only the modified files with the newer ones and simply run the `make` command. The process will be very quick.
+When there are changes, replace only the modified files with the newer ones and simply run the `make` command. The process will be very fast.
 
 Or install and compile directly from **Qt Creator** on Windows, Mac, or Linux, without changing a single line of code!
 
