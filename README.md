@@ -104,7 +104,6 @@ the last 25 changes. You can also use the **ctrl-Z** key combination to go back.
 To return to the left image, press the top left button or **ctrl-R** [Redo].  
 ![image](https://github.com/nikkNizz/Drawish/blob/main/png/REDO.png)  
 If a change is made from a previous image, the left image will no longer be available.  
-[Video](https://drive.google.com/file/d/1jMbZppeGw3zGTbC74FTZjxg4T8YVSmn-/view?usp=sharing)
 
 #### Restore point
 You can save a restore point from the [image->Set as restore point] menu (or F1 key). Any previous points will be deleted.  
@@ -170,7 +169,7 @@ You can draw with a round, square, linear, or stylus tip.
 You can draw with a random color pen.  
 You can use the **"fusion"** pen to draw with a color obtained by merging the pixels crossed by the pen.  
 
-[video](https://drive.google.com/file/d/15WTKDzYWJppr3aST-LWUw6-EzQZaqXTG/view?usp=sharing)  
+[video](https://drive.google.com/file/d/1BBmoYLfcr6cGcmatoVvxtEbJ12GTN6Hs/view?usp=sharing)
 
 #### Color eraser
 Click the [pen] button. In the panel that appears above the drawing area select "Erase by color similaraty defined in fill".  
@@ -187,7 +186,7 @@ Click the [DRAW] button to actually print the text, then move the text area
 to continue printing text. Or disable the function by clicking the left button again.
 You can open an **RTF editor** to write formatted text. This text can be saved to a file and can be directly transposed onto the image via a screenshot. After clicking the [text] button, click the [RTF] button to open the editor. Click [Screenshot and close] button to transpose the text into a selection in the image. In the editor you can save texts and open them.  
 It is possible to paste text from the clipboard, as an image.  
-[video](https://drive.google.com/file/d/1GrowsX4R_jyyqmt8AIxP22UySknR3SwT/view?usp=sharing)
+[video](https://drive.google.com/file/d/1yzlL7j-uYcOxUMt19SPYZmH3ZtB-7Hrc/view?usp=sharing)
 
 #### Tracer
 Click [tracer] to activate it.  
@@ -257,7 +256,7 @@ From the [Image->Colors] menu you can perform additional operations on colors.
 You can create a color by entering rgb values ​​from the keyboard, create gradients and replace pixels based on complex options.  
 You can also get the hexadecimal value of the color and the average color of the image.  
 [video](https://drive.google.com/file/d/1PJ-7u52q-H2AVHOg521qymgIlQxkHiOt/view?usp=sharing)  
-[video](https://drive.google.com/file/d/1A_yMq7SHWH1n-Yu3GsRULe9LDZ2Vc3gg/view?usp=sharing)
+[video](https://drive.google.com/file/d/1PpsTegWU_1TDVjR1HpebFDDkecI76pfO/view?usp=sharing)
 
 #### Favorite colors
 From the menu [Image-> Set as favorite color] the active color is saved in an image and made available in the color palette as an additional color.  
