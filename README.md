@@ -159,7 +159,7 @@ If a crop has been previously made, the crop coordinates are proposed at the pro
 #### Freehand drawing
 Click the [pen] button and move the mouse over the drawing area, holding down the left mouse button.  
 From the "edit" menu you can enable **"Mouse correction"** to avoid drawing every little mouse movement.  
-You can draw with the keyboard by selecting in the top menu how many pixels to draw when you press the keys ( 1 or 5).  
+You can draw with the keyboard by selecting in the top menu how many pixels (1 or 5) to draw when you press the keys.  
 Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (< = bottom-left)  (Z = down)  (X = bottom-right). 
 [video](https://drive.google.com/file/d/1Z6KETxX53N0E_YGQgtdDkzLk7GZgHE8c/view?usp=sharing)  
 In the panel that appears above the drawing area you can choose attributes. Do not use transparent color to draw (only fill).  
