@@ -90,7 +90,7 @@ Images are saved in png format.
 To save in jpg, ico, bmp, ppm, xbm or xpm format, choose the extension from the "format" box that appears.  
 You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" or in home folder.  
 For base64 format, see "Camera" chapter.  
-You can set a **default folder** for the file picker: "Menu ->Default path for file picker".
+You can set a **default folder** for the file picker: "File ->Default path for file picker".
 
 #### Serialize
 From the "Edit->Serialize" menu a window opens from which you can choose operations to perform on all the images contained in a folder.  
