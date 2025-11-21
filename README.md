@@ -300,7 +300,7 @@ From the "Image->Effects" menu a window opens that allows you to apply effects t
 If there is no selection, the effects are applied to the entire image.  
 After each change, click the [Update] button to make the changes effective, or select the "update automatically" 
 checkbox if the function allows it.
-Click [OK] to apply the new image or [Cancel] to abort the changes.  
+Click [OK] to apply the new image or [Cancel] to abort the changes.  [video](https://drive.google.com/file/d/1pdrpBKdsCYndaHA34EnvAZ_ENh_BBu5D/view?usp=sharing)  
 > When an image is particularly faded, and is represented by very close intensity values, instead of increasing the contrast, try to perform "histogram equalization".   
 > I implemented the function following the instructions on [Wikipedia](https://en.wikipedia.org/wiki/Histogram_equalization).
 
@@ -316,7 +316,6 @@ If there is no selection, the changes are applied to the entire image.
 The effects allow you to reduce the image to grayscale, invert the colors,
 reduce to rgb (eliminates the minority channels and keeps only the prevalent one),
 mirror the image, give sepia effect, find the outlines of objects. 
-[video](https://drive.google.com/file/d/1pdrpBKdsCYndaHA34EnvAZ_ENh_BBu5D/view?usp=sharing)  
 
 #### Sizes
 From the" Sizes->Sizes" (Alt-S) menu you can scale or resize the image based on manually entered values.  
