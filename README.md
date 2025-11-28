@@ -4,7 +4,7 @@ Is a program for basic drawing.
 It also allows you to modify existing images, open pdf as images in Linux, draw using the keyboard, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
 
-![Image](https://github.com/nikkNizz/Drawish/blob/main/png/DRAWISCREEN1.png)  
+![Image](https://github.com/nikkNizz/Drawish/blob/main/png/screenshot100.png)  
 
 
 ### PRECOMPILED PACKAGES:
