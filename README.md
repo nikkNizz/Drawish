@@ -186,6 +186,9 @@ Click the [DRAW] button to actually print the text, then move the text area
 to continue printing text. Or disable the function by clicking the left button again.
 You can open an **RTF editor** to write formatted text. This text can be saved to a file and can be directly transposed onto the image via a screenshot. After clicking the [text] button, click the [RTF] button to open the editor. Click [Screenshot and close] button to transpose the text into a selection in the image. In the editor you can save texts and open them.  
 It is possible to paste text from the clipboard, as an image.  
+> The last text remains stored in the box allowing both changes in case of undo and the creation of copies
+>
+
 [video](https://drive.google.com/file/d/1yzlL7j-uYcOxUMt19SPYZmH3ZtB-7Hrc/view?usp=sharing)
 
 #### Tracer
