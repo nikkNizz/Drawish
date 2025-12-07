@@ -193,7 +193,7 @@ It is possible to paste text from the clipboard, as an image.
 
 #### Tracer
 Click [tracer] to activate it.  
-The tracer can be used if you use Drawish in demonstrations. Allows you to draw a highlight line that automatically disappears.
+The tracer allows you to draw a highlight line that automatically disappears (useful in demonstrations).
 
 #### Fill / Fill inside black
 Click the [fill] button and click on the point in the image where you want to replace a color with the active color. The replacement occurs on the exact color that you clicked.  
