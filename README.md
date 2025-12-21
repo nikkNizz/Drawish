@@ -115,7 +115,7 @@ Cancel the operation with ctrl-Z or undo
 It is possible to open pdf as images, dragging them onto the drawing area, or from the menu, or from the command line.   
 In windows the quality is reduced.   
 In Linux the image is real, thanks to the poppler-utils generally preinstalled. If they are not present, install them with your package manager.  
-[video](https://drive.google.com/file/d/1S440ixRX7CHNSXD62h23SyD1GWCo3j0U/view?usp=sharing)
+[video](https://drive.google.com/file/d/1BNM-BO_ZgcvQmdMGtjXep5P4otvEmVUl/view?usp=sharing)
 
 #### Selection
 Click the [selection] button to select a portion of the image. The selection will be detached from the image and
