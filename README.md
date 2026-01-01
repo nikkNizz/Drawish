@@ -1,8 +1,8 @@
-View the contents of this readme by pressing the "outline" button above right.  
-Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
+>View the contents of this readme by pressing the **"outline"** button above right.
+>
+Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".
 # Drawish  2.6 
-Is a program for basic drawing.  
-It also allows you to modify existing images, open pdf as images in Linux, draw using the keyboard, use rich text, save portions framed by a "camera" and much more.  
+Is a program for basic drawing, open pdf as images, draw using the keyboard, use rich text, save portions framed by a "camera", create custom shapes and much more.  
 [See features](#features)  
 
 ![Image](https://github.com/nikkNizz/Drawish/blob/main/png/screenshot100.png)  
@@ -242,7 +242,7 @@ The shape can be moved by dragging the area with the mouse or from keyboard (A W
 Border width is defined by line width box.  
 Many filling options are available from the choice box at the top right.
 ##### Shapes to selection
-[See Elliptical selection and other shapes](#ellipticalselectionandothershapes)
+[See Elliptical selection and other shapes](#elliptical-selection-and-other-shapes)
 ##### Default shapes
 SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, ROUNDED SQUARE, STAR, ARROWS, SOLID, CROSSES (for simple arrow see "Line / Simple arrow / Connected lines" chapter).  
 ##### Custom shapes
