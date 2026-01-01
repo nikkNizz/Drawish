@@ -264,37 +264,37 @@ Here is an example of a file that defines three shapes: a home icon, a diamond a
 >Drawish interprets the Bezier curve only for a maximum of seven points.
 >
 
-// Drawish custom shapes file
-// Define names with @
-// Define x, y points in % for each line
-// Write comments using double slashes 😉
+// Drawish custom shapes file  
+// Define names with @  
+// Define x, y points in % for each line  
+// Write comments using double slashes 😉  
 
-@home
-10, 90
-10,25
-50, 5
-90,25
-90, 90
-60, 90
-60, 75
-40, 75
-40, 90 
-
-@diamond
-50, 10
-90, 60
-50, 90
-10, 60 
-
-@hart
-50,90
-0, 0
-40, 0
-50, 33
-60, 0
-100,0
-50, 90 
-
+@home  
+10, 90  
+10,25  
+50, 5  
+90,25  
+90, 90  
+60, 90  
+60, 75  
+40, 75  
+40, 90  
+  
+@diamond  
+50, 10  
+90, 60  
+50, 90  
+10, 60  
+  
+@hart  
+50,90  
+0, 0  
+40, 0  
+50, 33  
+60, 0  
+100,0  
+50, 90  
+  
 Save as **shapes.txt** in the **Drawish_Data** folder and restart Drawish. The two objects will load into the shape box as shown [in this video](https://drive.google.com/file/d/1IHAdP9TWUo0bBND9iuoCe7zbI7ZUC_JK/view?usp=sharing)
 
 
