@@ -1,5 +1,6 @@
+View the contents of this readme by pressing the "outline" button above right.  
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
-# Drawish  2.5 
+# Drawish  2.6 
 Is a program for basic drawing.  
 It also allows you to modify existing images, open pdf as images in Linux, draw using the keyboard, use rich text, save portions framed by a "camera" and much more.  
 [See features](#features)  
@@ -69,7 +70,7 @@ For Italian users: you can run Drawish in English by adding the "en" parameter.
 ### USAGE
 You can start drawing or you can open an image.  
 Open images from the" File->Open" menu. You can also drag a file on the drawing area, 
-paste an image from the clipboard ("Edit->Paste from clipboard") or from a file ("Edit->Paste from file").  
+paste an image from the clipboard ("Edit->Paste from clipboard") or from a file ("Options->Paste from file").  
 Some **settings**, such as pen size or text options, are automatically restored from the previous session.  
 
 The drawing options are visible on the left of the drawing area.
@@ -86,17 +87,25 @@ pending operations will be deleted.
 
 
 #### Saving
-Images are saved in png format.  
-To save in jpg, ico, bmp, ppm, xbm or xpm format, choose the extension from the "format" box that appears.  
-You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" or in home folder.  
-For base64 format, see "Camera" chapter.  
+To save in jpg, ico, bmp, ppm, xbm or xpm format, choose the extension from the "format" box that appears. 
 You can set a **default folder** for the file picker: "File ->Default path for file picker".
+##### Save to Pdf
+You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" or in home folder.  
+##### Base64
+For base64 format, see "Camera" chapter.  
+
 
 #### Serialize
 From the "Edit->Serialize" menu a window opens from which you can choose operations to perform on all the images contained in a folder.  
 Choose the folder, check the operations of interest and enter any parameters.  
 The **original images will not be overwritten** as a new folder will be created for the modified files.  
 The operations will be performed in the order in which they are listed.
+
+#### Open Pdf
+It is possible to open pdf as images, dragging them onto the drawing area, or from the menu, or from the command line.   
+In windows the quality is reduced.   
+In Linux the image is real, thanks to the poppler-utils generally preinstalled. If they are not present, install them with your package manager.  
+[video](https://drive.google.com/file/d/1BNM-BO_ZgcvQmdMGtjXep5P4otvEmVUl/view?usp=sharing)
 
 #### Undo/Redo
 In the top left selection box you can navigate through the history of
@@ -108,53 +117,47 @@ If a change is made from a previous image, the left image will no longer be avai
 #### Restore point
 You can save a restore point from the [image->Set as restore point] menu (or F1 key). Any previous points will be deleted.  
 Go back to the saved point at any time from the [Image->Restore] menu (F12).  
-Cancel the operation with ctrl-Z or undo
-
-
-#### Open Pdf
-It is possible to open pdf as images, dragging them onto the drawing area, or from the menu, or from the command line.   
-In windows the quality is reduced.   
-In Linux the image is real, thanks to the poppler-utils generally preinstalled. If they are not present, install them with your package manager.  
-[video](https://drive.google.com/file/d/1BNM-BO_ZgcvQmdMGtjXep5P4otvEmVUl/view?usp=sharing)
+Cancel the operation with ctrl-Z or undo.
 
 #### Selection
-Click the [selection] button to select a portion of the image. The selection will be detached from the image and
-can be dragged with the mouse, and can also be resized by pulling the edges with the mouse.  
+Click the [selection] button to select a portion of the image. The selection will be detached from the image, it can be dragged with the mouse and scaled by dragging the edges with the mouse.
 Hold the mouse **near the inside** of the edges to resize the selection.  
-To copy the portion **without detaching it** (stamp), select it and, before moving it, go to the "Edit->copy selection (no clipboard) " menu, or press **+** on your keyboard or ctrl + .[video](https://drive.google.com/file/d/1t025EHseLYV5s-1YnYc8WolSRT5IJJB2/view?usp=sharing).  
-You can also create a selection by entering the coordinates from the keyboard from the "Sizes->Sizes->[Create selection]" menu.  
-To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  
-To make the white area of ​​the selection transparent, check the box
-from the "Edit->Transparent selection" Menu (selected by default).  
-To select everything, use the "Edit->Select all" menu.  
-To save the image to a file select: "Edit->Selection to file".  
+To make the white area of ​​the selection **transparent**, check the box from the "Options->Transparent selection" Menu.  
+To select everything, use the "Options->Select all" menu.  
+To save the image to a file select: "Options->Selection to file".  
 To finish and pasting the selection, click on a point on the image.  
 
-#### Freehand selection
+##### Stamp selection
+To copy the portion **without detaching it** (stamp), select it and, before moving it, go to the "Options->copy selection (no clipboard) " menu, or press **+** on your keyboard or ctrl + .[video](https://drive.google.com/file/d/1t025EHseLYV5s-1YnYc8WolSRT5IJJB2/view?usp=sharing).  
+
+##### Selection and keyboard
+You can create a selection by entering the coordinates from the keyboard from the "Sizes->Sizes->[Create selection]" menu.  
+To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  
+
+##### Keep selection aspect ratio
+Check "Options -> Keep selection aspect ratio" to preserve the aspect ratio of the selection when dragging edges. 
+[video](https://drive.google.com/file/d/1v0uc-ToTgZvu360IkdVd1F2zFi_f1ZpO/view?usp=sharing)
+
+##### Freehand selection
 Click the [Freehand selection] to start making a freehand selection with the mouse.  
 See also [Fill inside black](https://github.com/nikkNizz/Drawish/blob/main/README.md#fill--fill-inside-black)
 
-#### Elliptical selection and other shapes
+##### Elliptical selection and other shapes
 You can transform a shape into a selection.
 Draw a shape as usual, then press the button to the right of the fill selection box to convert the shape into a selection.  
 [video](https://drive.google.com/file/d/1OmfOUle8yHQT_zte3cJ2GencHQ7gQVGY/view?usp=sharing)
 
 
-#### Merge selection
+##### Merge selection
 From the "Edit->Merge selection to image" menu you can merge the portion of the image below into the selection. 
 A prompt allows you to choose between 3 blending ratios.
 [video](https://drive.google.com/file/d/15H6inAFvbu6iay29mfOW9ALRBSV0VWz6/view?usp=sharing)
 
-#### Merge images
-From the "Edit->Paste from file" menu you can merge two images with three options. The second image can be put into a selection that can be moved to the desired point, or the second image can be automatically added to the right or below the first.
+##### Selection to image (Crop) (and Reattach)
+From the "Options->Set selection as image (crop)" you can crop the image. On very large images, you can crop them for faster processing and then paste them again using the "Options->Reattach" function. Drawish reattaches the image to the coordinates of the last crop.
 
-#### Crop
-From the "Edit->Set selection as image (crop)" you can crop the image. 
-> On very large images, you can crop them for faster processing and then paste them again using the 'Paste over file' function. The prompt will remind you the coordinates of the last crop.
-> 
-#### Paste over file
-From the "Edit->Paste over file" menu, you can paste the current image into a file at the specified coordinates.  
-If a crop has been previously made, the crop coordinates are proposed at the prompt.
+#### Automatically merge images
+From the "Options->Paste from file" menu you can merge two images with three options. The second image can be put into a selection that can be moved to the desired point, or the second image can be automatically added to the right or below the first.
 
 #### Freehand drawing
 Click the [pen] button and move the mouse over the drawing area, holding down the left mouse button.  
@@ -165,11 +168,11 @@ Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (< =
 In the panel that appears above the drawing area you can choose attributes. Do not use transparent color to draw (only fill).  
 You can use a semi-transparent pen by selecting the switch in the pen toolbar.  
 Use white color to erase.  
-You can draw with a round, square, linear, or stylus tip.  
+You can draw with a round, square, digital marker, or stylus tip.  
 You can draw with a random color pen.  
 You can use the **"fusion"** pen to draw with a color obtained by merging the pixels crossed by the pen.  
-
-[video](https://drive.google.com/file/d/1BBmoYLfcr6cGcmatoVvxtEbJ12GTN6Hs/view?usp=sharing)
+You can draw automatically numbered labels by selecting 'labels' in the pen selection box. Select this option again to reset the numbering.
+[video](https://drive.google.com/file/d/1ZpOwFBm1zrZtOn0XU82PXeg-KcJ0XKKN/view?usp=sharing)
 
 #### Color eraser
 Click the [pen] button. In the panel that appears above the drawing area select "Erase by color similaraty defined in fill".  
@@ -181,14 +184,13 @@ To perform the similarity replacement, enter the "Fill" function, move the "simi
 #### Text
 Click the [text] button, and **click a point** in the drawing area. 
 The text area will be displayed and can be moved as desired.
-**The multiline text box and options are displayed at the top**.
-Click the [DRAW] button to actually print the text, then move the text area 
-to continue printing text. Or disable the function by clicking the left button again.
-You can open an **RTF editor** to write formatted text. This text can be saved to a file and can be directly transposed onto the image via a screenshot. After clicking the [text] button, click the [RTF] button to open the editor. Click [Screenshot and close] button to transpose the text into a selection in the image. In the editor you can save texts and open them.  
+**The multiline text box and options are displayed at the top**.  
+Click the [DRAW] button to actually print the text, then move the text area to continue printing text. Or disable the function by clicking the left button again.  
 It is possible to paste text from the clipboard, as an image.  
 > The last text remains stored in the box allowing both changes in case of undo and the creation of copies
 >
-
+##### RTF editor
+You can open an **RTF editor** to write formatted text. This text can be saved to a file and can be directly transposed onto the image via a screenshot. After clicking the [text] button, click the [RTF] button to open the editor. Click [Screenshot and close] button to transpose the text into a selection in the image. In the editor you can save texts and open them.  
 [video](https://drive.google.com/file/d/1yzlL7j-uYcOxUMt19SPYZmH3ZtB-7Hrc/view?usp=sharing)
 
 #### Tracer
@@ -216,27 +218,88 @@ For example, if you want to balance the white, you will have to set white as the
 [video](https://drive.google.com/file/d/1M87q7asCIgoTUkzosI1L7IYRID0MK-JZ/view?usp=sharing)  
 Click on the pick button again to proceed with other operations.
 
-#### Line / Simple arrow / Connected lines
+#### Line / Simple arrow / Connected lines / dotted lines
 Click the [Line] button. In the selection box next to it, select a line or a simple arrow or connected lines.  
 In the top menu choose the attributes of the line.  
 To draw lines and arrows use the mouse on the image with the left button pressed.  
 To get connected lines click on the points to connect.  
-From the "Image->Create line" menu (or ALT + L) **you can also create a line by entering the coordinates from the keyboard**.  
+To make the lines dashed, check the "Options->Dot lines" menu.  
+[video](https://drive.google.com/file/d/1Ik_D9UGWTPwGwEOqRubemwNMXzI8_fV7/view?usp=sharing)
+
+##### Line angle indicator
+To display the angle of the line check the "Options->Show line angle indicator" Menu.
+##### Line from keyboard
+From the "Image->Create line" menu (or ALT + L) **you can create a line by entering the coordinates from the keyboard**.  
 The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**
 The angles are in the order shown in the image:  
 ![image](https://drive.google.com/uc?export=download&id=1GYvPe_yhgc-y3qFFtwj_QH60IaK1Wj6F)  
-[video](https://drive.google.com/file/d/1z3qcvtxO0pj5NvT5CZHCLOQmpNo4UeXj/view?usp=sharing)  
-[video](https://drive.google.com/file/d/1hArIyCshNnlM2Vb6YnhPleDx2v98CpSU/view?usp=sharing)  
 
 
 #### Shapes
 Click the [shapes] button, or select a shape from the selection box.  
+You can draw predefined shapes or custom shapes.  
 The shape can be moved by dragging the area with the mouse or from keyboard (A W S Z keys).  
-Shapes are: SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, ROUNDED SQUARE, STAR, ARROWS, SOLID, CROSSES (for simple arrow see "Line / Simple arrow / Connected lines" chapter).  
-Border width is defined by line width box. 
-Many filling options are available from the choice box at the top right.  
+Border width is defined by line width box.  
+Many filling options are available from the choice box at the top right.
+##### Shapes to selection
+[See Elliptical selection and other shapes](#ellipticalselectionandothershapes)
+##### Default shapes
+SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, ROUNDED SQUARE, STAR, ARROWS, SOLID, CROSSES (for simple arrow see "Line / Simple arrow / Connected lines" chapter).  
+##### Custom shapes
+Drawish's custom shapes are polygons or vector curves defined in a text file.  
+This user-created file must be named "shapes.txt" and placed in the Drawish_Data folder.  
+Drawish will read it and add the objects defined in it to the shapes selection box.  
+The file must define the names of the shapes and the coordinates (in percentage values) of the points through which the lines or Bezier curves should pass.
+Lines beginning with // are considered comments and skipped, as blank lines.
+Lines beginning with @ identify the object's name; all other lines describe the coordinates. 
+Each line represents a single point expressed by two numbers between 0 and 100 ( percentage values) and separated by commas. The two numbers represent the x and y positions of the point (where x is the distance from the left edge and y is the distance from the top edge).  
+If a line does not comply with this notation, the entire file will be discarded and the debug information will be included in the file itself.  
+>Warning: The endpoint of the polygons will automatically be joined to the starting point to allow the shape to be filled with the selected style.
+>
 
-#### Shapes by keyboard
+Drawish then allows you to **choose** whether the coordinates are treated as part of a **polygon** or as points on a **Bezier curve**, thus obtaining curved shapes or polygons with a single notation: check or uncheck "Options->Custom shape to curve" menu.  
+**All shapes can be transformed into a selection** and all can be filled with the selected style.  
+Here is an example of a file that defines three shapes: a home icon, a diamond and a heart. All three shapes can be treated as polygons or curves, but the desired result will be achieved by deselecting the curve option for home and diamond, while to obtain the heart, this option must be selected.
+
+>Drawish interprets the Bezier curve only for a maximum of seven points.
+>
+
+// Drawish custom shapes file
+// Define names with @
+// Define x, y points in % for each line
+// Write comments using double slashes 😉
+
+@home
+10, 90
+10,25
+50, 5
+90,25
+90, 90
+60, 90
+60, 75
+40, 75
+40, 90 
+
+@diamond
+50, 10
+90, 60
+50, 90
+10, 60 
+
+@hart
+50,90
+0, 0
+40, 0
+50, 33
+60, 0
+100,0
+50, 90 
+
+Save as **shapes.txt** in the **Drawish_Data** folder and restart Drawish. The two objects will load into the shape box as shown [in this video](https://drive.google.com/file/d/1IHAdP9TWUo0bBND9iuoCe7zbI7ZUC_JK/view?usp=sharing)
+
+
+
+##### Shapes by keyboard
 You can create rectangles, squares, circles and ellipses by entering data from the keyboard from the "Image-->Create Shapes" menu (or ALT + H).  
 **Enter the center** as the shape coordinate.  
 You can draw the center of these shapes or not.  
@@ -244,13 +307,15 @@ You can draw the center of these shapes or not.
 
 #### Curved line
 Click the [curved line] button. You will be able to click on **6 points** of the image through which the bezier curve will pass.    
-By moving the handles, you can create any complex curved shape.
-To confirm the drawing, click a point on the image.
+By moving the handles, you can create any complex curved shape.  
+Supports dotted line: "Options -> Dot lines".  
+To confirm the drawing, click a point on the image.  
 [video](https://drive.google.com/file/d/1sRTAQ8MWXeTsjSYYcyFzLdEWoPF3-TAZ/view?usp=sharing)
 
 #### Connected curves
 Click the [connected curves] button.  
 Click **four** points of the image to draw the first curve, then click on **two** points to create more curves.  
+Supports dotted line: "Options -> Dot lines".  
 [video](https://drive.google.com/file/d/1HAuOjxhacs0KzekiKnL53k9hrXIMokUr/view?usp=sharing)
 
 #### Color management
@@ -282,7 +347,7 @@ For quick zoom levels you can press the 1 to 6 keys on your keyboard!
 ##### Pixel matrix. 
 Right click on the image->Show Grid: the pixel matrix will appear enlarged for the area in the vicinity of the cursor.  
 Clicking on a zoomed pixel with the **right** mouse button, it will be replaced with the active color (or draw with the active color by holding down the right mouse button).  
-Clicking with the **left** mouse button, to get information about the rgb color of the pixel and possibly set it as the active color.  
+Clicking with the **left** mouse button, to get information about the position and the rgb color of the pixel and possibly set it as the active color.  
 Remove the enlarged area with another right-click on the image.  
 
 ##### Double the pixels.
@@ -358,6 +423,7 @@ ALT    |    H   |   CREATE SHAPE
 ALT    |    K   |   SCREENSHOT (CLIPBOARD)  
 ALT    |    L   |   CREATE LINE  
 ALT    |    Q   |   QUADRUPLE PIXELS  
+ALT    |    R   |   REATTACH CROPPED IMAGE   
 ALT    |    T   |   OPEN STRETCH AREA  
 ALT    |    S   |   OPEN SIZE WINDOW  
 F1     |        |   SET RESTORE POINT  
@@ -382,11 +448,13 @@ WRITE WITH PEN
        Z = BOTTOM  
        X = BOTTOM-RIGHT  
 
-#### Features
+### Features
 Here are some of Drawish's unique features (The most common functions are omitted):  
 
 🟢️ color replacement with conditions  
-🟢️ large number of shapes with many types of filling   
+🟢️ large number of shapes with many types of filling     
+🟢️ custom shapes (polygons or curves)  
+🟢️ shapes to selection  
 🟢️ manual selection creation  
 🟢️ keyboard line for point A and B  
 🟢️ keyboard line for point A - angle - length  
@@ -398,7 +466,8 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟢️ get code base64 (from Camera)  
 🟢️ complex curves  
 🔵️ merging selection and image with 3 levels of strength  
-🔵️ shapes to selection  
+🔵️ dotted lines    
+🔵️ angle line indicator    
 🔵️ paste over file    
 🔵️ manual or continuous selection rotation  
 🔵️ curve-like stretching  
@@ -408,7 +477,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🔵️ semi-transparent pen    
 🔵️ keyboard shapes with center displayed  
 🔵️ fill with semi transparency    
-🔵️ reduce to rgb    
+🔵️ reduce to rgb  
 🔵️ create charts  
 🔵️ open pdf as images and save images as pdf  
 🔵️ Interface for Batch functions  
