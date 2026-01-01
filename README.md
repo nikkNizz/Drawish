@@ -66,7 +66,7 @@ For Italian users: you can run Drawish in English by adding the "en" parameter.
  `/path/Drawish_xxxx.Appimage en`  or  
  `/path/Drawish_xxxx.Appimage /path/to/image en`  
 
-#### USAGE
+### USAGE
 You can start drawing or you can open an image.  
 Open images from the" File->Open" menu. You can also drag a file on the drawing area, 
 paste an image from the clipboard ("Edit->Paste from clipboard") or from a file ("Edit->Paste from file").  
