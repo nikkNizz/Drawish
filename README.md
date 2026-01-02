@@ -1,5 +1,3 @@
->View the contents of this readme by pressing the **"outline"** button above right.
->
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".
 # Drawish  2.6 
 Is a program for basic drawing, open pdf as images, draw using the keyboard, use rich text, save portions framed by a "camera", create custom shapes and much more.  
