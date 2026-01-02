@@ -859,7 +859,7 @@ void MainWindow::loadCustomShapes()
     for(int i=0; i < d1.count(); ++i){
         r = d1.at(i);
         if(r.startsWith("@")){
-            r= r.removeFirst();
+            r= r.remove(0,1);
             ui->shapesCombo->addItem(r);
             numOfShapes--;
             sizes::customShapesCoord.append(numOfShapes);
