@@ -295,7 +295,7 @@ Here is an example of a file that defines three shapes: a home icon, a diamond a
 100,0  
 50, 90  
   
-Save as **shapes.txt** in the **Drawish_Data** folder and restart Drawish. The two objects will load into the shape box as shown [in this video](https://drive.google.com/file/d/1IHAdP9TWUo0bBND9iuoCe7zbI7ZUC_JK/view?usp=sharing)
+Save as **shapes.txt** in the **Drawish_Data** folder and restart Drawish. The objects will load into the shape box as shown [in this video](https://drive.google.com/file/d/1IHAdP9TWUo0bBND9iuoCe7zbI7ZUC_JK/view?usp=sharing)
 
 
 
