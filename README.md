@@ -5,6 +5,63 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
 
 ![Image](https://github.com/nikkNizz/Drawish/blob/main/png/screenshot100.png)  
 
+### Content
+
+- [PRECOMPILED PACKAGES](#precompiled-packages)
+- [COMPILE FROM SOURCE](#compile-from-source)
+ - [Command line](#command-line)
+- [USAGE](#usage)
+ - [Saving](#saving)
+  - [Save to Pdf](#save-to-pdf)
+  - [Base64](#base64)
+ - [Serialize](#serialize)
+ - [Open Pdf](#open-pdf)
+ - [Undo/Redo](#undo/redo)
+ - [Restore point](#restore-point)
+ - [Selection](#selection)
+  - [Stamp selection](#stamp-selection)
+  - [Selection and keyboard](#selection-and-keyboard)
+  - [Keep selection aspect ratio](#keep-selection-aspect-ratio)
+  - [Freehand selection](#freehand-selection)
+  - [Elliptical selection and other shapes](#elliptical-selection-and-other-shapes)
+  - [Merge selection](#merge-selection)
+  - [Selection to image (Crop) (and Reattach)](#selection-to-image-crop-and-reattach)
+ - [Automatically merge images](#automatically-merge-images)
+ - [Freehand drawing](#freehand-drawing)
+ - [Color eraser](#color-eraser)
+ - [Text](#text)
+  - [RTF editor](#rtf-editor)
+ - [Tracer](#tracer)
+ - [Fill / Fill inside black](#fill--fill-inside-black)
+ - [Spray](#spray)
+ - [Pick color](#pick-color)
+ - [Line / Simple arrow / Connected lines / dotted lines](#line--simple-arrow--connected-lines--dotted-lines)
+  - [Line angle indicator](#line-angle-indicator)
+  - [Line from keyboard](#line-from-keyboard)
+ - [Shapes](#shapes)
+  - [Shapes to selection](#shapes-to-selection)
+  - [Default shapes](#default-shapes)
+  - [Custom shapes](#custom-shapes)
+  - [Shapes by keyboard](#shapes-by-keyboard)
+ - [Curved line](#curved-line)
+ - [Connected curves](#connected-curves)
+ - [Color management](#color-management)
+ - [Favorite colors](#favorite-colors)
+ - [Color balance](#color-balance)
+ - [Charts](#charts)
+ - [Zoom](#zoom)
+  - [Pixel matrix](#pixel-matrix)
+  - [Double the pixels](#double-the-pixels)
+ - [Rotation  ](#rotation)
+ - [Effects](#effects)
+ - [Stretch Area](#stretch-area)
+ - [Other effects](#other-effects)
+ - [Sizes](#sizes)
+ - [Camera](#camera)
+ - [Window](#window)
+ - [Key combination](#key-combination)
+- [FEATURES](#features)
+
 
 ### PRECOMPILED PACKAGES
 The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases) page of this project.  
@@ -342,13 +399,13 @@ Select the [Charts] menu and choose a chart type. Enter positive values ​​(o
 From the "Zoom" menu choose a predefined zoom level or a custom level.  
 For quick zoom levels you can press the 1 to 6 keys on your keyboard!
 
-##### Pixel matrix. 
+##### Pixel matrix 
 Right click on the image->Show Grid: the pixel matrix will appear enlarged for the area in the vicinity of the cursor.  
 Clicking on a zoomed pixel with the **right** mouse button, it will be replaced with the active color (or draw with the active color by holding down the right mouse button).  
 Clicking with the **left** mouse button, to get information about the position and the rgb color of the pixel and possibly set it as the active color.  
 Remove the enlarged area with another right-click on the image.  
 
-##### Double the pixels.
+##### Double the pixels
 If there is an active selection these functions applies to the selection, otherwise they applie to the entire image.
 From the "Sizes->Quadruple the pixel" menu (or ALT + Q) you can increase the image with the pixels doubled in width and height. 
 The image can be enlarged several times without loss of quality, but it is not a zoom, but an image modification.
@@ -446,7 +503,7 @@ WRITE WITH PEN
        Z = BOTTOM  
        X = BOTTOM-RIGHT  
 
-### Features
+### FEATURES
 Here are some of Drawish's unique features (The most common functions are omitted):  
 
 🟢️ color replacement with conditions  
