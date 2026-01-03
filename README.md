@@ -9,7 +9,7 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
 
 - [PRECOMPILED PACKAGES](#precompiled-packages)
 - [COMPILE FROM SOURCE](#compile-from-source)
- - [Command line](#command-line)
+  - [Command line](#command-line)
 - [USAGE](#usage)
  - [Saving](#saving)
   - [Save to Pdf](#save-to-pdf)
