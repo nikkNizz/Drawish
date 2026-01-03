@@ -6,11 +6,11 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
 ![Image](https://github.com/nikkNizz/Drawish/blob/main/png/screenshot100.png)  
 
 
-### PRECOMPILED PACKAGES:
+### PRECOMPILED PACKAGES
 The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases) page of this project.  
 Once the program is open you can create a quick link: from the [File -> Desktop shortcut] menu, a menu item is created in Linux or a desktop shortcut in Windows.
 
-### COMPILE FROM SOURCE:
+### COMPILE FROM SOURCE
 Download and unzip the project.  
 Give the following commands from the terminal (instructions for Debian derivatives):
 
