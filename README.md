@@ -42,7 +42,7 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
     - [Shapes to selection](#shapes-to-selection)
     - [Default shapes](#default-shapes)
     - [Custom shapes](#custom-shapes)
-      - [Custom shapes example)(#custom-shapes-example)
+      - [Custom shapes example](#custom-shapes-example)
     - [Shapes by keyboard](#shapes-by-keyboard)
   - [Curved line](#curved-line)
   - [Connected curves](#connected-curves)
