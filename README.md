@@ -42,6 +42,7 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
     - [Shapes to selection](#shapes-to-selection)
     - [Default shapes](#default-shapes)
     - [Custom shapes](#custom-shapes)
+      - [Custom shapes example)(#custom-shapes-example)
     - [Shapes by keyboard](#shapes-by-keyboard)
   - [Curved line](#curved-line)
   - [Connected curves](#connected-curves)
@@ -59,7 +60,7 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
   - [Sizes](#sizes)
   - [Camera](#camera)
   - [Window](#window)
-  - [Key combination](#key-combination)
+- [KEY COMBINATION](#key-combination)
 - [FEATURES](#features)
 
 
@@ -313,7 +314,9 @@ If a line does not comply with this notation, the entire file will be discarded 
 >
 
 Drawish then allows you to **choose** whether the coordinates are treated as part of a **polygon** or as points on a **Bezier curve**, thus obtaining curved shapes or polygons with a single notation: check or uncheck "Options->Custom shape to curve" menu.  
-**All shapes can be transformed into a selection** and all can be filled with the selected style.  
+**All shapes can be transformed into a selection** and all can be filled with the selected style. 
+
+###### Custom shapes example
 Here is an example of a file that defines three shapes: a home icon, a diamond and a heart. All three shapes can be treated as polygons or curves, but the desired result will be achieved by deselecting the curve option for home and diamond, while to obtain the heart, this option must be selected.
 
 >Drawish interprets the Bezier curve only for a maximum of seven points.
@@ -460,8 +463,7 @@ You can save the framed image in base64 format to the clipboard from the "Camera
 From the "Sizes->Window size" menu you can set the size of the Drawish window.  
 From the "About->Capture me (to clipboard)" menu or with the Alt+K combination you can save the screenshot of the window to the clipboard.  
 
-#### Key combination
-key combination  
+### KEY COMBINATION
   
 |button | button |  Function  |
 --------|--------|----------------------------------------------|
