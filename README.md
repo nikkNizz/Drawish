@@ -152,7 +152,7 @@ For base64 format, see "Camera" chapter.
 
 
 #### Serialize
-From the "Edit->Serialize" menu a window opens from which you can choose operations to perform on all the images contained in a folder.  
+From the "Options->Serialize" menu a window opens from which you can choose operations to perform on all the images contained in a folder.  
 Choose the folder, check the operations of interest and enter any parameters.  
 The **original images will not be overwritten** as a new folder will be created for the modified files.  
 The operations will be performed in the order in which they are listed.
