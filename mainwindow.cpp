@@ -3285,6 +3285,9 @@ void MainWindow::on_actionSet_triggered() // crop
         sizes::areaHeight = sizes::selH + 8;
         sizes::areaWidth = sizes::selW + 8;
         selectionRect->resetGeometry();
+        QPixmap spix(sizes::selW , sizes::selH);
+        spix.fill(Qt::white);
+        pix = spix;
         reSize();
     }else{
          QMessageBox::information(this, "Drawish", tr("No selection!"));
