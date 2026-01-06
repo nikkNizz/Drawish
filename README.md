@@ -537,7 +537,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🔵️ reduce to rgb  
 🔵️ create charts  
 🔵️ open pdf as images and save images as pdf  
-🔵️ Interface for Batch functions  
+🔵️ Interface for batch functions  
 🔵️ quick restore point  
 🔵️ quick web links  
 🔵️ object outline  
