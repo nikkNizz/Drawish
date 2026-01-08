@@ -525,7 +525,6 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🔵️ merging selection and image with 3 levels of strength  
 🔵️ dotted lines    
 🔵️ angle line indicator    
-🔵️ paste over file    
 🔵️ manual or continuous selection rotation  
 🔵️ curve-like stretching  
 🔵️ gradients  
