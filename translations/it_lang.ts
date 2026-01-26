@@ -4,17 +4,17 @@
 <context>
     <name>Area</name>
     <message>
-        <location filename="../area.cpp" line="161"/>
+        <location filename="../area.cpp" line="164"/>
         <source>Cancel</source>
         <translation>Annulla</translation>
     </message>
     <message>
-        <location filename="../area.cpp" line="166"/>
+        <location filename="../area.cpp" line="169"/>
         <source>Paste</source>
         <translation>Incolla</translation>
     </message>
     <message>
-        <location filename="../area.cpp" line="168"/>
+        <location filename="../area.cpp" line="171"/>
         <source>Show/Hide Grid</source>
         <oldsource>Show Grid</oldsource>
         <translation>Mostra/Nascondi Griglia</translation>
@@ -148,10 +148,6 @@
         <source>Pixelate</source>
         <oldsource>Pixelize</oldsource>
         <translation>Pixelizza</translation>
-    </message>
-    <message>
-        <source>Update automatic.</source>
-        <translation type="vanished">Aggiorna automatic.</translation>
     </message>
     <message>
         <location filename="../dialogeffects.ui" line="473"/>
@@ -383,1728 +379,1727 @@ fattore di forma</translation>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="17"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1617"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1659"/>
         <source>Drawish</source>
         <translation>Drawish</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="72"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1757"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1807"/>
         <source>Redo</source>
         <translation>Rifai</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="110"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1764"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1814"/>
         <source>Select area</source>
         <translation>Seleziona area</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="148"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1768"/>
-        <location filename="../mainwindow.cpp" line="1685"/>
-        <location filename="../mainwindow.cpp" line="1699"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1818"/>
+        <location filename="../mainwindow.cpp" line="1797"/>
         <source>Pen</source>
         <translation>Penna</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="183"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1772"/>
-        <location filename="../mainwindow.cpp" line="1859"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1822"/>
+        <location filename="../mainwindow.cpp" line="1963"/>
         <source>Fill</source>
         <translation>Riempimento</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="218"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1776"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1826"/>
         <source>Type text</source>
         <translation>Testo</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="253"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1780"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1830"/>
         <source>Color picker</source>
         <translation>Pipetta</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2309"/>
+        <location filename="../mainwindow.cpp" line="2413"/>
         <source>Line</source>
         <translation>Linea</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="323"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1788"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1838"/>
         <source>Shapes</source>
         <translation>Forme</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="358"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1792"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1842"/>
         <source>Spray</source>
         <translation>Spray</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="393"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1796"/>
-        <location filename="../mainwindow.cpp" line="2463"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1846"/>
+        <location filename="../mainwindow.cpp" line="2567"/>
         <source>Curve line</source>
         <translation>Linea curva</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1321"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1802"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1852"/>
         <source>Active color</source>
         <translation>Colore attivo</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3428"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1813"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1863"/>
         <source>Transparent</source>
         <translation>Trasparente</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3653"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1816"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1866"/>
         <source>+</source>
         <translation>+</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3680"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1817"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1867"/>
         <source>B</source>
         <translation>G</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3702"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1818"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1868"/>
         <source>I</source>
         <translation>C</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3724"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1819"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1869"/>
         <source>U</source>
         <translation>S</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3753"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1823"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1873"/>
         <source>16</source>
         <translation>16</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation type="vanished">Misure</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="3771"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1824"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1874"/>
         <source>DRAW</source>
         <translation>DISEGNA</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3789"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1825"/>
-        <location filename="../mainwindow.cpp" line="1412"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1875"/>
+        <location filename="../mainwindow.cpp" line="1428"/>
         <source>Text</source>
         <translation>Testo</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="88"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1761"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1811"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="288"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1784"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1834"/>
         <source>Line or Arrow</source>
         <translation>Linea o Freccia</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3829"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1827"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1877"/>
         <source>Screenshot rich text</source>
         <translation>Cattura testo formattato</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3832"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1829"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1879"/>
         <source>RTF</source>
         <translation>RTF</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4318"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1835"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1885"/>
         <source>Pen width</source>
         <translation>Larghezza tratto</translation>
     </message>
     <message>
-        <source>Draw with keyboard</source>
-        <translation type="vanished">Disegna con tastiera</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="4375"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1840"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1890"/>
         <source>1px</source>
         <translation>1px</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4426"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1844"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1894"/>
         <source> 5px</source>
         <translation> 5px</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4472"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1845"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1895"/>
         <source>Square ☐</source>
         <translation>Quadrato ☐</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4477"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1846"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1896"/>
         <source>Rectangle ☐</source>
         <translation>Rettangolo ☐</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4482"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1847"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1897"/>
         <source>Circle ○</source>
         <translation>Cerchio ○</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4487"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1848"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1898"/>
         <source>Ellipse ○</source>
         <translation>Ellisse ○</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4492"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1849"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1899"/>
         <source>Triangle△</source>
         <translation>Triangolo△</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4497"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1850"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1900"/>
         <source>Rounded rectangle</source>
         <translation>Rettangolo arrotondato</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4502"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1851"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1901"/>
         <source>Rounded square</source>
         <translation>Quadrato arrotondato</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4507"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1852"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1902"/>
         <source>Star  ☆</source>
         <translation>Stella ☆</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4512"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1853"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1903"/>
         <source>Arrow up ⇑</source>
         <translation>Freccia su ⇑</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4517"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1854"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1904"/>
         <source>Arrow Right ⇒</source>
         <translation>Freccia Destra ⇒</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4522"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1855"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1905"/>
         <source>Arrow Down ⇓</source>
         <translation>Freccia Giù ⇓</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4527"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1856"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1906"/>
         <source>Arrow left ⇐</source>
         <translation>Freccia sinistra ⇐</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4532"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1857"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1907"/>
         <source>Arrow ⇖</source>
         <translation>Freccia ⇖</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4537"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1858"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1908"/>
         <source>Arrow ⇗</source>
         <translation>Freccia ⇗</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4542"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1859"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1909"/>
         <source>Arrow ⇘</source>
         <translation>Freccia ⇘</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4547"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1860"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1910"/>
         <source>Arrow ⇙</source>
         <translation>Freccia ⇙</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4552"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1861"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1911"/>
         <source>Cross +</source>
         <oldsource>Coross +</oldsource>
         <translation>Croce +</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4557"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1862"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1912"/>
         <source>Cross X</source>
         <translation>Croce X</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4562"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1863"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1913"/>
         <source>Solid ❐</source>
         <translation>Solido ❐</translation>
     </message>
     <message>
-        <source>Marker</source>
-        <translation type="vanished">Pennarello</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="4627"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1869"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1919"/>
         <source>No Fill</source>
         <translation>Nessun riempimento</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4632"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1870"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1920"/>
         <source>Fill solid</source>
         <translation>Tinta unita</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4637"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1871"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1921"/>
         <source>Dense1</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4642"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1872"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1922"/>
         <source>Dense2</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4647"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1873"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1923"/>
         <source>Dense3</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4652"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1874"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1924"/>
         <source>Dense4</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4657"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1875"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1925"/>
         <source>Dense5</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4662"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1876"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1926"/>
         <source>Dense6</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4667"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1877"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1927"/>
         <source>Dense7</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4672"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1878"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1928"/>
         <source>Horizontal lines</source>
         <translation>Linee orizzontali</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4677"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1879"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1929"/>
         <source>Vertical lines</source>
         <translation>Linee verticali</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4682"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1880"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1930"/>
         <source>Cross lines</source>
         <translation>Linee incrociate</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4687"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1881"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1931"/>
         <source>Diagon lines B</source>
         <translation>linee diagonali B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4692"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1882"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1932"/>
         <source>Diagon lines F</source>
         <translation>Linee diagonali F</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4697"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1883"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1933"/>
         <source>Diagon cross</source>
         <translation>Croce diagonale</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="6646"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1803"/>
+        <source>Alt+1</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="6657"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1805"/>
+        <source>Save to disk every 10 changes</source>
+        <translation>Salva su disco ogni 10 modifiche</translation>
     </message>
     <message>
         <source>🔸 Highlight</source>
         <translation type="obsolete">🔸 Evidenziatore</translation>
     </message>
     <message>
-        <source>Labels</source>
-        <translation type="vanished">Etichette</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="4834"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1901"/>
+        <location filename="../mainwindow.ui" line="4844"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1953"/>
         <source>Quick pen width</source>
         <translation>Larghezza tratto rapido</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4838"/>
-        <location filename="../mainwindow.ui" line="6456"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1744"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1895"/>
+        <location filename="../mainwindow.ui" line="4848"/>
+        <location filename="../mainwindow.ui" line="6579"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1789"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1947"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4843"/>
-        <location filename="../mainwindow.ui" line="6443"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1739"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1896"/>
+        <location filename="../mainwindow.ui" line="4853"/>
+        <location filename="../mainwindow.ui" line="6566"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1784"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1948"/>
         <source>6</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4848"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1897"/>
+        <location filename="../mainwindow.ui" line="4858"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1949"/>
         <source>12</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4853"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1898"/>
+        <location filename="../mainwindow.ui" line="4863"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1950"/>
         <source>24</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4872"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1904"/>
+        <location filename="../mainwindow.ui" line="4882"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1956"/>
         <source>Shape to selection</source>
         <translation>Forma a selezione</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5106"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1917"/>
+        <location filename="../mainwindow.ui" line="5166"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1969"/>
         <source>No restore point</source>
         <translation>Nessun punto di ripristino</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5169"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1918"/>
+        <location filename="../mainwindow.ui" line="5229"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1970"/>
         <source>Zoom 100%</source>
         <translation>Zoom 100%</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5232"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1919"/>
+        <location filename="../mainwindow.ui" line="5292"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1971"/>
         <source>File:*</source>
         <translation>File:*</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5753"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1958"/>
+        <location filename="../mainwindow.ui" line="5355"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1972"/>
+        <source>No custom shape has been defined</source>
+        <translation>Nessuna forma personalizzata definita</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="5876"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2011"/>
         <source>Reset</source>
         <translation>Reset</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5774"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1966"/>
+        <location filename="../mainwindow.ui" line="5897"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2019"/>
         <source>Line options</source>
         <translation>Opzioni linea</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5778"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1961"/>
+        <location filename="../mainwindow.ui" line="5901"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2014"/>
         <source>___Line</source>
         <oldsource>--Line</oldsource>
         <translation>___Linea</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5783"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1962"/>
+        <location filename="../mainwindow.ui" line="5906"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2015"/>
         <source>-&gt;Arrow</source>
         <oldsource>Arrow</oldsource>
         <translation>-&gt;Freccia</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5805"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1969"/>
+        <location filename="../mainwindow.ui" line="5928"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2022"/>
         <source>Free hand selection</source>
         <oldsource>Free select area</oldsource>
         <translation>Selezione a mano libere</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5843"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1973"/>
+        <location filename="../mainwindow.ui" line="5966"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2026"/>
         <source>Tracer</source>
         <translation>Tracciante</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5942"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1979"/>
+        <location filename="../mainwindow.ui" line="6065"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2032"/>
         <source>Options</source>
         <translation>Opzioni</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6093"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1628"/>
+        <location filename="../mainwindow.ui" line="6218"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1670"/>
         <source>Alt+A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6135"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1636"/>
+        <location filename="../mainwindow.ui" line="6260"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1678"/>
         <source>Ctrl++</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6143"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1640"/>
+        <location filename="../mainwindow.ui" line="6268"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1682"/>
         <source>Alt+E</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6151"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1644"/>
+        <location filename="../mainwindow.ui" line="6276"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1686"/>
         <source>Alt+O</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6159"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1648"/>
+        <location filename="../mainwindow.ui" line="6284"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1690"/>
         <source>Alt+V</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6192"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1657"/>
+        <location filename="../mainwindow.ui" line="6317"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1699"/>
         <source>Alt+C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6210"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1663"/>
+        <location filename="../mainwindow.ui" line="6335"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1705"/>
         <source>Alt+L</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6377"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1713"/>
+        <location filename="../mainwindow.ui" line="6505"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1758"/>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6408"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1721"/>
+        <location filename="../mainwindow.ui" line="6531"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1766"/>
         <source>200</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6411"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1723"/>
+        <location filename="../mainwindow.ui" line="6534"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1768"/>
         <source>2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6416"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1725"/>
+        <location filename="../mainwindow.ui" line="6539"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1770"/>
         <source>300</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6419"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1727"/>
+        <location filename="../mainwindow.ui" line="6542"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1772"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6424"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1729"/>
+        <location filename="../mainwindow.ui" line="6547"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1774"/>
         <source>400</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6427"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1731"/>
+        <location filename="../mainwindow.ui" line="6550"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1776"/>
         <source>4</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6432"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1733"/>
+        <location filename="../mainwindow.ui" line="6555"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1778"/>
         <source>50</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6435"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1735"/>
+        <location filename="../mainwindow.ui" line="6558"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1780"/>
         <source>5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6440"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1737"/>
+        <location filename="../mainwindow.ui" line="6563"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1782"/>
         <source>30</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6448"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1741"/>
+        <location filename="../mainwindow.ui" line="6571"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1786"/>
         <source>More...</source>
         <translation>Altro...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6453"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1742"/>
+        <location filename="../mainwindow.ui" line="6576"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1787"/>
         <source>100</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6461"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1746"/>
+        <location filename="../mainwindow.ui" line="6584"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1791"/>
         <source>150</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6501"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1753"/>
+        <location filename="../mainwindow.ui" line="6624"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1798"/>
         <source>Alt+R</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6512"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1755"/>
-        <source>Show line angle indicator</source>
-        <translation>Mostra indicatore angolo linea</translation>
+        <location filename="../mainwindow.ui" line="6635"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1800"/>
+        <source>Show line information</source>
+        <translation>Mostra informazioni linea</translation>
     </message>
     <message>
-        <source>Paste over file</source>
-        <translation type="vanished">Incolla su file</translation>
+        <location filename="../mainwindow.ui" line="6643"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1801"/>
+        <source>Viewport as image (crop)</source>
+        <translation>Vista a immagine (ritaglia)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6466"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1747"/>
+        <location filename="../mainwindow.ui" line="6589"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1792"/>
         <source>Default path for file picker</source>
         <translation>Default path per file picker</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6474"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1748"/>
+        <location filename="../mainwindow.ui" line="6597"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1793"/>
         <source>Keep selection aspect ratio</source>
         <translation>Mantieni rapporto d&apos;aspetto selezione</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6482"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1749"/>
+        <location filename="../mainwindow.ui" line="6605"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1794"/>
         <source>Dot lines</source>
         <translation>Linee tratteggiate</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6490"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1750"/>
+        <location filename="../mainwindow.ui" line="6613"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1795"/>
         <source>Custom shape to curve </source>
         <translation>Forma personalizzata a curva </translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6498"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1751"/>
+        <location filename="../mainwindow.ui" line="6621"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1796"/>
         <source>Reattach</source>
         <translation>Riattacca</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6256"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1674"/>
+        <location filename="../mainwindow.ui" line="6381"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1716"/>
         <source>Alt+T</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4576"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1866"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1916"/>
         <source>Set semi-transparency</source>
         <translation>Imposta semi-trasparenza</translation>
     </message>
     <message>
-        <source>🔸 Digital marker</source>
-        <translation type="vanished">🔸 Marcatore digitale</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="6277"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1680"/>
+        <location filename="../mainwindow.ui" line="6405"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1725"/>
         <source>Alt+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6285"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1684"/>
+        <location filename="../mainwindow.ui" line="6413"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1729"/>
         <source>Alt+Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6293"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1688"/>
+        <location filename="../mainwindow.ui" line="6421"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1733"/>
         <source>Alt+D</source>
         <oldsource>Alt+I</oldsource>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6321"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1696"/>
+        <location filename="../mainwindow.ui" line="6449"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1741"/>
         <source>F1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6329"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1700"/>
+        <location filename="../mainwindow.ui" line="6457"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1745"/>
         <source>F12</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6337"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1704"/>
+        <location filename="../mainwindow.ui" line="6465"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1749"/>
         <source>Alt+H</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6355"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1708"/>
+        <location filename="../mainwindow.ui" line="6483"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1753"/>
         <source>Pick from favorites</source>
         <translation>Colore da preferiti</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6364"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1709"/>
+        <location filename="../mainwindow.ui" line="6492"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1754"/>
         <source>Desktop shortcut</source>
         <translation>Collegamento desktop</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6369"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1710"/>
-        <location filename="../mainwindow.cpp" line="2881"/>
+        <location filename="../mainwindow.ui" line="6497"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1755"/>
+        <location filename="../mainwindow.cpp" line="2985"/>
         <source>Outline</source>
         <translation>Contorno</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6374"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1711"/>
+        <location filename="../mainwindow.ui" line="6502"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1756"/>
         <source>Readme and help</source>
         <translation>Readmi e guida</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6382"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1715"/>
+        <location filename="../mainwindow.ui" line="6510"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1760"/>
         <source>Window size</source>
         <translation>Dimensioni finestra</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6387"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1716"/>
+        <location filename="../mainwindow.ui" line="6515"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1761"/>
         <source>Serialize</source>
         <translation>Serializza</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6400"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1717"/>
+        <location filename="../mainwindow.ui" line="6523"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1762"/>
         <source>Capture me (to clipboard)</source>
         <translation>Mia schermata (in appunti)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6403"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1719"/>
+        <location filename="../mainwindow.ui" line="6526"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1764"/>
         <source>Alt+K</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1695"/>
+        <location filename="../mainwindow.cpp" line="1793"/>
         <source>Color eraser</source>
         <translation>Gomma per colore</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5737"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1954"/>
+        <location filename="../mainwindow.ui" line="5860"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2007"/>
         <source>Favorite color</source>
         <translation>Colore preferito</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6345"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1706"/>
+        <location filename="../mainwindow.ui" line="6473"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1751"/>
         <source>Mouse correction</source>
         <translation>Correzione mouse</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6350"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1707"/>
+        <location filename="../mainwindow.ui" line="6478"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1752"/>
         <source>Set as favorite color</source>
         <translation>Imposta come colore preferito</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5445"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1939"/>
+        <location filename="../mainwindow.ui" line="5568"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1992"/>
         <source>Similarity</source>
         <translation>Somiglianza</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5458"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1941"/>
+        <location filename="../mainwindow.ui" line="5581"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1994"/>
         <source>Fill for similarity (0 fill the exact color)</source>
         <translation>Riempi per somiglianza (0 riempi al colore esatto)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5477"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1943"/>
+        <location filename="../mainwindow.ui" line="5600"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1996"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5522"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1944"/>
-        <location filename="../mainwindow.cpp" line="1926"/>
+        <location filename="../mainwindow.ui" line="5645"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1997"/>
+        <location filename="../mainwindow.cpp" line="2030"/>
         <source>Fill inside black</source>
         <translation>Riempi dentro il nero</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4908"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1907"/>
+        <location filename="../mainwindow.ui" line="4924"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1959"/>
         <source>Mouse</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3750"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1821"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1871"/>
         <source>Font size</source>
         <translation>Dimensione font</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3850"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1831"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1881"/>
         <source>Latest fonts</source>
         <translation>Ultimi font</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="3853"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1833"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1883"/>
         <source>📌​</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4372"/>
         <location filename="../mainwindow.ui" line="4423"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1838"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1842"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1888"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1892"/>
         <source>Draw with keys QWEAS&lt;ZX</source>
         <translation>Disegna con tasti QWEAS&lt;ZX</translation>
     </message>
     <message>
-        <source>🟠 Round cap</source>
-        <translation type="vanished">🟠 Punta tonda</translation>
-    </message>
-    <message>
-        <source>🟧 Square cap</source>
-        <translation type="vanished">🟧 Punta quadra</translation>
-    </message>
-    <message>
-        <source>🔸 Flat 8</source>
-        <translation type="vanished">🔸 Piatta 8</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="4790"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1888"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1938"/>
         <source>✒️ ​Slash /</source>
         <translation>✒️ ​Barra /</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4795"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1889"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1939"/>
         <source>✒️​ Backslash \</source>
         <translation>✒️ ​Barra rovescia \</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4800"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1890"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1940"/>
         <source>🖌️ ​Fusion</source>
         <translation>🖌️ ​Fusione</translation>
     </message>
     <message>
-        <source>🌈 ​Random color</source>
-        <translation type="vanished">🌈 ​Colore casuale</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="4810"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1892"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1942"/>
         <source>❎ Erase by color similarity defined in fill</source>
         <translation>❎ Cancella per somiglianza definita in riempimento</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4924"/>
-        <location filename="../mainwindow.ui" line="4969"/>
-        <location filename="../mainwindow.ui" line="5756"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1908"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1911"/>
+        <location filename="../mainwindow.ui" line="4820"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1944"/>
+        <source>🫟​ Smudge</source>
+        <translation>🫟​ Sbavatura</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="4825"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1945"/>
+        <source>📝️ Pencil</source>
+        <translation>📝️ Matita</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="4945"/>
+        <location filename="../mainwindow.ui" line="5008"/>
+        <location filename="../mainwindow.ui" line="5879"/>
         <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1960"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1963"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2013"/>
         <source>x</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4940"/>
-        <location filename="../mainwindow.ui" line="4985"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1909"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1912"/>
+        <location filename="../mainwindow.ui" line="4966"/>
+        <location filename="../mainwindow.ui" line="5029"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1961"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1964"/>
         <source>y</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4953"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1910"/>
+        <location filename="../mainwindow.ui" line="4986"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1962"/>
         <source>Selection</source>
         <translation>Selezione</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="4998"/>
-        <location filename="../mainwindow.ui" line="5976"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1913"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1981"/>
+        <location filename="../mainwindow.ui" line="5048"/>
+        <location filename="../mainwindow.ui" line="6101"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1965"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2034"/>
         <source>Image</source>
         <translation>Immagine</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5014"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1914"/>
+        <location filename="../mainwindow.ui" line="5069"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1966"/>
         <source>w</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5030"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1915"/>
+        <location filename="../mainwindow.ui" line="5090"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1967"/>
         <source>h</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5043"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1916"/>
+        <location filename="../mainwindow.ui" line="5103"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1968"/>
         <source>Rgb 0,0,0</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5246"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1921"/>
+        <location filename="../mainwindow.ui" line="5369"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1974"/>
         <source>Rotate left</source>
         <translation>Ruota sinistra</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5266"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1925"/>
+        <location filename="../mainwindow.ui" line="5389"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1978"/>
         <source>Rotate right</source>
         <translation>Ruota destra</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5286"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1929"/>
+        <location filename="../mainwindow.ui" line="5409"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1982"/>
         <source>Rotation angle</source>
         <translation>Angolo rotazione</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5311"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1932"/>
+        <location filename="../mainwindow.ui" line="5434"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1985"/>
         <source>Remove last...</source>
         <translation>Rimuovi ultimo...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6334"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1702"/>
+        <location filename="../mainwindow.ui" line="6462"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1747"/>
         <source>Create shape</source>
         <translation>Crea forma</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6298"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1690"/>
+        <location filename="../mainwindow.ui" line="6426"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1735"/>
         <source>Add remove link</source>
         <translation>Aggiungi rimuovi link</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6303"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1691"/>
+        <location filename="../mainwindow.ui" line="6431"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1736"/>
         <source>Horizontal bars</source>
         <translation>Barre orizzontali</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6308"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1692"/>
+        <location filename="../mainwindow.ui" line="6436"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1737"/>
         <source>Vertical bars</source>
         <translation>Barre verticali</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6313"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1693"/>
+        <location filename="../mainwindow.ui" line="6441"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1738"/>
         <source>Pie</source>
         <translation>Torta</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6318"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1694"/>
+        <location filename="../mainwindow.ui" line="6446"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1739"/>
         <source>Set as restore point</source>
         <translation>Imposta a punto di ripristino</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6326"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1698"/>
+        <location filename="../mainwindow.ui" line="6454"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1743"/>
         <source>Restore</source>
         <translation>Ripristina</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3298"/>
+        <location filename="../mainwindow.cpp" line="3425"/>
         <source>Add link</source>
         <translation>Aggiungi link</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2318"/>
+        <location filename="../mainwindow.cpp" line="2422"/>
         <source>Connected lines</source>
         <translation>Linee connesse</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5395"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1938"/>
-        <location filename="../mainwindow.cpp" line="2078"/>
+        <location filename="../mainwindow.ui" line="5518"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1991"/>
+        <location filename="../mainwindow.cpp" line="2182"/>
         <source>Color balance</source>
         <translation>Bilanciamento colore</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5653"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1946"/>
+        <location filename="../mainwindow.ui" line="5776"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1999"/>
         <source>Add semi transparency</source>
         <translation>Aggiungi semi trasparenza</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5677"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1950"/>
+        <location filename="../mainwindow.ui" line="5800"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2003"/>
         <source>Auto rotation</source>
         <translation>Rotazione automatica</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5788"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1963"/>
+        <location filename="../mainwindow.ui" line="5911"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2016"/>
         <source>ϟ Connected lines</source>
         <translation>ϟ Linee connesse</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5916"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1976"/>
+        <location filename="../mainwindow.ui" line="6039"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2029"/>
         <source>File</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5920"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1977"/>
+        <location filename="../mainwindow.ui" line="6043"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2030"/>
         <source>Recent</source>
         <translation>Recenti</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5925"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1978"/>
+        <location filename="../mainwindow.ui" line="6048"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2031"/>
         <source>Links</source>
         <translation>Link</translation>
     </message>
     <message>
-        <source>Edit</source>
-        <translation type="vanished">Modifica</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="5946"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1980"/>
+        <location filename="../mainwindow.ui" line="6069"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2033"/>
         <source>Paste from file</source>
         <translation>Incolla da file</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6002"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1982"/>
+        <location filename="../mainwindow.ui" line="6127"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2035"/>
         <source>Camera</source>
         <translation>Telecamera</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6011"/>
-        <location filename="../mainwindow.ui" line="6202"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1660"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1983"/>
+        <location filename="../mainwindow.ui" line="6136"/>
+        <location filename="../mainwindow.ui" line="6327"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1702"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2036"/>
         <source>About</source>
         <translation>Di noi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6029"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1985"/>
+        <location filename="../mainwindow.ui" line="6154"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2038"/>
         <source>Charts</source>
         <translation>Grafici</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6062"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1621"/>
+        <location filename="../mainwindow.ui" line="6187"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1663"/>
         <source>New</source>
         <translation>Nuovo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6067"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1622"/>
-        <location filename="../mainwindow.cpp" line="181"/>
-        <location filename="../mainwindow.cpp" line="199"/>
-        <location filename="../mainwindow.cpp" line="947"/>
+        <location filename="../mainwindow.ui" line="6192"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1664"/>
+        <location filename="../mainwindow.cpp" line="189"/>
+        <location filename="../mainwindow.cpp" line="207"/>
+        <location filename="../mainwindow.cpp" line="963"/>
         <source>Open</source>
         <translation>Apri</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6072"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1623"/>
+        <location filename="../mainwindow.ui" line="6197"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1665"/>
         <source>Save</source>
         <translation>Salva</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6077"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1624"/>
+        <location filename="../mainwindow.ui" line="6202"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1666"/>
         <source>Close</source>
         <translation>Chiudi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6082"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1625"/>
+        <location filename="../mainwindow.ui" line="6207"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1667"/>
         <source>Save as</source>
         <translation>Salva come</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6090"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1626"/>
+        <location filename="../mainwindow.ui" line="6215"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1668"/>
         <source>Select all</source>
         <translation>Seleziona tutto</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6101"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1630"/>
+        <location filename="../mainwindow.ui" line="6226"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1672"/>
         <source>Copy selection</source>
         <translation>Copia selezione</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6106"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1631"/>
+        <location filename="../mainwindow.ui" line="6231"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1673"/>
         <source>Paste from clipboard</source>
         <translation>Incolla da appunti</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6111"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1632"/>
+        <location filename="../mainwindow.ui" line="6236"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1674"/>
         <source>Selection to file</source>
         <translation>Selezione a file</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6122"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1633"/>
+        <location filename="../mainwindow.ui" line="6247"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1675"/>
         <source>Transparent selection</source>
         <translation>Selezione trasparente</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6127"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1634"/>
+        <location filename="../mainwindow.ui" line="6252"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1676"/>
         <source>Copy selection (no clipboard)</source>
         <translation>Copia selezione (no appunti)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6140"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1638"/>
-        <location filename="../mainwindow.cpp" line="2720"/>
+        <location filename="../mainwindow.ui" line="6265"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1680"/>
+        <location filename="../mainwindow.cpp" line="2824"/>
         <source>Effects</source>
         <translation>Effetti</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6020"/>
-        <location filename="../mainwindow.ui" line="6274"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1678"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1984"/>
+        <location filename="../mainwindow.ui" line="6145"/>
+        <location filename="../mainwindow.ui" line="6402"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1723"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2037"/>
         <source>Sizes</source>
         <translation>Misure</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4775"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1885"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1935"/>
         <source>🔵​ Round cap</source>
         <translation>🔵​ Punta tonda</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4780"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1886"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1936"/>
         <source>🔷​ Square cap</source>
         <translation>🔷 Punta quadra</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4785"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1887"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1937"/>
         <source>🔹 Digital marker</source>
         <translation>🔹 Marcatore digitale</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4805"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1891"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1941"/>
         <source>🎲​ ​Random color</source>
         <translation>🎲​ ​Colore casuale</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="4815"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1893"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1943"/>
         <source>🏷️​ Labels</source>
         <translation>🏷️​ Etichette</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="5327"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1935"/>
+        <location filename="../mainwindow.ui" line="5450"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1988"/>
         <source>Connected curves</source>
         <translation>Curve connesse</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6148"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1642"/>
+        <location filename="../mainwindow.ui" line="6273"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1684"/>
         <source>Mirror horizontally</source>
         <translation>Rispecchia orizzontalmente</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6156"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1646"/>
+        <location filename="../mainwindow.ui" line="6281"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1688"/>
         <source>Mirror vertically</source>
         <translation>Rispecchia verticalmente</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6164"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1650"/>
+        <location filename="../mainwindow.ui" line="6289"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1692"/>
         <source>To greyscale</source>
         <translation>A scala di grigi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6169"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1651"/>
-        <location filename="../mainwindow.cpp" line="2925"/>
+        <location filename="../mainwindow.ui" line="6294"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1693"/>
+        <location filename="../mainwindow.cpp" line="3029"/>
         <source>Invert colors</source>
         <translation>Inverti colori</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6174"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1652"/>
+        <location filename="../mainwindow.ui" line="6299"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1694"/>
         <source>Create</source>
         <translation>Crea</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6179"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1653"/>
+        <location filename="../mainwindow.ui" line="6304"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1695"/>
         <source>Save image</source>
         <translation>Salva immagine</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6184"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1654"/>
+        <location filename="../mainwindow.ui" line="6309"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1696"/>
         <source>Delete camera</source>
         <translation>Elimina telecamera</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6189"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1655"/>
-        <location filename="../mainwindow.cpp" line="2748"/>
+        <location filename="../mainwindow.ui" line="6314"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1697"/>
+        <location filename="../mainwindow.cpp" line="2852"/>
         <source>Colors</source>
         <translation>Colori</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6197"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1659"/>
+        <location filename="../mainwindow.ui" line="6322"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1701"/>
         <source>Reduce to RGB</source>
         <translation>Riduci a RGB</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6282"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1682"/>
+        <location filename="../mainwindow.ui" line="6397"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1721"/>
+        <source>Alt+-</source>
+        <translation>Alt+-</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="6410"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1727"/>
         <source>Quadruple the pixels</source>
         <translation>Quadruplica pixel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6037"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1986"/>
+        <location filename="../mainwindow.ui" line="6162"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="2039"/>
         <source>Zoom</source>
         <translation>Zoom</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6290"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1686"/>
-        <location filename="../mainwindow.cpp" line="3134"/>
+        <location filename="../mainwindow.ui" line="6418"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1731"/>
+        <location filename="../mainwindow.cpp" line="3238"/>
         <source>Divide by 4</source>
         <translation>Dividi per 4</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6207"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1661"/>
+        <location filename="../mainwindow.ui" line="6332"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1703"/>
         <source>Create Line</source>
         <translation>Crea linea</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6215"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1665"/>
+        <location filename="../mainwindow.ui" line="6340"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1707"/>
         <source>Github</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6223"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1666"/>
+        <location filename="../mainwindow.ui" line="6348"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1708"/>
         <source>Merge selection to image</source>
         <translation>Fondi selezione e immagine</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6228"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1667"/>
+        <location filename="../mainwindow.ui" line="6353"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1709"/>
         <source>To base64</source>
         <translation>A base64</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6233"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1668"/>
+        <location filename="../mainwindow.ui" line="6358"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1710"/>
         <source>To Pdf</source>
         <translation>A Pdf</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6238"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1669"/>
+        <location filename="../mainwindow.ui" line="6363"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1711"/>
         <source>Add right</source>
         <translation>Aggiungi a destra</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6243"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1670"/>
+        <location filename="../mainwindow.ui" line="6368"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1712"/>
         <source>Add bottom</source>
         <translation>Aggiungi in basso</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6248"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1671"/>
+        <location filename="../mainwindow.ui" line="6373"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1713"/>
         <source>Add as selection</source>
         <translation>Aggiungi a selezione</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6253"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1672"/>
+        <location filename="../mainwindow.ui" line="6378"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1714"/>
         <source>Stretch area</source>
         <translation>Area di stiramento</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6261"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1676"/>
+        <location filename="../mainwindow.ui" line="6386"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1718"/>
         <source>To sepia</source>
         <translation>Effetto seppia</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="6269"/>
-        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1677"/>
+        <location filename="../mainwindow.ui" line="6394"/>
+        <location filename="../build/Desktop_Qt_6_8_3-Release/Drawish_autogen/include/ui_mainwindow.h" line="1719"/>
         <source>Set selection as image (crop)</source>
         <translation>Selezione a immagine (ritaglia)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="103"/>
-        <location filename="../mainwindow.cpp" line="194"/>
-        <location filename="../mainwindow.cpp" line="230"/>
-        <location filename="../mainwindow.cpp" line="680"/>
-        <location filename="../mainwindow.cpp" line="690"/>
+        <location filename="../mainwindow.cpp" line="107"/>
+        <location filename="../mainwindow.cpp" line="202"/>
+        <location filename="../mainwindow.cpp" line="238"/>
+        <location filename="../mainwindow.cpp" line="696"/>
+        <location filename="../mainwindow.cpp" line="706"/>
         <source>Unsupported file</source>
         <translation>File non supportato</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="123"/>
+        <location filename="../mainwindow.cpp" line="127"/>
         <source>Original image</source>
         <translation>Immagine originale</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="182"/>
-        <location filename="../mainwindow.cpp" line="547"/>
-        <location filename="../mainwindow.cpp" line="927"/>
-        <location filename="../mainwindow.cpp" line="948"/>
-        <location filename="../mainwindow.cpp" line="962"/>
+        <location filename="../mainwindow.cpp" line="190"/>
+        <location filename="../mainwindow.cpp" line="563"/>
+        <location filename="../mainwindow.cpp" line="943"/>
+        <location filename="../mainwindow.cpp" line="964"/>
+        <location filename="../mainwindow.cpp" line="978"/>
         <source>Save image?</source>
         <translation>Salvare l&apos;immagine?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="218"/>
+        <location filename="../mainwindow.cpp" line="226"/>
         <source>Enter page number to convert</source>
         <translation>Inserire il numero di pagina da convertire</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="226"/>
+        <location filename="../mainwindow.cpp" line="234"/>
         <source>Error executing command</source>
         <translation>Errore di esecuzione del comando</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="389"/>
+        <location filename="../mainwindow.cpp" line="399"/>
         <source>Enter Positive values (One per line!)</source>
         <translation>Inserire valori positivi (uno per riga)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="565"/>
-        <location filename="../mainwindow.cpp" line="2657"/>
+        <location filename="../mainwindow.cpp" line="581"/>
+        <location filename="../mainwindow.cpp" line="2761"/>
         <source>Resize</source>
         <translation>Ridimensiona</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="613"/>
-        <location filename="../mainwindow.cpp" line="973"/>
+        <location filename="../mainwindow.cpp" line="629"/>
+        <location filename="../mainwindow.cpp" line="989"/>
         <source>Format</source>
         <translation>Formato</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="616"/>
-        <location filename="../mainwindow.cpp" line="2977"/>
+        <location filename="../mainwindow.cpp" line="632"/>
+        <location filename="../mainwindow.cpp" line="3081"/>
         <source>Drawish save...</source>
         <translation>Drawish salva...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="633"/>
-        <location filename="../mainwindow.cpp" line="671"/>
+        <location filename="../mainwindow.cpp" line="649"/>
+        <location filename="../mainwindow.cpp" line="687"/>
         <source>Drawish...Select image</source>
         <translation>Drawish...Scegli immagine</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="824"/>
+        <location filename="../mainwindow.cpp" line="840"/>
         <source>// The object name must start with @
 </source>
         <translation>// Il nome dell&apos;oggetto deve iniziare con @
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="832"/>
+        <location filename="../mainwindow.cpp" line="848"/>
         <source>// Empty name after @
 </source>
         <translation>// Nome vuoto dopo @
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="834"/>
+        <location filename="../mainwindow.cpp" line="850"/>
         <source>// Coordinate after the name are missing
 </source>
         <translation>// Coordinata mancante dopo il nome
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="837"/>
+        <location filename="../mainwindow.cpp" line="853"/>
         <source>// Invalid Coordinates
 </source>
         <translation>// Coordinate non valide
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="841"/>
-        <location filename="../mainwindow.cpp" line="846"/>
+        <location filename="../mainwindow.cpp" line="857"/>
+        <location filename="../mainwindow.cpp" line="862"/>
         <source>// Integer required in coordinates
 </source>
         <translation>// Richiesto intero nelle coordinate
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="843"/>
-        <location filename="../mainwindow.cpp" line="848"/>
+        <location filename="../mainwindow.cpp" line="859"/>
+        <location filename="../mainwindow.cpp" line="864"/>
         <source>// Values ​​between 0 and 100 are required.
 </source>
         <translation>// Richiesti valori tra 0 e 100.
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="935"/>
+        <location filename="../mainwindow.cpp" line="951"/>
         <source>New Image</source>
         <translation>Nuova immagine</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="976"/>
-        <location filename="../mainwindow.cpp" line="1349"/>
+        <location filename="../mainwindow.cpp" line="992"/>
+        <location filename="../mainwindow.cpp" line="1365"/>
         <source>Drawish save image</source>
         <translation>Drawish salva immagine</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1180"/>
+        <location filename="../mainwindow.cpp" line="1196"/>
         <source>The image is in a selection</source>
         <translation>L&apos;immagine è nella selzione</translation>
     </message>
     <message>
-        <source>Usupported format</source>
-        <oldsource>Invalid format</oldsource>
-        <translation type="vanished">Formato non supportato</translation>
-    </message>
-    <message>
-        <source>Enter the x coordinate</source>
-        <translation type="vanished">Inserire coordinata X</translation>
-    </message>
-    <message>
-        <source>Enter the y coordinate</source>
-        <translation type="vanished">Inserire coordinata Y</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="1210"/>
+        <location filename="../mainwindow.cpp" line="1226"/>
         <source>No area selected</source>
         <translation>Nessuna area selezionata</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1219"/>
+        <location filename="../mainwindow.cpp" line="1235"/>
         <source>Levels</source>
         <translation>Livelli</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1294"/>
-        <location filename="../mainwindow.cpp" line="1304"/>
-        <location filename="../mainwindow.cpp" line="1326"/>
+        <location filename="../mainwindow.cpp" line="1310"/>
+        <location filename="../mainwindow.cpp" line="1320"/>
+        <location filename="../mainwindow.cpp" line="1342"/>
         <source>Invalid image!</source>
         <translation>Immagine non valida!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1307"/>
+        <location filename="../mainwindow.cpp" line="1323"/>
         <source>Paste right</source>
         <translation>Incolla a destra</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1329"/>
+        <location filename="../mainwindow.cpp" line="1345"/>
         <source>Paste bottom</source>
         <translation>Incolla in basso</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1383"/>
-        <location filename="../mainwindow.cpp" line="1408"/>
+        <location filename="../mainwindow.cpp" line="1399"/>
+        <location filename="../mainwindow.cpp" line="1424"/>
         <source>Click a point on the canvas, before</source>
         <translation>Clicca un punto sull&apos; area di disegno</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1532"/>
+        <location filename="../mainwindow.cpp" line="1548"/>
         <source>Drawish choose color</source>
         <translation>Drawish scegli colore</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2266"/>
+        <location filename="../mainwindow.cpp" line="1772"/>
+        <source>Stylus pen</source>
+        <translation>Stilo</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1776"/>
+        <source>Smudge</source>
+        <translation>Sbavatura</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1782"/>
+        <source>Pencil</source>
+        <translation>Matita</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2370"/>
         <source>You can add &lt;b&gt;custom shapes&lt;/b&gt;. Read the guide on Github.</source>
         <translation>Puoi aggiungere &lt;b&gt;forme personalizzate&lt;/b&gt;. Leggere la guida su Github.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2295"/>
+        <location filename="../mainwindow.cpp" line="2399"/>
         <source>Do you want to activate shapes?</source>
         <translation>Vuoi attivare le forme?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2310"/>
+        <location filename="../mainwindow.cpp" line="2414"/>
         <source>Simple arrow</source>
         <oldsource>&lt;Simple arrow</oldsource>
         <translation>Freccia semplice</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2581"/>
+        <location filename="../mainwindow.cpp" line="2685"/>
         <source>Image rotation</source>
         <translation>Rotazione immagine</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2662"/>
+        <location filename="../mainwindow.cpp" line="2766"/>
         <source>Scale</source>
         <translation>Scala</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2889"/>
+        <location filename="../mainwindow.cpp" line="2993"/>
         <source>Enter limit</source>
         <translation>Inserire limite</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3299"/>
+        <location filename="../mainwindow.cpp" line="3426"/>
         <source>Remove link</source>
         <translation>Elimina link</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3304"/>
+        <location filename="../mainwindow.cpp" line="3431"/>
         <source>Enter url</source>
         <translation>Inserire Url</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3308"/>
+        <location filename="../mainwindow.cpp" line="3435"/>
         <source>Select link to remove</source>
         <translation>Seleziona link da rimuovere</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3335"/>
+        <location filename="../mainwindow.cpp" line="3462"/>
         <source>Create chart</source>
         <translation>Crea grafico</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3469"/>
+        <location filename="../mainwindow.cpp" line="3596"/>
         <source>Restore point created</source>
         <translation>Punto di ripristino creato</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3472"/>
+        <location filename="../mainwindow.cpp" line="3599"/>
         <source>Do you want to overwrite the previous restore point?</source>
         <translation>Sovrascrivere il precedente punto di ripristino?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3474"/>
+        <location filename="../mainwindow.cpp" line="3601"/>
         <source>Restore point overwritten</source>
         <translation>Punto di ripristino sovrascritto</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3584"/>
+        <location filename="../mainwindow.cpp" line="3711"/>
         <source>No color saved</source>
         <translation>Nessun colore salvato</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3607"/>
+        <location filename="../mainwindow.cpp" line="3734"/>
         <source>System not supported!</source>
         <translation>Sistema non supportato!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3635"/>
+        <location filename="../mainwindow.cpp" line="3762"/>
         <source>No appimage called &apos;Drawish&apos; found!</source>
         <oldsource>Add the name Drawish and the suffix .AppImage to the program</oldsource>
         <translation>Nessuna appimage chiamata &apos;Drawish&apos; trovata!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3639"/>
+        <location filename="../mainwindow.cpp" line="3766"/>
         <source>Keep only one instance of Drawish open.</source>
         <translation>Tenere aperta una sola istanza di Drawish.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3703"/>
+        <location filename="../mainwindow.cpp" line="3830"/>
         <source>Add Drawish to menu</source>
         <translation>Drawish aggiunto al menu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3725"/>
+        <location filename="../mainwindow.cpp" line="3852"/>
         <source>Enter new width</source>
         <translation>Inserire nuova larghezza</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3726"/>
+        <location filename="../mainwindow.cpp" line="3853"/>
         <source>Enter new height</source>
         <translation>Inserire nuova altezza</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3728"/>
+        <location filename="../mainwindow.cpp" line="3855"/>
         <source>Too small size</source>
         <translation>Dimensione troppo piccola</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3748"/>
+        <location filename="../mainwindow.cpp" line="3875"/>
         <source>Done!</source>
         <translation>Fatto!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3870"/>
+        <location filename="../mainwindow.cpp" line="3997"/>
         <source>Enter zoom level (10-400)</source>
         <oldsource>Enter zoom level (10-400</oldsource>
         <translation>Inserire livello zoom (10-400)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="712"/>
+        <location filename="../mainwindow.cpp" line="728"/>
         <source>Enter name of an existing folder</source>
         <translation>Inserire il nome di una cartella esistente</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3675"/>
+        <location filename="../mainwindow.cpp" line="3802"/>
         <source>Add Drawish to desktop</source>
         <translation>Drawish aggiunto al desktop</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2184"/>
+        <location filename="../mainwindow.cpp" line="2288"/>
         <source>Shape</source>
         <translation>Forma</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2606"/>
+        <location filename="../mainwindow.cpp" line="2710"/>
         <source>No selection</source>
         <translation>Nessuna selezione</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2679"/>
-        <location filename="../mainwindow.cpp" line="2689"/>
+        <location filename="../mainwindow.cpp" line="2783"/>
+        <location filename="../mainwindow.cpp" line="2793"/>
         <source>An area is already selected</source>
         <translation>Un&apos; area è già selezionata</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2793"/>
+        <location filename="../mainwindow.cpp" line="2897"/>
         <source>Greyscale</source>
         <translation>Scala di grigi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2811"/>
+        <location filename="../mainwindow.cpp" line="2915"/>
         <source>Sepia</source>
         <translation>Seppia</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2847"/>
+        <location filename="../mainwindow.cpp" line="2951"/>
         <source>Reduce to rgb</source>
         <translation>Riduci a rgb</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2954"/>
+        <location filename="../mainwindow.cpp" line="3058"/>
         <source>Enter width</source>
         <translation>Inserici larghezza</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2955"/>
+        <location filename="../mainwindow.cpp" line="3059"/>
         <source>Enter height</source>
         <translation>Inserisci altezza</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2957"/>
+        <location filename="../mainwindow.cpp" line="3061"/>
         <source>Too small selection</source>
         <translation>Selezione troppo piccola</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3072"/>
+        <location filename="../mainwindow.cpp" line="3176"/>
         <source>Quadruple</source>
         <translation>Quadruplica</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3163"/>
+        <location filename="../mainwindow.cpp" line="3267"/>
         <source>Line input</source>
         <translation>Linea da input</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3194"/>
+        <location filename="../mainwindow.cpp" line="3298"/>
         <source>No active cam!</source>
         <translation>Nessuna telecamera!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3204"/>
+        <location filename="../mainwindow.cpp" line="3308"/>
         <source>base64 code has been copied to clipboard!</source>
         <translation>codice base64 copiato negli appunti!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3236"/>
+        <location filename="../mainwindow.cpp" line="3340"/>
         <source>Failed to open image!</source>
         <translation>Apertura immagine fallita!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3247"/>
+        <location filename="../mainwindow.cpp" line="3351"/>
         <source>Saved in
 </source>
         <translation>Salvato in
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3257"/>
-        <location filename="../mainwindow.cpp" line="3290"/>
+        <location filename="../mainwindow.cpp" line="3361"/>
+        <location filename="../mainwindow.cpp" line="3397"/>
         <source>No selection!</source>
         <translation>Nessuna selezione!</translation>
     </message>
@@ -2501,15 +2496,11 @@ Incolla immagini: immagine non valida ! </translation>
         <source>Simulate curvature</source>
         <translation>Simula curvatura</translation>
     </message>
-    <message>
-        <source>simulate curvature (upwards only)</source>
-        <translation type="vanished">Simula curvatura (solo dall&apos;alto)</translation>
-    </message>
 </context>
 <context>
     <name>curveLineArea</name>
     <message>
-        <location filename="../curvelinearea.cpp" line="91"/>
+        <location filename="../curvelinearea.cpp" line="92"/>
         <source>Do you want to confirm the drawing?</source>
         <translation>Vuoi confermare il disegno?</translation>
     </message>
@@ -2968,7 +2959,7 @@ attivo inverti</translation>
         <translation>Annulla</translation>
     </message>
     <message>
-        <location filename="../selectionarea.cpp" line="135"/>
+        <location filename="../selectionarea.cpp" line="136"/>
         <source>Copy</source>
         <translation>Copia</translation>
     </message>
