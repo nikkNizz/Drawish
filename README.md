@@ -38,7 +38,7 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
   - [Spray](#spray)
   - [Pick color](#pick-color)
   - [Line / Simple arrow / Connected lines / dotted lines](#line--simple-arrow--connected-lines--dotted-lines)
-    - [Line info indicator](#line-information)
+    - [Line information](#line-information)
     - [Line from keyboard](#line-from-keyboard)
   - [Shapes](#shapes)
     - [Shapes to selection](#shapes-to-selection)
@@ -537,7 +537,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟢️ complex curves  
 🔵️ merging selection and image with 3 levels of strength  
 🔵️ dotted lines    
-🔵️ angle line indicator    
+🔵️ line information      
 🔵️ manual or continuous selection rotation  
 🔵️ curve-like stretching  
 🔵️ gradients  
