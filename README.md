@@ -1,5 +1,5 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".
-# Drawish  2.6 
+# Drawish  2.7 
 Is a program for basic drawing, open pdf as images, draw using the keyboard, use rich text, save portions framed by a "camera", create custom shapes and much more.  
 [See features](#features)  
 
@@ -14,6 +14,7 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
   - [Saving](#saving)
     - [Save to Pdf](#save-to-pdf)
     - [Base64](#base64)
+    - [Auto save](#auto-save)
   - [Serialize](#serialize)
   - [Open Pdf](#open-pdf)
   - [Undo/Redo](#undo/redo)
@@ -26,6 +27,7 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
     - [Elliptical selection and other shapes](#elliptical-selection-and-other-shapes)
     - [Merge selection](#merge-selection)
     - [Selection to image (Crop) (and Reattach)](#selection-to-image-crop-and-reattach)
+    - [Viewport to image](#viewport-to-image)
   - [Automatically merge images](#automatically-merge-images)
   - [Freehand drawing](#freehand-drawing)
   - [Color eraser](#color-eraser)
@@ -36,7 +38,7 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
   - [Spray](#spray)
   - [Pick color](#pick-color)
   - [Line / Simple arrow / Connected lines / dotted lines](#line--simple-arrow--connected-lines--dotted-lines)
-    - [Line angle indicator](#line-angle-indicator)
+    - [Line info indicator](#line-information)
     - [Line from keyboard](#line-from-keyboard)
   - [Shapes](#shapes)
     - [Shapes to selection](#shapes-to-selection)
@@ -62,6 +64,7 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
   - [Window](#window)
 - [KEY COMBINATION](#key-combination)
 - [FEATURES](#features)
+- [LIMITATIONS](#limitations)
 
 
 ### PRECOMPILED PACKAGES
@@ -149,7 +152,9 @@ You can set a **default folder** for the file picker: "File ->Default path for f
 You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" or in home folder.  
 ##### Base64
 For base64 format, see "Camera" chapter.  
-
+##### Auto save
+If the "Options->Save to disk every 10 changes" option is selected, a copy is saved to the file ../Drawish_Data/tmp_pix1.png
+every 10 changes. Enable this option if you are concerned about crashes or PC problems.
 
 #### Serialize
 From the "Options->Serialize" menu a window opens from which you can choose operations to perform on all the images contained in a folder.  
@@ -212,6 +217,10 @@ A prompt allows you to choose between 3 blending ratios.
 ##### Selection to image (Crop) (and Reattach)
 From the "Options->Set selection as image (crop)" you can crop the image. On very large images, you can crop them for faster processing and then paste them again using the "Options->Reattach" function. Drawish reattaches the image to the coordinates of the last crop.
 
+##### Viewport to image
+With "Options->Viewport as image (crop)" or (Alt+1), the image is cropped to the displayed area.  
+You can reattach the image portion to its original position with Options->Reattach (Alt+R).
+
 #### Automatically merge images
 From the "Options->Paste from file" menu you can merge two images with three options. The second image can be put into a selection that can be moved to the desired point, or the second image can be automatically added to the right or below the first.
 
@@ -224,9 +233,9 @@ Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (< =
 In the panel that appears above the drawing area you can choose attributes. Do not use transparent color to draw (only fill).  
 You can use a semi-transparent pen by selecting the switch in the pen toolbar.  
 Use white color to erase.  
-You can draw with a round, square, digital marker, or stylus tip.  
-You can draw with a random color pen.  
-You can use the **"fusion"** pen to draw with a color obtained by merging the pixels crossed by the pen.  
+You can draw with a round, square, digital marker, stylus nib, pencil.  
+You can also use random color pen, smudge pen, pencil. 
+You can use the **"fusion"** pen to draw with a color obtained by merging the pixels crossed by the pen. 
 You can draw automatically numbered labels by selecting 'labels' in the pen selection box. Select this option again to reset the numbering.
 [video](https://drive.google.com/file/d/1ZpOwFBm1zrZtOn0XU82PXeg-KcJ0XKKN/view?usp=sharing)
 
@@ -282,8 +291,8 @@ To get connected lines click on the points to connect.
 To make the lines dashed, check the "Options->Dot lines" menu.  
 [video](https://drive.google.com/file/d/1Ik_D9UGWTPwGwEOqRubemwNMXzI8_fV7/view?usp=sharing)
 
-##### Line angle indicator
-To display the angle of the line check the "Options->Show line angle indicator" Menu.
+##### Line information
+To display the angle, the width and the height of the line check the "Options->Show line information" Menu.
 ##### Line from keyboard
 From the "Image->Create line" menu (or ALT + L) **you can create a line by entering the coordinates from the keyboard**.  
 The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**
@@ -479,7 +488,11 @@ ALT    |    G   |   GITHUB / GUIDE
 ALT    |    H   |   CREATE SHAPE  
 ALT    |    K   |   SCREENSHOT (CLIPBOARD)  
 ALT    |    L   |   CREATE LINE  
+ALT    |    O   |   MIRROR HORIZONTALLY  
+ALT    |    V   |   MIRROR VERTICALLY  
 ALT    |    Q   |   QUADRUPLE PIXELS  
+ALT    |    1   |   VIEWPORT TO IMAGE  
+ALT    |    -   |   SELECTION TO IMAGE  
 ALT    |    R   |   REATTACH CROPPED IMAGE   
 ALT    |    T   |   OPEN STRETCH AREA  
 ALT    |    S   |   OPEN SIZE WINDOW  
@@ -554,4 +567,8 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟣️ copy selection to the program, not only to clipboard  
 🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
 
-
+### Limitations
+This program was not originally designed for drawing, but for other image operations.  
+The limited undo limitations and lag on very large drawings will be addressed in a major update.  
+You can still draw fluidly on large images with cropping options [here](#selection-to-image-crop-and-reattach) and [here](#viewport-to-image).  
+To add new languages ​​contact me.
