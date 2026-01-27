@@ -68,8 +68,8 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
 
 
 ### PRECOMPILED PACKAGES
-The compiled program for Linux and Windows can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases) page of this project.  
-Once the program is open you can create a quick link: from the [File -> Desktop shortcut] menu, a menu item is created in Linux or a desktop shortcut in Windows.
+The compiled program for Linux can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases) page of this project.  
+Once the program is open you can create a quick link: from the [File -> Desktop shortcut] menu, a menu item is created in Linux.
 
 ### COMPILE FROM SOURCE
 Download and unzip the project.  
