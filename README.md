@@ -237,7 +237,9 @@ You can draw with a round, square, digital marker, stylus nib, pencil.
 You can also use random color pen, smudge pen, pencil. 
 You can use the **"fusion"** pen to draw with a color obtained by merging the pixels crossed by the pen. 
 You can draw automatically numbered labels by selecting 'labels' in the pen selection box. Select this option again to reset the numbering.
-[video](https://drive.google.com/file/d/1ZpOwFBm1zrZtOn0XU82PXeg-KcJ0XKKN/view?usp=sharing)
+[video](https://drive.google.com/file/d/1ZpOwFBm1zrZtOn0XU82PXeg-KcJ0XKKN/view?usp=sharing)  
+> If you don't see the pen icons correctly, follow the instructions in the .fontconfig file.
+> 
 
 #### Color eraser
 Click the [pen] button. In the panel that appears above the drawing area select "Erase by color similaraty defined in fill".  
@@ -571,4 +573,6 @@ Here are some of Drawish's unique features (The most common functions are omitte
 This program was not originally designed for drawing, but for other image operations.  
 The limited undo limitations and lag on very large drawings will be addressed in a major update.  
 You can still draw fluidly on large images with cropping options [here](#selection-to-image-crop-and-reattach) and [here](#viewport-to-image).  
-To add new languages ​​contact me.
+To add new languages ​​contact me.  
+> If you don't see the pen icons correctly, follow the instructions in the .fontconfig file.
+> 
