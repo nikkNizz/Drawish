@@ -555,6 +555,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🔵️ quick restore point  
 🔵️ quick web links  
 🔵️ object outline  
+🔵️ labels 
 🟣️ mouse correction  
 🟣️ effects  
 🟣️ average color  
@@ -564,7 +565,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🟣️ multicolor pen  
 🟣️ set the window size  
 🟣️ screenshot of the window  
-🟣️ fusion pen    
+🟣️ fusion pen, smudge pen, pencil   
 🟣️ favorite colors  
 🟣️ copy selection to the program, not only to clipboard  
 🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
