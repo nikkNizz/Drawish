@@ -572,7 +572,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 
 ### Limitations
 This program was not originally designed for drawing, but for other image operations.  
-The limited undo limitations and lag on very large drawings will be addressed in a major update.  
+The limited undo and lag on very large drawings will be addressed in a major update.  
 You can still draw fluidly on large images with cropping options [here](#selection-to-image-crop-and-reattach) and [here](#viewport-to-image).  
 To add new languages ​​contact me.  
 > If you don't see the pen icons correctly, follow the instructions in the .fontconfig file.
