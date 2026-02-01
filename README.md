@@ -555,7 +555,7 @@ Here are some of Drawish's unique features (The most common functions are omitte
 🔵️ quick restore point  
 🔵️ quick web links  
 🔵️ object outline  
-🔵️ labels 
+🔵️ labels  
 🟣️ mouse correction  
 🟣️ effects  
 🟣️ average color  
