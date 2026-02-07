@@ -219,6 +219,7 @@ From the "Options->Set selection as image (crop)" you can crop the image. On ver
 
 ##### Viewport to image
 With "Options->Viewport as image (crop)" or (Alt+1), the image is cropped to the displayed area.  
+It's the fastest way to work on large images.  
 You can reattach the image portion to its original position with Options->Reattach (Alt+R).
 
 #### Automatically merge images
