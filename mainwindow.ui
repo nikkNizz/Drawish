@@ -4917,7 +4917,7 @@
      <property name="font">
       <font>
        <italic>false</italic>
-       <fontweight>Medium</fontweight>
+       
       </font>
      </property>
      <property name="text">
@@ -4935,7 +4935,7 @@
      </property>
      <property name="font">
       <font>
-       <fontweight>Light</fontweight>
+       
       </font>
      </property>
      <property name="frameShape">
@@ -4956,7 +4956,7 @@
      </property>
      <property name="font">
       <font>
-       <fontweight>Light</fontweight>
+       
       </font>
      </property>
      <property name="frameShape">
@@ -4979,7 +4979,7 @@
       <font>
        <pointsize>9</pointsize>
        <italic>false</italic>
-       <fontweight>Medium</fontweight>
+       
       </font>
      </property>
      <property name="text">
@@ -4998,7 +4998,7 @@
      <property name="font">
       <font>
        <strikeout>false</strikeout>
-       <fontweight>Light</fontweight>
+       
       </font>
      </property>
      <property name="frameShape">
@@ -5019,7 +5019,7 @@
      </property>
      <property name="font">
       <font>
-       <fontweight>Light</fontweight>
+       
       </font>
      </property>
      <property name="frameShape">
@@ -5041,7 +5041,7 @@
      <property name="font">
       <font>
        <italic>false</italic>
-       <fontweight>Medium</fontweight>
+       
       </font>
      </property>
      <property name="text">
@@ -5059,7 +5059,7 @@
      </property>
      <property name="font">
       <font>
-       <fontweight>Light</fontweight>
+       
       </font>
      </property>
      <property name="frameShape">
@@ -5080,7 +5080,7 @@
      </property>
      <property name="font">
       <font>
-       <fontweight>Light</fontweight>
+       
       </font>
      </property>
      <property name="frameShape">
