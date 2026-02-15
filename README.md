@@ -1,4 +1,5 @@
-Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".
+Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
+You can download the **handbook** from [here](https://github.com/nikkNizz/Drawish/tree/main/handbook)  
 # Drawish  2.7 
 Is a program for basic drawing, open pdf as images, draw using the keyboard, use rich text, save portions framed by a "camera", create custom shapes and much more.  
 [See features](#features)  
