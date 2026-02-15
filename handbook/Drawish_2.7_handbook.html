@@ -1,0 +1,446 @@
+<!Doctype HTML>
+<html>
+<title>Drawish</title>
+<head>
+<style>
+h1, h2, h3 {color: ORANGERED;}
+h4 {color: orange;}
+h5, h6{color: LIGHTSALMON;}
+p{font-size:14px;}
+#summary{position:fixed; left:1px; top:20px; width:auto; height:auto; background-color:LIGHTCYAN;font-size:14px; border-radius:12px;  }
+op{ background-color: FLORALWHITE; font-family: monospace; color: MEDIUMBLUE;}
+#content{position:absolute; background-color:GHOSTWHITE; left:420px; top:80px; font-family:sans-serif}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  background-color:LIGHTCYAN;
+}
+</style>
+
+</head>
+<body>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<h2 style="position:absolute; left:420px; top:10px">Drawish 2.7</h2>
+
+
+<div id="summary">&nbsp;&nbsp;Summary<br><br><br>
+<div id="scrollSumm" style="width:390px; height: 480px;overflow:scroll">
+<li><a href="#command-line">Command line</a></li>
+<li><a href="#usage">USAGE</a><ul>
+<li><a href="#saving">Saving</a><ul>
+<li><a href="#save-to-pdf">Save to Pdf</a></li>
+<li><a href="#base64">Base64</a></li>
+<li><a href="#auto-save">Auto save</a></li>
+</ul>
+
+<li><a href="#serialize">Serialize</a></li>
+<li><a href="#open-pdf">Open Pdf</a></li>
+<li><a href="#undo-redo">Undo/Redo</a></li>
+<li><a href="#restore-point">Restore point</a></li>
+<li><a href="#selection">Selection</a><ul>
+<li><a href="#stamp-selection">Stamp selection</a></li>
+<li><a href="#selection-and-keyboard">Selection and keyboard</a></li>
+<li><a href="#keep-selection-aspect-ratio">Keep selection aspect ratio</a></li>
+<li><a href="#freehand-selection">Freehand selection</a></li>
+<li><a href="#elliptical-selection-and-other-shapes">Elliptical selection and other shapes</a></li>
+<li><a href="#merge-selection">Merge selection</a></li>
+<li><a href="#selection-to-image-crop-and-reattach-">Selection to image (Crop) (and Reattach)</a></li>
+<li><a href="#viewport-to-image">Viewport to image</a></li>
+</ul>
+</li>
+<li><a href="#automatically-merge-images">Automatically merge images</a></li>
+<li><a href="#freehand-drawing">Freehand drawing</a></li>
+<li><a href="#color-eraser">Color eraser</a></li>
+<li><a href="#text">Text</a><ul>
+<li><a href="#rtf-editor">RTF editor</a></li>
+</ul>
+</li>
+<li><a href="#tracer">Tracer</a></li>
+<li><a href="#fill-fill-inside-black">Fill / Fill inside black</a></li>
+<li><a href="#spray">Spray</a></li>
+<li><a href="#pick-color">Pick color</a></li>
+<li><a href="#line-simple-arrow-connected-lines-dotted-lines">Line / Simple arrow / Connected lines / dotted lines</a><ul>
+<li><a href="#line-information">Line information</a></li>
+<li><a href="#line-from-keyboard">Line from keyboard</a></li>
+</ul>
+</li>
+<li><a href="#shapes">Shapes</a><ul>
+<li><a href="#shapes-to-selection">Shapes to selection</a></li>
+<li><a href="#default-shapes">Default shapes</a></li>
+<li><a href="#custom-shapes">Custom shapes</a><ul>
+<li><a href="#custom-shapes-example">Custom shapes example</a></li>
+</ul>
+</li>
+<li><a href="#shapes-by-keyboard">Shapes by keyboard</a></li>
+</ul>
+</li>
+<li><a href="#curved-line">Curved line</a></li>
+<li><a href="#connected-curves">Connected curves</a></li>
+<li><a href="#color-management">Color management</a></li>
+<li><a href="#favorite-colors">Favorite colors</a></li>
+<li><a href="#color-balance">Color balance</a></li>
+<li><a href="#charts">Charts</a></li>
+<li><a href="#zoom">Zoom</a><ul>
+<li><a href="#pixel-matrix">Pixel matrix</a></li>
+<li><a href="#double-the-pixels">Double the pixels</a></li>
+</ul>
+</li>
+<li><a href="#rotation">Rotation  </a></li>
+<li><a href="#effects">Effects</a></li>
+<li><a href="#stretch-area">Stretch Area</a></li>
+<li><a href="#other-effects">Other effects</a></li>
+<li><a href="#sizes">Sizes</a></li>
+<li><a href="#camera">Camera</a></li>
+<li><a href="#window">Window</a></li>
+</ul>
+</li>
+<li><a href="#key-combination">KEY COMBINATION</a></li>
+<li><a href="#features">FEATURES</a></li>
+<li><a href="#limitations">LIMITATIONS</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<img src="https://github.com/nikkNizz/Drawish/blob/main/png/screenshot100.png?raw=true" style="width:450px; height:315px">
+
+<p style="font-size: 18px; font-weight: 0.7">Is a program for basic drawing, open pdf as images, draw using the keyboard, use rich text, save portions framed by a &quot;camera&quot;, create custom shapes and much more.<br><a href="#features">See features</a>  </p>
+
+<h4 id="command-line">Command line</h4>
+<p>If you launch the program from the command line, you can also add the <b>path of an image</b>.<br> <br><code>/path/Drawish_xxxx.Appimage</code>  or<br> <code>/path/Drawish_xxxx.Appimage /path/to/image</code>  </p>
+<p>For Italian users: you can run Drawish in English by adding the &quot;en&quot; parameter.<br><br> <code>/path/Drawish_xxxx.Appimage en</code>  or<br> <code>/path/Drawish_xxxx.Appimage /path/to/image en</code>  </p>
+
+<h3 id="usage">USAGE</h3>
+<p>You can start drawing or you can open an image.<br>Open images from the <op>File-&gt;Open</op> menu. You can also drag a file on the drawing area, 
+paste an image from the clipboard (<op>Edit-&gt;Paste from clipboard</op>) or from a file (<op>Options-&gt;Paste from file</op>).<br>Some <strong>settings</strong>, such as pen size or text options, are automatically restored from the previous session.  </p>
+<p>The drawing options are visible on the left of the drawing area.
+The color palette is also visible here.
+The first color on the top left is the active color (default black). Change the active color:<br>-by clicking on a quick color or on the <button>+</button> button<br>-from the <op>Image-&gt;Colors</op> menu and entering the rgb values ​​manually<br>-using the pick color on the image.<br>-From saved colors.  </p>
+<p>When you select an option it will be active for the drawing area,
+when you deselect it, it will no longer be active and any
+pending operations will be deleted.</p>
+<h4 id="saving">Saving</h4>
+<p>To save in jpg, ico, bmp, ppm, xbm or xpm format, choose the extension from the &quot;format&quot; box that appears. 
+You can set a <strong>default folder</strong> for the file picker: <op>File -&gt;Default path for file picker</op>.</p>
+<h5 id="save-to-pdf">Save to Pdf</h5>
+<p>You can directly save the image to <strong>PDF</strong> from the <op>File-&gt;To PDF</op> menu. PDFs are saved in &quot;<user>/Drawish_Data&quot; or in home folder.  </p>
+<h5 id="base64">Base64</h5>
+<p>For base64 format, see &quot;Camera&quot; chapter.  </p>
+<h5 id="auto-save">Auto save</h5>
+<p>If the <op>Options-&gt;Save to disk every 10 changes</op> option is selected, a copy is saved to the file ../Drawish_Data/tmp_pix1.png
+every 10 changes. Enable this option if you are concerned about crashes or PC problems.</p>
+<h4 id="serialize">Serialize</h4>
+<p>From the <op>Options-&gt;Serialize</op> menu a window opens from which you can choose operations to perform on all the images contained in a folder.<br>Choose the folder, check the operations of interest and enter any parameters.<br>The <strong>original images will not be overwritten</strong> as a new folder will be created for the modified files.<br>The operations will be performed in the order in which they are listed.</p>
+<h4 id="open-pdf">Open Pdf</h4>
+<p>It is possible to open pdf as images, dragging them onto the drawing area, or from the menu, or from the command line.<br>In windows the quality is reduced.<br>In Linux the image is real, thanks to the poppler-utils generally preinstalled. If they are not present, install them with your package manager.<br><a href="https://drive.google.com/file/d/1BNM-BO_ZgcvQmdMGtjXep5P4otvEmVUl/view?usp=sharing">video</a></p>
+<h4 id="undo-redo">Undo/Redo</h4>
+<p>In the top left selection box you can navigate through the history of
+the last 25 changes. You can also use the <strong>ctrl-Z</strong> key combination to go back.<br>To return to the left image, press the top left button or <strong>ctrl-R</strong> [Redo].<img style="width: 200px; height:120px" src="https://github.com/nikkNizz/Drawish/blob/main/png/REDO.png?raw=true" alt="image"><br>If a change is made from a previous image, the left image will no longer be available.  </p>
+<h4 id="restore-point">Restore point</h4>
+<p>You can save a restore point from the <op>image-&gt;Set as restore point</op> menu (or F1 key). Any previous points will be deleted.<br>Go back to the saved point at any time from the <op>Image-&gt;Restore</op> menu (F12).<br>Cancel the operation with ctrl-Z or undo.</p>
+<h4 id="selection">Selection</h4>
+<p>Click the <button>selection</button> button to select a portion of the image. The selection will be detached from the image, it can be dragged with the mouse and scaled by dragging the edges with the mouse.
+Hold the mouse <strong>near the inside</strong> of the edges to resize the selection.<br>To make the white area of ​​the selection <strong>transparent</strong>, check the box from the <op>Options-&gt;Transparent selection</op> Menu.<br>To select everything, use the <op>Options-&gt;Select all</op> menu.<br>To save the image to a file select: <op>Options-&gt;Selection to file</op>.<br>To finish and pasting the selection, click on a point on the image.  </p>
+<h5 id="stamp-selection">Stamp selection</h5>
+<p>To copy the portion <strong>without detaching it</strong> (stamp), select it and, before moving it, go to the <op>Options-&gt;copy selection (no clipboard) </op> menu, or press <strong>+</strong> on your keyboard or ctrl + .<a href="https://drive.google.com/file/d/1t025EHseLYV5s-1YnYc8WolSRT5IJJB2/view?usp=sharing">video</a>.  </p>
+<h5 id="selection-and-keyboard">Selection and keyboard</h5>
+<p>You can create a selection by entering the coordinates from the keyboard from the <op>Sizes-&gt;Sizes-&gt;[Create selection]</op> menu.<br>To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  </p>
+<h5 id="keep-selection-aspect-ratio">Keep selection aspect ratio</h5>
+<p>Check <op>Options -&gt; Keep selection aspect ratio</op> to preserve the aspect ratio of the selection when dragging edges. 
+<a href="https://drive.google.com/file/d/1v0uc-ToTgZvu360IkdVd1F2zFi_f1ZpO/view?usp=sharing">video</a></p>
+<h5 id="freehand-selection">Freehand selection</h5>
+<p>Click the <button>Freehand selection</button> to start making a freehand selection with the mouse.<br>See also <a href="https://github.com/nikkNizz/Drawish/blob/main/README.md#fill--fill-inside-black">Fill inside black</a></p>
+<h5 id="elliptical-selection-and-other-shapes">Elliptical selection and other shapes</h5>
+<p>You can transform a shape into a selection.
+Draw a shape as usual, then press the button to the right of the fill selection box to convert the shape into a selection.<br><a href="https://drive.google.com/file/d/1OmfOUle8yHQT_zte3cJ2GencHQ7gQVGY/view?usp=sharing">video</a></p>
+<h5 id="merge-selection">Merge selection</h5>
+<p>From the <op>Edit-&gt;Merge selection to image</op> menu you can merge the portion of the image below into the selection. 
+A prompt allows you to choose between 3 blending ratios.
+<a href="https://drive.google.com/file/d/15H6inAFvbu6iay29mfOW9ALRBSV0VWz6/view?usp=sharing">video</a></p>
+<h5 id="selection-to-image-crop-and-reattach-">Selection to image (Crop) (and Reattach)</h5>
+<p>From the <op>Options-&gt;Set selection as image (crop)</op> you can crop the image. On very large images, you can crop them for faster processing and then paste them again using the <op>Options-&gt;Reattach</op> function. Drawish reattaches the image to the coordinates of the last crop.</p>
+<h5 id="viewport-to-image">Viewport to image</h5>
+<p>With <op>Options-&gt;Viewport as image (crop)</op> or (Alt+1), the image is cropped to the displayed area.<br>It&#39;s the fastest way to work on large images.<br>You can reattach the image portion to its original position with Options-&gt;Reattach (Alt+R).</p>
+<h4 id="automatically-merge-images">Automatically merge images</h4>
+<p>From the <op>Options-&gt;Paste from file</op> menu you can merge two images with three options. The second image can be put into a selection that can be moved to the desired point, or the second image can be automatically added to the right or below the first.</p>
+<h4 id="freehand-drawing">Freehand drawing</h4>
+<p>Click the <button>pen</button> button and move the mouse over the drawing area, holding down the left mouse button.<br>From the <op>edit</op> menu you can enable <strong><op>Mouse correction</op></strong> to avoid drawing every little mouse movement.<br>You can draw with the keyboard by selecting in the top menu how many pixels (1 or 5) to draw when you press the keys.<br>Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (&lt; = bottom-left)  (Z = down)  (X = bottom-right). 
+<a href="https://drive.google.com/file/d/1Z6KETxX53N0E_YGQgtdDkzLk7GZgHE8c/view?usp=sharing">video</a><br>In the panel that appears above the drawing area you can choose attributes. Do not use transparent color to draw (only fill).<br>You can use a semi-transparent pen by selecting the switch in the pen toolbar.<br>Use white color to erase.<br>You can draw with a round, square, digital marker, stylus nib, pencil.<br>You can also use random color pen, smudge pen, pencil. 
+You can use the <strong><op>fusion</op></strong> pen to draw with a color obtained by merging the pixels crossed by the pen. 
+You can draw automatically numbered labels by selecting &#39;labels&#39; in the pen selection box. Select this option again to reset the numbering.
+<a href="https://drive.google.com/file/d/1ZpOwFBm1zrZtOn0XU82PXeg-KcJ0XKKN/view?usp=sharing">video</a>  </p>
+<blockquote>
+<p>If you don&#39;t see the pen icons correctly, follow the instructions in the .fontconfig file (Github).</p>
+</blockquote>
+<h4 id="color-eraser">Color eraser</h4>
+<p>Click the <button>pen</button> button. In the panel that appears above the drawing area select <op>Erase by color similaraty defined in fill</op>.<br>When the cursor moves over the active color, it will be replaced by the preferred color.<br>To replace it with white, reset the preferred color with the appropriate button.<br>To perform the similarity replacement, enter the <op>Fill</op> function, move the <op>similarity</op> bar and then return to the <op>Pen</op> function.<br><a href="https://drive.google.com/file/d/1NbB-NSNq2GasxtETI4yEmdrg-jJ0YJwJ/view?usp=sharing">video</a></p>
+<h4 id="text">Text</h4>
+<p>Click the <button>text</button> button, and <strong>click a point</strong> in the drawing area. 
+The text area will be displayed and can be moved as desired.
+<strong>The multiline text box and options are displayed at the top</strong>.<br>Click the <button>DRAW</button> button to actually print the text, then move the text area to continue printing text. Or disable the function by clicking the left button again.<br>It is possible to paste text from the clipboard, as an image.  </p>
+<blockquote>
+<p>The last text remains stored in the box allowing both changes in case of undo and the creation of copies</p>
+<h5 id="rtf-editor">RTF editor</h5>
+<p>You can open an <strong>RTF editor</strong> to write formatted text. This text can be saved to a file and can be directly transposed onto the image via a screenshot. After clicking the <button>text</button> button, click the <button>RTF</button> button to open the editor. Click <button>Screenshot and close</button> button to transpose the text into a selection in the image. In the editor you can save texts and open them.<br><a href="https://drive.google.com/file/d/1yzlL7j-uYcOxUMt19SPYZmH3ZtB-7Hrc/view?usp=sharing">video</a></p>
+</blockquote>
+<h4 id="tracer">Tracer</h4>
+<p>Click <button>tracer</button> to activate it.<br>The tracer allows you to draw a highlight line that automatically disappears (useful in demonstrations).</p>
+<h4 id="fill-fill-inside-black">Fill / Fill inside black</h4>
+<p>Click the <button>fill</button> button and click on the point in the image where you want to replace a color with the active color. The replacement occurs on the exact color that you clicked.<br>To perform the replacement by color affinity, move the slider that appears at the top.<br>Increasing the value decreases the affinity.<br>It is possible to fill with semi transparency of the active color with the switch at the top right.<a href="https://drive.google.com/file/d/1GynDndzshitoALd6C1AE_JqcklSExQDD/view?usp=sharing">video</a><br>If the check box <button>Fill inside black</button> is selected, the entire area around the click, <strong>included within a black line</strong>, is filled in black. 
+<a href="https://drive.google.com/file/d/1yWAFPJW5sjcYRTpn0P7AlbdcRmab0lex/view?usp=sharing">video</a>  </p>
+<h4 id="spray">Spray</h4>
+<p>Click the <button>spray</button> button and move the mouse over the drawing area, holding down the left mouse button.<br>The size of the spray is defined by the size of the pen.</p>
+<h4 id="pick-color">Pick color</h4>
+<p>Click the <button>pick</button> button and then on a point in the
+image that you want to get the color of. This will become the
+active color.<br>If the [color balance] check box is checked, you can balance the colors of the image based on the clicked color and the active color. 
+For example, if you want to balance the white, you will have to set white as the active color and click on a color in the image that should be white, but is not.
+<a href="https://drive.google.com/file/d/1M87q7asCIgoTUkzosI1L7IYRID0MK-JZ/view?usp=sharing">video</a><br>Click on the pick button again to proceed with other operations.</p>
+<h4 id="line-simple-arrow-connected-lines-dotted-lines">Line / Simple arrow / Connected lines / dotted lines</h4>
+<p>Click the <button>Line</button> button. In the selection box next to it, select a line or a simple arrow or connected lines.<br>In the top menu choose the attributes of the line.<br>To draw lines and arrows use the mouse on the image with the left button pressed.<br>To get connected lines click on the points to connect.<br>To make the lines dashed, check the <op>Options-&gt;Dot lines</op> menu.<br><a href="https://drive.google.com/file/d/1Ik_D9UGWTPwGwEOqRubemwNMXzI8_fV7/view?usp=sharing">video</a></p>
+<h5 id="line-information">Line information</h5>
+<p>To display the angle, the width and the height of the line check the <op>Options-&gt;Show line information</op> Menu.</p>
+<h5 id="line-from-keyboard">Line from keyboard</h5>
+<p>From the <op>Image-&gt;Create line</op> menu (or ALT + L) <strong>you can create a line by entering the coordinates from the keyboard</strong>.<br>The coordinates can be expressed as the <strong>start and end points</strong> of the line, or as the <strong>start point, angle and length!</strong>
+</p>
+<h4 id="shapes">Shapes</h4>
+<p>Click the <button>shapes</button> button, or select a shape from the selection box.<br>You can draw predefined shapes or custom shapes.<br>The shape can be moved by dragging the area with the mouse or from keyboard (A W S Z keys).<br>Border width is defined by line width box.<br>Many filling options are available from the choice box at the top right.</p>
+<h5 id="shapes-to-selection">Shapes to selection</h5>
+<p><a href="#elliptical-selection-and-other-shapes">See Elliptical selection and other shapes</a></p>
+<h5 id="default-shapes">Default shapes</h5>
+<p>SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, ROUNDED SQUARE, STAR, ARROWS, SOLID, CROSSES (for simple arrow see <op>Line / Simple arrow / Connected lines</op> chapter).  </p>
+<h5 id="custom-shapes">Custom shapes</h5>
+<p>Drawish&#39;s custom shapes are polygons or vector curves defined in a text file.<br>This user-created file must be named &quot;shapes.txt&quot; and placed in the Drawish_Data folder.<br>Drawish will read it and add the objects defined in it to the shapes selection box.<br>The file must define the names of the shapes and the coordinates (in percentage values) of the points through which the lines or Bezier curves should pass.
+Lines beginning with // are considered comments and skipped, as blank lines.
+Lines beginning with @ identify the object&#39;s name; all other lines describe the coordinates. 
+Each line represents a single point expressed by two numbers between 0 and 100 ( percentage values) and separated by commas. The two numbers represent the x and y positions of the point (where x is the distance from the left edge and y is the distance from the top edge).<br>If a line does not comply with this notation, the entire file will be discarded and the debug information will be included in the file itself.  </p>
+<blockquote>
+<p>Warning: The endpoint of the polygons will automatically be joined to the starting point to allow the shape to be filled with the selected style.</p>
+</blockquote>
+<p>Drawish then allows you to <strong>choose</strong> whether the coordinates are treated as part of a <strong>polygon</strong> or as points on a <strong>Bezier curve</strong>, thus obtaining curved shapes or polygons with a single notation: check or uncheck <op>Options-&gt;Custom shape to curve</op> menu.<br><strong>All shapes can be transformed into a selection</strong> and all can be filled with the selected style. </p>
+<h6 id="custom-shapes-example">Custom shapes example</h6>
+<p>Here is an example of a file that defines three shapes: a home icon, a diamond and a heart. All three shapes can be treated as polygons or curves, but the desired result will be achieved by deselecting the curve option for home and diamond, while to obtain the heart, this option must be selected.</p>
+<blockquote>
+<p>Drawish interprets the Bezier curve only for a maximum of seven points.</p>
+</blockquote>
+<p>// Drawish custom shapes file<br>// Define names with @<br>// Define x, y points in % for each line<br>// Write comments using double slashes 😉  </p>
+<p>@home<br>10, 90<br>10,25<br>50, 5<br>90,25<br>90, 90<br>60, 90<br>60, 75<br>40, 75<br>40, 90  </p>
+<p>@diamond<br>50, 10<br>90, 60<br>50, 90<br>10, 60  </p>
+<p>@hart<br>50,90<br>0, 0<br>40, 0<br>50, 33<br>60, 0<br>100,0<br>50, 90  </p>
+<p>Save as <strong>shapes.txt</strong> in the <strong>Drawish_Data</strong> folder and restart Drawish. The objects will load into the shape box as shown <a href="https://drive.google.com/file/d/1IHAdP9TWUo0bBND9iuoCe7zbI7ZUC_JK/view?usp=sharing">in this video</a></p>
+<h5 id="shapes-by-keyboard">Shapes by keyboard</h5>
+<p>You can create rectangles, squares, circles and ellipses by entering data from the keyboard from the <op>Image-&gt;Create Shapes</op> menu (or ALT + H).<br><strong>Enter the center</strong> as the shape coordinate.<br>You can draw the center of these shapes or not.  </p>
+<h4 id="curved-line">Curved line</h4>
+<p>Click the <button>curved line</button> button. You will be able to click on <strong>6 points</strong> of the image through which the bezier curve will pass.<br>By moving the handles, you can create any complex curved shape.<br>Supports dotted line: <op>Options -&gt; Dot lines</op>.<br>To confirm the drawing, click a point on the image.<br><a href="https://drive.google.com/file/d/1sRTAQ8MWXeTsjSYYcyFzLdEWoPF3-TAZ/view?usp=sharing">video</a></p>
+<h4 id="connected-curves">Connected curves</h4>
+<p>Click the [connected curves] button.<br>Click <strong>four</strong> points of the image to draw the first curve, then click on <strong>two</strong> points to create more curves.<br>Supports dotted line: <op>Options -&gt; Dot lines</op>.<br><a href="https://drive.google.com/file/d/1HAuOjxhacs0KzekiKnL53k9hrXIMokUr/view?usp=sharing">video</a></p>
+<h4 id="color-management">Color management</h4>
+<p>From the <op>Image-&gt;Colors</op> menu you can perform additional operations on colors.<br><em>If transparent selection is active, the transparent color is treated as black</em>.<br>You can create a color by entering rgb values ​​from the keyboard, create gradients and replace pixels based on complex options.<br>You can also get the hexadecimal value of the color and the average color of the image.<br><a href="https://drive.google.com/file/d/1PJ-7u52q-H2AVHOg521qymgIlQxkHiOt/view?usp=sharing">video</a><br><a href="https://drive.google.com/file/d/1PpsTegWU_1TDVjR1HpebFDDkecI76pfO/view?usp=sharing">video</a></p>
+<h4 id="favorite-colors">Favorite colors</h4>
+<p>From the menu <op>Image-&gt; Set as favorite color</op> the active color is saved in an image and made available in the color palette as an additional color.<br>The favorite color is also used for the <op>color eraser</op> function. The little button next to the favorite color resets it.<br>The colors are saved in the file &quot;<user>/Drawish_Data/drawish_saved_colors.png&quot;.<br>From this file is very simple to pick a color. From the <op>Image -&gt; Pick from favorites</op> menu click on a color. This will become the active color.<br><a href="https://drive.google.com/file/d/1SB7doXszCFuWpwYHjILtjKa0UpjAFG5z/view?usp=sharing">video</a></p>
+<h4 id="color-balance">Color balance</h4>
+<p>See Pick color.<br><a href="https://drive.google.com/file/d/1M87q7asCIgoTUkzosI1L7IYRID0MK-JZ/view?usp=sharing">video</a>  </p>
+<h4 id="charts">Charts</h4>
+<p>Select the <op>Charts</op> menu and choose a chart type. Enter positive values ​​(one per line) in the box that opens.  </p>
+<h4 id="zoom">Zoom</h4>
+<p>From the <op>Zoom</op> menu choose a predefined zoom level or a custom level.<br>For quick zoom levels you can press the 1 to 6 keys on your keyboard!</p>
+<h5 id="pixel-matrix">Pixel matrix</h5>
+<p>Right click on the image-&gt;Show Grid: the pixel matrix will appear enlarged for the area in the vicinity of the cursor.<br>Clicking on a zoomed pixel with the <strong>right</strong> mouse button, it will be replaced with the active color (or draw with the active color by holding down the right mouse button).<br>Clicking with the <strong>left</strong> mouse button, to get information about the position and the rgb color of the pixel and possibly set it as the active color.<br>Remove the enlarged area with another right-click on the image.  </p>
+<h5 id="double-the-pixels">Double the pixels</h5>
+<p>If there is an active selection these functions applies to the selection, otherwise they applie to the entire image.
+From the <op>Sizes-&gt;Quadruple the pixel</op> menu (or ALT + Q) you can increase the image with the pixels doubled in width and height. 
+The image can be enlarged several times without loss of quality, but it is not a zoom, but an image modification.
+In the same way, to divide the pixels, use the <op>Sizes-&gt;Divide by 4</op> menu (ALT + D).</p>
+<h4 id="rotation">Rotation</h4>
+<p>Enter the degrees of rotation in the small box on the left and then click the right or left buttons to rotate.<br>If you don&#39;t know how many degrees to rotate the image, start the automatic rotation by clicking the small button with the stopwatch and then click again to stop it in the desired position.
+To mirror the image (or selection) go to the <op>Image-&gt;Mirror horizontally </op>or <op>Image-&gt;Mirror vertically</op> menu.<br><a href="https://drive.google.com/file/d/1M5SMg7tclV4CMdQZlDANKdyLmEfvo7yT/view?usp=sharing">video</a></p>
+<h4 id="effects">Effects</h4>
+<p>From the <op>Image-&gt;Effects</op> menu a window opens that allows you to apply effects to the image in the selection.<br><em>If transparent selection is active, the transparent color is treated as black</em>.<br>If there is no selection, the effects are applied to the entire image.<br>After each change, click the <button>Update</button> button to make the changes effective, or select the <op>update automatically</op> 
+checkbox if the function allows it.
+Click <button>OK</button> to apply the new image or <button>Cancel</button> to abort the changes.  <a href="https://drive.google.com/file/d/1pdrpBKdsCYndaHA34EnvAZ_ENh_BBu5D/view?usp=sharing">video</a>  </p>
+<blockquote>
+<p>When an image is particularly faded, and is represented by very close intensity values, instead of increasing the contrast, try to perform <op>histogram equalization</op>.<br>I implemented the function following the instructions on <a href="https://en.wikipedia.org/wiki/Histogram_equalization">Wikipedia</a>.</p>
+</blockquote>
+<h4 id="stretch-area">Stretch Area</h4>
+<p>From the <op>Image-&gt;Stretch area</op>, you can open a window to distort the edges of the selected image.<br>You can perform a curved distortion by selecting the appropriate box.<br><a href="https://drive.google.com/file/d/1Bu-tI1thtWPNiWgkfMz513TjMefXXL8-/view?usp=sharing">video</a></p>
+<h4 id="other-effects">Other effects</h4>
+<p>From the Image menu you can apply the listed effects to the selection.<br>If there is no selection, the changes are applied to the entire image.<br>The effects allow you to reduce the image to grayscale, invert the colors,
+reduce to rgb (eliminates the minority channels and keeps only the prevalent one),
+mirror the image, give sepia effect, find the outlines of objects. </p>
+<h4 id="sizes">Sizes</h4>
+<p>From the<op> Sizes-&gt;Sizes</op> (Alt-S) menu you can scale or resize the image based on manually entered values.<br>It is also possible to adapt the image to a new <strong>form factor</strong>. <a href="https://drive.google.com/file/d/1LXlnjbYWZuqWUPemhjpaHtxBgadD2UWA/view?usp=sharing">video</a><br>You can also create a <strong>selection manually</strong>.  </p>
+<h4 id="camera">Camera</h4>
+<p>A camera is a delimited area of ​​the image, whose dimensions
+are defined by the user, and which can be saved in a file.<br>This area can be moved freely with the mouse or with the
+A Q S Z (or A W S X) keys.<br>Save the portion of the image delimited by the camera from the <op>Camera-&gt;Save image</op> menu.<br>Delete the camera from the<op> Camera-&gt;Delete camera </op> menu.
+You can save the framed image in base64 format to the clipboard from the <op>Camera-&gt;To base64</op> menu. 
+<a href="https://drive.google.com/file/d/1nAk2Pm1FmSXZ3rD-pW398qp9vDhU7IQS/view?usp=sharing">Video</a></p>
+<h4 id="window">Window</h4>
+<p>From the <op>Sizes-&gt;Window size</op> menu you can set the size of the Drawish window.<br>From the <op>About-&gt;Capture me (to clipboard)</op> menu or with the Alt+K combination you can save the screenshot of the window to the clipboard.  </p>
+<h3 id="key-combination">KEY COMBINATION</h3>
+<table style="font-size:14px;">
+<thead>
+<tr>
+<th>button</th>
+<th>button</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CTRL</td>
+<td>Z</td>
+<td>UNDO  </td>
+</tr>
+<tr>
+<td>CTRL</td>
+<td>R</td>
+<td>REDO  </td>
+</tr>
+<tr>
+<td>+</td>
+<td></td>
+<td>COPY SELECTION (NO CLIPBOARD)</td>
+</tr>
+<tr>
+<td>CTRL</td>
+<td>+</td>
+<td>COPY SELECTION (NO CLIPBOARD)  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>A</td>
+<td>SELECT ALL  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>C</td>
+<td>OPEN COLORS WINDOW  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>D</td>
+<td>DIVIDE BY 4  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>E</td>
+<td>OPEN EFFECTS WINDOW  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>G</td>
+<td>GITHUB / GUIDE  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>H</td>
+<td>CREATE SHAPE  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>K</td>
+<td>SCREENSHOT (CLIPBOARD)  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>L</td>
+<td>CREATE LINE  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>O</td>
+<td>MIRROR HORIZONTALLY  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>V</td>
+<td>MIRROR VERTICALLY  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>Q</td>
+<td>QUADRUPLE PIXELS  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>1</td>
+<td>VIEWPORT TO IMAGE  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>-</td>
+<td>SELECTION TO IMAGE  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>R</td>
+<td>REATTACH CROPPED IMAGE   </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>T</td>
+<td>OPEN STRETCH AREA  </td>
+</tr>
+<tr>
+<td>ALT</td>
+<td>S</td>
+<td>OPEN SIZE WINDOW  </td>
+</tr>
+<tr>
+<td>F1</td>
+<td></td>
+<td>SET RESTORE POINT  </td>
+</tr>
+<tr>
+<td>F12</td>
+<td></td>
+<td>RESTORE  </td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td>ZOOM 100 %  </td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td>ZOOM 200 %  </td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td>ZOOM 300 %  </td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td>ZOOM 400 %  </td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td>ZOOM 50 %  </td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+<td>ZOOM 30 %  </td>
+</tr>
+</tbody>
+</table>
+<p>MOVE SELECTION OR CAMERA<br>      A, S, W, Z = LEFT,RIGHT,TOP, BOTTOM  </p>
+<p>WRITE WITH PEN<br>       Q = TOP-LEFT<br>       W = TOP<br>       E = TOP-RIGHT<br>       A = LEFT<br>       S = RIGHT<br>       &lt; = BOTTOM-LEFT<br>       Z = BOTTOM<br>       X = BOTTOM-RIGHT  </p>
+<h3 id="features">FEATURES</h3>
+<p>Here are some of Drawish&#39;s unique features (The most common functions are omitted):  </p>
+<p>🟢️ color replacement with conditions<br>🟢️ large number of shapes with many types of filling<br>🟢️ custom shapes (polygons or curves)<br>🟢️ shapes to selection<br>🟢️ manual selection creation<br>🟢️ keyboard line for point A and B<br>🟢️ keyboard line for point A - angle - length<br>🟢️ keyboard drawing: Right left up down and diagonals<br>🟢️ rich text editor<br>🟢️ fill inside black (useful for eliminating an area or background quickly)<br>🟢️ paste from file with automatic union at the bottom or right or leave in the selection<br>🟢️ file saving camera<br>🟢️ get code base64 (from Camera)<br>🟢️ complex curves<br>🔵️ merging selection and image with 3 levels of strength<br>🔵️ dotted lines<br>🔵️ line information<br>🔵️ manual or continuous selection rotation<br>🔵️ curve-like stretching<br>🔵️ gradients<br>🔵️ keyboard color definition<br>🔵️ tracer<br>🔵️ semi-transparent pen<br>🔵️ keyboard shapes with center displayed<br>🔵️ fill with semi transparency<br>🔵️ reduce to rgb<br>🔵️ create charts<br>🔵️ open pdf as images and save images as pdf<br>🔵️ Interface for batch functions<br>🔵️ quick restore point<br>🔵️ quick web links<br>🔵️ object outline<br>🔵️ labels<br>🟣️ mouse correction<br>🟣️ effects<br>🟣️ average color<br>🟣️ fill for similarity<br>🟣️ eraser for color by similarity<br>🟣️ grid and pixel color replacement with right clicks<br>🟣️ multicolor pen<br>🟣️ set the window size<br>🟣️ screenshot of the window<br>🟣️ fusion pen, smudge pen, pencil<br>🟣️ favorite colors<br>🟣️ copy selection to the program, not only to clipboard<br>🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  </p>
+<h3 id="limitations">LIMITATIONS</h3>
+<p>This program was not originally designed for drawing, but for other image operations.<br>The limited undo and lag on very large drawings will be addressed in a major update.<br>You can still draw fluidly on large images with <a href="#viewport-to-image">cropping options</a>.<br>To add new languages ​​contact me.  </p>
+<blockquote>
+<p>If you don&#39;t see the pen icons correctly, follow the instructions in the .fontconfig file (Github).</p>
+</blockquote>
+</div>
+</body>
+</html>
