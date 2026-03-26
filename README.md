@@ -21,8 +21,8 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
   - [Quick print](#quick-print)
   - [Undo/Redo](#undo/redo)
   - [Restore point](#restore-point)  
-    -[Differential redo](#differential-redo)  
-    -[Restore point](#restore-point)  
+    - [Differential redo](#differential-redo)  
+    - [Restore point](#restore-point)  
   - [Sizes](#sizes)
   - [Automatically merge images](#automatically-merge-images)
   - [Split](#split)
@@ -224,7 +224,8 @@ To move the selection finely with the keyboard use the A (left), Q or W (up), S 
 ##### Pixel to active color in selection
 From the "Options->Pixel to active color in selection" menu (or Alt+P), you can transfer the underlying colors to the active color in a selection.  
 All other pixels, however, take the active color.
-Move the selection to see the effect.[video](https://drive.google.com/file/d/1RS6zaNYSlz-nN6y-vWRE4eQo2P-ZjpjZ/view?usp=sharing)
+Move the selection to see the effect.  
+[video](https://drive.google.com/file/d/1RS6zaNYSlz-nN6y-vWRE4eQo2P-ZjpjZ/view?usp=sharing)
 
 ##### Keep selection aspect ratio
 Check "Options -> Keep selection aspect ratio" to preserve the aspect ratio of the selection when dragging edges. 
