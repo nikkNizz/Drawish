@@ -1,9 +1,8 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
   
 You can download the **handbook** from [here](https://github.com/nikkNizz/Drawish/releases)  
-# Drawish  2.7 
-Is a program for basic drawing, open pdf as images, draw using the keyboard, use rich text, save portions framed by a "camera", create custom shapes and much more.  
-[See features](#features)  
+# Drawish  2.8 
+Is a program for basic drawing, open pdf as images, draw using the keyboard, use rich text, save portions framed by a "camera", create custom shapes and much more.   
 
 ![Image](https://github.com/nikkNizz/Drawish/blob/main/png/screenshot100.png)  
 
@@ -19,20 +18,27 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
     - [Auto save](#auto-save)
   - [Serialize](#serialize)
   - [Open Pdf](#open-pdf)
+  - [Quick print](#quick-print)
   - [Undo/Redo](#undo/redo)
   - [Restore point](#restore-point)
+    -[Differential redo](#differential-redo)
+    -[Restore point](#restore-point)
+  - [Sizes](#sizes)
+  - [Automatically merge images](#automatically-merge-images)
+  - [Split](#split)
   - [Selection](#selection)
     - [Stamp selection](#stamp-selection)
     - [Selection and keyboard](#selection-and-keyboard)
+    - [Pixel to active color in selection](#pixel-to-active-color-in-selection)
     - [Keep selection aspect ratio](#keep-selection-aspect-ratio)
     - [Freehand selection](#freehand-selection)
     - [Elliptical selection and other shapes](#elliptical-selection-and-other-shapes)
     - [Merge selection](#merge-selection)
     - [Selection to image (Crop) (and Reattach)](#selection-to-image-crop-and-reattach)
     - [Viewport to image](#viewport-to-image)
-  - [Automatically merge images](#automatically-merge-images)
   - [Freehand drawing](#freehand-drawing)
   - [Color eraser](#color-eraser)
+  - [Erase except active color](#erase-except-active-color)
   - [Text](#text)
     - [RTF editor](#rtf-editor)
   - [Tracer](#tracer)
@@ -61,17 +67,15 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
   - [Effects](#effects)
   - [Stretch Area](#stretch-area)
   - [Other effects](#other-effects)
-  - [Sizes](#sizes)
   - [Camera](#camera)
   - [Window](#window)
 - [KEY COMBINATION](#key-combination)
-- [FEATURES](#features)
 - [LIMITATIONS](#limitations)
 
 
 ### PRECOMPILED PACKAGES
 The compiled program for Linux can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases) page of this project.  
-Once the program is open you can create a quick link: from the [File -> Desktop shortcut] menu, a menu item is created in Linux.
+Once the program is open you can create a quick link: from the [File -> Add to menu] menu, a menu item is created in Linux.
 
 ### COMPILE FROM SOURCE
 Download and unzip the project.  
@@ -170,6 +174,10 @@ In windows the quality is reduced.
 In Linux the image is real, thanks to the poppler-utils generally preinstalled. If they are not present, install them with your package manager.  
 [video](https://drive.google.com/file/d/1BNM-BO_ZgcvQmdMGtjXep5P4otvEmVUl/view?usp=sharing)
 
+#### Quick print
+You can print the image or the active selection directly from the "file->Quick print" menu.  
+To get more print options, use an image viewer or a browser.
+
 #### Undo/Redo
 In the top left selection box you can navigate through the history of
 the last 25 changes. You can also use the **ctrl-Z** key combination to go back.   
@@ -177,10 +185,26 @@ To return to the left image, press the top left button or **ctrl-R** [Redo].
 ![image](https://github.com/nikkNizz/Drawish/blob/main/png/REDO.png)  
 If a change is made from a previous image, the left image will no longer be available.  
 
+##### Differential redo
+Redo only the part of the image modified from the selected timeline point onwards.  
+After selecting a point in the history or pressing ctrl+Z one or more times, go to the "image->Differential redo" menu.  
+[video](https://drive.google.com/file/d/1wJvUU4VdtPnYX1MAG9B0ZiOcLgDZL_ZO/view?usp=sharing)
+
 #### Restore point
 You can save a restore point from the [image->Set as restore point] menu (or F1 key). Any previous points will be deleted.  
 Go back to the saved point at any time from the [Image->Restore] menu (F12).  
 Cancel the operation with ctrl-Z or undo.
+
+#### Sizes
+From the" Sizes->Sizes" (Alt-S) menu you can scale or resize the image based on manually entered values.  
+It is also possible to adapt the image to a new **form factor**. [video](https://drive.google.com/file/d/1LXlnjbYWZuqWUPemhjpaHtxBgadD2UWA/view?usp=sharing)  
+You can also create a **selection manually**. 
+
+#### Automatically merge images
+From the "Options->Paste from file" menu you can merge two images with three options. The second image can be put into a selection that can be moved to the desired point, or the second image can be automatically added to the right or below the first.
+
+#### Split
+From the "Sizes->Split->Horizontally" and "Sizes->Split->Vertically" Menu, you can enter the percentage value at which to create a separation in the image. *Only values ​​between 10 and 90 are allowed.*
 
 #### Selection
 Click the [selection] button to select a portion of the image. The selection will be detached from the image, it can be dragged with the mouse and scaled by dragging the edges with the mouse.
@@ -196,6 +220,11 @@ To copy the portion **without detaching it** (stamp), select it and, before movi
 ##### Selection and keyboard
 You can create a selection by entering the coordinates from the keyboard from the "Sizes->Sizes->[Create selection]" menu.  
 To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  
+
+##### Pixel to active color in selection
+From the "Options->Pixel to active color in selection" menu (or Alt+P), you can transfer the underlying colors to the active color in a selection.  
+All other pixels, however, take the active color.
+Move the selection to see the effect.[video](https://drive.google.com/file/d/1RS6zaNYSlz-nN6y-vWRE4eQo2P-ZjpjZ/view?usp=sharing)
 
 ##### Keep selection aspect ratio
 Check "Options -> Keep selection aspect ratio" to preserve the aspect ratio of the selection when dragging edges. 
@@ -221,11 +250,10 @@ From the "Options->Set selection as image (crop)" you can crop the image. On ver
 
 ##### Viewport to image
 With "Options->Viewport as image (crop)" or (Alt+1), the image is cropped to the displayed area.  
-It's the fastest way to work on large images.  
+**It's the fastest way to work on large images**.  
 You can reattach the image portion to its original position with Options->Reattach (Alt+R).
 
-#### Automatically merge images
-From the "Options->Paste from file" menu you can merge two images with three options. The second image can be put into a selection that can be moved to the desired point, or the second image can be automatically added to the right or below the first.
+
 
 #### Freehand drawing
 Click the [pen] button and move the mouse over the drawing area, holding down the left mouse button.  
@@ -235,11 +263,27 @@ Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (< =
 [video](https://drive.google.com/file/d/1Z6KETxX53N0E_YGQgtdDkzLk7GZgHE8c/view?usp=sharing)  
 In the panel that appears above the drawing area you can choose attributes. Do not use transparent color to draw (only fill).  
 You can use a semi-transparent pen by selecting the switch in the pen toolbar.  
-Use white color to erase.  
-You can draw with a round, square, digital marker, stylus nib, pencil.  
-You can also use random color pen, smudge pen, pencil. 
+  
+You can draw with 
+-round tip
+-square tip
+-stylus nib
+-digital marker
+-fusion
+-random color
+-eraser for color similarity
+-labels
+-smudge pen
+-pencil
+-eraser
+-erase except active color
+-lighten
+-darken
+  
 You can use the **"fusion"** pen to draw with a color obtained by merging the pixels crossed by the pen. 
-You can draw automatically numbered labels by selecting 'labels' in the pen selection box. Select this option again to reset the numbering.
+You can draw automatically numbered labels by selecting 'labels' in the pen selection box. Select this option again to reset the numbering.  
+The eraser is a pen with white color and a square tip.
+Darkens and lighten applies the relevant effect where they pass.
 [video](https://drive.google.com/file/d/1ZpOwFBm1zrZtOn0XU82PXeg-KcJ0XKKN/view?usp=sharing)  
 > If you don't see the pen icons correctly, follow the instructions in the .fontconfig file.
 > 
@@ -250,6 +294,10 @@ When the cursor moves over the active color, it will be replaced by the preferre
 To replace it with white, reset the preferred color with the appropriate button.  
 To perform the similarity replacement, enter the "Fill" function, move the "similarity" bar and then return to the "Pen" function.  
 [video](https://drive.google.com/file/d/1NbB-NSNq2GasxtETI4yEmdrg-jJ0YJwJ/view?usp=sharing)
+
+#### Erase except active color
+Click the "pen" button. In the panel that appears above the drawing area select "Erase except active color".  
+When the cursor moves over the image all colors except the active color are removed.[video](https://drive.google.com/file/d/1UbOBb30z3I84x8j990MsRoIscKsQ1re_/view?usp=sharing)
 
 #### Text
 Click the [text] button, and **click a point** in the drawing area. 
@@ -294,10 +342,12 @@ In the top menu choose the attributes of the line.
 To draw lines and arrows use the mouse on the image with the left button pressed.  
 To get connected lines click on the points to connect.  
 To make the lines dashed, check the "Options->Dot lines" menu.  
+To draw lines or arrows with semi-transparency select the relevant button (top bar).  
 [video](https://drive.google.com/file/d/1Ik_D9UGWTPwGwEOqRubemwNMXzI8_fV7/view?usp=sharing)
 
 ##### Line information
 To display the angle, the width and the height of the line check the "Options->Show line information" Menu.
+
 ##### Line from keyboard
 From the "Image->Create line" menu (or ALT + L) **you can create a line by entering the coordinates from the keyboard**.  
 The coordinates can be expressed as the **start and end points** of the line, or as the **start point, angle and length!**
@@ -311,8 +361,12 @@ You can draw predefined shapes or custom shapes.
 The shape can be moved by dragging the area with the mouse or from keyboard (A W S Z keys).  
 Border width is defined by line width box.  
 Many filling options are available from the choice box at the top right.
+You can set the initial size of the shape from the "Options->Initial size of shapes" menu.  
+[video](https://drive.google.com/file/d/12jY00lMTVsPBEKUMTmi61H2AQxFyuC__/view?usp=sharing)
+
 ##### Shapes to selection
 [See Elliptical selection and other shapes](#elliptical-selection-and-other-shapes)
+
 ##### Default shapes
 SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, ROUNDED SQUARE, STAR, ARROWS, SOLID, CROSSES (for simple arrow see "Line / Simple arrow / Connected lines" chapter).  
 ##### Custom shapes
@@ -380,21 +434,21 @@ You can draw the center of these shapes or not.
 #### Curved line
 Click the [curved line] button. You will be able to click on **6 points** of the image through which the bezier curve will pass.    
 By moving the handles, you can create any complex curved shape.  
-Supports dotted line: "Options -> Dot lines".  
+Supports dotted line: "Options -> Dot lines" and semi-transparency (switch in the top-bar).  
 To confirm the drawing, click a point on the image.  
 [video](https://drive.google.com/file/d/1sRTAQ8MWXeTsjSYYcyFzLdEWoPF3-TAZ/view?usp=sharing)
 
 #### Connected curves
 Click the [connected curves] button.  
 Click **four** points of the image to draw the first curve, then click on **two** points to create more curves.  
-Supports dotted line: "Options -> Dot lines".  
+Supports dotted line: "Options -> Dot lines" and semi-transparency (switch in the top-bar).  
 [video](https://drive.google.com/file/d/1HAuOjxhacs0KzekiKnL53k9hrXIMokUr/view?usp=sharing)
 
 #### Color management
 From the [Image->Colors] menu you can perform additional operations on colors.  
 *If transparent selection is active, the transparent color is treated as black*.  
 You can create a color by entering rgb values ​​from the keyboard, create gradients and replace pixels based on complex options.  
-You can also get the hexadecimal value of the color and the average color of the image.  
+You can also get the hexadecimal value of the color the average color of the image and the number of pixels with the selected color.  
 [video](https://drive.google.com/file/d/1PJ-7u52q-H2AVHOg521qymgIlQxkHiOt/view?usp=sharing)  
 [video](https://drive.google.com/file/d/1PpsTegWU_1TDVjR1HpebFDDkecI76pfO/view?usp=sharing)
 
@@ -457,11 +511,6 @@ The effects allow you to reduce the image to grayscale, invert the colors,
 reduce to rgb (eliminates the minority channels and keeps only the prevalent one),
 mirror the image, give sepia effect, find the outlines of objects. 
 
-#### Sizes
-From the" Sizes->Sizes" (Alt-S) menu you can scale or resize the image based on manually entered values.  
-It is also possible to adapt the image to a new **form factor**. [video](https://drive.google.com/file/d/1LXlnjbYWZuqWUPemhjpaHtxBgadD2UWA/view?usp=sharing)  
-You can also create a **selection manually**.  
-
 
 #### Camera
 A camera is a delimited area of ​​the image, whose dimensions
@@ -476,6 +525,7 @@ You can save the framed image in base64 format to the clipboard from the "Camera
 #### Window
 From the "Sizes->Window size" menu you can set the size of the Drawish window.  
 From the "About->Capture me (to clipboard)" menu or with the Alt+K combination you can save the screenshot of the window to the clipboard.  
+From the "File->New window" menu you can open a new instance of Drawish. 
 
 ### KEY COMBINATION
   
@@ -486,6 +536,7 @@ CTRL   |    R   |   REDO
 \+     |        |   COPY SELECTION (NO CLIPBOARD)
 CTRL   |    +   |   COPY SELECTION (NO CLIPBOARD)  
 ALT    |    A   |   SELECT ALL  
+ALT    |    B   |   DIFFERENTIAL REDO  
 ALT    |    C   |   OPEN COLORS WINDOW  
 ALT    |    D   |   DIVIDE BY 4  
 ALT    |    E   |   OPEN EFFECTS WINDOW  
@@ -494,6 +545,7 @@ ALT    |    H   |   CREATE SHAPE
 ALT    |    K   |   SCREENSHOT (CLIPBOARD)  
 ALT    |    L   |   CREATE LINE  
 ALT    |    O   |   MIRROR HORIZONTALLY  
+ALT    |    P   |   PIXEL TO ACTIVE COLOR  
 ALT    |    V   |   MIRROR VERTICALLY  
 ALT    |    Q   |   QUADRUPLE PIXELS  
 ALT    |    1   |   VIEWPORT TO IMAGE  
@@ -521,57 +573,9 @@ WRITE WITH PEN
        S = RIGHT  
        < = BOTTOM-LEFT  
        Z = BOTTOM  
-       X = BOTTOM-RIGHT  
+       X = BOTTOM-RIGHT   
+ 
 
-### FEATURES
-Here are some of Drawish's unique features (The most common functions are omitted):  
-
-🟢️ color replacement with conditions  
-🟢️ large number of shapes with many types of filling     
-🟢️ custom shapes (polygons or curves)  
-🟢️ shapes to selection  
-🟢️ manual selection creation  
-🟢️ keyboard line for point A and B  
-🟢️ keyboard line for point A - angle - length  
-🟢️ keyboard drawing: Right left up down and diagonals  
-🟢️ rich text editor  
-🟢️ fill inside black (useful for eliminating an area or background quickly)  
-🟢️ paste from file with automatic union at the bottom or right or leave in the selection  
-🟢️ file saving camera  
-🟢️ get code base64 (from Camera)  
-🟢️ complex curves  
-🔵️ merging selection and image with 3 levels of strength  
-🔵️ dotted lines    
-🔵️ line information      
-🔵️ manual or continuous selection rotation  
-🔵️ curve-like stretching  
-🔵️ gradients  
-🔵️ keyboard color definition  
-🔵️ tracer  
-🔵️ semi-transparent pen    
-🔵️ keyboard shapes with center displayed  
-🔵️ fill with semi transparency    
-🔵️ reduce to rgb  
-🔵️ create charts  
-🔵️ open pdf as images and save images as pdf  
-🔵️ Interface for batch functions  
-🔵️ quick restore point  
-🔵️ quick web links  
-🔵️ object outline  
-🔵️ labels  
-🟣️ mouse correction  
-🟣️ effects  
-🟣️ average color  
-🟣️ fill for similarity  
-🟣️ eraser for color by similarity  
-🟣️ grid and pixel color replacement with right clicks  
-🟣️ multicolor pen  
-🟣️ set the window size  
-🟣️ screenshot of the window  
-🟣️ fusion pen, smudge pen, pencil   
-🟣️ favorite colors  
-🟣️ copy selection to the program, not only to clipboard  
-🟣️ increase image or selection size without loss (in addition to scaling by pulling edges)  
 
 ### Limitations
 This program was not originally designed for drawing, but for other image operations.  
