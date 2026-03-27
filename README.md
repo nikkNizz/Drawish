@@ -190,7 +190,7 @@ Redo only the part of the image modified from the selected timeline point onward
 After selecting a point in the history or pressing ctrl+Z one or more times, go to the "image->Differential redo" menu.  
 [video](https://drive.google.com/file/d/1wJvUU4VdtPnYX1MAG9B0ZiOcLgDZL_ZO/view?usp=sharing)
 
-#### Restore point
+##### Restore point
 You can save a restore point from the [image->Set as restore point] menu (or F1 key). Any previous points will be deleted.  
 Go back to the saved point at any time from the [Image->Restore] menu (F12).  
 Cancel the operation with ctrl-Z or undo.
