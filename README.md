@@ -20,7 +20,6 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
   - [Open Pdf](#open-pdf)
   - [Quick print](#quick-print)
   - [Undo/Redo](#undo/redo)
-  - [Restore point](#restore-point)  
     - [Differential redo](#differential-redo)  
     - [Restore point](#restore-point)  
   - [Sizes](#sizes)
