@@ -1,6 +1,6 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-    <file>res/fill.png</file>  
+<file>res/fill.png</file>  
     <file>res/line.png</file>    
     <file>res/penna.png</file> 
     <file>res/conCurve.png</file> 
@@ -20,6 +20,16 @@
     <file>res/rotateRight.png</file>  
     <file>res/draw.png</file>
     <file>res/tracerPen.png</file>
-    <file>res/it_lang.qm</file>    
+    <file>res/initialSize.png</file>  
+    <file>res/selToFile.png</file>    
+    <file>res/reattach.png</file> 
+    <file>res/viewToImg.png</file> 
+    <file>res/crop.png</file>  
+    <file>res/fusion.png</file>    
+    <file>res/pixToImg.png</file> 
+    <file>res/stamp.png</file> 
+    <file>res/selAll.png</file> 
+    <file>res/copy.png</file> 
+    <file>res/it_lang.qm</file>
 </qresource>
 </RCC>
