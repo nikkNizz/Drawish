@@ -1,7 +1,8 @@
 Icons freely modified from "[Breeze Icons](https://develop.kde.org/frameworks/breeze-icons/) copyright KDE and licenced under the GNU LGPL version 3 or later".  
   
 You can download the **handbook** from [here](https://github.com/nikkNizz/Drawish/releases)  
-# Drawish  2.8 
+
+# Drawish  2.9 
 Is a program for basic drawing, open pdf as images, draw using the keyboard, use rich text, save portions framed by a "camera", create custom shapes and much more.   
 
 ![Image](https://github.com/nikkNizz/Drawish/blob/main/png/screenshot100.png)  
@@ -45,6 +46,7 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
   - [Spray](#spray)
   - [Pick color](#pick-color)
   - [Line / Simple arrow / Connected lines / dotted lines](#line--simple-arrow--connected-lines--dotted-lines)
+    - [Adjust the angle of the line](#Adjust-the-angle-of-the-line) 
     - [Line information](#line-information)
     - [Line from keyboard](#line-from-keyboard)
   - [Shapes](#shapes)
@@ -53,6 +55,7 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
     - [Custom shapes](#custom-shapes)
       - [Custom shapes example](#custom-shapes-example)
     - [Shapes by keyboard](#shapes-by-keyboard)
+    - [Div](#Div)
   - [Curved line](#curved-line)
   - [Connected curves](#connected-curves)
   - [Color management](#color-management)
@@ -162,7 +165,7 @@ If the "Options->Save to disk every 10 changes" option is selected, a copy is sa
 every 10 changes. Enable this option if you are concerned about crashes or PC problems.
 
 #### Serialize
-From the "Options->Serialize" menu a window opens from which you can choose operations to perform on all the images contained in a folder.  
+From the "File->Serialize" menu a window opens from which you can choose operations to perform on all the images contained in a folder. 
 Choose the folder, check the operations of interest and enter any parameters.  
 The **original images will not be overwritten** as a new folder will be created for the modified files.  
 The operations will be performed in the order in which they are listed.
@@ -246,14 +249,12 @@ A prompt allows you to choose between 3 blending ratios.
 [video](https://drive.google.com/file/d/15H6inAFvbu6iay29mfOW9ALRBSV0VWz6/view?usp=sharing)
 
 ##### Selection to image (Crop) (and Reattach)
-From the "Options->Set selection as image (crop)" you can crop the image. On very large images, you can crop them for faster processing and then paste them again using the "Options->Reattach" function. Drawish reattaches the image to the coordinates of the last crop.
+From the "Options->Set selection as image (crop)" (ALT+-) you can crop the image. On very large images, you can crop them for faster processing and then paste them again using the "Options->Reattach" function. Drawish reattaches the image to the coordinates of the last crop.
 
 ##### Viewport to image
 With "Options->Viewport as image (crop)" or (Alt+1), the image is cropped to the displayed area.  
 **It's the fastest way to work on large images**.  
 You can reattach the image portion to its original position with Options->Reattach (Alt+R).
-
-
 
 #### Freehand drawing
 Click the [pen] button and move the mouse over the drawing area, holding down the left mouse button.  
@@ -262,7 +263,7 @@ You can draw with the keyboard by selecting in the top menu how many pixels (1 o
 Keys: (Q = top-left)  (W = top)  (E = top-right)   (A = left)  (S = right)  (< = bottom-left)  (Z = down)  (X = bottom-right). 
 [video](https://drive.google.com/file/d/1Z6KETxX53N0E_YGQgtdDkzLk7GZgHE8c/view?usp=sharing)  
 In the panel that appears above the drawing area you can choose attributes. Do not use transparent color to draw (only fill).  
-You can use a semi-transparent pen by selecting the switch in the pen toolbar.  
+You can use a **semi-transparent pen** by selecting the switch in the pen toolbar.  
   
 You can draw with 
 -round tip
@@ -271,7 +272,7 @@ You can draw with
 -digital marker
 -fusion
 -random color
--eraser for color similarity
+-erase for color similarity
 -labels
 -smudge pen
 -pencil
@@ -303,7 +304,7 @@ When the cursor moves over the image all colors except the active color are remo
 Click the [text] button, and **click a point** in the drawing area. 
 The text area will be displayed and can be moved as desired.
 **The multiline text box and options are displayed at the top**.  
-Click the [DRAW] button to actually print the text, then move the text area to continue printing text. Or disable the function by clicking the left button again.  
+Click the [DRAW] button (or Alt+<) to actually print the text, then move the text area to continue printing text. Or disable the function by clicking the left button again.  
 It is possible to paste text from the clipboard, as an image.  
 > The last text remains stored in the box allowing both changes in case of undo and the creation of copies
 >
@@ -343,7 +344,10 @@ To draw lines and arrows use the mouse on the image with the left button pressed
 To get connected lines click on the points to connect.  
 To make the lines dashed, check the "Options->Dot lines" menu.  
 To draw lines or arrows with semi-transparency select the relevant button (top bar).  
-[video](https://drive.google.com/file/d/1Ik_D9UGWTPwGwEOqRubemwNMXzI8_fV7/view?usp=sharing)
+[video](https://drive.google.com/file/d/17VIdoMll5kLB3MQYibRSdMNAYe_-EKDV/view?usp=sharing)
+
+##### Adjust the angle of the line
+It is possible to draw the line with angles adjusted to the lower 5 degrees (a 34° line is drawn at 30°, a 47° line is drawn at 45°, etc.). Check "Options->Line angle with 5 deg. step". 
 
 ##### Line information
 To display the angle, the width and the height of the line check the "Options->Show line information" Menu.
@@ -368,7 +372,7 @@ You can set the initial size of the shape from the "Options->Initial size of sha
 [See Elliptical selection and other shapes](#elliptical-selection-and-other-shapes)
 
 ##### Default shapes
-SQUARE, RECTANGLE, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, ROUNDED SQUARE, STAR, ARROWS, SOLID, CROSSES (for simple arrow see "Line / Simple arrow / Connected lines" chapter).  
+SQUARE, RECTANGLE, DIV, CIRCLE, ELLIPSE, TRIANGLE, ROUNDED RECT, ROUNDED SQUARE, STAR, ARROWS, SOLID, CROSSES (for simple arrow see "Line / Simple arrow / Connected lines" chapter).  
 ##### Custom shapes
 Drawish's custom shapes are polygons or vector curves defined in a text file.  
 This user-created file must be named "shapes.txt" and placed in the Drawish_Data folder.  
@@ -430,6 +434,11 @@ You can create rectangles, squares, circles and ellipses by entering data from t
 **Enter the center** as the shape coordinate.  
 You can draw the center of these shapes or not.  
 
+##### Div
+A div is a rectangular shape that stores its coordinates in a CSS string. It also aligns more easily with other divs.
+Each div generates a string.
+These can be used for any HTML element, not just divs.
+To obtain these strings, click the **[Div]** button in the top right: the generated strings will be copied to the clipboard. 
 
 #### Curved line
 Click the [curved line] button. You will be able to click on **6 points** of the image through which the bezier curve will pass.    
@@ -553,6 +562,7 @@ ALT    |    -   |   SELECTION TO IMAGE
 ALT    |    R   |   REATTACH CROPPED IMAGE   
 ALT    |    T   |   OPEN STRETCH AREA  
 ALT    |    S   |   OPEN SIZE WINDOW  
+ALT    |    <   |   DRAW TEXT
 F1     |        |   SET RESTORE POINT  
 F12    |        |   RESTORE  
 1      |        |   ZOOM 100 %  
@@ -562,10 +572,10 @@ F12    |        |   RESTORE
 5      |        |   ZOOM 50 %  
 6      |        |   ZOOM 30 %  
 
-MOVE SELECTION OR CAMERA  
+**MOVE SELECTION OR CAMERA**  
       A, S, W, Z = LEFT,RIGHT,TOP, BOTTOM  
   
-WRITE WITH PEN  
+**WRITE WITH PEN**  
        Q = TOP-LEFT  
        W = TOP  
        E = TOP-RIGHT  
@@ -576,11 +586,11 @@ WRITE WITH PEN
        X = BOTTOM-RIGHT   
  
 
-
 ### Limitations
 This program was not originally designed for drawing, but for other image operations.  
-The limited undo and lag on very large images will be addressed in a major update.  
-You can still draw fluidly on large images with cropping options [here](#selection-to-image-crop-and-reattach) and [here](#viewport-to-image).  
+The limited undo and lag on very large images will be addressed in a major update (probably in 2027).  
+You can still draw fluidly on large images with [detach/reattach options](#viewport-to-image).  
+*Version 2.9 is expected to be the last one of 2026*
 To add new languages ​​contact me.  
 > If you don't see the pen icons correctly, follow the instructions in the .fontconfig file.
 > 
