@@ -79,7 +79,7 @@ Is a program for basic drawing, open pdf as images, draw using the keyboard, use
 The compiled program for Linux can be downloaded from the [releases](https://github.com/nikkNizz/Drawish/releases) page of this project.  
 Once the program is open you can create a quick link: from the [File -> Add to menu] menu, a menu item is created in Linux.
 
-### COMPILE FROM SOURCE
+### COMPILE FROM SOURCE (version 3.0)
 Download and unzip the project.  
 Give the following commands from the terminal (instructions for Debian derivatives):
 
