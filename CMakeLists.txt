@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required(VERSION 3.5)
 
-project(Drawish VERSION 2.9 LANGUAGES CXX)
+project(Drawish VERSION 3.0 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -76,6 +76,8 @@ set(PROJECT_SOURCES
         bezierpoint.cpp
         bezierpoint.h
         Drawish.qrc
+    
+     
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
