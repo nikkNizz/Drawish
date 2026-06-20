@@ -1,1 +1,41 @@
+​Version 3.0 compared to 2.9 mainly brings restyling, bug fixes, improvements and new options.
+🟠------------------------------------------------------------------------------------------​🟠​
+
+✴️​Restyling
+  New icons  
+  Created specific menu for selection  
+  Moved some items between menus  
+  Insert slider instead of spinbox  
+   
+✴️​BugFix
+  Faster pen drawing on large images  
+  Files with the same name are no longer overwritten automatically, but after confirmation  
+  Maintain transparency when resizing canvas  
+  Fill by similarity even with already similar fill color  
+  The grid to display the pixels is now centered and overlapped  
+  Linear stretching no longer loses pixels  
+  Fewer shell warnings  
+  The Windows version, fixes some GUI and fill issues.  
+  
+✴️​Improvements
+   Selection or image scaling and zooming out, have better quality  
+   Improved similarity fill  
+   The properties of shapes and lines are changed immediately  
+   The grid for displaying pixels is larger  
+   Improved arrow shapes  
+   If you press delete to clear the selection, the selection area is also deleted  
+   Text box appears without clicking the canvas  
+   Right click on text box, draw text (removed Alt+< shortcut)  
+   w and h label toolTip show total image size
+   On large images appears the button for "View to image" function
+   The pencil takes the active color not just the grey
+   Small improvements to blur and smudge pen
+
+✴️​More options
+   Anti-aliasing option
+   Selection transparency adjustment
+   Choice between round or square tip of the line
+   More options for mouse correction 
+   Configurable number of undos
+   Option to delete text into textbox after drawing
 
