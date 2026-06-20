@@ -590,5 +590,6 @@ F12    |        |   RESTORE
        S = RIGHT  
        < = BOTTOM-LEFT  
        Z = BOTTOM  
-       X = BOTTOM-RIGHT   
+       X = BOTTOM-RIGHT    
+       
  
