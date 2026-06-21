@@ -218,7 +218,7 @@ To finish and pasting the selection, click on a point on the image.
 
 ##### Add transparency to selection
 Move the slider that appears above the drawing area to adjust the transparency of the selection. For best results, deselect "transparent selection".  
-[V I D E O]("https://drive.google.com/file/d/1lJ8qvt9NsjJXdB1IasCZgcNrVq5i4FNj/view?usp=sharing")
+[video]("https://drive.google.com/file/d/1lJ8qvt9NsjJXdB1IasCZgcNrVq5i4FNj/view?usp=sharing")
 
 ##### Stamp selection
 To copy the portion **without detaching it** (stamp), select it and, before moving it, go to the "Selection->copy selection (no clipboard) " menu, or press **+** on your keyboard or ctrl + .[video](https://drive.google.com/file/d/1alyWbxNFMmkrCe9LdzwMfs9mlOMdrbnr/view?usp=sharing).  
