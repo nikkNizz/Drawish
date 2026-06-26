@@ -5,8 +5,10 @@
 
 zoomArea::zoomArea(QWidget *parent)  : QLabel{parent}
 {
-    ax = sizes::selX -8;  // initial position
-    ay = sizes::selY -8;
+    ax = sizes::selX -14;  // initial position fix 3.1
+    ay = sizes::selY -14;
+    if( ax < 0) ax = 0;
+    if( ay < 0) ay = 0;
 }
 
 void zoomArea::mousePressEvent(QMouseEvent *event)
