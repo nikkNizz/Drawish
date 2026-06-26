@@ -352,6 +352,7 @@ To get connected lines click on the points to connect.
 To make the lines dashed, check the "Options->Dot lines" menu.  
 To draw lines or arrows with semi-transparency select the relevant button (top bar).  
 To draw with anti-aliasing check the the "Options->Anti-aliasing" menu.  
+To draw the line with a round cap (recommended for arrows) check the "Options->Line round cap" menu.  
 [video](https://drive.google.com/file/d/1xDCIhNvCQ9SZ1TJxyDVihvgfJdfaOZRE/view?usp=sharing)
 
 ##### Adjust the angle of the line
