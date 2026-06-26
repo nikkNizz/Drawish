@@ -43,7 +43,7 @@
 #include <QSysInfo>
 #include <qpainterpath.h>
 
-// 3.0  see github /new/what
+// 3.0  3.1
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -51,7 +51,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "3.0";
+    version_info = "3.1";
 
     setGeometry(50,80,790,487);
 
