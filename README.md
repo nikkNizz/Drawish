@@ -156,7 +156,7 @@ pending operations will be deleted.
 To save in jpg, ico, bmp, ppm, xbm or xpm format, choose the extension from the "format" box that appears. 
 You can set a **default folder** for the file picker: "File ->Default path for file picker".
 ##### Save to Pdf
-You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" or in home folder.  
+You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data" or in home folder. Layout of very large images is automatic.  
 ##### Base64
 For base64 format, see "Camera" chapter.  
 ##### Auto save
@@ -171,6 +171,7 @@ The operations will be performed in the order in which they are listed.
 
 #### Open Pdf
 It is possible to open pdf as images, dragging them onto the drawing area, or from the menu, or from the command line.   
+You will be asked for the page number to edit.  
 In windows the quality is reduced.   
 In Linux the image is real, thanks to the poppler-utils generally preinstalled. If they are not present, install them with your package manager.  
 
