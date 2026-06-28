@@ -1,6 +1,6 @@
 # Drawish  3.0
 *Download the HTML handbook from* [here](https://github.com/nikkNizz/Drawish/releases)  
-[*Changelog*](https://github.com/nikkNizz/Drawish/blob/main/new/whats)  
+[*Change Log*](https://github.com/nikkNizz/Drawish/blob/main/new/whats)  
 It's a drawing program with many options, including opening PDFs as images, drawing using the keyboard, saving portions of a "camera" view, creating custom shapes, applying transparency, and much more..   
 
 ![image](https://github.com/nikkNizz/Drawish/blob/main/new/draw1.png)  
