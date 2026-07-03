@@ -398,6 +398,8 @@ private slots:
     QColor fav = Qt::white;
     QColor lastColor = QColor(255, 128,0);
     QPixmap freeSelPix; // for freehand selection && SMUDGE PEN
+    QList <QPoint> penPath;
+    void createPenPath();
     bool passPath = false;
     int nextLabel =0;
     int countChanges =0;
