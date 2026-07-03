@@ -152,6 +152,7 @@ void shapeArea::drawSomething()
         QPixmap npix(sizes::selW, sizes::selH);
         npix.fill(QColor(255,255,255,0));
         QPainter p(&npix);
+        p.setRenderHint(QPainter::Antialiasing, sizes::aliasing);
         QPen pen2(sizes::activeColor);
         pen2.setWidth(sizes::line_width); // * Zoom
         pen2.setCapStyle(Qt::RoundCap);
@@ -162,12 +163,10 @@ void shapeArea::drawSomething()
         int xShape = sizes::line_width/2;
         if(sizes::activeShape == "squ"){
             int side = (sizes::selW < sizes::selH) ? sizes::selW : sizes::selH;
-            //p.drawRect(sizes::line_width+2, sizes::line_width+2, side-14-sizes::line_width, side-14-sizes::line_width);
             p.drawRect(xShape+1, xShape+1, side-sizes::line_width-4, side-sizes::line_width-4);
 
         }
         else if(sizes::activeShape == "rec"){
-           // p.drawRect(sizes::line_width+2, sizes::line_width+2, ww-14-sizes::line_width, hh-14-sizes::line_width);
             p.drawRect(xShape+1, xShape+1, ww-sizes::line_width-4, hh-sizes::line_width-4);
         }
         else if(sizes::activeShape == "div"){
