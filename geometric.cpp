@@ -45,6 +45,6 @@ bool sizes::shapeToCurve = false;
 bool sizes::lineAngleIndicator = true;
 bool sizes::roundAngle = false;
 bool sizes::lineRound = true;
-bool sizes::aliasing = false;
+bool sizes::aliasing = true;
 bool sizes::semitrasp = false;
 int sizes::penType = 0;
