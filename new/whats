@@ -39,3 +39,11 @@
    Configurable number of undos
    Option to delete text into textbox after drawing
 
+🔵​------------------------------------------------------------------------------------------​🔵​
+Version 3.1
+🔵​------------------------------------------------------------------------------------------​🔵​
+   Fixed error in coordinates returned by zoomed matrix 
+   The anti-aliasing option is set by default
+   Anti-aliasing applied immediately to shapes
+   Shape fill style applied immediately
+   Smudge changes
