@@ -1,4 +1,4 @@
-# Drawish  3.1
+# Drawish  3.2
 *Download the HTML handbook from* [here](https://github.com/nikkNizz/Drawish/releases)  
 [*Change Log*](https://github.com/nikkNizz/Drawish/blob/main/new/whats)  
 It's a drawing program with many options, including opening PDFs as images, drawing using the keyboard, saving portions of a "camera" view, creating custom shapes, applying transparency, and much more..   
@@ -227,6 +227,7 @@ To copy the portion **without detaching it** (stamp), select it and, before movi
 ##### Selection and keyboard
 You can create a selection by entering the coordinates from the keyboard from the "Sizes->Sizes->[Create selection]" menu.  
 To move the selection finely with the keyboard use the A (left), Q or W (up), S (right), Z or X (down) keys.  
+For copy/paste you can use Ctrl+C and Ctrl+V keys.  
 To delete the selection, press the **del** key on the keyboard.This will also destroy the area.  
 
 ##### Pixel to active color in selection
@@ -553,6 +554,8 @@ From the "File->New window" menu you can open a new instance of Drawish.
 --------|--------|----------------------------------------------|
 CTRL   |    Z   |   UNDO  
 CTRL   |    R   |   REDO  
+CTRL   |    C   |   COPY SELECTION TO CLIPBOARD  
+CTRL   |    V   |   PASTE FROM CLIPBOARD  
 \+     |        |   COPY SELECTION (NO CLIPBOARD)  
 CTRL   |    +   |   COPY SELECTION (NO CLIPBOARD)  
 ALT    |    A   |   SELECT ALL  
