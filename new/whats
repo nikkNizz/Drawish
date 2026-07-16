@@ -47,3 +47,12 @@ Version 3.1
    Anti-aliasing applied immediately to shapes
    Shape fill style applied immediately
    Smudge changes
+
+🔵​------------------------------------------------------------------------------------------​🔵​
+Version 3.2
+🔵​------------------------------------------------------------------------------------------​🔵​
+   Added word wrap in text area
+   Added Ctrl+C  Ctrl+V
+   Different colors in outline
+   Restyle rtf editor
+   Bug fix
