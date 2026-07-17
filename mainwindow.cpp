@@ -46,7 +46,7 @@
 // 3.2  when shape to selection swich to selection mode; improved text area and word wrap;
 // when pick color change extra color button; added ctrl+V ctrl+C ;
 // different colors in outline;  bugfix in draw shape when zoom; bugfix in quadruple/divide
-// restyle rtf editor ;
+// restyle rtf editor ; bug fix fav colors path
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -54,7 +54,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    version_info = "3.2";
+    version_info = "3.2.1";
 
     setGeometry(50,80,790,487);
 
