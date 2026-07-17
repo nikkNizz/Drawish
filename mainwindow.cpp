@@ -4048,7 +4048,7 @@ void MainWindow::on_prefColorButton_clicked()
 
 void MainWindow::on_actionPick_color_from_an_image_triggered()
 {
-    if(QFile::exists(QDir::homePath() + "/Drawish_Data/drawish_saved_colors.png")){
+    if(QFile::exists(QDir::homePath() + "/Drawish_Data/drawish_3_fav_colors.png")){
         QPixmap paletteImg(QDir::homePath() + "/Drawish_Data/drawish_3_fav_colors.png");
         PickPalette pickPalette(paletteImg);
         pickPalette.exec();
