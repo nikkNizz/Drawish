@@ -1,4 +1,23 @@
-​Version 3.0 compared to 2.9 mainly brings restyling, bug fixes, improvements and new options.
+🔵​------------------------------------------------------------------------------------------​🔵​
+Version 3.2
+🔵​------------------------------------------------------------------------------------------​🔵​
+   Added word wrap in text area
+   Added Ctrl+C  Ctrl+V
+   Different colors in outline
+   Restyle rtf editor
+   Bug fix​
+
+🔵​------------------------------------------------------------------------------------------​🔵​
+Version 3.1
+🔵​------------------------------------------------------------------------------------------​🔵​
+   Fixed error in coordinates returned by zoomed matrix 
+   The anti-aliasing option is set by default
+   Anti-aliasing applied immediately to shapes
+   Shape fill style applied immediately
+   Smudge changes
+
+🟠------------------------------------------------------------------------------------------​🟠
+Version 3.0 compared to 2.9 mainly brings restyling, bug fixes, improvements and new options.
 🟠------------------------------------------------------------------------------------------​🟠​
 
 ✴️​Restyling
@@ -39,20 +58,6 @@
    Configurable number of undos
    Option to delete text into textbox after drawing
 
-🔵​------------------------------------------------------------------------------------------​🔵​
-Version 3.1
-🔵​------------------------------------------------------------------------------------------​🔵​
-   Fixed error in coordinates returned by zoomed matrix 
-   The anti-aliasing option is set by default
-   Anti-aliasing applied immediately to shapes
-   Shape fill style applied immediately
-   Smudge changes
 
-🔵​------------------------------------------------------------------------------------------​🔵​
-Version 3.2
-🔵​------------------------------------------------------------------------------------------​🔵​
-   Added word wrap in text area
-   Added Ctrl+C  Ctrl+V
-   Different colors in outline
-   Restyle rtf editor
-   Bug fix
+
+
