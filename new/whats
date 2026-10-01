@@ -1,4 +1,23 @@
 🔵​------------------------------------------------------------------------------------------​🔵​
+Version 3.3
+🔵​------------------------------------------------------------------------------------------​🔵​
+Modified text box
+Added custom pen
+Added selection as brush
+Added 4-point curve
+Added centered text alignment
+Added background image for RTF editor
+Added paste as pattern
+Added 'resize and center' function
+Added PDF folder
+Added save options
+Removed div shape
+Increased number of recent files
+Added French and Spanish translations using online translators
+Improvements
+Bug fixes
+
+🔵​------------------------------------------------------------------------------------------​🔵​
 Version 3.2
 🔵​------------------------------------------------------------------------------------------​🔵​
    Added word wrap in text area
