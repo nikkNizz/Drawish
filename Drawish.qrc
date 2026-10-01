@@ -45,7 +45,12 @@
         <file>res/newWindow.png</file>
         <file>res/strasp.png</file>
         <file>res/it_lang.qm</file>
+        <file>res/fr_lang.qm</file>
+        <file>res/es_lang.qm</file>
         <file>res/listcolors.txt</file>
+        <file>res/alignLeft.png</file>
+        <file>res/alignCenter.png</file>
+        <file>res/folder.png</file>
         <file>res/pens/dark.png</file>
         <file>res/pens/digitalM.png</file>
         <file>res/pens/eras1.png</file>
@@ -60,6 +65,6 @@
         <file>res/pens/smudge.png</file>
         <file>res/pens/square.png</file>
         <file>res/pens/spray.png</file>
-        
+        <file>res/pens/custom.png</file>
     </qresource>
 </RCC>

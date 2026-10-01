@@ -25,7 +25,7 @@ signals:
     void redraw();
     void penDraw();
     void drawFirstPoint();
-    //void finishDrawPen();
+    void drawText();
     void readyToFill();
     void getColor();
     void setInfo();
@@ -46,7 +46,7 @@ private slots:
     bool rightPressed=false;
     int six =0;
     QMenu *menu;
-    QAction *Paste; QAction *Zoomy;
+    QAction *Paste; QAction *Zoomy; QAction *Pen;
 
 };
 

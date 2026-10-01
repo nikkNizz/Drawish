@@ -20,11 +20,12 @@ signals:
     void setInfo();
     void setCopy();
     void transpose();
-    void textDraw();
+    void setAsBrush();
 
 private slots:
     void createActions();
     void copyClip();
+    void useAsBrush();
 
 
 private:
@@ -33,7 +34,8 @@ private:
     int preX, preY;
     int diffx, diffy;
     QMenu *menu;
-    QAction *copy; QAction *clear;
+    QAction *copy; QAction *clear; QAction *asBrush;
+    bool USEasBRUSH = false;
 
 
 };

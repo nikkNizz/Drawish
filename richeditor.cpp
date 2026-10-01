@@ -4,6 +4,7 @@
 #include "fileio.h"
 #include <QColorDialog>
 #include <qfiledialog.h>
+#include <QMessageBox>
 
 
 richEditor::richEditor(QWidget *parent) :
@@ -11,12 +12,8 @@ richEditor::richEditor(QWidget *parent) :
     ui(new Ui::richEditor)
 {
     ui->setupUi(this);
-    ui->textEdit->setStyleSheet("background-color=#ffffff");
+    ui->textEdit->setStyleSheet("background-color:#ffffff");
     ui->textEdit->setHtml(sizes::savedRtf);
-#ifdef Q_OS_WIN
-    ui->blackButton->setStyleSheet("background-color: black");
-    ui->whiteButton->setStyleSheet("background-color: white");
-#endif
 }
 
 richEditor::~richEditor()
@@ -97,6 +94,12 @@ void richEditor::on_bgcolorButton_clicked()
     mergeFormatOnWordOrSelection(fmt);
 }
 
+void richEditor::on_removeBackground_clicked()
+{
+    QTextCharFormat fmt;
+    fmt.setBackground(Qt::transparent);
+    mergeFormatOnWordOrSelection(fmt);
+}
 
 
 void richEditor::on_ClearBtn_clicked()
@@ -149,6 +152,39 @@ void richEditor::on_saveButton_clicked()
     fio.createFile(ui->textEdit->toHtml(), f);
 }
 
+
+
+void richEditor::on_alignLeftBtn_clicked()
+{
+    ui->textEdit->setAlignment(Qt::AlignLeft);
+}
+
+
+void richEditor::on_alignCenterBtn_clicked()
+{
+    ui->textEdit->setAlignment(Qt::AlignCenter);
+}
+
+
+void richEditor::on_pushButton_clicked() // image as background textbox
+{
+    QFileDialog dialog(this);
+    QString f =dialog.getOpenFileName(this, tr("Drawish...Select image") );
+    if(f == ""){return;}
+
+    QPixmap npix = QPixmap(f);
+        if(npix.isNull()){ QMessageBox::information(this, "Drawish", tr("Unsupported file"));
+            return;
+        }
+     ui->textEdit->setStyleSheet("background-image: url(" + f + ")");
+
+}
+
+
+void richEditor::on_pushButton_2_clicked()  // white background textbox
+{
+     ui->textEdit->setStyleSheet("background-color:#ffffff");
+}
 
 
 

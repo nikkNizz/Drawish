@@ -331,7 +331,7 @@ void stretchView::stretch()
         pix1 = sPix.copy(0, 0, x1, sPix.height());
         pix2 = sPix.copy(x1, 0, sPix.width() - x1, sPix.height());
         diffDim = abs(y1 - sPix.height());
-        perc = double(diffDim) / double(sPix.height());
+        perc = double(y1) / double(sPix.height());
         perc = perc / 4;
 
     }else{
@@ -344,9 +344,9 @@ void stretchView::stretch()
     }
     //----------------
     if(data == "vert_top_up"){        
-        transform.shear(0.0, -perc);
+        transform.shear(0.0, perc);
         QRect rect1 = transform.mapRect(pix1.rect());
-        transform2.shear(0.0, perc);
+        transform2.shear(0.0, -perc);
         QRect rect2 = transform2.mapRect(pix2.rect());
         shearedPix = QPixmap(rect1.width() +rect2.width(), qMax(rect1.height(), rect2.height()));
         shearedPix.fill(Qt::transparent);

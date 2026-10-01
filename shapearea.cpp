@@ -44,10 +44,7 @@ void shapeArea::mouseMoveEvent(QMouseEvent *event)
         if(whereExp == "move"){
            sizes::selX  = event->globalPosition().x()-diffx;
            sizes::selY  = event->globalPosition().y()-diffy;
-           if(sizes::activeShape == "div"){
-               sizes::selX = (sizes::selX/6) *6;
-               sizes::selY = (sizes::selY/6) *6;
-           }
+           setFrameStyle(QFrame::NoFrame);
            resetGeometry();
 
         }
@@ -99,7 +96,8 @@ void shapeArea::mouseReleaseEvent(QMouseEvent *event)
     sizes::shape_x_end = preX;
     sizes::shape_y_end = preY;
     preX=0;
-    preY=0;    
+    preY=0;
+    setFrameStyle(QFrame::Box | QFrame::Raised);
     emit setInfo();
 }
 
@@ -107,8 +105,12 @@ void shapeArea::redrawForCopy()
 {
     int a = sizes::FillStyle;
     sizes::FillStyle = 1;
+    // no anti-aliasing
+    bool al = sizes::aliasing;
+    if(al) sizes::aliasing = false;
     drawSomething();
     sizes::FillStyle = a;
+    sizes::aliasing = al;
 }
 
 void shapeArea::resetGeometry(bool redraw)
@@ -149,6 +151,7 @@ QBrush shapeArea::bru()
 void shapeArea::drawSomething()
 {
     if(this->width() < 5 || this->height() < 5)return;
+
     int ww = this->width();
     int hh = this->height();
     if(sizes::activeOperation ==8){
@@ -172,19 +175,16 @@ void shapeArea::drawSomething()
 
         int xShape = sizes::line_width/2;
         if(sizes::activeShape == "squ"){
-            int side = (sizes::selW < sizes::selH) ? sizes::selW : sizes::selH;
-            p.drawRect(xShape+1, xShape+1, side-sizes::line_width-4, side-sizes::line_width-4);
+            int side = (sizes::selW < sizes::selH) ? ww : hh;
+            p.drawRect(xShape, xShape, side-sizes::line_width-4, side-sizes::line_width-4);
 
         }
         else if(sizes::activeShape == "rec"){
-            p.drawRect(xShape+1, xShape+1, ww-sizes::line_width-4, hh-sizes::line_width-4);
+            p.drawRect(xShape, xShape, ww-sizes::line_width-4, hh-sizes::line_width-4);
         }
-        else if(sizes::activeShape == "div"){
-            p.drawRect(xShape+1, xShape+1, ww-sizes::line_width-4, hh-sizes::line_width-4);
 
-        }
         else if(sizes::activeShape == "cir"){
-            int side = (sizes::selW < sizes::selH) ? sizes::selW : sizes::selH;
+            int side = (sizes::selW < sizes::selH) ? ww : hh;
             p.drawEllipse(sizes::line_width+2, sizes::line_width+2, side-14-sizes::line_width, side-14-sizes::line_width);
         }
         else if(sizes::activeShape == "ell"){
@@ -209,7 +209,7 @@ void shapeArea::drawSomething()
             p.drawRoundedRect(sizes::line_width+2, sizes::line_width+2, ww-14-sizes::line_width, hh-14-sizes::line_width, 12,12);
         }
         else if(sizes::activeShape == "rsq"){
-            int side = (sizes::selW < sizes::selH) ? sizes::selW : sizes::selH;
+            int side = (sizes::selW < sizes::selH) ? ww : hh ;
             p.drawRoundedRect(sizes::line_width+2, sizes::line_width+2, side-14-sizes::line_width, side-14-sizes::line_width, 12,12);
         }
         else if(sizes::activeShape == "sta"){
@@ -411,7 +411,7 @@ void shapeArea::drawSomething()
         else if(sizes::activeShape == "sol"){
 
             QPoint p1(sizes::line_width +2, hh-sizes::line_width-2);
-            QPoint p2(sizes::line_width +2, hh *0.3);
+            QPoint p2(sizes::line_width +2, (hh *0.3));
             QPoint p3(ww*0.3, sizes::line_width+2);
             QPoint p4(ww-sizes::line_width-2, sizes::line_width+2);
             QPoint p5(ww -sizes::line_width-2 , hh*0.7);

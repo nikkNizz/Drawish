@@ -10,13 +10,22 @@
 
 curveLineArea::curveLineArea(QWidget *parent, double zoomy, int transp)  : QLabel{parent}
 {
+    bez1 = NULL;
+    bez2 = NULL;
+    bez3 = NULL;
+    bez4 = NULL;
+    bez5 = NULL;
+    bez6 = NULL;
   resetGeometry();
+    tPix = QPixmap(this->size());
+    tPix.fill(QColor(255,255,255,0));
   countClicks =0;
   Zoom = zoomy;
   trsp = transp;
   infoDeg = new QLabel(this);
   infoDeg->setGeometry(0,0, 1, 1);
   infoDeg->setFont(QFont("Helvetica", 10, 700));
+
 
 }
 
@@ -75,13 +84,14 @@ void curveLineArea::mousePressEvent(QMouseEvent *event)
             bez4 = new bezierPoint(this, event->pos().x(), event->pos().y(), "4");
             connect(bez4, SIGNAL(curving()), this, SLOT(Curving()));
             bez4->show();
+            if(!sizes::bezierPointsTo6) Curving();
         }
-        else if(countClicks == 4){
+        else if(countClicks == 4 && sizes::bezierPointsTo6){
             bez5 = new bezierPoint(this, event->pos().x(), event->pos().y(), "5");
             connect(bez5, SIGNAL(curving()), this, SLOT(Curving()));
             bez5->show();
         }
-        else if(countClicks == 5){
+        else if(countClicks == 5 && sizes::bezierPointsTo6){
             bez6 = new bezierPoint(this, event->pos().x(), event->pos().y(), "X");
             connect(bez6, SIGNAL(curving()), this, SLOT(Curving()));
             bez6->show();
@@ -95,8 +105,8 @@ void curveLineArea::mousePressEvent(QMouseEvent *event)
                 delete bez2; bez2 = NULL;
                 delete bez3; bez3 = NULL;
                 delete bez4; bez4 = NULL;
-                delete bez5; bez5 = NULL;
-                delete bez6; bez6 = NULL;
+                if(bez5 != NULL){   delete bez5; bez5 = NULL;}
+                if(bez6 != NULL){   delete bez6; bez6 = NULL;}
                 emit finishCurve();
             }
         }
@@ -203,20 +213,21 @@ void curveLineArea::mouseMoveEvent(QMouseEvent *event)
     QPen pen= createPen(sizes::lineRound);
     p.setPen(pen);
     // find angle--------------------------------------------------
-    int basisLen = abs(startPoint.x() - endPoint.x());  // cosine
-    int heightLen = abs(startPoint.y() - endPoint.y());  // sin
-    double tan = double(basisLen) / double(heightLen);    // tan
+    double basisLen = abs(startPoint.x() - endPoint.x());  // cosine
+    double heightLen = abs(startPoint.y() - endPoint.y());  // sin
+    double tan = basisLen / heightLen;    // tan
     double atan = qAtan(tan);     // opposite tan in radians
     double deg = qRadiansToDegrees(atan);   // radians to deg.
     // ------------------------------------------------------------
+    deg = abs(deg-90.00);
+    int dirx = endPoint.x() -  startPoint.x() ;
+    int diry = endPoint.y() - startPoint.y() ;
+    if(dirx >= 0 && diry >= 0 ){deg = 360.0- deg;}
+    else if(dirx <= 0 && diry >= 0){deg = deg +180.0;}
+    else if(dirx <= 0 && diry <= 0){deg = 180.0-deg;}
+    //-----------------------
     if(sizes::isArrow == false){
-        if(sizes::roundAngle){
-            deg = abs(deg-90.00);
-            int dirx = endPoint.x() -  startPoint.x() ;
-            int diry = endPoint.y() - startPoint.y() ;
-            if(dirx > 0 && diry > 0 ){deg = 360.0- deg;}
-            else if(dirx < 0 && diry > 0){deg = deg +180.0;}
-            else if(dirx < 0 && diry < 0){deg = 180.0-deg;}
+        if(sizes::roundAngle){            
             int iDeg = deg/5;
             iDeg *=5;
             // find line length            
@@ -232,31 +243,24 @@ void curveLineArea::mouseMoveEvent(QMouseEvent *event)
             p.drawLine(startPoint, endPoint);
         }
         if(sizes::lineAngleIndicator){
-            deg = abs(deg-90.00);
+            deg = abs(deg);
             infoDeg->setGeometry(endPoint.x()+18, endPoint.y(), 170, 20);
             infoDeg->setText(QString::number(deg, 'g', 3) + "°  H(" + QString::number(basisLen) + ") V(" + QString::number(heightLen) + ")");
         }
     }
     else{
-
         double flen = sqrt(basisLen*basisLen + heightLen*heightLen);  // hypotenuse (equal to length arrow)
         int len = flen *0.25;   // length of arrowhead
         QLineF lf, lf1, lf2;
 
         lf = QLine(startPoint, endPoint);
 
-         if(startPoint.x() <= endPoint.x() && startPoint.y() >= endPoint.y() ){ deg += 90;} // top right
-         else if(startPoint.x() >= endPoint.x() && startPoint.y() >= endPoint.y() ){ deg = 90-deg  ;} // top left
-         else if(startPoint.x() <= endPoint.x() && startPoint.y() <= endPoint.y() ){ deg = 270-deg;} // bott right
-         else if(startPoint.x() >= endPoint.x() && startPoint.y() <= endPoint.y() ){ deg = deg-90;} // bott left
-
-
         lf1.setP1(endPoint);
-        lf1.setAngle(-deg+15);
+        lf1.setAngle(deg+195.00); // deg + 180 +15
         lf1.setLength(len);
 
         lf2.setP1(endPoint);
-        lf2.setAngle(-deg-15);
+        lf2.setAngle(deg+165.00);  // deg + 180-15
         lf2.setLength(len);
 
         QList <QLineF> listlines;
@@ -314,13 +318,17 @@ void curveLineArea::mouseReleaseEvent(QMouseEvent *event)
 void curveLineArea::resetGeometry()
 {
   this->setGeometry(0, 0, sizes::areaWidth-8, sizes::areaHeight-8);
-  tPix = QPixmap(this->size());
-  tPix.fill(QColor(255,255,255,0));
+    if(bez3 != NULL && !sizes::bezierPointsTo6){ Curving();}
+    if(bez5 != NULL) Curving();
+    if(sizes::activeOperation == 7 || sizes::activeOperation == 10 || sizes::activeOperation == 11){
+        tPix = QPixmap(this->size());
+        tPix.fill(QColor(255,255,255,0));
+    }
 }
 
 void curveLineArea::Curving()
 {
-    if(countClicks > 4){
+    //if(countClicks > 4){
         tPix =QPixmap(this->width(), this->height());
         tPix.fill(QColor(255,255,255,0));
         QPainter p(&tPix);
@@ -334,9 +342,9 @@ void curveLineArea::Curving()
         centerPoint2 = QPoint(bez3->x(), bez3->y());
         endPoint = QPoint(bez4->x(), bez4->y());
         pp.cubicTo(centerPoint1, centerPoint2, endPoint);
-
         p.drawPath(pp);
 
+        if(bez5 != NULL){
         int axx = endPoint.x() + (endPoint.x() - centerPoint2.x())/2;
         int ayy = endPoint.y() + (endPoint.y() - centerPoint2.y())/2;
         startPoint = endPoint;
@@ -346,9 +354,10 @@ void curveLineArea::Curving()
         pp.moveTo(startPoint);
         pp.cubicTo(centerPoint1, centerPoint2, endPoint);
         p.drawPath(pp);
+        }
         this->setPixmap(tPix);
         p.end();
-    }
+   // }
 }
 
 QPen curveLineArea::createPen(bool round)

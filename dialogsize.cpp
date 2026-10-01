@@ -139,6 +139,9 @@ void DialogSize::on_resizeButton_clicked()
     pixWW = ui->newWidth_lineEdit->text().toInt();
     pixHH = ui->newHeight_lineEdit->text().toInt();
     returned = 1;
+    if(ui->centerCheck->isChecked()){
+        returned = 4;
+    }
     saveSelData();
     close();
 }

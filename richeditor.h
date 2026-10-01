@@ -44,6 +44,16 @@ private slots:
     void on_bgcolorButton_clicked();
 
 
+    void on_alignLeftBtn_clicked();
+
+    void on_alignCenterBtn_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_removeBackground_clicked();
+
 protected:
     void resizeEvent(QResizeEvent *event) override;
 

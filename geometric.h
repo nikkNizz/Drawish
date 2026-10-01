@@ -42,6 +42,7 @@ struct sizes
   static int init_h_shape;
   static int curveStretch;
   static QString savedRtf;
+  static QString savedTxt;
   static int mouseCorrection;
   static bool isArrow;
   static bool isRotating;
@@ -58,7 +59,7 @@ struct sizes
   static bool aliasing;
   static bool semitrasp;
   static int penType;
-
+  static bool bezierPointsTo6;
 };
 
 #endif // GEOMETRIC_H

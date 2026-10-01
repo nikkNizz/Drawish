@@ -16,7 +16,7 @@ class StretchDialog : public QDialog
 public:
     explicit StretchDialog(QWidget *parent = nullptr, QPixmap ePix= QPixmap(200,170));
     ~StretchDialog();
-    QPixmap epix;
+    QPixmap epix, firstPix;
     int res;
 
 protected:
@@ -28,6 +28,8 @@ private slots:
     void on_cancelBtn_clicked();
 
     void on_checkBox_stateChanged(int arg1);
+
+    void on_back_clicked();
 
 private:
     Ui::StretchDialog *ui;

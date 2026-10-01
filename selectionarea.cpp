@@ -16,23 +16,20 @@ selectionArea::selectionArea(QWidget *parent)  : QLabel{parent}
     setMinimumWidth(5);
     setMinimumHeight(5);
     setWordWrap(true);
+    sizes::shape_x_begin = -1; // use as control value (selection as brush)
     resetGeometry();
     createActions();
     menu =new QMenu(this);
     menu->addAction(copy);
+    menu->addAction(asBrush);
     menu->addAction(tr("Cancel"));
 
 }
 
 void selectionArea::mousePressEvent(QMouseEvent *event)
 {
-    if(event->button()== Qt::RightButton){
-        if(sizes::activeOperation == 2){
-            emit textDraw();
-        }
-        else{
-        menu->exec((QPoint(event->globalPosition().x(),event->globalPosition().y())));
-        }
+    if(event->button()== Qt::RightButton){        
+        menu->exec((QPoint(event->globalPosition().x(),event->globalPosition().y())));        
     }
     else{
     pressed= true;
@@ -62,7 +59,11 @@ void selectionArea::mouseMoveEvent(QMouseEvent *event)
         if(whereExp == "move"){
            sizes::selX  = event->globalPosition().x()-diffx;
            sizes::selY  = event->globalPosition().y()-diffy;
-           if(sizes::activeOperation != 2) setFrameStyle(QFrame::NoFrame);
+           setFrameStyle(QFrame::NoFrame);
+
+           if(USEasBRUSH) {
+               emit setAsBrush();
+           }
         }
         else if(whereExp== "top" && preY > y){
            sizes::selY-=2;
@@ -126,8 +127,10 @@ void selectionArea::mouseMoveEvent(QMouseEvent *event)
 void selectionArea::mouseReleaseEvent(QMouseEvent *event)
 {
     pressed = false;
+    USEasBRUSH = false;
     preX=0;
     preY=0;
+    sizes::shape_x_begin = -1; // use as control value
     setFrameStyle(QFrame::Box | QFrame::Raised);
     emit setInfo();
 }
@@ -142,11 +145,18 @@ void selectionArea::createActions()
     copy =new QAction(tr("Copy"), this);
     connect(copy, SIGNAL(triggered()), this, SLOT(copyClip()));
 
+    asBrush = new QAction(tr("Set as a brush"), this);
+    connect(asBrush, SIGNAL(triggered()), this, SLOT(useAsBrush()));
 }
 
 void selectionArea::copyClip()
 {
     emit setCopy();
+}
+
+void selectionArea::useAsBrush()
+{
+    USEasBRUSH = true;
 }
 
 

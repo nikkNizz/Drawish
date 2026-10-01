@@ -19,6 +19,7 @@ class shapeArea;
 class curveLineArea;
 class zoomArea;
 class tracer;
+class labelText;
 
 
 class MainWindow : public QMainWindow
@@ -38,10 +39,11 @@ void closeEvent(QCloseEvent *ev) override;
 void resizeEvent(QResizeEvent *event) override;
 
 private slots:
-  void reSize(); // resize pix
+  void reSize(int origx=0, int origy =0); // resize pix
   void areaSize();
   void raiseBorders();
   void PlaceEdges();
+  QString getPathForSaving();
   void imgSave();
   bool overwriteImgExists(QString f);
   QString ChooseImg();
@@ -54,6 +56,8 @@ private slots:
   void removeSelectionBorder();
   void createSelectionFromRubb();
   void createSelection(bool fromUdo = false);
+  void slotsForSelection();
+  void drawSel();
   void drawCopy();
   void pasteImg(QPixmap passedPix);
   QPixmap addTransparency(QPixmap passedPix, int opacity, int red, int green, int blue);
@@ -61,7 +65,7 @@ private slots:
   void draw_first_point();
   void colorEraser();
   void eraseExcept();
-  //void showPix();
+  void draw_Text();
   void save_previous(QString tx="");
   QString selectionCoords();
   void fill_();
@@ -138,7 +142,7 @@ private slots:
 
   void on_transparentButton_clicked();
 
-  void on_confirmTextButton_clicked();
+  //void on_confirmTextButton_clicked();
 
   void on_addColorButton_clicked();
 
@@ -196,7 +200,7 @@ private slots:
 
   void on_comboBox_activated(int index);
 
-  void on_textEdit_textChanged();
+  //void on_textEdit_textChanged();
 
   void on_actionbase64_triggered();
 
@@ -334,11 +338,9 @@ private slots:
 
   void on_actionNew_window_triggered();
 
-  void on_pushButton_clicked();
+  //void on_pushButton_clicked();
 
   void on_actionPixel_to_active_color_in_selection_triggered();
-
-  void on_pushButton_div_clicked();
 
   void on_actionLine_angle_with_5_deg_step_triggered(bool checked);
 
@@ -371,6 +373,20 @@ private slots:
 
   void on_actionShow_button_view_toggled(bool arg1);
 
+  void on_action4_point_curve_instead_of_6_toggled(bool arg1);
+
+  void on_actionGrid_triggered();
+
+  void on_alignLeftButton_clicked();
+
+  void on_alignCenterButton_clicked();
+
+  void on_actionAs_tile_background_triggered();
+
+  void on_actionDrawish_Data_triggered();
+
+  void on_actionSave_as_custom_brush_triggered();
+
 
   private:
     Ui::MainWindow *ui;
@@ -383,6 +399,7 @@ private slots:
     QRect urect;
     QString activePathFile="";
     selectionArea *selectionRect=nullptr;
+    labelText *txtArea = nullptr;
     shapeArea *shape_area;
     curveLineArea *cl_area;
     saveCam *save_area;
@@ -398,7 +415,7 @@ private slots:
     QPixmap toRestore, preCropped;
     QColor fav = Qt::white;
     QColor lastColor = QColor(255, 128,0);
-    QPixmap freeSelPix; // for freehand selection && SMUDGE PEN
+    QPixmap freeSelPix; // for freehand selection && SMUDGE PEN &&
     QList <QPoint> penPath;
     void createPenPath();
     bool passPath = false;
@@ -418,8 +435,8 @@ private slots:
     //----------------
     bool customShapeLoaded = false;
     bool customShapeMsg = false;
-    //-----------------
-    QString divs = "";
+    //----------------
+    QString savedText = "";
 
 };
 #endif // MAINWINDOW_H

@@ -10,6 +10,7 @@ StretchDialog::StretchDialog(QWidget *parent, QPixmap ePix) :
     ui->setupUi(this);
     sizes::curveStretch = 0;
     res =0;
+    firstPix = ePix;
     sv = new stretchView(this, ePix);
     sv->show();
 }
@@ -42,4 +43,10 @@ void StretchDialog::on_checkBox_stateChanged(int arg1)
 }
 
 
+void StretchDialog::on_back_clicked()
+{
+    delete sv;
+    sv = new stretchView(this, firstPix);
+    sv->show();
+}
 

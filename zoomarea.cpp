@@ -5,10 +5,10 @@
 
 zoomArea::zoomArea(QWidget *parent)  : QLabel{parent}
 {
-    ax = sizes::selX -14;  // initial position fix 3.1
+    ax = sizes::selX -14;  // initial position
     ay = sizes::selY -14;
-    if( ax < 0) ax = 0;
-    if( ay < 0) ay = 0;
+    if(ax < 0) ax = 0;
+    if(ay < 0) ay = 0;
 }
 
 void zoomArea::mousePressEvent(QMouseEvent *event)
@@ -28,6 +28,7 @@ void zoomArea::mousePressEvent(QMouseEvent *event)
       wx += ax;
       hy += ay;
       QString kk = "Position ( " + QString::number(wx) + ", " + QString::number(hy) + " )\nRed:" + QString::number(k.red()) + " Green:" + QString::number(k.green()) + " Blue:" + QString::number(k.blue());
+      kk += tr("\n\nRight click to draw");
       QMessageBox msgBox;
       msgBox.setText(kk);
       msgBox.setInformativeText(tr("Set as active color?"));

@@ -24,7 +24,7 @@ void Area::mousePressEvent(QMouseEvent *event)
     }
     else if(event->button()== Qt::LeftButton){
         rightPressed = false;
-    if(sizes::isSelectionOn && sizes::activeOperation != 2 ){
+    if(sizes::isSelectionOn ){
         sizes::isSelectionOn = false;
         emit redraw();
     }
@@ -41,13 +41,9 @@ void Area::mousePressEvent(QMouseEvent *event)
 
     }
     }
-    // else if(sizes::activeOperation == 2 && sizes::isSelectionOn == false ){ // text
-    //     sizes::selX = event->pos().x();
-    //     sizes::selY = event->pos().y();
-    //     sizes::selH = 100.00;
-    //     sizes::selW = 210.00;
-    //     emit endRubber();   // reuse this
-    // }
+    else if(sizes::activeOperation == 2  ){ // text
+        emit drawText();
+    }
     else if(sizes::activeOperation == 3 ){
         sizes::selX = event->pos().x();
         sizes::selY = event->pos().y();
@@ -175,10 +171,11 @@ void Area::createMenu()
 void Area::createActions()
 {
     Paste =new QAction(tr("Paste"), this);
-   connect(Paste, SIGNAL(triggered()), this, SLOT(actPaste()));
+    connect(Paste, SIGNAL(triggered()), this, SLOT(actPaste()));
     Zoomy = new QAction(tr("Show/Hide Grid"));
-   connect(Zoomy, SIGNAL(triggered()), this, SLOT(actZoom()));
+    connect(Zoomy, SIGNAL(triggered()), this, SLOT(actZoom()));
 }
+
 
 void Area::actPaste()
 {

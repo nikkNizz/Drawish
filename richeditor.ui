@@ -78,9 +78,9 @@
   <widget class="QPushButton" name="ClearBtn">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>190</y>
-     <width>21</width>
+     <x>50</x>
+     <y>230</y>
+     <width>41</width>
      <height>25</height>
     </rect>
    </property>
@@ -181,7 +181,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>240</y>
+     <y>260</y>
      <width>121</width>
      <height>41</height>
     </rect>
@@ -312,7 +312,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>130</y>
+     <y>160</y>
      <width>91</width>
      <height>24</height>
     </rect>
@@ -363,16 +363,103 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>160</y>
+     <y>190</y>
      <width>91</width>
      <height>24</height>
     </rect>
    </property>
    <property name="toolTip">
-    <string>Background color</string>
+    <string>Highlight text</string>
    </property>
    <property name="text">
-    <string>Background</string>
+    <string>Highlight</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alignLeftBtn">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>120</y>
+     <width>24</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="Drawish.qrc">
+     <normaloff>:/res/alignLeft.png</normaloff>:/res/alignLeft.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alignCenterBtn">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>120</y>
+     <width>24</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="Drawish.qrc">
+     <normaloff>:/res/alignCenter.png</normaloff>:/res/alignCenter.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>120</y>
+     <width>51</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>Choose a background image</string>
+   </property>
+   <property name="text">
+    <string>Image</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>64</x>
+     <y>120</y>
+     <width>24</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>White background</string>
+   </property>
+   <property name="text">
+    <string>X</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="removeBackground">
+   <property name="geometry">
+    <rect>
+     <x>122</x>
+     <y>190</y>
+     <width>20</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>Remove highlight</string>
+   </property>
+   <property name="text">
+    <string>X</string>
    </property>
   </widget>
  </widget>

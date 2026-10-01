@@ -51,6 +51,7 @@ void DialogEffects::on_gammaSlider_sliderReleased()
 {
     int value = ui->gammaSlider->value();
     QImage imgg;
+
     if(value < 50){
         double exp = value /10;  //0-49  = 0 - 1/5
         exp = 1/exp;
@@ -61,6 +62,7 @@ void DialogEffects::on_gammaSlider_sliderReleased()
         exp = exp /10;
         imgg = gamma(exp);
     }
+
     newPix = QPixmap::fromImage(imgg);
     ui->labelThumb->setPixmap( newPix.scaled(200,170));
     if(ui->autoUpdateCheck->isChecked()){origPix = newPix;}

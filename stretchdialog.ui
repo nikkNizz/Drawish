@@ -61,7 +61,7 @@
    <widget class="QCheckBox" name="checkBox">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>190</x>
       <y>10</y>
       <width>211</width>
       <height>22</height>
@@ -69,6 +69,26 @@
     </property>
     <property name="text">
      <string>Simulate curvature</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="back">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>10</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Cancel</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="Drawish.qrc">
+      <normaloff>:/res/rotateLeft.png</normaloff>:/res/rotateLeft.png</iconset>
     </property>
    </widget>
   </widget>
