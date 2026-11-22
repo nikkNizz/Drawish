@@ -162,8 +162,8 @@ Press + key to "stamp" selection.
 
 
 #### Saving
-Choose the extension from the "format" box that appears.  
-For GIF, TIFF, and WebP formats, FFmpeg must be installed.  
+Go to the "File -> Save" or "File -> Save as" menu and choose the file extension from the "format" box that appears.  
+Although Drawish can open WebP, TIFF and GIF formats, FFmpeg must be installed in order to save images in these formats.   
 You can set a **default folder** for the file picker: "File ->Default path for file picker".
 ##### Save to Pdf
 You can directly save the image to **PDF** from the "File->To PDF" menu. PDFs are saved in "<user>/Drawish_Data/pdfs". Layout of very large images is automatic.  
